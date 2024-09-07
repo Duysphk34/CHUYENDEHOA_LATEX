@@ -1,0 +1,354 @@
+%%%=============HỘP TÁCH LỜI GIẢI TN VÀ TN , 1 tùy chọn ==========%%%
+%%%==Một số lưu ý khi dùng gói ex_test kết hợp với gói answer===%%%
+%% Đổi \newcommand {\immini} thành renewcommand {\immini}
+%% Đổi\newenvironment{ex}[1][]{} thành \renewenvironment{ex}[1][]{}
+%% Bỏ lệnh \newcommand{\loigiai}[1]{}
+%% Bỏ \newcounter{ex}
+%\renewcommand{\immini}[3][]{
+%	\tcbsidebyside[
+%	sidebyside adapt=right,
+%	blanker,sidebyside gap=5mm,
+%	sidebyside align=top seam
+%	]{%
+%		{\color{red}\tieudehinh}%
+%		#2
+%	}{%
+%		#3%
+%	}
+%}
+\usepackage{ex_test}
+\newcommand\circl[2][\mycolor]{\tikz[baseline=(char.base)]{\node[shape=circle,inner sep=1pt,draw=#1,fill=#1!15,font=\fontfamily{qag}\selectfont,minimum size=15pt] (char) {\color{\mycolor!50!black}\bfseries%
+			#2};}}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\sffamily\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\sffamily\Alph{dapan}}}}
+%\usepackage{answers}
+\Newassociation{giaibt}{loigiaibt}{ansbt}
+\Newassociation{giaiex}{loigiaiex}{ansex}
+%\renewenvironment{loigiaibt}[1]{\par\noindent\textbf{LGBT #1}.}{}
+%\renewenvironment{loigiaiex}[1]{\par\noindent\textbf{LGTN #1}.}{}
+\NewTColorBox{ansbt}{m}{
+	breakable,
+	enhanced,
+	outer arc=0pt,
+	arc=0pt,
+	colframe=white,
+	frame hidden,
+	left=-6pt,right=0pt,top=0pt,
+	colback=white,
+	attach boxed title to top left,
+	boxed title style={
+		colback=white,
+		outer arc=0pt,
+		arc=0pt,
+		top=1pt,
+		bottom=1pt,
+		left=3pt,
+		right=3pt,
+		colframe=white
+	},
+	fonttitle=\bfseries\sffamily\selectfont\color{white},
+	title={HDBT~#1},
+	overlay unbroken and first={
+		\path (title.north west) coordinate (A)
+		($ (title.south west) +(-4pt,0pt)$) coordinate (B)
+		(title.south east) coordinate (C)
+		($ (title.north east)+(4pt,0) $) coordinate (D);
+		\path[rounded corners=2pt,fill=\mycolor,
+		preaction={transform canvas={shift={(-45:2pt)}},left color=\mycolor!45,right color=\mycolor!25}] 
+		(A)--(B)--(C)--(D)--cycle;
+		\path (A)--(C) node[midway,font=\color{white}\bfseries\sffamily\selectfont](Bai){\textsl{HDBT~#1}};
+		\draw[rounded corners=2pt,thick,\mycolor] ([xshift=-3pt]B) coordinate (Bt)
+		--([shift={(-2pt,2pt)}]A)--+(\linewidth,0) coordinate (Ct);
+		\fill[\mycolor] (Bt) circle (1pt) (Ct) circle (2pt);
+	}
+}
+
+\NewTColorBox{ansex}{m}{
+	breakable,
+	enhanced,
+	outer arc=0pt,
+	arc=0pt,
+	colframe=white,
+	frame hidden,
+	left=-6pt,right=0pt,top=0pt,
+	colback=white,
+	attach boxed title to top left,
+	boxed title style={
+		colback=white,
+		outer arc=0pt,
+		arc=0pt,
+		top=1pt,
+		bottom=1pt,
+		left=3pt,
+		right=3pt,
+		colframe=white
+	},
+	fonttitle=\bfseries\sffamily\selectfont\color{white},
+	title={HD Câu~#1},
+	overlay unbroken and first={
+		\path (title.north west) coordinate (A)
+		($ (title.south west) +(-4pt,0pt)$) coordinate (B)
+		(title.south east) coordinate (C)
+		($ (title.north east)+(4pt,0) $) coordinate (D);
+		\path[rounded corners=2pt,fill=\mycolor,
+		preaction={transform canvas={shift={(-45:2pt)}},left color=\mycolor!45,right color=\mycolor!25}] 
+		(A)--(B)--(C)--(D)--cycle;
+		\path (A)--(C) node[midway,font=\color{white}\bfseries\sffamily\selectfont](Bai){\textsl{HD Câu~#1}};
+		\draw[rounded corners=2pt,thick,\mycolor] ([xshift=-3pt]B) coordinate (Bt)
+		--([shift={(-2pt,2pt)}]A)--+(\linewidth,0) coordinate (Ct);
+		\fill[\mycolor] (Bt) circle (1pt) (Ct) circle (2pt);
+	}
+}
+\renewenvironment{loigiaibt}[1]{\begin{ansbt}{#1}}{\end{ansbt}}
+\renewenvironment{loigiaiex}[1]{\begin{ansex}{#1}}{\end{ansex}}
+%%%=========Tạo tạm lệnh hướng dẫn=================%%%
+\newcommand{\huongdan}{}
+%%%%%===================MÔI TRƯỜNG BÀI TẬP===================%%%%%
+\newcounter{bt}
+\NewTColorBox[auto counter]{btbox}{+!O{}O{}O{}}{%
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Bài~\thebt},
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,6pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+\newcommand{\bthead}[3]{\begin{btbox}[#1][#2][#3]}
+	\def\btend{\end{btbox}}
+\NewDocumentEnvironment{bt}{+!O{}O{}O{}}{
+	\ifblank{#1}{\bthead{1}{#2}{#3}}{\bthead{#1}{#2}{#3}}%
+}{\btend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{bt}{%
+	\refstepcounter{bt}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	%%%%%===================Tùy chỉnh hướng dẫn giải===========================%%%%%
+	\renewcommand{\huongdan}[1]{%
+	\end{btbox}
+	\def\btend{}
+	\par\noindent%
+	{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+	\par\noindent
+	#1
+	\ifthenelse{\value{numTrueSol}>0}{
+		\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+	}{}}
+%%========================Lưu lời giải tự luận ====================%%
+	\renewcommand{\loigiai}[1]{%
+	\end{btbox}
+	\def\btend{}
+		\scantokens{%
+			\begin{giaibt}
+				#1
+			\end{giaibt}
+		}
+	}
+}
+
+
+%%%==================MÔI TRƯỜNG CÂU HỎI==================%%%
+
+\NewTColorBox[auto counter]{exbox}{+!O{}O{}O{}}{%
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Câu~\theex},
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theex}};
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,6pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+\newcommand{\exhead}[3]{\begin{exbox}[#1][#2][#3]}
+	\def\exend{\end{exbox}}
+\RenewDocumentEnvironment{ex}{+!O{}O{}O{}}{
+	\ifblank{#1}{\exhead{1}{#2}{#3}}{\exhead{#1}{#2}{#3}}%
+}{\exend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{ex}{
+\refstepcounter{ex}
+\setcounter{numTrue}{0}%
+\setcounter{numTrueSol}{0}%
+%%%%%===================Tùy chỉnh hướng dẫn giải===========================%%%%%
+\renewcommand{\huongdan}[1]{%
+\end{exbox}
+\def\exend{}
+\par\noindent%
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+\par\noindent
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}}
+%%%=================Tùy chỉnh lòi giải===================%%%
+%%========================Lưu lời giải trắc nghiệm ====================%%
+\renewcommand{\loigiai}[1]{%
+	\scantokens{%
+		\begin{giaiex}
+			#1
+		\end{giaiex}
+	}
+}
+}
+
+%%%==================MÔI TRƯỜNG VÍ DỤ==================%%%
+\newcounter{vd}
+\NewTColorBox{vdbox}{+!O{}O{}O{}}{%
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Ví dụ~\thevd},
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=2pt,
+		bottom=2pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.86*\linewidth]C) coordinate (E)--([xshift=0.86*\linewidth]D) coordinate (F)--cycle;
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape,inner sep =3pt]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+\newcommand{\vdhead}[3]{\begin{vdbox}[#1][#2][#3]}
+	\def\vdend{\end{vdbox}}
+\NewDocumentEnvironment{vd}{+!O{}O{}O{}}{%
+	\ifblank{#1}{\vdhead{1}{#2}{#3}}{\vdhead{#1}{#2}{#3}}%
+}{\vdend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{vd}{
+\refstepcounter{vd}
+\setcounter{numTrue}{0}%
+\setcounter{numTrueSol}{0}%
+%%%%%===================Tùy chỉnh hướng dẫn giải===========================%%%%%
+\renewcommand{\huongdan}[1]{%
+\end{vdbox}
+\def\vdend{}
+\par\noindent%
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+\par\noindent
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}}
+%%%=================Tùy chỉnh lòi giải===================%%%
+%%========================TẠO DÒNG KẺ THEO SỐ TT CÂU HỎI ====================%%
+\renewcommand{\loigiai}[1]{%
+	\end{vdbox}
+	\def\vdend{}
+	\par\noindent%
+	{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+	\par\noindent
+		#1
+	}
+}
+
+
+%%=================TẠO DÒNG KẺ CỐ ĐỊNH===================%%
+%\renewcommand{\loigiai}[1]{
+%\end{boxbt}
+%\def\btend{}
+%\setbox0=\vbox{\hbox{
+%		\noindent\begin{minipage}{\linewidth}%
+%			#1 a
+%		\end{minipage}
+%}}
+%\linepar=\ht0
+%\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+1)}
+%\ifnum\pgfmathresult>8
+%\noindent\textcolor{\mycolor!80!black}{\reflectbox{\Large\WritingHand}\LARGE\fmmfamily Bài làm:}\taodongke{\pgfmathresult} %\LARGE\fmmfamily Bài làm:
+%\else 
+%\noindent\textcolor{\mycolor!80!black}{\reflectbox{\Large\WritingHand}\LARGE\fmmfamily Bài làm:}\taodongke{8}%\LARGE\fmmfamily Bài làm
+%\fi
+%}

@@ -1,0 +1,933 @@
+\newcounter{phan}[section]
+\newcommand{\phan}[2][\mycolor]{%
+	\refstepcounter{phan}
+	\par\noindent\begin{tikzpicture}[declare function={d=0.2cm;r=0.6cm;}]
+		\path (0,0) node[font=\fontfamily{qag}\selectfont\bfseries\color{white},inner sep=2pt,outer sep =2pt](PHAN){\Alph{phan}.\,#2};
+		\path (PHAN.north east) coordinate (A)
+		      ([xshift=r]PHAN.south east) coordinate (B);
+		\foreach \a/\d in {0/80,3/65,6/50,9/35,12/20}{
+		\begin{scope}[transform canvas={xshift=\a pt}]
+			\path [fill=#1!\d] ([xshift=1pt]A)--([xshift=1pt]B)--([xshift=3pt]B)--([xshift=3pt]A)--cycle;
+		\end{scope}
+		}
+		\path[left color=#1!90,right color=#1!10] (PHAN.south west) rectangle++({\linewidth-d},2pt);
+		\path[fill=#1!80] (PHAN.north west)--(PHAN.south west)-- ([xshift=r]PHAN.south east)--(PHAN.north east)--cycle;
+		\path (0,0) node[font=\fontfamily{qag}\selectfont\bfseries\color{white},inner sep=2pt,outer sep =2pt](PHAN){\Alph{phan}.\,#2};
+		\path[fill=#1!80!black] (PHAN.south west)--(PHAN.north west)--([turn]90:d)--([turn]90:d)|-(PHAN.south west);
+	\end{tikzpicture}%	
+	\vspace{-0.5cm}
+}
+
+%%%=========================Dạng 1====================%%%
+\newcounter{dang}[section]
+\NewTColorBox{dang}{m}{
+	enhanced jigsaw,
+	before skip = 6pt,after skip =-6pt,
+	code={%
+		\refstepcounter{dang}
+		\addcontentsline{toc}{subsection}{\faBook\ Dạng \thedang. #1}
+		\setcounter{subsubsection}{0}
+		\setcounter{phan}{0}
+		},
+	empty,
+	title={\faBook\ Dạng \thedang. #1},
+	fonttitle= \color{\mycolor}\bfseries\large\fontfamily{phv}\selectfont,
+	breakable,
+	arc is angular,
+	boxsep =6pt, left=3pt, top=6pt,right=1pt,
+	overlay unbroken and first={%
+		 \path([yshift=-1mm]title.south west) rectangle (frame.south east); 
+		 \path[fill=\mycolor!9,draw=\mycolor!50!black,rounded corners =6pt](title.north west) rectangle (title.south east);
+	},
+	overlay middle and last={%
+		\path([yshift=-1mm]frame.north west) rectangle (frame.south east); 
+	}
+}
+%%%==================end dang======================%%%
+
+%%% Tùy chọn 1: màu có thể bỏ trống
+%%%\tùy chọn 2: font chữ có thể bỏ trống
+%%%\tùy chọn 3: nhãn có thể bỏ trống
+\DeclareFixedFont{\ugqfont}{T5}{ugq}{b}{n}{13pt}
+\newcommand{\qagfont}{\bfseries\fontfamily{qag}\fontsize{13pt}{6pt}\selectfont}
+\newcounter{noibat}[subsubsection]
+\renewcommand{\thenoibat}{\alph{noibat}}
+\NewDocumentCommand{\Noibat}{O{}O{}O{}O{}O{0}m}{%
+	% Chỉ tăng số đếm khi sử dụng tùy chọn \thenoibat hoặc khi #3 trống
+	\ifstrequal{#3}{\thenoibat}{\refstepcounter{noibat}}{%
+		\ifblank{#3}{\refstepcounter{noibat}}{}%
+	}%
+	\ifblank{#1}{\def\tuychonone{\mycolor}}{\def\tuychonone{#1}}%
+	\ifblank{#2}{\def\tuychontwo{\qagfont}}{\def\tuychontwo{#2}}%
+	\ifblank{#3}{\def\tuychonthree{\thenoibat)}}{\def\tuychonthree{#3}}%
+	\ifblank{#4}{\def\tuychonfour{0}}{\def\tuychonfour{#4}}%
+	\par\noindent\hspace{\tuychonfour cm}%
+	{\color{\tuychonone}{\large\tuychontwo\expandafter\tuychonthree\,}{\tuychontwo #6}}%
+	\vspace*{#5 cm}
+}
+\newcommand{\tieumuc}[1]{\noindent\Noibat[\maunhan][\qagfont][\faBookmark]{#1}}
+
+\newcommand{\Nhanmanh}[2][\faComments]{\Noibat[\maunhan][\qagfont][#1]{#2}}
+
+
+\newcommand\khungct[2][\mycolor]
+{\noindent
+	\begin{tikzpicture}[baseline=(char.base)]%
+		\tikzstyle{khung} = [rectangle,draw=#1!30!black,fill=#1!10,inner sep=4pt,rounded corners]%
+		\node [khung] (char){%
+			$
+			\; #2.\;
+			$
+		};%
+\end{tikzpicture}}
+
+\newcommand{\hopcttoan}[2][\maunhan]{%
+	\tcboxmath[arc=3pt,arc is angular,colback=#1!10,boxrule=0.65pt,colframe=#1,boxsep=2pt,fontupper=\color{#1!50!black}]{#2}}
+
+\NewDocumentCommand{\boxct}{O{\maunhan}O{3pt}O{}m}{
+	\tcbox[%
+	enhanced,
+	ignore nobreak,
+	arc=#2,
+	colback=#1!15,
+	boxrule=0.65pt,
+	colframe=#1, 
+	boxsep=3pt,
+	left=2pt,right=2pt,
+	tikznode upper,
+	fontupper = #3,
+	]{#4}
+}
+
+
+%\newcounter{tomtat}[section]
+%\newtcolorbox{boxtomtat}{%
+%	enhanced jigsaw,
+%	breakable,
+%	empty,
+%	colback=\mycolor!5,
+%	left=2mm,
+%	right=1mm,
+%	top=3mm,
+%	bottom=3mm,
+%	after skip=6pt,
+%	before skip=6pt,
+%	left skip=0.65cm,
+%	toprule=0pt,
+%	bottomrule=0pt,
+%	rightrule=1.5pt,
+%	leftrule=1.5pt,
+%	overlay unbroken and first ={
+%	\path[fill=\mycolor!5,draw=\mycolor!50!black,rounded corners =5pt] (frame.north west) rectangle (frame.south east);
+%	},
+%	overlay middle and last={
+%		\draw[fill=\mycolor!5,draw=\mycolor!50!black,rounded corners =5pt] (frame.north west) rectangle (frame.south east);
+%	}
+%%	colframe=\mycolor,
+%%	drop lifted shadow=\maudam!40!black
+%	}
+%	\newenvironment{tomtat}{\begin{boxtomtat}}{\end{boxtomtat}}
+
+\newtcolorbox{ppgbox}[1][\mycolor]{
+enhanced jigsaw,
+left=2mm,
+right=1mm,
+top=3mm,
+bottom=3mm,
+after skip=6pt,
+before skip=6pt,
+arc=0pt,
+breakable,
+colbacktitle=#1!35,
+empty,opacityback=0,%% Tách nền
+boxed title style ={empty,sharp corners,boxrule =0pt,rounded corners=northwest,arc = 6pt,rounded corners=northeast},
+title={Phương pháp giải},
+fonttitle=\bfseries\fontfamily{phv}\selectfont, 
+halign title=center,coltitle=#1!30!black,
+attach boxed title to top center={xshift=0mm,yshift=0mm},
+overlay unbroken and first={
+	\path (frame.north west) coordinate (FNW)
+	(frame.north east) coordinate (FNE)
+	(frame.south east) coordinate (FSE)
+	(frame.south west) coordinate (FSW)
+	;
+	\path [fill =#1!10,draw=#1] (title.south west)
+	--([yshift=-6pt]title.north west)to[in=180,out=90]([xshift=6pt]title.north west)
+	--([xshift=-6pt]title.north east)to[in=90,out=0]([yshift=-6pt]title.north east)--(title.south east)--cycle;
+	\path[fill=#1,draw=#1,line width=1pt,rounded corners] ([xshift=8pt]FNW) --(title.south west)circle (2pt)
+	(title.south east)circle (2pt)--([xshift=-8pt]FNE);
+	\path[draw=#1,dashed]
+	([xshift=-8pt]FNE)--([yshift=-5pt]FNE) --([yshift=5pt]FSE)
+	--([xshift=-8pt]FSE) --([xshift=8pt]FSW)
+	--([yshift=5pt]FSW) --([yshift=-5pt]FNW)
+	--([xshift=8pt]FNW)
+	;
+	\path ($(title.west)!0.5!(title.east)$) node[font=\color{#1!30!black}\bfseries\fontfamily{phv}\selectfont]{Phương pháp giải};
+	\path ($(title.east)+(0,0)$) node[anchor = west]{\includegraphics[height=1cm]{Images/Icons/PPG.PNG}};
+	\path ($(title.west)+(0.2,0)$) node[anchor = east]{\includegraphics[height=0.8cm]{Images/Icons/PEN.PNG}};
+},
+overlay middle and last={
+	\path (frame.north west) coordinate (FNW)
+	(frame.north east) coordinate (FNE)
+	(frame.south east) coordinate (FSE)
+	(frame.south west) coordinate (FSW);
+	\path[draw=#1,dashed]([xshift=8pt,yshift=-5pt]FNW)--([xshift=-8pt,yshift=-5pt]FNE)
+	--([yshift=-10pt]FNE) --([yshift=5pt]FSE)
+	--([xshift=-8pt]FSE) --([xshift=8pt]FSW)
+	--([yshift=5pt]FSW) --([yshift=-10pt]FNW)
+	--([xshift=8pt,yshift=-5pt]FNW)
+	;
+}
+}
+\newenvironment{pp}[1][\mycolor]{\begin{ppgbox}[#1]}{\end{ppgbox}}
+
+\newenvironment{cacbuoc}[1][\maunhan]{
+	\begin{enumerate}[label= \color{#1}\bfseries\fontfamily{qag}\selectfont{\faArrowCircleORight\;Bước \arabic*:},itemsep=3pt,wide=0cm,leftmargin=0cm,topsep=3pt]
+	}{\end{enumerate}}
+
+%%%================Các môi trường==============%%%
+%%%================Môi trường Câu hỏi khởi động===================%%%
+\NewEnviron{cauhoikd}{
+	\begin{center}
+		\begin{tikzpicture}
+			\node[cloud,cloud ignores aspect=true,cloud puffs=35,cloud puff arc=70,draw=\mauphu!65,fill=white,
+			text width=0.5\linewidth,font=\sffamily,drop shadow={opacity=0.25,color=\maudam}]
+			(nA){\BODY};
+			\begin{scope}[rotate=5]
+				\draw[\mauphu,fill=white] ($(nA.south west)+(-2,0.5)$) coordinate (A) circle (0.6)
+				($(A)+(240:0.375)$) arc (240:310:0.35)
+				($(A)+(30:0.2)$) circle (2pt)
+				($(A)+(150:0.2)$) circle (2pt);
+				\draw[thin,\mauphu!65] (A) circle (0.675);
+				\draw[\mauphu!85,line cap=round,thick,shift={(A)}] (15:0.675) arc (15:165:0.675)
+				(-15:0.675) arc (-15:-165:0.675);
+				\fill[\mauphu] ($(A)+(150:0.185)$) circle (1pt)
+				($(A)+(30:0.185)$) circle (1pt);
+				\path ($(A)+(60:0.7)+(-45:1pt)$) node[rotate=5,font=\bfseries\LARGE\color{gray}]{?};
+				\path ($(A)+(60:0.7)$) node[rotate=5,font=\bfseries\huge\color{\mycolor!50!orange}]{?};
+			\end{scope}
+		\end{tikzpicture}
+\end{center}}
+%%%================Môi trường tri thức===================%%%
+\NewEnviron{trithuc}{
+	\begin{center}
+		\begin{tikzpicture}
+			\node[decorate,decoration={snake},segment length=15pt,draw=\maunhan!65,thick,
+			fill=white,text width=0.8\linewidth,font=\sffamily,drop shadow={opacity=0.25,color=\maunhan}]
+			(nA){\BODY};
+			\begin{scope}[rotate=5]
+				\draw[\maunhan,fill=white] ($(nA.north west)+(-1,-0.25)$) coordinate (A) circle (0.6)
+				($(A)+(240:0.375)$) arc (240:310:0.35)
+				($(A)+(30:0.2)$) circle (2pt)
+				($(A)+(150:0.2)$) circle (2pt);
+				\draw[thin,\maunhan!65] (A) circle (0.675);
+				\draw[\maunhan!85,line cap=round,thick,shift={(A)}] (15:0.675) arc (15:165:0.675)
+				(-15:0.675) arc (-15:-165:0.675);
+				\fill[\maunhan] ($(A)+(150:0.185)$) circle (1pt)
+				($(A)+(30:0.185)$) circle (1pt);
+				\path ($(A)+(60:0.7)+(-45:1pt)$) node[rotate=-5,font=\bfseries\Huge\color{gray}]{\faLightbulbO};
+				\path ($(A)+(60:0.7)$) node[rotate=-5,font=\bfseries\Huge\color{\maunhan!90!pink}]{\faLightbulbO};
+			\end{scope}
+		\end{tikzpicture}
+\end{center}}
+%%%============lệnh tìm hiểu thêm============%%%
+\newcommand{\timhieuthem}{%
+	\par
+	\noindent
+	\hspace*{-0.65cm}
+	\begin{tikzpicture}[declare function={rt=0.65;d=sqrt(2)*rt;}]
+		\path (90:rt) coordinate (A)
+		(180:rt) coordinate (B)
+		(270:rt) coordinate (C)
+		(0:rt) coordinate (D)
+		([shift={(0.15,0)}]0:rt) coordinate (E)
+		($ (E)+(135:rt) $) coordinate (F)
+		($ (E)+(-135:rt) $) coordinate (G)
+		($ (A)!0.5!(F) $) coordinate (AF)
+		($ (D)!0.5!(E) $) coordinate (DE)
+		($ (C)!0.5!(G) $) coordinate (CG)
+		;
+		\path[transform canvas={shift={(-45:2.5pt)}},left color=\mycolor!50,right color=\mycolor!5]
+		(F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+		\path[outer color=\mycolor!65!black,inner color=\mycolor!80,rounded corners=2pt] (A)--(B)--(C)--(D)--cycle;
+		\draw[line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt]
+		(AF)--(DE)--(CG);
+		\draw[transform canvas={xscale=-1},line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt] (AF)--(DE)--(CG);
+		\path[left color=\mycolor!90!black,right color=\mycolor!50] (F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+		\path (-0.7pt,-0.3pt) node[inner sep=0pt,font=\Large\itshape\bfseries\color{gray},xscale=-1]{\faSearchPlus};
+		\path (-1pt,0) node[inner sep=0pt,font=\Large\itshape\bfseries\color{white},xscale=-1]{\faSearchPlus};
+		\path ([shift={(0.11,-0.01)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{gray}]{TÌM HIỂU THÊM};
+		\path ([shift={(0.1,0)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{white}]{TÌM HIỂU THÊM};
+	\end{tikzpicture}%
+}
+%%%==============Môi trường Bài tập tương tự=====================%%%
+\newtcolorbox{bttuongtu}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=\mycolor!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=\mycolor!30!\maunhan!45,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{\mycolor!40},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[\mycolor!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0) coordinate (Bt)--($(A)+(0,-1.25)$)coordinate (Ct)--cycle;
+		\path ($(A)+(0.5,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faEdit};
+		\path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{yellow!20}]{\faEdit};
+		\path (Bt)--(Ct) node[below=-2.5pt,sloped,pos=0.5,text=\mycolor!75!\maunhan]{\scriptsize\sffamily bài tập tương tự};
+	}
+}
+
+
+%%%============môi trường định nghĩa============%%%
+\newcounter{dn}
+\newenvironment{dn}[1][]{\setcounter{dn}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{dn}\ifblank{#1}{{\sffamily\bfseries\color{\mycolor}\par\noindent\thedn) Định nghĩa.\,}}%
+	{{\sffamily\bfseries\color{\mycolor}\par\noindent\thedn) Định nghĩa (#1).\,}}}{}
+%%%============môi trường định lý============%%%
+\newcounter{dl}
+\newenvironment{dl}[1][]{\setcounter{dl}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{dl}\ifblank{#1}{{\sffamily\bfseries\color{\mycolor}\par\noindent\thedl) Định lý.\,}}%
+	{{\sffamily\bfseries\color{\mycolor}\par\noindent\thedl) Định lý (#1).\,}}\itshape}{}
+%%%============môi trường hq============%%%
+\newcounter{hq}
+\newenvironment{hq}[1][]{\setcounter{hq}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{hq}\ifblank{#1}{{\sffamily\bfseries\color{\mycolor}\par\noindent\thehq) Hệ quả.\,}}%
+	{{\sffamily\bfseries\color{\mycolor}\par\noindent\thehq) Hệ quả (#1).\,}}\itshape}{}
+%%%============môi trường tc============%%%
+\newcounter{tc}
+\newenvironment{tc}[1][]{\setcounter{tc}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{tc}\ifblank{#1}{{\sffamily\bfseries\color{\mycolor}\par\noindent\thetc) Tính chất.\,}}%
+	{{\sffamily\bfseries\color{\mycolor}\par\noindent\thetc) Tính chất (#1).\,}}\itshape}{}
+%%%==========Môi trường hoạt động===============%%%
+\tikzset{laphuong/.pic={
+		\path[pic actions,line join=round]
+		(0,0)--++(27.5:r)--++(152.5:r)--+(-152.5:r)--cycle
+		(0,0)--++(0,-r)--++(152.5:r)--+(0,r)--cycle
+		(0,0)--++(0,-r)--++(27.5:r)--+(0,r)--cycle;
+}}
+\newcounter{hd}[section]
+\newtcolorbox{hd}{before skip=6pt,after skip=6pt,
+	left skip=-0.35cm,
+	boxsep=1pt,
+	enhanced,
+	top=0pt,
+	frame empty,
+	frame hidden,
+	opacityback=0,
+	code={\refstepcounter{hd}},
+	before upper={
+		\begin{tikzpicture}[declare function={r=0.165;},baseline=(char.base)]
+			\path (30:1.1*r) pic[fill=orange,draw=white]{laphuong};
+			\path (150:1.1*r) pic[fill=red!75!blue,draw=white]{laphuong};
+			\path (270:1.075*r) pic[fill=green!75!blue,draw=white]{laphuong};
+			\fill[\mycolor] (60:{2.5*r})--+(4*r,0)--(7.5*r,0)--($(-60:{2.5*r})+(4*r,0)$)--+(-4*r,0) arc(-60:60:{2.5*r});
+			\draw[ultra thick,\mycolor](0,0) circle (2.5*r) (8*r,0);
+			\path ($({4*r},0)+(0.5pt,-0.65pt)$) node[font=\bfseries\sffamily\color{gray!65}\large] (char){\thehd};
+			\path ({4*r},0) node[font=\bfseries\sffamily\color{white}\large] (char){\thehd};
+	\end{tikzpicture}}
+}
+
+%%%===============Môi trường kiến thức trong tâm====================%%%
+
+\newtcolorbox{kttrongtam}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=1cm,
+	right=0.25cm,
+	bottom=0pt,
+	top=0.35cm,
+	frame empty,
+	frame hidden,
+	arc=7pt,
+	colback=\mycolor!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=\mycolor!35,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{\mycolor!65},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[\mycolor,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(2,0)--($(A)+(0,-1.25)$)--cycle;
+		\path ($(A)+(0.65,-0.15)$) coordinate (B) node{
+			\begin{tikzpicture}[x=3.65pt,y=3.65pt,xscale=-1]
+				\draw[thick,\mycolor,fill=white] (-1,-4) to[out=50,in=-90,looseness=1.4] (-1,-3) to[out=-160,in=0]
+				(-2,-3.2) to[out=180,in=-120] (-2.7,-2) to[out=120,in=-120] (-2.9,-1.5)
+				to[out=120,in=-120] (-2.95,-1.1) to[out=60,in=-30] (-3.2,-0.9)
+				to[out=150,in=-120] (-3,0.4) to[out=60,in=-90] (-3,1.2)
+				to[out=90,in=90,looseness=1.8] (3.3,1.2)
+				to[out=-90,in=90,looseness=0.8] (2,-2)
+				to[out=-90,in=150,looseness=0.8] (3.2,-4) -- cycle;
+			\end{tikzpicture}
+		};
+		\tikzset{declare function={r=0.275;}}
+		\path (B) pic[fill=\mycolor,draw=white]{laphuong};
+	},
+		overlay middle and last ={
+		\fill[\mycolor,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(2,0)--($(A)+(0,-1.25)$)--cycle;
+	}
+}
+\newenvironment{tomtat}{\begin{kttrongtam}}{\end{kttrongtam}}
+
+%%%==================Môi trường luyện tập=====================%%%
+\newcounter{lt}[section] %số điếm của môi trường luyện tập
+\newtcolorbox{luyentap}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=\mycolor!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=\mycolor!30!blue!45,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{\mycolor!50},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[\mycolor!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0)--($(A)+(0,-1.25)$)--cycle;
+		\path ($(A)+(0.5,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faEdit};
+		\path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{white}]{\faEdit};
+	},
+	code={\refstepcounter{lt}},
+	before upper={
+		\circlenum{\thelt}
+	}
+}
+
+%%%=============MT Lưu ý===============%%%%
+\usetikzlibrary{shapes.symbols}
+\usepackage{paracol}%chia cột có tùy chọn độ rộng
+\columnratio{0.7}
+\globalcounter{lt}
+\newtcolorbox{luuy}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	before skip=16pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=\mycolor!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=\mycolor!55,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{\mycolor!65},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[\mycolor!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0)--($(A)+(0,-1.25)$)--cycle;
+		\draw[\mycolor!80!black,ultra thick,rounded corners=2pt] ($(A)+(6pt,0)$)--++(0,9pt)--++(12pt,0)--+(0,-9pt)
+		($(A)+(9pt,0)$)--++(0,5pt)--++(6pt,0)--+(0,-5pt)
+		;
+		\draw[white,ultra thick,rounded corners=2pt] ($(A)+(18pt,0)$)--++(0,-15pt)--++(-8.5pt,0)--+(0,15pt);
+		% \path ($(A)+(0.15,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faPaperclip};
+		% \path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{yellow}]{\faPaperclip};
+	}
+}
+
+%%%========môi trường note==============%%%
+\usepackage{relsize}
+\usepackage{amsxtra,amssymb,latexsym,amscd,amsfonts}
+
+\newenvironment{note}{\begin{luuy}%
+		{\color{\maunhan}\faBellO\ \relscale{0.9}{\usefont{T5}{put}{b}{n} Lưu ý}.} \ignorespaces}{\end{luuy}}
+
+\newenvironment{nx}{\begin{luuy}%
+		{\color{\maunhan}\faPaperclip\ \relscale{0.9}{\usefont{T5}{put}{b}{n} Nhận xét}.} \ignorespaces}{\end{luuy}}
+
+\newenvironment{phuongphap}{\begin{luuy}%
+		{\color{\maunhan} \faSpinner\ \relscale{0.9}{\usefont{T5}{put}{b}{n} Phương pháp}.} \ignorespaces}{\end{luuy}}
+
+\newenvironment{phantich}{\begin{luuy}%
+		{\color{\maunhan}\faGears\ \relscale{0.9}{\usefont{T5}{put}{b}{n} Phân tích}.} \ignorespaces}{\end{luuy}}
+
+
+%%%%%%%%%%%%%%%%================Các hộp bổ sung===============================%%%%
+%%%%%%%%%%%%%%%%%%%%%%%=======HỘP QANDA============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{qandacount}[section]
+\newtcolorbox{boxqanda}{%
+	colback=\mycolor!15,
+	colframe=\mycolor!80!black,
+	enhanced,
+	left=4mm,
+	right=4pt,
+	top=4mm,
+	bottom=6pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=3pt,left skip =3pt,
+	breakable,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	arc=3pt,
+	%	arc is angular,
+	sharp corners=northeast,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\color{\mycolor!15!black},
+	overlay unbroken and first={
+		\path 
+		([xshift=0.5cm]frame.north west) node[shape=circle,fill=\mycolor!30!orange,inner sep =0pt, outer sep=0pt] (icon)
+		{\includegraphics[width=.6cm]{Images/Icons/Icon3dhoidap.png}};
+%		\path 
+%		([xshift=-3pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{\theqandacount}}
+%		;
+	},
+	overlay middle and last={
+		\path 
+		([xshift=0.5cm]frame.north west)  node[shape=circle,fill=\mycolor!30!orange,inner sep =0pt, outer sep=0pt] (icon)
+		{\includegraphics[width=.6cm]{Images/Icons/Icon3dhoidap.png}};
+%		\path
+%		([xshift=-3pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{\theqandacount}}
+%		;
+	}	
+}
+
+\def\qandabegin{\begin{boxqanda}}
+\def\qandaend{\end{boxqanda}}
+\newenvironment{hoivadap}{\qandabegin}{\qandaend}
+\AtBeginEnvironment{hoivadap}{%
+	\refstepcounter{qandacount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\par\noindent%
+	\end{boxqanda} \def\qandaend{} % đưa lời giải ra ngoài hộp
+	{\par\noindent\color{\maunhan!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}%
+	#1
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxqanda} \def\qandaend{}	
+\par\noindent%
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1}}
+%%%Môi trường câu hỏi kèm theo%%%
+\newcounter{cauhoicount}[section]
+\newenvironment{cauhoi}{%
+\refstepcounter{cauhoicount}
+{\bfseries\color{\maunhan}\thecauhoicount.\;}\ignorespaces
+}{}
+%%%%%%%%%%%%%%%%%%%%%%%=======Hộp Em có biết============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{ecbcount}[section]
+\newtcolorbox{boxecb}{%
+	enhanced,
+	colback=\mycolor!15,
+	left=.8cm,
+	right=4pt,
+	top=6pt,
+	bottom=2pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=0cm,
+	breakable,
+	toprule=1.5pt,
+	bottomrule=1.5pt,
+	rightrule=1pt,
+	leftrule=1pt,
+	arc=3pt,
+	fonttitle=\Large\bfseries\sffamily\color{white},
+	title={Bạn có biết?},
+	title after break={Bạn có biết?},
+	titlerule style={\mycolor!20!\maunhan,line width=0pt},
+	title style={left color=\mycolor!50!\maunhan,right color=\mycolor!75!\maunhan},
+	colframe=\mycolor!80!black,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\mycolor!15!black},
+	overlay unbroken and first ={
+		\path ($(frame.north west)+(8pt,-5pt)$)  node(Note){\includegraphics[width=1.4cm,angle=5]{Images/Icons/Icon3d_15.png}};
+	},
+	overlay middle and last={
+		\path ($(frame.north west)+(8pt,-5pt)$) node (NT){\includegraphics[width=1.4cm,angle=30]{Images/Icons/Icon3d_15.png}}; 
+		
+	}
+}
+\newenvironment{emcobiet}{%
+	\refstepcounter{ecbcount}%
+	\begin{boxecb}
+	}
+	{\end{boxecb}}
+
+%%%=============Hộp Ban co biet==========%%%
+\newtcolorbox{Bancobiet}[1][\mycolor]{%
+	enhanced jigsaw,
+	empty,
+	breakable,
+	vfill before first,
+	height fixed for=middle,
+	pad at break=1mm,
+	before skip =6pt, after skip= 6pt,
+	left=6pt,right=6pt,
+	boxsep=6pt,
+	title= {Em có biết?},
+	fonttitle=\color{\mycolor}\large\bfseries\sffamily,
+	fontupper=\small\itshape,
+	boxed title style ={arc=0pt,outer arc =0pt,frame hidden,colback=\mycolor!20},
+	attach boxed title to top left={xshift=1cm,yshift*=0cm-\tcboxedtitleheight/2},
+	overlay unbroken and first={%
+		interior code={
+			%%%=======Xoay 1 góc=======%%%
+			\path ($(interior.south west)!0.5!(interior.north east)$) coordinate (G);
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[fill=#1!25,rounded corners =4pt]
+				([shift={(-3pt,0.5pt)}]interior.north west) -- ([shift={(0.5pt,3pt)}]interior.north east)--([shift={(3pt,-0.5pt)}]interior.south east)--([shift={(-0.5pt,-3pt)}]interior.south west)--cycle
+				;
+			\end{scope}
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[draw=#1,fill=white!25,rounded corners =4pt,dashed]
+				(interior.north west) rectangle (interior.south east);
+			\end{scope}
+		},
+		title code={%
+			%%%=====Mảng Tiêu đề=============%%%
+			\path  
+			(title.north west) coordinate (NW)
+			(title.south west) coordinate (SW)
+			(title.south east) coordinate (SE)
+			(title.north east) coordinate (NE)
+			($(NW)!0.5!(SW)$) coordinate (G)
+			([xshift=-6pt]G) coordinate (Ga)
+			;
+			%%%
+			\path[fill=#1!90,line cap=round,line join =round]
+			 let \p1=($(NW)-(Ga)$),
+			 \n1={veclen(\x1,\y1)}
+			 in
+			(NW)--([xshift=-4pt]NE)
+			..controls ++(0:2pt) and ++(90:2pt)..([yshift=-4pt]NE) coordinate (NEt)
+			--([yshift=4pt]SE)coordinate (SEt)
+			..controls ++(-90:2pt) and ++(0:2pt)..([xshift=-4pt]SE) coordinate (SEt)
+			--(SW)--($(Ga)+({-acos(6pt/\n1)}:\n1)$) arc ({-acos(6pt/\n1)}:{acos(6pt/\n1)}:\n1)
+			--(NW)
+			;
+			%%%=====Node Icon=========%%%
+			\path[fill=#1!90](Ga) circle (\tcboxedtitleheight/1.88);
+			\path (Ga) node{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/Icon_bancobiet.png}};
+			%%%Dấu Móc %%%
+			\path[fill=#1!90,line cap=round,line join =round](Ga)++(-110:{\tcboxedtitleheight/1.88}) to [out=-120, in= 30] ++(-150:7pt) to [out=40, in= -70]($(Ga)+(-130:{\tcboxedtitleheight/1.88})$)  ;
+			%%%=====Node chữ em có biết=========%%%
+			\path ($(NW)!0.5!([xshift=4pt]SE)$) node [font=\color{#1!20!white}\large\bfseries\sffamily] {Em có biết?};
+		}
+		
+	},
+	overlay middle and last={%
+		interior code={
+			%%%=======Xoay 1 góc=======%%%
+			\path ($(interior.south west)!0.5!(interior.north east)$) coordinate (G);
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[fill=#1!25,rounded corners =4pt]
+				([shift={(-3pt,0.5pt)}]interior.north west) -- ([shift={(0.5pt,3pt)}]interior.north east)--([shift={(3pt,-0.5pt)}]interior.south east)--([shift={(-0.5pt,-3pt)}]interior.south west)--cycle
+				;
+			\end{scope}
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[draw=#1,fill=white!25,rounded corners =4pt,dashed]
+				(interior.north west) rectangle (interior.south east);
+			\end{scope}
+		},
+		title code={%
+			%%%=====Mảng Tiêu đề=============%%%
+			\path  
+			(title.north west) coordinate (NW)
+			(title.south west) coordinate (SW)
+			(title.south east) coordinate (SE)
+			(title.north east) coordinate (NE)
+			($(NW)!0.5!(SW)$) coordinate (G)
+			([xshift=-6pt]G) coordinate (Ga)
+			;
+			%%%
+			\path[fill=#1!90,line cap=round,line join =round]
+			let \p1=($(NW)-(Ga)$),
+			\n1={veclen(\x1,\y1)}
+			in
+			(NW)--([xshift=-4pt]NE)
+			..controls ++(0:2pt) and ++(90:2pt)..([yshift=-4pt]NE) coordinate (NEt)
+			--([yshift=4pt]SE)coordinate (SEt)
+			..controls ++(-90:2pt) and ++(0:2pt)..([xshift=-4pt]SE) coordinate (SEt)
+			--(SW)--($(Ga)+({-acos(6pt/\n1)}:\n1)$) arc ({-acos(6pt/\n1)}:{acos(6pt/\n1)}:\n1)
+			--(NW)
+			;
+			%%%=====Node Icon=========%%%
+			\path[fill=#1!90](Ga) circle (\tcboxedtitleheight/1.88);
+			\path (Ga) node{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/Icon_bancobiet.png}};
+			%%%Dấu Móc %%%
+			\path[fill=#1!90,line cap=round,line join =round](Ga)++(-110:{\tcboxedtitleheight/1.88}) to [out=-120, in= 30] ++(-150:7pt) to [out=40, in= -70]($(Ga)+(-130:{\tcboxedtitleheight/1.88})$)  ;
+			%%%=====Node chữ em có biết=========%%%
+			\path ($(NW)!0.5!([xshift=4pt]SE)$) node [font=\color{#1!20!white}\large\bfseries\sffamily] {Em có biết?};
+		}
+	}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%=======Hộp tổng kết============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{tkcount}[section]
+\newtcolorbox[auto counter]{boxtk}{%
+	empty,
+	colback=\mycolor!15,
+	enhanced,
+	left=3.5mm,
+	right=6pt,
+	top=6pt,
+	bottom=6pt,
+	after skip=6pt,
+	before skip=6pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=0pt,
+	arc=.3cm,
+	sharp corners=northwest,
+	sharp corners=southwest,
+	colframe=\maunhan!90!white,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\mycolor!15!black},
+	overlay unbroken and first ={
+		\path[fill=violet!80!orange] ($(frame.north west)+(0.5cm,-6pt)$) coordinate (tron)  circle (.4cm);
+		\path (tron)  node[inner sep=0pt](Note){\includegraphics[width=0.7cm]{Images/Icons/Icon3d_emdahoc.png}};
+	},
+	overlay middle and last={
+		\path[fill=violet!80!orange] ($(frame.north west)+(0.5cm,-6pt)$) coordinate (tron)  circle (.4cm);
+		\path (tron)  node[inner sep=0pt](Note){\includegraphics[width=0.7cm]{Images/Icons/Icon3d_emdahoc.png}};
+	}
+}
+
+\newenvironment{tongket}[1]{%
+	\refstepcounter{tkcount}	
+	\begin{boxtk}
+		{\hspace*{5mm}\large\bfseries\fontfamily{qag}\selectfont\color{\maunhan}{#1}}}
+	{\end{boxtk}}
+%%%%%%%%%%%%%%%%%==============Hộp Khởi động========================%%%%%%%%%%%%%%%%
+\newcounter{kdcount}[section]
+\newtcolorbox{boxkd}{%
+	enhanced,
+	frame empty,
+	colback=\maunhan!15,
+	left=4mm,
+	right=6pt,
+	top=5mm,
+	bottom=6pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=6pt,
+	arc=9pt,
+	arc is angular,
+	sharp corners =northeast,sharp corners =northwest,sharp corners =southwest,
+	breakable,
+%	toprule=0pt,
+%	bottomrule=1.5pt,
+%	rightrule=1.5pt,
+%	leftrule=1.5pt,
+%	colframe=\maunhan,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\maunhan!40!black},	
+	overlay unbroken and first={
+		\path 
+		([shift={(0.7cm,-5pt)}]frame.north west) node[shape=circle,fill=\maunhan!60!violet!90,inner sep=0pt, outer sep=0pt] (note)
+		{\includegraphics[width=0.7cm,trim={0.3cm 0.3cm 0.3cm 0.3cm}]{Images/Icons/Icon3d_16.png} }
+		;
+	},
+	overlay middle and last=={
+		\path 
+		([shift={(0.7cm,-5pt)}]frame.north west) node[shape=circle,fill=\maunhan!60!violet!90,inner sep=0pt, outer sep=0pt] (note)
+		{\includegraphics[width=0.7cm,trim={0.3cm 0.3cm 0.3cm 0.3cm}]{Images/Icons/Icon3d_16.png} }
+		;
+	}
+}
+\def\kdbegin{\begin{boxkd}}
+	\def\kdend{\end{boxkd}}
+\newenvironment{kd}
+{\kdbegin}
+{\kdend}
+\AtBeginEnvironment{kd}{%
+	\refstepcounter{kdcount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxkd} \def\kdend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxkd} \def\kdend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}			
+%%%%%%%%%%%%%%%%%==============Hộp lý thuyết========================%%%%%%%%%%%%%%%%
+\newcounter{ltcount}[section]
+\newtcolorbox{boxlt}{%
+	enhanced,
+	frame empty,
+	colback=\mycolor!15,
+	left=3mm,
+	right=2mm,
+	top=6mm,
+	bottom=6pt,
+	after skip=5mm,
+	before skip=5mm,
+	right skip=0cm,
+	breakable,
+	toprule at break=\tcboxedtitleheight,
+	toprule=0pt,
+	arc=3pt,
+	sharp corners=northwest,sharp corners=northeast,
+	bottomrule=1pt,
+	rightrule=1pt,
+	leftrule=1pt,
+	colframe=\mycolor,
+	drop lifted shadow=\maudam!40!black,
+	overlay unbroken and first={
+		\path 
+		([shift={(0.6cm,-0.1cm)}]frame.north west) node[fill=violet!80,inner sep=0pt,outer sep =-1pt,shape=circle] (note)
+		{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/light.pdf}};
+		\draw[\maunhan!90!black,rounded corners=4pt,ultra thick] (frame.north west)--(frame.south west)-- (frame.south east)--(frame.north east);
+	},
+	overlay middle and last ={
+		\path 
+		([shift={(0.6cm,-0.1cm)}]frame.north west) node[fill=violet!80,inner sep=0pt,outer sep =-1pt,shape=circle] (note)
+		{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/light.pdf}};
+		\draw[\maunhan!90!black,rounded corners=4pt,ultra thick] (frame.north west)--(frame.south west)-- (frame.south east)--(frame.north east); 
+	}
+}
+\newenvironment{ghinho}{\begin{boxlt}}{\end{boxlt}}
+%%%=============Icon Bóng đèn ===========
+\NewDocumentCommand{\bongden}{O{0.7}O{violet!80}}{
+	\begin{tikzpicture}[declare function={d=2.0;h=0.45*d;k=#1;R=1.2 cm ;w=R*sin(20);},line join=round,line cap=round,scale=k]
+		\path (0,0) circle (2pt) coordinate (O)
+		($(O)+(-d,0)$) circle (2pt) coordinate (Aa)
+		($(O)+(d,0)$) circle (2pt) coordinate (Ab)
+		($(O)+(0,-1.3*h)$) circle (2pt) coordinate (B)
+		($(B)+(-0.75*d,0)$) circle (2pt) coordinate  (Ba)
+		($(B)+(0.75*d,0)$) circle (2pt) coordinate (Bb)
+		($(O)+(0,-2.3*h)$) circle (2pt) coordinate (C)
+		($(C)+(-0.45*d,0)$) circle (2pt) coordinate  (Ca)
+		($(C)+(0.45*d,0)$) circle (2pt) coordinate (Cb)
+		($(O)+(0,-2.4*h)$) circle (2pt) coordinate (D)
+		($(D)+(-0.5*d,0)$) circle (2pt) coordinate  (Da)
+		($(D)+(0.5*d,0)$) circle (2pt) coordinate (Db)
+		($(Ca)!0.5!(Cb)$) coordinate (Co)
+		;
+		%%%=====Vẽ bóng tròn=========%%%
+		\path[fill=orange!70!white,even odd rule]
+		(O) circle (R)
+		($(O)+(250:R)$) --([xshift=-w]Co)--(Ca)..controls ++(90:0.8cm) and ++(-60:0.05cm)..
+		(Ba)..controls ++(120:0.01cm) and ++(-90:1.4cm)..(Aa)
+		--(Aa) arc (180:0:d) coordinate (Ab)
+		..controls ++(-90:1.4cm) and ++(60:0.01cm)..(Bb)
+		..controls ++(-120:0.05cm) and ++(90:0.8cm)..(Cb)--([xshift=w]Co)--($(O)+ (290:R)$)--cycle
+		;
+		%%%=====Vẽ tia sáng=========%%%
+		\foreach \g/\p in {-30/west,0/west,30/west,60/west,90/west,120/east,150/east,180/east,210/east}{
+			\path (O)--++(\g:1.05*d) node[anchor=\p,sloped,midway,pos=1,scale=k]{%
+				\tikz{%
+					\path[fill=yellow!20!orange,rounded corners=3pt]
+					(0,0)--++(0.2*d,0)--++(-90:8pt)--++(180:0.2*d)--cycle;
+				}
+			};
+		}
+		%%%=====Vẽ chuôi bóng hình chữ nhật=========%%%
+		\path[fill=white!30!gray,rounded corners =8pt] (Da)--++(-90:40pt)  coordinate (Dc)--++(0:d)  coordinate (Dd)--(Db);
+		%%%=====Vẽ chuôi bóng tròn=========%%%
+		\path[fill=white!90!gray] ([xshift=8pt]Dc)..controls ++(-90:2.2cm) and ++(-90:2.2cm)..([xshift=-8pt]Dd);
+		\path[fill=orange!30!white] (O) circle ({R-0.7cm}) ;
+		\path[fill=#2] ([yshift=3pt]$(O)+(250:R)$) rectangle ([yshift=-3pt]$(O)+(290:R)$);
+	\end{tikzpicture}
+}
+
+%%%=============Hộp vi du don gian==========%%%
+\newtcolorbox{hopvidu}[1][\mycolor]{%
+	enhanced jigsaw,
+	opacityback=0,
+	empty,
+	breakable,
+	before skip =6pt, after skip= 6pt,
+	left=6pt,right=6pt,
+	boxsep=6pt,
+	fontupper=\small\itshape,
+	overlay unbroken and first={%
+		interior code={
+			%%%=======Xoay 1 góc=======%%%
+			\path ($(interior.south west)!0.5!(interior.north east)$) coordinate (G);
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[fill=#1!45,rounded corners =4pt]
+				([shift={(-3pt,0.5pt)}]interior.north west) -- ([shift={(0.5pt,3pt)}]interior.north east)--([shift={(3pt,-0.5pt)}]interior.south east)--([shift={(-0.5pt,-3pt)}]interior.south west)--cycle
+				;
+			\end{scope}
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[draw=#1,fill=#1!10!white!25,rounded corners =4pt,dashed]
+				(interior.north west) rectangle (interior.south east);
+			\end{scope}
+		}	
+	},
+	overlay middle and last={%
+		interior code={
+			%%%=======Xoay 1 góc=======%%%
+			\path ($(interior.south west)!0.5!(interior.north east)$) coordinate (G);
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[fill=#1!25,rounded corners =4pt]
+				([shift={(-3pt,0.5pt)}]interior.north west) -- ([shift={(0.5pt,3pt)}]interior.north east)--([shift={(3pt,-0.5pt)}]interior.south east)--([shift={(-0.5pt,-3pt)}]interior.south west)--cycle
+				;
+			\end{scope}
+			\begin{scope}[transform canvas={rotate around={0:(G)}}]
+				\path[draw=#1,fill=white!25,rounded corners =4pt,dashed]
+				(interior.north west) rectangle (interior.south east);
+			\end{scope}
+		}
+	}%
+}
+\newtcolorbox{hopdongian}[1][\mycolor]{%
+	enhanced jigsaw,
+	frame empty,
+	colback=#1!20,
+	arc is angular,
+	arc=4pt
+	}
+
+%%Lệnh hình phải
+%\NewDocumentCommand{\Rightpicture}{O{0.45}O{4pt}mm}{%
+%	\adjustbox{valign=t}{
+%		\begin{minipage}[htp!]{#1\linewidth}
+%			\vspace*{#2}
+%			#3
+%		\end{minipage}
+%	}
+%	\hfill
+%	\adjustbox{valign=t}{
+%		\begin{minipage}[htp!]{0.98\linewidth-#1\linewidth}
+%			#4
+%		\end{minipage}
+%	}
+%}
+%
+%\newenvironment{vidu}[1][\mycolor]{
+%	\begin{hopvidu}[#1]
+%		\par\noindent\indam[#1]{Ví dụ:}
+%	}{\end{hopvidu}}
+%\AtBeginEnvironment{ex}{\renewcommand{\dotEX}{}}
+
+
+
+

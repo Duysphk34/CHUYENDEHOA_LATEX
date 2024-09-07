@@ -1,0 +1,1366 @@
+\usepackage{lipsum}
+\usepackage{paracol}
+\columnratio{0.65}
+\globalcounter{kp}
+%%%%%%%%%%%%%%%%%%%%%==========CÁC HỘP SƯU TẦM E==================%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%HỘP CHO CHƯƠNG BÀI%%%%%%%%%%%%%%%%%%%%%%%
+\newtcolorbox[auto counter]{bai}{enhanced, skin=enhancedlast jigsaw,
+	arc is angular, halign=center,
+	fonttitle=\fontfamily{qag}\selectfont\bfseries,
+	fontupper=\color{\mycolor!80!black}\bfseries\fontsize{26pt}{6pt}\fontfamily{pag}\selectfont,
+	attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+	colbacktitle=\mycolor, colframe=\mycolor,
+	colback=white,
+	% interior style={top color=\mycolor!10!white, bottom color=white},
+	boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+	underlay boxed title={
+		\fill[\mycolor!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+		-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+		\fill[\mycolor!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+		-- +(0,-0.3) -- +(0.4,0) -- cycle; 
+		\path[fill=\mycolor] (title.north west) -- (title.north east) coordinate (A)
+		-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+0.75mm) coordinate (B)
+		-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+		-- (title.south west) -- cycle;
+		\foreach \mau/\xt in {80/2,60/6,50/10,40/14,35/18}
+		\path[fill=\mycolor!\mau,transform canvas={xshift=\xt pt}] (A)--(B)--([xshift=2pt]B)--([xshift=2pt]A)--cycle;
+	},
+	title={\faEdit\, Bài~\arabic{section}}
+}
+%%%===================note================%%%
+\newtcolorbox{mybox}[2][]{%
+	breakable,
+	before skip=4mm,
+	%after skip=2mm,
+	%top=1mm,
+	colframe=teal,
+	fonttitle=\bfseries\color{purple},
+	attach boxed title to top center=
+	{yshift=-0.25mm-\tcboxedtitleheight/2,
+		yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={boxrule=0.5mm,
+		frame code={\path[tcb fill frame]
+			([xshift=-4mm]frame.west)
+			-- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+			-- (frame.south east) -- (frame.south west) -- cycle;},
+		interior code={\path[tcb fill interior]
+			([xshift=-2mm]interior.west)
+			-- (interior.north west)
+			-- (interior.north east)
+			-- ([xshift=2mm]interior.east)
+			-- (interior.south east)
+			-- (interior.south west)-- cycle;},
+	},
+	title style={left color=purple,right color=blue},
+	frame style={right color=purple,left color=blue},
+	drop lifted shadow=blue,
+	colbacktitle=white,
+	enhanced,
+	title=#2,#1}
+
+
+\newtcolorbox{note}{%
+	empty,
+	left=5pt,right=3pt,top=3pt,bottom=2pt,
+	boxed title style={empty,size=minimal},
+	before=\par\medskip\noindent,parbox=false,boxsep=0pt,
+	breakable,pad at break*=0mm,vfill before first,
+	overlay unbroken={
+		\fill[rounded corners=5pt,\mauphu] (frame.north west) rectangle (frame.south east); 
+		\fill[rounded corners=5pt,\mauphu!9]([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0,-0.2pt)}]frame.south east); 
+	},
+	overlay broken={
+		\fill[rounded corners=5pt,\mauphu] (frame.north west) rectangle (frame.south east); 
+		\fill[rounded corners=5pt,\mauphu!9]([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0,-0.2pt)}]frame.south east); 
+	},
+}
+%%%================end note===================%%%
+
+
+%%% ======================= Hộp dạng 2 ========================================%%%
+\newcounter{dangcount}[section]
+%\refstepcounter{dangcount}
+\newtcolorbox[use counter=dangcount]{dangbox}{%
+	empty,
+	left=1pt,right=1pt,top=5pt,bottom=5pt,
+	% boxed title style={empty,size=minimal},
+	before=\par\medskip\noindent,parbox=false,boxsep=7pt,
+	breakable,pad at break*=3mm,vfill before first,
+	overlay unbroken and first={
+		\pgfmathsetmacro{\dg}{0.2}
+		\pgfmathsetmacro{\dgn}{0.65*\dg}
+		\pgfmathsetmacro{\dgt}{0.75*\dg}
+		\path (frame.north west) coordinate (A)
+		(frame.south east) coordinate (C)
+		(frame.south west) coordinate (B)
+		(frame.north east) coordinate (D)
+		($ (A)!0.33!(D) $) coordinate (ADm)
+		($ (A)!0.67!(D) $) coordinate (ADh)
+		($ (B)!0.33!(C) $) coordinate (BCm)
+		($ (B)!0.67!(C) $) coordinate (BCh)
+		($ (B)+(135:\dg) $) coordinate (Bt)
+		($ (A)+(-135:\dg) $) coordinate (At)
+		($ (At)!0.33!(Bt) $) coordinate (ABm)
+		($ (At)!0.67!(Bt) $) coordinate (ABh)
+		($ (C)+(45:\dg) $) coordinate (Ct)
+		($ (D)+(-45:\dg) $) coordinate (Dt)
+		($ (Dt)!0.33!(Ct) $) coordinate (DCm)
+		($ (Dt)!0.67!(Ct) $) coordinate (DCh);%,preaction={line width=1pt,draw=gray!65,transform canvas={shift={(-45:2pt)}}}
+		\draw[\mycolor!89,thick,line cap=round,fill=gray!5] (A)--(ADm)--($ (ADm)+(-45:\dgn) $)--($ (ADh)+(-135:\dgn) $)--(ADh)--(D)
+		--+(-45:\dg)
+		--(DCm)--+(-135:\dgn)--($ (DCh)+(135:\dgn)$)--(DCh)
+		--($ (C)+(45:\dg) $)--(C)
+		--(BCh)--+(135:\dgn)--($ (BCm)+(45:\dgn) $)--(BCm)--(B)--+(135:\dg)
+		--(ABh)--($ (ABh)+(45:\dgn) $)--($ (ABm)+(-45:\dgn) $)--(ABm)--($ (A)+(-135:\dg) $)--cycle
+		([shift={(\dgn,0)}]ADm)--([shift={(-\dgn,0)}]ADh)
+		([shift={(\dgn,0)}]BCm)--([shift={(-\dgn,0)}]BCh)
+		([shift={(0,\dgn)}]ABh)--([shift={(0,-\dgn)}]ABm)
+		([shift={(0,\dgn)}]DCh)--([shift={(0,-\dgn)}]DCm)
+		;
+		\draw[\mycolor!89,line width=1.25pt,line cap=round,draw opacity=0.35] ($ (A)+(0.55*\dg,-1.2*\dg)+(-135:0.5*\dgt) $)--+(45:\dgt)--($(D)+(-0.55*\dg,-1.2*\dg)+(135:0.5*\dgt)$)--+(-45:\dgt)--($(C)+(-0.55*\dg,1.2*\dg)+(45:0.5*\dgt)$)
+		--+(-135:\dgt)--($(B)+(0.55*\dg,1.2*\dg)+(-45:0.5*\dgt)$)--+(135:\dgt)--cycle;
+	}
+}
+\newenvironment{dangNTD}[1]{\begin{dangbox}
+		{\noindent\color{\maudam}{\large\textsf{\textbf{\faApple\, Dạng \thedangcount: #1}}}}\par
+	}
+	{\end{dangbox}}
+
+
+
+
+
+
+
+
+
+
+%%%================dn===================%%%
+
+\newcounter{dncount}
+\newtcolorbox[use counter=dncount]{dn}{%
+	empty,
+	title={Định nghĩa \thedncount.},
+	left=5pt,right=3pt,top=3pt,bottom=2pt,
+	boxed title style={empty,size=minimal},
+	coltitle=\maunhan,fonttitle=\bfseries\sffamily,
+	before=\par\medskip\noindent,parbox=false,boxsep=0pt,
+	breakable,pad at break*=0mm,vfill before first,
+	overlay unbroken={
+		\fill[rounded corners=5pt,\mycolor]  (frame.north west) rectangle (frame.south east); 
+		\fill[rounded corners=5pt,\mycolor!9] ([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0.2pt,-0.2pt)}]frame.south east); 
+	},
+	overlay broken={
+		\fill[rounded corners=5pt,\mycolor] (frame.north west) rectangle (frame.south east); 
+		\fill[rounded corners=5pt,\mycolor!9] ([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0.2pt,-0.2pt)}]frame.south east); 
+	},
+}
+%%%========================end dn======================%%%
+
+%%%=======================================%%%
+\NewTColorBox[auto counter]{dl}{+!O{}}{
+	enhanced,
+	fonttitle=\bfseries\fontfamily{pag}\selectfont\color{white},
+	title={Định lý~\thetcbcounter},
+	label={dl@\thetcbcounter},
+	colframe=\mycolor,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=5pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken={
+		\path
+		($ (title.north west) +(-5pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-5pt,0pt)$) coordinate (B)
+		($ (title.south east)+(3pt,0) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		% ($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mauphu!75!black,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C)--([xshift=0.85*\linewidth]D)--cycle;
+		
+		\path[fill=yellow,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[right color=\maunhan,left color=maumanh!90!black,rounded corners=3pt]
+		(A)--(B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(9pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{Định lý~\thetcbcounter}};
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{#1}};
+		
+	},
+	top=\tcboxedtitleheight
+}
+%%%=================================%%%
+
+%%%==================hq=====================%%%
+\NewTColorBox{hq}{+!O{}}{
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={HH Hệ quả },
+	colframe=\maunhan,
+	colback=gray!9!white,
+	colbacktitle=white,
+	fontupper=\itshape\color{\maunhan!85!black},
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=5pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-3pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-3pt,0pt)$) coordinate (B)
+		($ (title.south east)+(3pt,0) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		% ($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mauphu!75!black,rounded corners=3pt]
+		(A)--(B)--([xshift=0.815*\linewidth]C)--([xshift=0.815*\linewidth]D)--cycle;
+		
+		\path[fill=yellow,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[right color=\maunhan,left color=maumanh!90!black,rounded corners=3pt]
+		(A)--(B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(3pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faArchive\ Hệ quả }};
+		
+		\path ($ (C)!0.5!(D) +(3pt,0)$) node[anchor=west,font=\color{white}\itshape\sffamily\selectfont]{#1};
+		
+	},
+	top=\tcboxedtitleheight
+}
+%%%=================================%%%
+
+%%%===================tc====================%%%
+\NewTColorBox[auto counter]{tc}{+!O{}}{
+	enhanced,
+	fonttitle=\bfseries\fontfamily{pag}\selectfont\color{white},
+	title={Tính chất~\thetcbcounter},
+	label={tc@\thetcbcounter},
+	colframe=\mycolor,
+	colback=white,
+	colbacktitle=white,
+	fontupper=\itshape,
+	coltitle=black,
+	fontupper=\itshape,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=5pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-3pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-3pt,0pt)$) coordinate (B)
+		($ (title.south east)+(3pt,0) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		% ($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		
+		\path[fill=\mycolor!20!white,rounded corners=3pt]
+		(A)--(B)--([xshift=0.825*\linewidth]C)--([xshift=0.825*\linewidth]D)--cycle;
+		
+		\path[fill=\mycolor!20!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[right color=\mycolor!90!black,left color=\mycolor!90!black,rounded corners=3pt]
+		(A)--(B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(3pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{Tính chất~\thetcbcounter}};
+		
+		\path ($ (C)!0.5!(D) +(3pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{#1}};
+		
+	},
+	top=\tcboxedtitleheight
+}
+%%%=================================%%%
+
+%%%%%%%%%%%%%%%%%==============HỘP TỰ CODE==========================%%%%%%%%%%%%%%%%
+\newtcolorbox{mynote}{colframe=\mycolor,width=0.9\textwidth,colback=\mauphu!15}
+%%%%%%%%%%%%%%%%%==============Hộp lý thuyết========================%%%%%%%%%%%%%%%%
+\newcounter{ltcount}[section]
+\newtcolorbox{boxlt}{%
+	empty,
+	colback=\mycolor!15,
+	enhanced,
+	left=2mm,
+	right=1mm,
+	top=2mm,
+	bottom=1mm,
+	after skip=6pt,
+	before skip=6pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	colframe=\mycolor,
+	drop lifted shadow=\maudam!40!black,
+%	fontupper=\sffamily\color{\mycolor!15!black},	
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_14.png} }
+		;
+%		\path 
+%		([xshift=2pt,yshift=3pt]note.east)	node{\Large\bfseries\sffamily\color{\maunhan}{\theltcount}}
+%		;
+	},
+%		overlay broken ={
+%		\path 
+%		([xshift=.75pt]frame.north west) node (note)
+%		{\includegraphics[width=.7cm]{Icon3d_14.png} }
+%		;
+%	},
+	overlay middle and last ={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_14.png} }
+		;
+		%		\path 
+		%		([xshift=2pt,yshift=3pt]note.east)	node{\Large\bfseries\sffamily\color{\maunhan}{\theltcount}}
+		;
+%	overlay middle and last={
+%		\path 
+%		([xshift=.75pt]frame.north west) node (note)
+%		{\includegraphics[width=.7cm]{Icon3d_14.png} }
+%		;
+%		\path 
+%		([xshift=2pt,yshift=3pt]note.east)	node{\Large\bfseries\sffamily\color{\maunhan}{\theltcount}}
+		;
+	}
+}
+\newenvironment{mylt}{%
+%	\refstepcounter{ltcount}
+	\begin{boxlt}}
+	{\end{boxlt}}
+	
+	
+%%%%%%%%%%%%%%%%%==============Hộp Bài tập vận dụng========================%%%%%%%%%%%%%%%%
+\newcounter{btvdcount}[section]
+\newtcolorbox{boxbtvd}{%
+	empty,
+	colback=\mycolor!15,
+	enhanced,
+	left=2pt,
+	right=2pt,
+	top=4pt,
+	bottom=3pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	colframe=\mycolor,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\mycolor!15!black},	
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_18.png} }
+		;
+		\path 
+		([xshift=2pt,yshift=3pt]note.east)	node{\Large\bfseries\sffamily\color{\maunhan}{\thebtvdcount}}
+		;
+	},
+	overlay middle and last=={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_18.png} }
+		;
+		\path 
+		([xshift=2pt,yshift=3pt]note.east)	node{\Large\bfseries\sffamily\color{\maunhan}{\thebtvdcount}}
+		;
+	}
+}
+\def\btvdbegin{\begin{boxbtvd}}
+\def\btvdend{\end{boxbtvd}}
+\newenvironment{btvd}
+{\btvdbegin}
+{\btvdend}
+\AtBeginEnvironment{btvd}{%
+	\refstepcounter{btvdcount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxbtvd} \def\btvdend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxbtvd} \def\btvdend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}	
+	
+	
+	
+%%%%%%==============Hộp Khám phá========================%%%%
+\newcounter{kpcount}[section]
+\newtcolorbox{boxkp}{%
+	empty,
+	colback=\mycolor!15,
+	enhanced,
+	left=4pt,
+	right=4pt,
+	top=6pt,
+	bottom=12pt,
+	after skip=20pt,
+	before skip=12pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	colframe=\mycolor,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\mycolor!15!black},	
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_11.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)	node[anchor = west]{\large\bfseries\sffamily\color{\maunhan}{HĐKP\thekpcount}}
+		;
+	},
+	overlay middle and last=={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_11.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)node[anchor = west]{ \large\bfseries\sffamily\color{\maunhan}{HĐKP\thekpcount}}
+		;
+	}
+}
+\def\kpbegin{\begin{boxkp}}
+	\def\kpend{\end{boxkp}}
+\newenvironment{kp}
+{\kpbegin}
+{\kpend}
+\AtBeginEnvironment{kp}{%
+	\refstepcounter{kpcount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxkp} \def\kpend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxkp} \def\kpend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}		
+	
+	
+%%%%%%%%%%%%%%%%%==============Hộp Khởi động========================%%%%%%%%%%%%%%%%
+\newcounter{kdcount}[section]
+\newtcolorbox{boxkd}{%
+	empty,
+	colback=\maunhan!15,
+	enhanced,
+	left=4pt,
+	right=2pt,
+	top=6pt,
+	bottom=3pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	colframe=\maunhan,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\maunhan!15!black},	
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_16.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{HDKĐ\thekdcount}}
+		;
+	},
+	overlay middle and last=={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_16.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)node[anchor =west]{\large\bfseries\sffamily\color{\maunhan}{HDKĐ\thekdcount}}
+		;
+	}
+}
+\def\kdbegin{\begin{boxkd}}
+	\def\kdend{\end{boxkd}}
+\newenvironment{kd}
+{\kdbegin}
+{\kdend}
+\AtBeginEnvironment{kd}{%
+	\refstepcounter{kdcount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxkd} \def\kdend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxkd} \def\kdend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}			
+	
+	
+	
+	
+	
+%%%%%%%%%%%%%%%%%==============Hộp Vận dụng========================%%%%%%%%%%%%%%%%
+\newcounter{vandungcount}[section]
+\newtcolorbox{boxvandung}{%
+	empty,
+	colback=\maunhan!15,
+	enhanced,
+	left=4pt,
+	right=2pt,
+	top=6pt,
+	bottom=3pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=0cm,
+	breakable,
+	toprule=0pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	colframe=\maunhan,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\maunhan!15!black},	
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_9.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{HDVD\thevandungcount}}
+		;
+	},
+	overlay middle and last=={
+		\path 
+		([xshift=.75pt]frame.north west) node (note)
+		{\includegraphics[width=.7cm]{Icon3d_9.png} }
+		;
+		\path 
+		([xshift=-2pt]note.east)node[anchor =west]{\large\bfseries\sffamily\color{\maunhan}{HDVD\thevandungcount}}
+		;
+	}
+}
+\def\vandungbegin{\begin{boxvandung}}
+	\def\vandungend{\end{boxvandung}}
+\newenvironment{vandung}
+{\vandungbegin}
+{\vandungend}
+\AtBeginEnvironment{vandung}{%
+	\refstepcounter{vandungcount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxvandung} \def\vandungend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxvandung} \def\vandungend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}	
+	
+	
+	
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%=======Hộp Em có biết============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{ecbcount}[section]
+\newtcolorbox[auto counter]{boxecb}{%
+%frame hidden,
+empty,
+colback=\mycolor!15,
+enhanced,
+left=.8cm,
+right=4pt,
+top=6pt,
+bottom=2pt,
+after skip=6pt,
+before skip=24pt,
+right skip=0cm,
+breakable,
+toprule=1.5pt,
+bottomrule=1.5pt,
+rightrule=1pt,
+leftrule=1pt,
+arc=3pt,
+fonttitle=\Large\bfseries\sffamily\color{white},
+title={Bạn có biết?},
+title after break={Bạn có biết?},
+%title code={\fill[\mycolor!75!black] (title.north west) rectangle (title.south east);},
+titlerule style={\mycolor!50!black,line width=0pt},
+title style={left color=\mycolor!50!black,right color=\mycolor!25!black},
+%sharp corners=northwest,
+%sharp corners=southwest,
+colframe=\mycolor!80!black,
+drop lifted shadow=\maudam!40!black,
+fontupper=\sffamily\color{\mycolor!15!black},
+overlay unbroken and first ={
+%			\fill[\mycolor!75!black] (title.north west) rectangle (title.south east);
+			\path ($(frame.north west)+(8pt,-5pt)$)  node(Note){\includegraphics[width=1.4cm,angle=5]{Icon3d_15.png}};
+		},
+overlay middle and last={
+			%    \draw[line width=2pt,color=teal!35,transform canvas={xshift=-3pt}] (frame.north west)--(frame.south west);
+%			\fill[\mycolor!75!black] (title.north west) rectangle (title.south east);
+			\path ($(frame.north west)+(8pt,-5pt)$) node (NT){\includegraphics[width=1.4cm,angle=30]{Icon3d_15.png}}; 
+			
+		}
+}
+\newenvironment{emcobiet}{%
+	\refstepcounter{ecbcount}%
+	\begin{boxecb}
+	}
+	{\end{boxecb}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%=======Hộp tổng kết============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{tkcount}[section]
+\newtcolorbox[auto counter]{boxtk}{%
+	empty,
+	colback=\mycolor!15,
+	enhanced,
+	left=15pt,
+	right=4pt,
+	top=6pt,
+	bottom=2pt,
+	after skip=6pt,
+	before skip=6pt,
+	right skip=0cm,
+	breakable,
+	toprule=1.5pt,
+	bottomrule=1.5pt,
+	rightrule=1.5pt,
+	leftrule=0pt,
+	arc=.3cm,
+	sharp corners=northwest,
+	sharp corners=southwest,
+	colframe=\mycolor!80!black,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\sffamily\color{\mycolor!15!black},
+	overlay unbroken and first ={
+		\path[draw=\mycolor!80!black,ultra thick] ($(frame.north west)+(4pt,2pt)$) coordinate (tron)  circle (.5cm);
+		\path (tron)  node[inner sep=0pt](Note){\includegraphics[width=1.0cm,angle=5]{Icon3d_19.png}};
+	},
+	overlay middle and last={
+		\path[draw=\mycolor!80!black,ultra thick] ($(frame.north west)+(4pt,2pt)$) coordinate (tron)  circle (.5cm);
+		\path (tron)  node[inner sep=0pt](Note){\includegraphics[width=1.0cm,angle=5]{Icon3d_19.png}};
+	}
+}
+
+	\newenvironment{tongket}{%
+	\refstepcounter{tkcount}	
+	\begin{boxtk}
+	{\large\bfseries\sffamily\color{\maunhan}{Tổng kết:}}}
+	{\end{boxtk}}
+%%%%%%%%%%%%%%%%%%%%%%%=======HỘP QANDA============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{qandacount}[section]
+\newtcolorbox[use counter=qandacount]{boxqanda}{%
+%	frame hidden,
+	empty,
+	colback=\mycolor!15,
+	colframe=\mycolor!80!black,
+	enhanced,
+	left=4pt,
+	right=4pt,
+	top=8pt,
+	bottom=14pt,
+	after skip=6pt,
+	before skip=24pt,
+	right skip=3pt,left skip =3pt,
+	breakable,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=1.5pt,
+	leftrule=1.5pt,
+	arc=3pt,
+%	arc is angular,
+	sharp corners=northeast,
+	drop lifted shadow=\maudam!40!black,
+	fontupper=\color{\mycolor!15!black},
+	overlay unbroken and first={
+		\path 
+		([xshift=.75pt]frame.north west) node (icon)
+		{\includegraphics[width=.7cm]{Icon3d_21.png}};
+		\path 
+		([xshift=-2pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{HĐTH\theqandacount}}
+		;
+	},
+	overlay middle and last={
+		\path 
+		([xshift=.75pt]frame.north west)  node (icon)
+		{\includegraphics[width=.7cm]{Icon3d_21.png}};
+		\path
+		([xshift=-2pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{HĐTH\theqandacount}}
+		;
+	}	
+}
+
+\def\qandabegin{\begin{boxqanda}}
+\def\qandaend{\end{boxqanda}}
+\newenvironment{hoivadap}
+{\qandabegin}
+{\qandaend}
+\AtBeginEnvironment{hoivadap}{%
+	\refstepcounter{qandacount}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+		\par\noindent
+	\end{boxqanda} \def\qandaend{} % đưa lời giải ra ngoài hộp
+	{\noindent\color{\mauphu}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}} 
+	\par\noindent
+	#1
+	%	\phantom{a}\hfill
+	%	\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+\renewcommand{\huongdan}[1]{%
+\end{boxqanda} \def\qandaend{}	
+\par\noindent
+%	\phantom{a}\hfill
+\textcolor{\mycolor!40!black}{{\reflectbox{\LARGE\Writinghand}}~\LARGE\fmmfamily\textbf{Hướng dẫn}}:\\
+#1
+%\phantom{a}\hfill
+%\textcolor{\mycolor!40!black}{\faKey}~Chọn~\circleTrue{\Alph{numTrueSol}}	
+}
+}
+
+
+
+\newtcolorbox{boxntd}{
+	before skip =6pt,after skip =6pt,sharp corners,left=2pt,right=2pt,colframe=\mycolor,leftrule=2pt,rightrule=0pt,bottomrule=0pt,toprule=0pt,frame hidden,fontupper=\color{\mycolor!40!black},breakable
+}
+\newenvironment{ntdnote}
+{\begin{boxntd}
+		\textcolor{\mycolor}{\sffamily\textbf{\large\faBell\ Chú ý:}}
+	}
+	{\end{boxntd}}
+
+\newenvironment{ppg}
+{\begin{boxntd}
+		\textcolor{\mycolor}{\sffamily\textbf{\large\faBook\ Phương pháp giải:}}\\
+	}
+	{\end{boxntd}}
+%%%%%%%%%%%%%%%%%%%%%%==========Hộp Đinh lý=================%%%%%%%%%%%
+\newcounter{ntddl}[section]
+\newtcolorbox{boxdl}{%[use counter=ntddl]
+	before skip =6pt,after skip=6pt,
+	left=2pt,right=2pt,
+	colframe=\mycolor,leftrule=2pt,rightrule=0pt,bottomrule=0pt,toprule=0pt,
+	frame hidden,
+	fontupper=\color{\mycolor!15!black},
+	colback=\mycolor!5!white
+}
+\newenvironment{mydl}
+{%
+	\begin{boxdl}
+		\refstepcounter{ntddl}
+		\textcolor{\mycolor!50!black}{\textbf{\large\faCube\ Định lý\ \thentddl:}}
+	}
+	{\end{boxdl}}
+
+%%%%%%%%%%%%%%%%%%=====================================%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%==========Hộp Hệ quả=================%%%%%%%%%%%
+\newcounter{hqntd}[section]
+\refstepcounter{hqntd}
+\newtcolorbox[use counter=hqntd]{boxhq}{%
+	breakable,
+	%	 enhanced jigsaw,
+	%	enhanced,
+	sharp corners,
+	before skip =6pt,
+	after skip=6pt,
+	left skip=3pt,
+	left=3pt,
+	right=2pt,
+	top=3pt,
+	colframe=\mycolor,
+	leftrule=3pt,
+	rightrule=0pt,
+	bottomrule=0pt,
+	toprule=0pt,
+	frame hidden,
+	fontupper=\color{\mycolor!40!black},
+	colback=\mycolor!20
+}
+\newenvironment{myhq}{%
+	\begin{boxhq}
+		\sffamily\textcolor{\mycolor!50!black}{\textbf{\large\faCube\ Hệ quả \arabic{section}.\thehqntd :}\\}
+	}
+	{\end{boxhq}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%==========Hộp bổ đề=================%%%%%%%%%%%
+\newcounter{bdntd}[section]
+\refstepcounter{bdntd}
+\newtcolorbox[use counter=bdntd]{boxbd}{%
+	breakable,
+	%	 enhanced jigsaw,
+	%	enhanced,
+	sharp corners,
+	before skip =6pt,
+	after skip=6pt,
+	left skip=3pt,
+	left=3pt,
+	right=2pt,
+	top=3pt,
+	colframe=\mycolor,
+	leftrule=3pt,
+	rightrule=0pt,
+	bottomrule=0pt,
+	toprule=0pt,
+	frame hidden,
+	fontupper=\color{\mycolor!40!black},
+	colback=\mycolor!5!white
+}
+\newenvironment{mybd}{%
+	\begin{boxbd}
+		\sffamily\textcolor{\mycolor!50!black}{\textbf{\large\faDatabase\ Bổ đề \ \arabic{section}.\thebdntd :}}
+		\par\noindent
+	}
+	{\end{boxbd}}
+
+%%%======================HỘP KIẾN THỨC CẦN NHỚ========================%%%
+
+\newcounter{ktcn}[section]
+\refstepcounter{ktcn}
+\newtcolorbox[use counter=ktcn]{boxktcn}{enhanced, breakable,
+	before skip=1mm,after skip=1mm,
+	left=3mm,right=1mm,top=2mm,bottom=1mm,
+	colframe=\maunhan!70!black,colback=\maunhan!5,colbacktitle=\maunhan!10,coltitle=\maunhan!70!black,
+	,boxrule=0.4mm,
+	%attach boxed title to top center={xshift=0cm,yshift*=-\tcboxedtitleheight/2},
+	attach boxed title to top center=
+	{yshift=-0.1mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
+	varwidth boxed title*=-3cm,
+	%--cong góc
+	%	sharp corners,
+	%	rounded corners=northwest, rounded corners=northeast,
+	%	arc is angular,
+	%	arc=0mm, 
+	boxed title style={boxrule=0.3mm,
+		frame code={ \path[tcb fill frame] ([xshift=-4mm]frame.west)
+			-- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+			-- (frame.south east) -- (frame.south west) -- cycle; },
+		interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
+			-- (interior.north west) -- (interior.north east)
+			-- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
+			-- cycle;} 
+	},
+	fonttitle=\sffamily\bfseries\color{\maunhan!50!black}{\fontsize{10}{0}\selectfont},
+	fontupper=\sffamily,
+	title={\faLightbulbO \ Kiến thức cần nhớ \faLightbulbO }
+	
+}
+\newenvironment{ktcn}{\begin{boxktcn}}{\end{boxktcn}}
+
+
+
+
+%%%======================HỘP Mục tiêu bài học ========================%%%
+
+\newcounter{mtbh}[section]
+\refstepcounter{mtbh}
+\newtcolorbox[use counter=mtbh]{boxmtbh}{enhanced, breakable,
+	before skip=1mm,after skip=1mm,
+	left= 2.5mm,right=1mm,top=2mm,bottom=1mm,
+	colframe=\mycolor!70!black,colback=\mycolor!5,colbacktitle=\mycolor!10,coltitle=\mycolor!70!black,
+	,boxrule=0.4mm,
+	%attach boxed title to top center={xshift=0cm,yshift*=-\tcboxedtitleheight/2},
+	attach boxed title to top center=
+	{yshift=-0.1mm-\tcboxedtitleheight/2,yshifttext=2mm-\tcboxedtitleheight/2},
+	varwidth boxed title*=-3cm,
+	%--cong góc
+	%	sharp corners,
+	%	rounded corners=northwest, rounded corners=northeast,
+		arc is angular,
+		arc=3ptmm, 
+	boxed title style={boxrule=0.3mm,
+		frame code={ \path[tcb fill frame] ([xshift=-4mm]frame.west)
+			-- (frame.north west) -- (frame.north east) -- ([xshift=4mm]frame.east)
+			-- (frame.south east) -- (frame.south west) -- cycle; },
+		interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
+			-- (interior.north west) -- (interior.north east)
+			-- ([xshift=2mm]interior.east) -- (interior.south east) -- (interior.south west)
+			-- cycle;} 	
+	},
+	fonttitle=\sffamily\bfseries\color{\mycolor!50!black}{\fontsize{10}{0}\selectfont},
+	fontupper=\sffamily,
+	title={\includegraphics[width=0.7cm]{Icon3d_4.png} MỤC TIÊU BÀI HỌC \includegraphics[width=0.7cm]{Icon3d_4.png} }
+	
+}
+\newenvironment{mtbh}{\begin{boxmtbh}}{\end{boxmtbh}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%=============Hộp Định nghĩa/hệ quả/tính chất================%%%%%%%%%%%%%
+\newcounter{dngsnd}[section]
+\refstepcounter{dngsnd}
+\newtcolorbox[use counter=dngsnd]{boxgsnd}{%
+	colback=\maunhan!5,
+	enhanced,
+	title={\faGetPocket \ Định nghĩa \arabic{section}.\thedngsnd},
+	attach boxed title to top left={xshift=-4mm},
+	boxrule=0pt,
+	after skip=1cm,
+	before skip=1cm,
+	right skip=0cm,
+	left=3pt,right=3pt,
+	breakable,
+	fonttitle=\color{white}\fontfamily{qag}\bfseries\selectfont,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=2pt,
+	leftrule=2pt,
+	arc=0mm,
+	skin=enhancedlast jigsaw,
+	sharp corners,
+	colframe=\maunhan,
+	colbacktitle=\maunhan!80!black,
+	drop lifted shadow=\maudam!40!black,
+	boxed title style={
+		frame code={ 
+			\fill[\maunhan!80!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,\maunhan!80!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			
+			\draw[line width=1mm,\maunhan!80!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[\maunhan!40](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+}
+\newenvironment{mydn}{\begin{boxgsnd}}{\end{boxgsnd}}
+
+%%%%%%%%%%%%%%%%%%%==============Hộp khái niệm=====================%%%%%%%%%%%%%%%%%
+
+\newcounter{kngsnd}[section]
+\refstepcounter{kngsnd}
+\newtcolorbox[use counter=kngsnd]{boxkngsnd}{%
+	colback=\mycolor!5,
+	enhanced,
+	title={\faGetPocket \ Khái niệm \arabic{section}.\thekngsnd},
+	attach boxed title to top left={xshift=-4mm},
+	boxrule=0pt,
+	left=2pt,
+	right=2pt,
+	after skip=1cm,
+	before skip=1cm,
+	right skip=0cm,
+	breakable,
+	fonttitle=\color{white}\fontfamily{qag}\bfseries\selectfont,
+	toprule=0pt,
+	bottomrule=0pt,
+	boxsep=2pt,
+	rightrule=0pt,
+	leftrule=4pt,
+	arc=0mm,
+	skin=enhancedlast jigsaw,
+	sharp corners,
+	colframe=\mycolor,
+	colbacktitle=\mycolor!80!black,
+%	sidebyside,
+%	width=18cm,
+%	righthand width=6cm,
+%	lower separated=false,
+%	sidebyside gap=3mm,
+	boxed title style={%
+		frame code={% 
+			\fill[\mycolor!80!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,\mycolor!80!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			
+			\draw[line width=1mm,\mycolor!80!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[\mycolor!40](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+}
+\newenvironment{mykn}{%
+\begin{boxkngsnd}
+}
+{\end{boxkngsnd}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%=============Hộp tính chất================%%%%%%%%%%%%%
+\newcounter{tcgsnd}[section]
+\refstepcounter{tcgsnd}
+\newtcolorbox[use counter=tcgsnd]{boxgsnd02}{%
+	colback=\maunhan!5,
+	enhanced,
+	title={\faGg  \ Tính chất \arabic{section}.\thetcgsnd},
+	attach boxed title to top left={xshift=-4mm},
+	boxrule=0pt,
+	after skip=1cm,
+	before skip=1cm,
+	right skip=0cm,
+	breakable,
+	fonttitle=\color{white}\fontfamily{qag}\bfseries\selectfont,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=0pt,
+	leftrule=4pt,
+	arc=0mm,
+	skin=enhancedlast jigsaw,
+	sharp corners,
+	colframe=\maunhan,
+	colbacktitle=\maunhan!80!black,
+	boxed title style={
+		frame code={ 
+			\fill[\maunhan!80!black](frame.south west)--(frame.north west)--(frame.north east)--([xshift=3mm]frame.east)--(frame.south east)--cycle;
+			\draw[line width=1mm,\maunhan!80!black]([xshift=2mm]frame.north east)--([xshift=5mm]frame.east)--([xshift=2mm]frame.south east);
+			
+			\draw[line width=1mm,\maunhan!80!black]([xshift=5mm]frame.north east)--([xshift=8mm]frame.east)--([xshift=5mm]frame.south east);
+			\fill[\maunhan!40](frame.south west)--+(4mm,-2mm)--+(4mm,2mm)--cycle;
+		}
+	}
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\setcounter{vd}{0}
+}
+\newenvironment{mytc}{\begin{boxgsnd02}}{\end{boxgsnd02}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Hộp Dạng 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{dangntd}[section]
+\refstepcounter{dangntd}
+\newtcolorbox[use counter=dangntd]{dangntd}[1]{%
+	breakable, enhanced jigsaw,opacityback=0,frame hidden,
+	%--
+	before skip=6mm,after skip=3mm,
+	left=2mm,right=2mm,top=5mm,bottom=2mm,
+	boxed title style={height=1.5cm},
+	%colback=green!10,colframe=cyan,boxrule=0.3mm,
+	underlay={
+		%--khung nội dung
+		\fill[draw=\mycolor!80!black, fill=\mycolor!3, rounded corners=0mm, line width=1pt,drop shadow=black!25] ([yshift=-2mm]interior.north west) rectangle (interior.south east);
+	},
+	underlay unbroken and first={
+		%--khung tiêu đề
+		\fill[\mycolor!60!black,rounded corners=2mm,draw=\mycolor!80!black] ([yshift=1mm,xshift=0cm]title.north west) rectangle ([yshift=-1mm,xshift=0cm]title.south east);
+		\draw[white, rounded corners=1.5mm] ([yshift=0mm,xshift=1mm]title.north west) rectangle ([yshift=0mm,xshift=-1mm]title.south east);
+		%--khung dạng
+		%bóng trái
+		\fill[\mycolor!30!black] ([xshift=0.75cm,yshift=3mm]title.north west)--++(-2mm,-2mm)--++(2mm,0)--cycle;
+		%khung
+		\fill[\mycolor!80!black,drop shadow=\maudam!10!black] 
+		([xshift=0.75cm,yshift=3mm]title.north west)
+		--++(1.2,0)
+		[rounded corners =4pt]--++(0,-1.13)
+		--++(-1.2,0)
+		[rounded corners =0pt]--cycle;
+		\node[white, below] (dang) at ([xshift=1.35cm,yshift=2.5mm]title.north west) {\fontfamily{qag}\fontsize{9pt}{0pt}\bfseries DẠNG};
+		\draw ([yshift=-1pt]dang) node[below,white] {\fontfamily{qag}\fontsize{14pt}{0pt}\bfseries \thedangntd};
+	},
+	fonttitle=\fontfamily{pag}\fontsize{16pt}{0pt}\selectfont\bfseries, %fontupper=\itshape,
+	halign title=center, %canh giữa
+	title={
+		\color{white}\hspace*{1.5cm}\parbox{.85\textwidth}{\centering {#1}}%\centering
+%		\color{white}\hspace*{2cm}\parbox{10cm}{{#1}}
+	}
+	\addcontentsline{toc}{subsection}{\sffamily \faFolderOpen\ Dạng~\thedangntd: #1}
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\setcounter{vd}{0}
+}
+
+
+
+%%%%%--------------------Hộp Chú ý ----------------------------%%%%%%%
+\newcounter{notegsnd}[section]
+\refstepcounter{notegsnd}
+\newtcolorbox[use counter=notegsnd]{boxnote}{%
+		enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=\mycolor!10!white,
+		%opacityback=0, %ko nền
+		colframe=\mycolor!80!black,
+		drop fuzzy shadow=black!30, %đổ bóng
+		left=2mm,right=2mm,top=5mm,bottom=2mm,
+		%--
+		before skip=2mm,
+		after skip=3mm,
+		boxrule=0pt, %đường viền dày
+		toprule=1pt,
+		%bottomrule=1pt,
+		leftrule=1.5pt,
+		%rightrule=0pt,
+		arc=0mm,
+		fonttitle=\small\fontfamily{qag}\bfseries\selectfont,
+		title={\faBellO \ Chú ý \arabic{section}.\thenotegsnd},
+		attach boxed title to top left={xshift=-0.2cm,yshift=-\tcboxedtitleheight/2},
+		boxed title style={empty},
+		underlay boxed title={
+			\fill[\mycolor] ([xshift=0pt]title.south west) rectangle ([xshift=1mm]title.north east);
+			\fill[\mycolor] (title.south east)--++(-1mm,-1.5mm)--++(-1mm,1.5mm)--cycle;
+			\fill[\mycolor!50!black] (title.south west)--++(2mm,-3mm)--++(0,3mm)--cycle;
+		},
+		fontupper=\sffamily,
+		coltext=\maunhan!50!black 
+	}
+	
+	
+\newenvironment{mychuy}{\begin{boxnote}}{\end{boxnote}}
+
+
+
+%%%%%--------------------Hộp Dinh lý----------------------------%%%%%%%
+\newcounter{dlntd}[section]
+\refstepcounter{dlntd}
+\newtcolorbox[use counter=dlntd]{boxdlntd}{%
+	enhanced jigsaw,breakable,pad at break*=1mm,
+	colback=\mycolor!10!white,
+	%opacityback=0, %ko nền
+	colframe=\mycolor!80!black,
+	drop fuzzy shadow=black!30, %đổ bóng
+	left=2mm,right=2mm,top=5mm,bottom=2mm,
+	%--
+	before skip=2mm,
+	after skip=3mm,
+	boxrule=0pt, %đường viền dày
+	toprule=1pt,
+	%bottomrule=1pt,
+	leftrule=2.5pt,
+	%rightrule=0pt,
+	arc=0mm,
+	fonttitle=\fontfamily{qag}\bfseries\selectfont,
+	title={\faToggleOn  \ Định lý \arabic{section}.\thedlntd},
+	attach boxed title to top left={xshift=-0.2cm,yshift=-\tcboxedtitleheight/2},
+	boxed title style={empty},
+	underlay boxed title={
+		\fill[\maudam] ([xshift=0pt]title.south west) rectangle ([xshift=1mm]title.north east);
+		\fill[\maudam] (title.south east)--++(-1mm,-1.5mm)--++(-1mm,1.5mm)--cycle;
+		\fill[\maudam!50!black] (title.south west)--++(2mm,-3mm)--++(0,3mm)--cycle;
+	},
+	fontupper=\sffamily 
+}
+
+
+\newenvironment{dlntd}
+{\begin{boxdlntd}
+	
+}{\end{boxdlntd}}
+
+
+%%%%%%%%%%% Hộp BT Tu Luyen %%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{bttl}[section]
+\refstepcounter{bttl}
+\newtcolorbox[use counter=bttl]{hopbttl}{%
+		enhanced jigsaw,
+		breakable,
+		pad at break*=1mm,
+		colback=\mycolor!20,
+		boxrule=0pt,
+		colframe=\mycolor!20,
+		arc=0mm,
+		left=0mm,
+		right=0mm,
+		top=0mm,
+		bottom=0mm,
+	}
+
+\newenvironment{bttl}
+{\begin{hopbttl}
+		\fontfamily{qag}\selectfont\textcolor{\mycolor!50!black}{\textbf{\large\faCube\ Bài tập tự luyện dạng \thebttl:}}
+	}{\end{hopbttl}
+	\setcounter{bt}{0}
+	\setcounter{ex}{0}	
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Hộp Ví dụ mẫu %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{vdm}[section]
+\refstepcounter{vdm}
+\newtcolorbox[use counter=vdm]{hopvdm}{%
+	enhanced jigsaw,
+	breakable,
+	pad at break*=1mm,
+	colback=\mycolor!20,
+	boxrule=1pt,
+	colframe=\mycolor!20,
+	arc=0mm,
+	left=0mm,
+	right=0mm,
+	top=0mm,
+	bottom=0mm,
+}
+\newenvironment{vdm}
+{\begin{hopvdm}
+		\fontfamily{qag}\selectfont\textcolor{\mycolor!50!black}{\textbf{\large\faBookmark\ Ví dụ mẫu dạng \thevdm:}}
+}{\end{hopvdm}}
+\newcounter{bttt}[section]
+\newenvironment{bttt}{%
+\refstepcounter{bttt}
+\noindent\sffamily\textcolor{\mycolor!50!black}{\textbf{\large\faBus\ Bài tập tương tự \arabic{section}.\thebttt:}\\}
+}{}
+
+
+
+
+
+%%%%%%%%%--------------------Chú ý-------------------------------%%%%%%%%%%%%%%%%%%%%
+\newenvironment{notentd}
+{\begin{tcolorbox}
+		[%
+		enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=yellow!10,
+		%opacityback=0, %ko nền
+		colframe=\maunhan!80!black,
+		drop fuzzy shadow=red!30, %đổ bóng
+		left=2mm,right=2mm,top=5mm,bottom=2mm,
+		%--
+		before skip=2mm,
+		after skip=3mm,
+		boxrule=0pt, %đường viền dày
+		toprule=1pt,
+		%bottomrule=1pt,
+		leftrule=2.5pt,
+		%rightrule=0pt,
+		arc=0mm,
+		fonttitle=\fontfamily{qag}\bfseries\selectfont,
+		title={\faToggleOn\ Chú ý},
+		attach boxed title to top left={xshift=-0.2cm,yshift=-\tcboxedtitleheight/2},
+		boxed title style={empty},
+		underlay boxed title={
+			\fill[\maunhan!70!black] ([xshift=0pt]title.south west) rectangle ([xshift=1mm]title.north east);
+			\fill[\maunhan!70!black] (title.south east)--++(-1mm,-1.5mm)--++(-1mm,1.5mm)--cycle;
+			\fill[\maunhan!50!black] (title.south west)--++(2mm,-3mm)--++(0,3mm)--cycle;
+		},
+		%----
+		fontupper=\sffamily % chữ nghiêng phần nội dung
+		]
+	}
+	{\end{tcolorbox}}
+
+%%%%%%%%%--------------------Nhận xét-------------------------------%%%%%%%%%%%%%%%%%%%%
+\newenvironment{mynx}
+{\begin{tcolorbox}
+		[
+		enhanced jigsaw,breakable,pad at break*=1mm,
+		colback=\mycolor!10,
+%		opacityback=0, %ko nền
+		colframe=\mycolor,
+		drop fuzzy shadow=\mycolor!60!black, %đổ bóng
+		left=1.5mm,right=2mm,top=5mm,bottom=2mm,
+		%--
+		before skip=2mm,
+		after skip=3mm,
+		boxrule=0pt, %đường viền dày
+		toprule=1pt,
+		%bottomrule=1pt,
+		leftrule=1pt,
+		%rightrule=0pt,
+		arc=0mm,
+		fonttitle=\fontfamily{qag}\bfseries\selectfont,
+		title={\faComments\ Nhận xét},
+		attach boxed title to top left={xshift=-0.2cm,yshift=-\tcboxedtitleheight/2},
+		boxed title style={empty},
+		underlay boxed title={
+			\fill[\mycolor!70!black] ([xshift=0pt]title.south west) rectangle ([xshift=1mm]title.north east);
+			\fill[\mycolor!70!black!70!black] (title.south east)--++(-1mm,-1.5mm)--++(-1mm,1.5mm)--cycle;
+			\fill[\mycolor!70!black!50!black] (title.south west)--++(2mm,-3mm)--++(0,3mm)--cycle;
+		},
+		%----
+%		fontupper=\small\itshape\sffamily % chữ nghiêng phần nội dung
+		]
+	}
+	{\end{tcolorbox}}

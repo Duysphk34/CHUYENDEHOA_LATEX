@@ -1,0 +1,183 @@
+\subsubsection{Nguyên tố hóa học}
+\begin{paracol}{2}
+	\Noibat{Khái niệm nguyên tố hóa học}
+	\vspace{0.5cm}
+	\begin{tomtat}
+		\indam{Nguyên tố hoá học} là tập hợp các nguyên tử có \indam{cùng số đơn vị điện tích hạt nhân} nhưng khác nahu về số neutron. Trong nguyên tử, số đơn vị điện tích hạt nhân bằng số electron ở vỏ nguyên tử. Các electron trong nguyên tử quyết định tính chất hoá học của nguyên tử, nên các nguyên tử của cùng một nguyên tố hoá học có \indam{tính chất hoá học giống nhau}.
+	\end{tomtat}
+	\switchcolumn
+	\begin{Bancobiet}
+		Cho đến năm 2020, đã có \indam{118} nguyên tố hoá học được xác định, trong đó \indam{94} nguyên tố có nguồn gốc \indam{tự nhiên}, còn lại là nguyên tớ nhân tạo. Nguyên tố phố biến nhất ở lớp vỏ Trái Đất là oxygen $(\mathrm{O})$, chiếm khoảng $46,6 \%$ khối lượng, tiếp theo là silicon (Si) chiếm khoảng 27,7\% khối lượng.
+	\end{Bancobiet}
+\end{paracol}
+%%%
+\Noibat{Số hiệu nguyên tử, số khối, kí hiệu nguyên tử}
+\begin{tomtat}
+	\begin{enumerate}
+		\item Số proton trong hạt nhân được gọi là \indam{số hiệu nguyên tử}.
+		\begin{vidu}
+			Hạt nhân nguyên tử Oxigen có 8 proton, vậy số hiệu nguyên tử của O là 8 ($Z_{O}=8$)
+		\end{vidu}
+		\item Tổng số proton ($Z$) và neutron ($N$) trong một hat nhân gọi là \indam{số khối}, kí hiệu là A.
+		\[\hopcttoan{\mathsf{A=Z+N}}\]
+		\item Kí hiệu nguyên tử $_Z^AX$ cho biết kí hiệu  hóa học của nguyên tố ($X$), số hiệu nguyên tử ($Z$) và số khối ($A$).
+		\begin{center}
+			\begin{tikzpicture}[declare function={d=1.5;},line cap=round,line join=round]
+				\tikzstyle{stylenode} = [color=\maunhan,font=\bfseries\fontsize{25pt}{6pt}\fontfamily{qag}\selectfont,inner sep=3pt,outer sep = 3pt]
+				\tikzstyle{stylenodeH} = [anchor=east,color=\maunhan!30!black,font=\bfseries\fontsize{14pt}{0pt}\fontfamily{qag}\selectfont,xshift=2pt,inner sep=3pt,outer sep = 3pt]
+				\tikzstyle{stylenodeB} = [font=\small,text width =3cm,inner sep=3pt,outer sep = 3pt]
+				%%%
+				\path (0,0) node[stylenode] (KHHH) {Al};
+				\path (KHHH.north west) node [stylenodeH] (sk) {27};
+				\path (KHHH.south west) node [stylenodeH] (shnt) {13};
+				\path ($(KHHH)+(d,0)$) node [stylenodeB,anchor=west] (khhh) {Kí hiệu hóa học của nguyên tố};
+				\path ($(sk)+({-0.8*d},0)$) node [stylenodeB,anchor=east,align=right] (SK) {Số khối};
+				\path ($(shnt)+({-0.8*d},0)$) node [stylenodeB,anchor=east,align=right] (SHNT) {Số hiệu nguyên tử};
+				%%%
+				\path [fill=\maunhan,rounded corners =4pt,fill opacity=.2] (sk.north west)-|(KHHH.east)|-(shnt.south west)--cycle;
+				%%%
+				\foreach \x/\y in {KHHH/khhh,SHNT/shnt,SK/sk}
+				{\path [draw=\maunhan,thick,shorten <=-0.1cm,shorten >=-0.15cm] (\x)--(\y);}
+			\end{tikzpicture}
+			\captionof{figure}{Kí hiệu nguyên tử Aluminium}\label{fig:KHHHAl}
+		\end{center}
+	\end{enumerate}
+\end{tomtat}
+\subsubsection{Đồng vị, nguyên tử khối trung bình}
+\Noibat{Đồng vị}\\
+Các nguyên tử của cùng một nguyên tố hóa học có số neutron khác nhau  là đồng vị của nhau
+\begin{vidu}[\maunhan]
+	Ba loại nguyên tử Oxigen $(\mathrm{O})$ đều có cùng 8 proton trong hạt nhân nên thuộc cùng một nguyên tố hoá học, nguyên tố oxigen $(\mathrm{O})$.
+	\begin{center}
+		\begin{tikzpicture}[line join=round,line cap=round]
+			\tikzset{%
+				pics/.cd,
+				hinhcau/.style args={#1}{%
+					code={\path[pic actions] circle (#1 pt);}
+				},
+				quydao/.style args={#1}{%
+					code={\path[even odd rule,pic actions] circle (#1 cm) circle 	(#1 cm-2pt);}
+				}
+			}
+			%%%===Đồng vị 16========%%%
+			\path (0,0) node (m) {\tikz{
+					\foreach \p/\m in {
+						(0,0)/\maunhan,(45:5pt)/\maunhan,
+						(-45:5pt)/\mauphu,(90:5pt)/\mauphu,
+						(0:5pt)/\mauphu,(180:5pt)/\mauphu,
+						(-135:6pt)/\maunhan,(135:6pt)/\maunhan,
+						(-90:7pt)/\maunhan,(90:8pt)/\mauphu,
+						(0:8pt)/\maunhan,(180:8pt)/\mauphu,
+						(-90:5pt)/\mauphu,(45:8pt)/\maunhan,
+						(-30:10pt)/\mauphu,(135:10pt)/\maunhan
+					}{
+						\path \p pic[ball color=\m] {hinhcau={3}};
+					}
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.4}};
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.8}};
+					%%%Electron%%%
+					%%lop1
+					\foreach \g in {0,180}{
+						\path (\g:{1.4cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+					%%lop2
+					\foreach \g in {45,105,165,215,275,335}{
+						\path (\g:{1.8cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+			}};
+			%%%===Đồng vị 17========%%%
+			\node[right=2cm of m] (h) {\tikz{
+					\foreach \p/\m in {
+						(0,0)/\mauphu,(45:5pt)/\maunhan,
+						(-45:5pt)/\mauphu,(90:5pt)/\maunhan,
+						(0:5pt)/\mauphu,(180:5pt)/\maunhan,
+						(-135:6pt)/\maunhan,(135:6pt)/\mauphu,
+						(-90:7pt)/\maunhan,(90:8pt)/\mauphu,
+						(0:8pt)/\mauphu,(180:8pt)/\maunhan,
+						(-90:5pt)/\maunhan,(45:8pt)/\mauphu,
+						(-30:10pt)/\mauphu,(135:10pt)/\maunhan,
+						(-135:11pt)/\mauphu
+					}{
+						\path \p pic[ball color=\m] {hinhcau={3}};
+					}
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.4}};
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.8}};
+					%%%Electron%%%
+					%%lop1
+					\foreach \g in {0,180}{
+						\path (\g:{1.4cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+					%%lop2
+					\foreach \g in {45,105,165,215,275,335}{
+						\path (\g:{1.8cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+					
+			}};
+			%%%===Đồng vị 18========%%%
+			\node [right=2cm of h] (b) {\tikz{
+					\foreach \p/\m in {
+						(0,0)/\mauphu,(45:5pt)/\maunhan,
+						(-45:5pt)/\mauphu,(90:5pt)/\maunhan,
+						(0:5pt)/\mauphu,(180:5pt)/\maunhan,
+						(-135:6pt)/\maunhan,(135:6pt)/\mauphu,
+						(-90:7pt)/\maunhan,(90:8pt)/\mauphu,
+						(0:8pt)/\mauphu,(180:8pt)/\maunhan,
+						(-90:5pt)/\maunhan,(45:8pt)/\mauphu,
+						(-30:10pt)/\mauphu,(135:10pt)/\maunhan,
+						(-135:11pt)/\mauphu,(90:11pt)/\mauphu
+					}{
+						\path \p pic[ball color=\m] {hinhcau={3}};
+					}
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.4}};
+					\path (0,0) pic[fill=\maunhan!30]{quydao={1.8}};
+					%%%Electron%%%
+					%%lop1
+					\foreach \g in {0,180}{
+						\path (\g:{1.4cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+					%%lop2
+					\foreach \g in {45,105,165,215,275,335}{
+						\path (\g:{1.8cm-1pt}) pic[ball color=gray!60!white] {hinhcau={2}};
+					}
+			}};
+			%%%=====Ghi chú ============
+			\path(h.south) node [anchor=north,yshift=-1cm] {\tikz{
+					\path (0,0) pic[ball color=gray!60!white,local bounding box=e] 	{hinhcau={4}};
+					\node [right= 3pt of e] (electron) {Electron};
+					\path ($(electron.east)+(1cm,0)$) pic[ball color=\maunhan,local 	bounding box=p] {hinhcau={6}};
+					\node [right= 3pt of p] (proton) {Proton};
+					\path ($(proton.east)+(1cm,0)$) pic[ball color=\mauphu,local 	bounding box=n] {hinhcau={6}};
+					\node [right= 3pt of n] (notron) {Neutron};
+			}};
+			%%%===Tên đồng vị===========%%%
+			\path (m.south) node[anchor=north,font=\color{\maunhan}\bfseries\small\sffamily]{Đồng vị $_{\phantom{1}8}^{16}O$};
+			\path (h.south) node[anchor=north,font=\color{\maunhan}\bfseries\small\sffamily]{Đồng vị $_{\phantom{1}8}^{17}O$};
+			\path (b.south) node[anchor=north,font=\color{\maunhan}\bfseries\small\sffamily]{Đồng vị $_{\phantom{1}8}^{18}O$};
+		\end{tikzpicture}
+		\captionof{figure}{Ba đồng vị phổ biến của Oxigen}
+		\label{fig:dongvioxi}
+	\end{center}
+\end{vidu}
+\Noibat{Nguyên tử khối trung bình}
+\Noibat[][][\faArrowCircleOLeft]{Nguyên tử khối}
+
+Nguyên tử khối là \indam{khối lượng tương đối} của một nguyên tử, cho biết nguyên tử đó nặng gấp bao nhiêu lần 1 \indam{amu}\footnote{Viết tắt của cụm từ \lq\lq atom mass unit \rq\rq}.
+
+\Noibat[][][\faArrowCircleOLeft]{Nguyên tử khối trung bình}
+
+\indam{Công thức tính nguyên tử khối trung bình:}
+\hopcttoan{\overset{\resizebox{0.27cm}{!}{\_}}{\mathsf{A}}=\frac{\mathsf{X} \cdot \mathsf{x}+\mathsf{Y} \cdot \mathsf{y}+\mathsf{Z} \cdot \mathsf{z}+\ldots}{\mathsf{x}+\mathsf{y}+\mathsf{Z}}}\\
+Trong đó :
+\begin{itemize}
+	\item X, Y, Z, $\ldots$ lần lượt là số khối của các đồng vị
+	\item x, y, z ,$\ldots$ là phần trăm số nguyên tử các đồng vị tương ứng.
+\end{itemize}
+\begin{tongket}{Em đã học}
+	\begin{itemize}
+		\item  Nguyên tố hoá học là tập hợp các nguyên tử có cùng số đơn vị điện tích hạt nhân.
+		\item  Đồng vị là những nguyên tử có cùng số đơn vị điện tích hạt nhân (cùng số proton) nhưng có số neutron khác nhau.
+		\item  Kí hiệu của nguyên tử: $\mathrm{Z} X$.
+		\item  Nguyên tử khối cho biết khối lượng nguyên tử đó nặng gấp bao nhiêu lần đơn vị khối lượng nguyên tử.
+		\item  Nguyên tử khối của một nguyên tố là nguyên tử khối trung bình của hỗn hợp các đồng vị của nguyên tố đó.
+	\end{itemize}
+\end{tongket}

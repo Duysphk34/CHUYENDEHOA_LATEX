@@ -1,0 +1,70 @@
+%%%=====================Muc luc============================%%%
+\usepackage{titletoc}
+\patchcmd{\tableofcontents}{\contentsname}{\bfseries\sffamily\contentsname}{}{}
+\makeatletter
+\newif\ifnotstarredversion
+\renewcommand{\numberline}[1]{#1.~}
+\renewcommand{\thechapter}{\Roman{chapter}}%\arabic{chapter}
+\renewcommand*\l@chapter[2]{%
+	\ifnum \c@tocdepth >-2\relax
+	\addpenalty{-\@highpenalty}%
+	\addvspace{10pt \@plus\p@}%
+	\setlength\@tempdima{3em}%
+	\begingroup
+	\tikz[remember picture]{
+		\path (0,0) coordinate (A)--(\linewidth,0) coordinate (B);%
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large,align=center,text width=\linewidth] (TEXT)
+		{{Chủ đề~#1 - Trang~#2}};
+		\fill[dnvang!65!black,rounded corners=3.5pt] ([xshift=-2pt]TEXT.north west) rectangle ([xshift=2pt]TEXT.south east);
+		\fill[dnvang!15,rounded corners=3pt] ([yshift=0.15pt]TEXT.north west) rectangle ([yshift=-0.15pt]TEXT.south east);
+		\hypersetup{linkcolor=dnvang!85!black}
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large\color{\mycolor!85!black},align=center,text width=\linewidth] (TEXT)
+		{{Chủ đề~#1 - Trang~#2}};
+	}
+	\par\bigskip
+	\penalty\@highpenalty
+	\setcounter{section}{0}
+	\endgroup
+	\fi
+}
+\makeatother
+
+\renewcommand{\thesection}{Bài \arabic{section}.\,}
+\titlecontents{section}
+[1.5cm]
+{\hypersetup{linkcolor=black}\vspace*{0.15\baselineskip}\large\sffamily\bfseries{\thecontentslabel\;}}
+{}{}
+{\titlerule*[0.65pc]{.}\thecontentspage}
+
+\renewcommand{\thesubsection}{\Roman{subsection}.}
+\titlecontents{subsection}
+[2.25cm]
+{\hypersetup{linkcolor=black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+{\titlerule*[1pc]{.}\thecontentspage}
+
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+\titlecontents{subsubsection}
+[2.85cm]
+{\hypersetup{linkcolor=black}\bfseries\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+{\titlerule*[1pc]{.}\thecontentspage}
+\makeatletter
+\renewcommand{\tableofcontents}{%
+	\newpage
+%	\markboth{ Mục lục}{ Mục lục}
+%	  \renewcommand{\rightmark}{\Large\bfseries\fmmfamily Phần Mục Lục}
+	\begin{center}
+		\begin{tcolorbox}[enhanced,hbox,breakable,
+			left=8mm,right=8mm,boxrule=0.55pt,
+			bottom=3pt,
+			colback=white,colframe=dnvang,
+			%drop fuzzy midday shadow=black!50!yellow,
+			drop lifted shadow=black!50!yellow,arc is angular,
+			before=\par\vspace*{-1mm},after=\par\bigskip]
+			{\bfseries\Large\color{dnvang}\sffamily MỤC LỤC} 
+		\end{tcolorbox}
+	\end{center}
+	\newcounter{somucluc}
+	\vskip-1.25cm
+	\@starttoc{toc}
+	}
+\makeatother

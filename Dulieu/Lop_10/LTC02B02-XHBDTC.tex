@@ -1,0 +1,111 @@
+	\subsubsection{Xu hướng biến đổi cấu hình electron lớp ngoài cùng nhóm A}
+\vspace{0.25 cm}
+\begin{tomtat}
+	\begin{enumerate}
+		\item Sau mỗi chu kì, cấu hình electron lớp ngoài cùng của nguyên tử các nguyên tố nhóm A được lặp đi lặp lại một cách tuần hoàn.\\
+		Cụ thể số electron lớp ngoài cùng tăng dần từ 1 đến 8
+		\begin{center}
+			\begin{tabular}{|l*{8}{c}|}
+				\hline
+				\textbf{Nhóm} &IA&IIA&IIIA&IVA&VA&VIA&VIIA&VIIIA\\
+				\textbf{Cấu hình e}& $ns^1$&$ns^2$&$ns^2np^1$&$ns^2np^2$&$ns^2np^3$&$ns^2np^4$&$ns^2np^5$&$ns^2np^6$\\
+				\hline
+			\end{tabular}
+			\captionof{table}{Cấu hình e lớp ngoài cùng của các nguyên tử nguyên tố nhóm A}
+		\end{center}
+		\item Sự biến đổi tuần hoàn cấu hình electron lớp ngoài cùng của nguyên tử các nguyên tố khi điện tích hạt nhân tăng dần là nguyên nhân của sự biến đổi tuần hoàn về tính chất của các nguyên tố.
+	\end{enumerate}
+\end{tomtat}
+\subsubsection{Xu hướng biến đổi bán kính nguyên tử}
+\vspace{0.25cm}
+\begin{hoivadap}
+	Một hạt nhân có điện tich là +Z sẽ hút electron bằng một lực với độ lớn $\mathrm{F}=\mathrm{a} \tfrac{\mathrm{Z}}{\mathrm{r}^2}$, trong đó: r là khoảng cách từ hạt nhân tới electron, a lả một hằng số. Hãy cho biết:
+	\begin{enumerate}[a)]
+		\item  Điện tich hạt nhân càng lớn thì lực hút electron càng mạnh hay càng yếu?
+		\item  Khoảng cách giữa electron và hạt nhân cảng lớn thì electron bị hạt nhân hút càng mạnh hay càng yếu?
+	\end{enumerate}
+\end{hoivadap}
+\vspace{0.25cm}
+\begin{tomtat}
+	\begin{center}
+		\resizebox{12cm}{!}{\begin{tikzpicture}[declare function={hsm=2.3;hsh=2.7;}]
+				% Khai báo biến bán kính với đơn vị là 1/400
+				\foreach \r/\n [count=\i] in {
+					248/${}_{37}Rb$,215/${}_{38}Sr$,167/${}_{49}In$,140/${}_{50}Sn$,140/${}_{51}Sb$,142/${}_{52}Te$,133/${}_{53}I$,
+					227/${}_{18}Ar$,197/${}_{20}Ca$,135/${}_{31}Ga$,122/${}_{32}Ge$,120/${}_{33}As$,119/${}_{34}Se$,114/${}_{35}Br$,
+					186/${}_{11}Na$,160/${}_{12}Mg$,143/${}_{13}Al$,118/${}_{14}Si$,110/${}_{15}P$,103/${}_{16}S$,100/${}_{17}Cl$,
+					152/${}_{3}Li$,112/${}_{4}Be$,85/${}_{5}B$,77/${}_{6}C$,75/${}_{7}N$,73/${}_{8}O$,72/${}_{9}F$
+				} {
+					% Tính toán vị trí x, y dựa trên chỉ số i
+					\pgfmathsetmacro{\x}{hsm*(mod(\i-1,7) + 1)}
+					\pgfmathsetmacro{\y}{hsh*(int((\i-1)/7) + 1)}
+					\path (\x,\y) node[color=white,circle, ball color=\mauphu, minimum size={\r/4}, inner sep=0pt,anchor=south] (circle-\i){\n};
+					\path (circle-\i.south) node[below] {\r};
+				}
+				\foreach \i [count=\c from 2] in{22,15,8,1} {
+					\path (circle-\i) node [xshift=-1.5cm,font=\Large\bfseries](ck-\c){\c};
+				}
+				
+				\foreach \i [count=\t from 1]  in{22,23,...,28} {
+					\path (circle-\i.south) node [yshift=1.8cm,font=\Large\bfseries]{\MakeUppercase{\romannumeral\t} A};
+				}
+				\draw[-latex,line width=2pt,line cap=round,line join=round] ([xshift=-2cm]circle-22.north)--([xshift=-2cm]circle-1.south) node[pos=0.5,below,sloped,font=\bfseries\sffamily]{Chiều tăng của bán kính nguyên tử};
+				
+				\draw[-latex,line width=2pt,line cap=round,line join=round,shorten <=-0.8cm,shorten >=-0.8cm] ([yshift=-0.8cm]circle-1.south)--([yshift=-0.8cm]circle-7.south) node[pos=0.5,below,sloped,font=\bfseries\sffamily]{Chiều giảm của bán kính nguyên tử};
+		\end{tikzpicture}}
+		\captionof{figure}{Giá trị bán kính nguyên tử}
+	\end{center}
+	Xu hướng biến đổi bán kính nguyên tử:
+	\begin{itemize}
+		\item  Trong một chu kì, bán kính nguyên tử giảm theo chiều tăng dần của điện tích hạt nhân.
+		\item  Trong một nhóm A , bán kính nguyên tử tăng theo chiều tăng dần của điện tích hạt nhân.
+	\end{itemize}
+\end{tomtat}
+\begin{hoivadap}
+	\begin{cauhoi}
+		Giải thích xu hướng biến đổi bán kính
+	\end{cauhoi}
+	\loigiai{
+		\begin{enumerate}
+			\item Xu hướng biến đổi bán kính nguyên tử trong một chu kỳ (theo hàng ngang):
+			\begin{itemize}
+				\item  Khi đi từ trái sang phải trong một chu kỳ bán kính nguyên tử giảm dần.
+				\item  Lý do:Khi di chuyển từ trái sang phải trong cùng một chu kỳ, số proton trong hạt nhân tăng lên, tức là điện tích hạt nhân tăng lên. Mặc khác số lớp electron không đổi, lực hút giữa hạt nhân (có điện tích dương) và các electron (có điện tích âm) mạnh hơn. Kết quả là các electron bị hút gần hơn về phía hạt nhân, làm cho bán kính nguyên tử giảm đi.
+			\end{itemize}
+			\item Xu hướng biến đổi bán kính nguyên tử trong một nhóm (theo cột dọc):
+			\begin{itemize}
+				\item  Khi đi từ trên xuống dưới trong một nhóm bán kính nguyên tử tăng dần.
+				\item  Lý do:Khi di chuyển từ trên xuống dưới trong cùng một nhóm, số lớp electron tăng lên (mỗi nguyên tử mới có thêm một lớp electron so với nguyên tử phía trên nó). Mặc dù điện tích hạt nhân cũng tăng lên, nhưng sự gia tăng về số lượng lớp electron làm tăng khoảng cách giữa hạt nhân và electron ngoài cùng. Điều này làm giảm lực hút giữa hạt nhân và các electron ngoài cùng, do đó bán kính nguyên tử tăng lên.
+			\end{itemize}
+		\end{enumerate}
+	}
+\end{hoivadap}
+
+\subsubsection{Xu hướng biến đổi độ âm điện}
+\vspace{0.25cm}
+\begin{tomtat}
+	\textbf{Độ âm điện} của một nguyên tử đặc trưng cho khả năng hút electron của nguyên tử đó khi tạo thành liên kết hoá học.\\
+	Xu hướng biến đổi độ âm điện theo chiều tăng dần của điện tích hạt nhân:
+	\begin{itemize}
+		\item Độ âm điện tăng từ trái qua phải trong một chu kì.
+		\\
+		Trong một chu kì, khi số electron lớp ngoài cùng tăng, điện tích hạt nhân tăng thì lực hút giữa hạt nhân với các electron lớp ngoài cùng tăng nên độ âm điện tăng.
+		\item Độ âm điện giảm từ trên xuống dưới trong một nhóm A.
+		\\
+		Trong một nhóm A , khi số lớp electron tăng, lực hút giữa hạt nhân với các electron lớp ngoài cùng giảm nên độ âm điện giảm.
+	\end{itemize}
+\end{tomtat}
+\subsubsection{Xu hướng biến đổi tính kim loại, tính phi kim}
+\vspace{0.25cm}
+\begin{tomtat}
+	\Noibat{Khái niệm}
+	\begin{itemize}
+		\item \textbf{Tính kim loại} là tính chất của một nguyên tố mà nguyên tử của nó dễ nhường electron để trở thành ion dương. Nguyên tử của nguyên tố nào càng dễ nhường electron để trở thành ion dương, tính kim loại của nguyên tố đó càng mạnh.
+		\item \textbf{Tính phi kim} là tính chất của một nguyên tố mà nguyên tử của nó dễ nhận electron để trở thành ion âm. Nguyên tử của nguyên tố nào càng dễ nhận electron để trở thành ion âm, tính phi kim của nguyên tố đó càng mạnh.
+	\end{itemize}
+	\Noibat{Xu hướng biến đổi}
+	\begin{itemize}
+		\item  \textbf{Trong một chu kì}, theo chiều tăng dần của điện tích hạt nhân, tính kim loại giảm dần và tính phi kim tăng dần. Do bán kính nguyên tử giảm, lực hút giữa hạt nhân với các electron lớp ngoài cùng tăng, dẫn đến khả năng nhường electron giảm nên tính kim loại giảm, khả năng nhận electron tăng nên tính phi kim tăng.
+		\item  \textbf{Trong một nhóm A}, theo chiều tăng dần của điện tích hạt nhân, tính kim loại tăng dần và tính phi kim giảm dần. Tuy điện tích hạt nhân tăng dần, nhưng bán kính nguyên tử tăng nhanh hơn, lực hút giữa hạt nhân với các electron lớp ngoài cùng giảm dẫn đến khả năng nhường electron tăng nên tính kim loại tăng, khả năng nhận electron giảm nên tính phi kim giảm.
+	\end{itemize}
+\end{tomtat}

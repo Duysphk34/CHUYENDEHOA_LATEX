@@ -1,0 +1,888 @@
+\newpage
+\begin{dangntd}{Phản ứng thủy phân este đơn chức}
+	\begin{ntdppg}{Lý thuyết và phương pháp giải}
+		\begin{itemize}
+		\item Trong môi trường axit:
+		\schemestart
+		\chemfig{RCOOR’}
+		\+
+		\chemfig{H_2O}
+		\arrow{<=>[\scriptsize$ H^+,t^\circ$][][]}[,0.6,,,]
+		\chemfig{RCOOH}
+		\+
+		\chemfig{R'OH}
+		\schemestop
+		
+		\item Trong môi trường bazơ (phản ứng xà phòng hóa):
+		
+		\schemestart
+		\chemfig{RCOOR’}
+		\+
+		\chemfig{NaOH}
+		\arrow{->[\scriptsize$t^\circ$][][]}[,0.6,,,]
+		\chemfig{RCOONa}
+		\+
+		\chemfig{R'OH}
+		\schemestop
+		
+		\begin{itemize}
+			\item Nếu este đơn chức (không phải este của phenol) thì:
+			\tcbox[colback=\mycolor!10]{$ n_{\text{este}} = n_{\text{NaOH}} = n_{\text{muối}} = n_{\text{ancol}} $.}
+			
+			\item Bảo toàn khối lượng
+			\tcbox[colback=\mycolor!10,colframe=\mycolor!40!black]{$ m_{\text{este}} + m_{\text{NaOH}} = m_{\text{muối}} + m_{\text{ancol}} $.}
+			
+			\item Nếu este dư không tính vào chất rắn khan
+			\tcbox[colback=\mycolor!10,colframe=\mycolor!40!black]{$ m_{\text{rắn khan}} = m_{\text{muối}} + m_{\text{NaOH dư}}$}
+		   
+		   
+		   \item Nếu khối lượng muối $ > $ khối lượng este thì $ R'=\chemfig{CH_3} $
+		   
+		   \item $ m_{\text{este}} <104  $ thì este đơn chức
+	
+\end{itemize}
+		
+		\end{itemize}
+	\end{ntdppg}
+\begin{notegsnd}
+	Phân tử khối\par
+\vspace{12pt}
+	\begin{tabular}{|L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}L{0.2\textwidth}|}
+		\hline
+       \rowcolor{\mycolor!20}	
+      \textbf{Gốc R} & \textbf{Ancol}  &\textbf{ Muối} &  \textbf{Este} \\
+  		\hline
+  		
+ \chemfig{CH_3-:} 15 &  \chemfig{CH_3OH:} 32  & \chemfig{HCOONa:} 68 &  \chemfig{C_2H_4O_2:} 60\\
+ \chemfig{C_2H_5-:} 29 &  \chemfig{C_2H_5OH:} 46  & \chemfig{CH_3COONa:} 82 &  \chemfig{C_3H_6O_2:} 74\\
+ \chemfig{C_3H_7-:} 43 &  \chemfig{C_3H_7OH::} 60  & \chemfig{C_2H_5COONa:} 96 &  \chemfig{C_4H_8O_2:} 88\\ 		
+ \chemfig{CH_2=CH-} 27 &  \chemfig{C_3H_5{(OH)}_3:} 92  & \chemfig{HCOOK:} 84 &  \chemfig{C_4H_6O_2:} 86\\ 
+  	  \hline	
+	\end{tabular}
+\end{notegsnd}
+\end{dangntd}
+\newpage
+\nhanmanh{ TH1:ESTE CỦA ANCOL}
+\begin{vdm}{Ví dụ minh họa}
+	
+\end{vdm}
+
+\Opensolutionfile{ansbt}[DAPAN/VDMdang2Chitiet]
+\Opensolutionfile{ans}[DAPAN/VDMdang2]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bắt đầu ví dụ 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{vdex}[1][Xà phòng hóa este đơn chức][]
+Xà phòng hóa $ 5,28~\mathrm{gam} $ etyl axetat bằng $ 250~\mathrm{ml} $ dung dịch $NaOH$  $0,2~\mathrm{M} $ . Cô cạn dung dịch sau phản ứng, thu được chất rắn khan có khối lượng là
+\choice
+{%
+	$ 4,98~\mathrm{gam} $
+}
+{%
+	\True $ 4,10~\mathrm{gam} $
+}
+{%
+	$ 4,92~\mathrm{gam} $
+}
+{%
+	$ 4,52~\mathrm{gam} $
+}
+	\loigiai
+{%
+Phương trình phản ứng:\par
+
+\begin{tabular}{ccccccc}
+	\chemfig{CH_3COOC_2H_5}	&$ + $ &\chemfig{NaOH}  &
+	\begin{tikzpicture}
+		\tikzset{%
+			
+			muiten/.pic={%
+				\def\d{1.0cm}
+				\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}] (0,0)--++(\d,0);
+			}
+		}
+		
+		\path pic [local bounding box=A1] at (0,0) {muiten};
+	\end{tikzpicture} 
+	& \chemfig{CH_3COONa}&$ + $ &\chemfig{C_2H_5OH}\\
+	$ 0.06~\mathrm{mol} $ &  &  $ 0.05~\mathrm{mol}$ &   &   &     & \\
+	$ 0.06~\mathrm{mol} $ & \begin{tikzpicture}
+		\tikzset{%
+			
+			muiten/.pic={%
+				\def\d{1.0cm}
+				\draw[<-,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}] (0,0)--++(\d,0);
+			}
+		}
+		
+		\path pic [local bounding box=A1] at (0,0) {muiten};
+	\end{tikzpicture}  &  $ 0.05~\mathrm{mol}$ & \begin{tikzpicture}
+		\tikzset{%
+			
+			muiten/.pic={%
+				\def\d{1.0cm}
+				\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}] (0,0)--++(\d,0);
+			}
+		}
+		
+		\path pic [local bounding box=A1] at (0,0) {muiten};
+	\end{tikzpicture}   & $ 0.05~\mathrm{mol}$  &     &  \\
+\end{tabular}
+
+Ta có : $ n_{CH_3COOC_2H_5}=\dfrac{5.28}{88} =0.06~\mathrm{mol}$\par
+$ n_{NaOH}=0.05~\mathrm{mol}$\par
+Vì $ n_{NaOH}< n_{CH_3COOC_2H_5}$ nên sau phản ứng  NaOH hết, \chemfig{CH_3COOC_2H_5} dư\par
+$\Rightarrow m_{\text{rắn khan}}=m_{CH_3COONa}=0,05.82 =4.10~\mathrm{gam} $
+}
+\end{vdex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Kết thúc ví dụ 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bắt đầu ví dụ 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{vdex}[1][Xà phòng hóa este đơn chức][]
+Xà phòng hóa hoàn toàn $ 7.4~\mathrm{gam} $ metyl axetat bằng dung dịch $ NaOH $ dư,thu đuọc m gam muối. Giá trị của m là
+\choice
+{%
+ $ 11,00 $
+}
+{%
+	 $ 9,60 $
+}
+{%
+	$ 6,80 $
+}
+{%
+   \True $ 8,20 $
+}
+\huongdan
+ {%
+ 	Phương trình phản ứng:\par
+ 	\begin{tabular}{ccccccc}
+ 		\chemfig{CH_3COOCH_3}	&$ + $ &\chemfig{NaOH}  &
+ 		\begin{tikzpicture}
+ 			\tikzset{%
+ 				muiten/.pic={%
+ 					\def\d{1.0cm}
+ 					\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}] (0,0)--++(\d,0);
+ 				}
+ 			}
+ 			\path pic [local bounding box=A1] at (0,0) {muiten};
+ 		\end{tikzpicture} 
+ 		& \chemfig{CH_3COONa}&$ + $ &\chemfig{CH_3OH}\\
+ 	\end{tabular}
+ 
+ 	Vì \chemfig{NaOH} dư nên $ m_{\text{muối}} = m_{\text{metyl axetat}} $
+ 	
+ }
+\end{vdex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Kết thúc ví dụ 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bắt đầu ví dụ 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{vdex}[1][Xà phòng hóa este đơn chức][]
+	Xà phòng hóa hoàn toàn $ 3.52~\mathrm{gam} $ etyl axetat bằng $ 225~\mathrm{ml} $ dung dịch $ NaOH \ 0.2~\mathrm{M}$.Cô cạn dung dịch sau phản ứng thu được chất rắn khan có khối lượng là:
+	\choice
+	{%
+		$ 3.69~\mathrm{gam}$
+	}
+	{%
+		$ 3.28~\mathrm{gam}$
+	}
+	{%
+		$ 5.32~\mathrm{gam}$
+	}
+	{%
+		\True  $3.48~\mathrm{gam}$
+	}
+\huongdan{%
+	Ta có $ n_{CH_3COOC_2H_5}=0.04~\mathrm{mol} $ ; $ n_{NaOH}=0.045~\mathrm{mol} $
+\noindent
+	Phương trình phản ứng:
+	
+	\begin{tabular}{ccccccc}
+		\chemfig{CH_3COOC_2H_5}	&$ + $ &\chemfig{NaOH}  &
+		\begin{tikzpicture}
+			\tikzset{%
+				muiten/.pic={%
+					\def\d{1.0cm}
+					\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}] (0,0)--++(\d,0);
+				}
+			}
+			\path pic [local bounding box=A1] at (0,0) {muiten};
+		\end{tikzpicture} 
+		& \chemfig{CH_3COONa}&$ + $ &\chemfig{C_2H_5OH}\\
+	\end{tabular}
+
+Vì $ n_{NaOH} > n_{CH_3COOC_2H_5}$	nên NaOH còn dư, do đó $ m_{\text{rấn khan}}= m_{CH_3COONa} + m_{NaOH} $
+}
+\end{vdex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Kết thúc ví dụ 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bắt đầu ví dụ 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{vdex}[2][Xác định công thức của este][]
+	Xà phòng hóa hoàn toàn m gam este X đơn chức cần vừa đủ $ 150 ~\mathrm{ml} $ dung dịch $ NaOH~1\mathrm{M} $, thu đươc 12.3 gam muối Y và 6.9 gam ancol Z. Công thức cấu tạo của X là
+	\choice
+	{%
+	\chemfig{HCOOCH_3}
+	}
+	{%
+		\chemfig{CH_3OOCH_3}
+	}
+	{%
+		\chemfig{HCOOC_2H_5}
+	}
+	{%
+	\True \chemfig{CH_3COOC_2H_5}
+	}
+	\huongdan
+	{%
+	Ta có :	$ n_{NaOH}=0.15~\mathrm{mol} $
+	
+	Phương trình hóa học:
+	
+		\begin{tabular}{*8{c}}
+		\chemfig{RCOOR'}	&$ + $ &\chemfig{NaOH}  &
+		\begin{tikzpicture}
+			\tikzset{%
+				muiten/.pic={%
+					\def\d{1.0cm}
+					\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}]  (0,0)--++(\d,0) node[sloped,above,pos=.5] {$ t^\circ $};
+				}
+			}
+			\path pic [local bounding box=A1] at (0,0) {muiten};
+		\end{tikzpicture} 
+		& \chemfig{RCOONa}&$ + $ &\chemfig{R'OH}&\\
+		&  &$ 0.15 $ & \begin{tikzpicture}
+			\tikzset{%
+				muiten/.pic={%
+					\def\d{1.0cm}
+					\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}]  (0,0)--++(\d,0);
+				}
+			}
+			\path pic [local bounding box=A1] at (0,0) {muiten};
+		\end{tikzpicture}  & $ 0.15 $ & \begin{tikzpicture}
+		\tikzset{%
+			muiten/.pic={%
+				\def\d{1.0cm}
+				\draw[->,>=stealth][thick,\mycolor!40!black,transform canvas={yshift=4pt}]  (0,0)--++(\d,0);
+			}
+		}
+		\path pic [local bounding box=A1] at (0,0) {muiten};
+	\end{tikzpicture} & $ 0.15 $ & (mol)  \\
+	\end{tabular}
+
+Ta có : 
+{%
+\setlength\arraycolsep{2pt} %%tùy chỉnh khoảng cách ngang
+\renewcommand{\arraystretch}{1.6}%%tùy chỉnh khoảng cách dọc
+$ \left\{ \hspace*{-4pt}
+ \begin{array}{l}
+M_{RCOONa}	=\dfrac{12.3}{0.15} = 82\\
+M_{R'OH}	=\dfrac{6.9}{0.15} = 46	
+\end{array} 
+\right. $
+$\Rightarrow$ 
+$ \left\{ \hspace*{-4pt}
+\begin{array}{l}
+	M_{R} = 82-67= 15\  (\chemfig{CH_3-})\\
+	M_{R'} = 46-17= 29 \ (\chemfig{C_2H_5-})	
+\end{array} 
+\right. $
+}
+
+Vậy công thức của este là:\chemfig{CH_3COOC_2H_5}
+
+	}
+
+\end{vdex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Kết thúc ví dụ 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bắt đầu ví dụ 5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{vdex}[2][Xác định công thức của este][]
+	Xà phòng hóa hoàn toàn m gam este X đơn chức cần vừa đủ $ 150 ~\mathrm{ml} $ dung dịch $ NaOH~1\mathrm{M} $, thu đươc 12.3 gam muối Y và 6.9 gam ancol Z. Công thức cấu tạo của X là
+	\choice
+	{%
+		\chemfig{HCOOCH_3}
+	}
+	{%
+		\chemfig{CH_3OOCH_3}
+	}
+	{%
+		\chemfig{HCOOC_2H_5}
+	}
+	{%
+		\True \chemfig{CH_3COOC_2H_5}
+	}
+	\huongdan
+	{%
+		
+	}
+	
+\end{vdex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Kết thúc ví dụ 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bắt đầu ví dụ 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{bttl}{Bài tập tự luyện}
+
+\end{bttl}
+
+\Opensolutionfile{ans}[DAPAN/BTTL02]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 1  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ex}[1][Cơ bản]
+	Thủy phân hoàn toàn $ 4,4  $ gam etyl axetat cần vừa đủ $ V $ ml dung dịch NaOH $ 0.5~\mathrm{M} $ dun nóng. Giá trị của $ V $ là:
+	\choice
+	{%
+	$ 50 $
+}
+	{%
+	$ 150 $
+}
+	{%
+	$ 200 $
+}
+	{%
+\True $ 100 $
+}
+
+\sodongkeex[4]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 4: Xà phòng hóa hoàn toàn $\mathrm{m}_1$ gam hỗn hợp gồm $\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{HCOOCH}_3$ bằng lượng vừa đủ $200 \mathrm{ml}$ dung dịch $\mathrm{NaOH} 1 \mathrm{M}$. Sau khi phản ứng xảy ra hoàn toàn, thu được $\mathrm{m}$ gam ancol. Giá trị của $\mathrm{m}_2$ là
+%A. 12,3 .
+%B. 6,4 .
+%C. 3,2 .
+%D. 9,2 .
+\begin{ex}[2][]
+	Xà phòng hóa hoàn toàn $\mathrm{m}_1$ gam hỗn hợp gồm $\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{HCOOCH}_3$ bằng lượng vừa đủ $200 \mathrm{ml}$ dung dịch $\mathrm{NaOH} 1 \mathrm{M}$. Sau khi phản ứng xảy ra hoàn toàn, thu được $\mathrm{m}$ gam ancol. Giá trị của $\mathrm{m}_2$ là                                                                      
+	\choice
+	{%
+		$ 12,3 $
+	}
+	{%
+		\True $ 6,4 $
+	}
+	{%
+		$ 3,2 $
+	}
+	{%
+		 $ 9,2 $
+	}
+\sodongkeex[4]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 7: Cho 8,8 gam este $\mathrm{X}$ có công thức phân tử $\mathrm{C}_4 \mathrm{H}_8 \mathrm{O}_2$ tác dụng với dung dịch chứa $0,15 \mathrm{~mol} \mathrm{NaOH}$. Cô cạn dung dịch sau phản ứng thu được 11,6 gam chất rắn khan. Công thức cấu tạo của $X$ là
+%A. $\mathrm{HCOO}-\mathrm{CH}_2-\mathrm{CH}_2-\mathrm{CH}_3$.
+%B. $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOCH}_3$.
+%C. $\mathrm{C}_2 \mathrm{H}_3 \mathrm{COOCH}_3$.
+%D. $\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$.
+\begin{ex}[2][]
+	Cho 8,8 gam este $\mathrm{X}$ có công thức phân tử $\mathrm{C}_4 \mathrm{H}_8 \mathrm{O}_2$ tác dụng với dung dịch chứa $0,15 \mathrm{~mol} \mathrm{NaOH}$. Cô cạn dung dịch sau phản ứng thu được 11,6 gam chất rắn khan. Công thức cấu tạo của $X$ là                                                                  
+	\choice
+	{%
+		$\mathrm{HCOO}-\mathrm{CH}_2-\mathrm{CH}_2-\mathrm{CH}_3$
+	}
+	{%
+	\True $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOCH}_3$
+	}
+	{%
+		$\mathrm{C}_2 \mathrm{H}_3 \mathrm{COOCH}_3$
+	}
+	{%
+		$\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$
+	}
+	\sodongkeex[5]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 8: Xà phòng hóa hoàn toàn 41,2 gam hỗn hợp $\mathrm{X}$ gồm hai este đơn chức bằng dung dịch $\mathrm{NaOH}$, thu được 45,2 gam hỗn hợp hai muối của hai axit cacboxylic đồng đẳng kế tiếp và $16 \mathrm{gam}$ một ancol. Công thức của hai este trong $X$ là
+%A. $\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$ và $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOC}_2 \mathrm{H}_5$.
+%B. $\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOCH}_3$.
+%C. $\mathrm{HCOOC}_2 \mathrm{H}_5$ và $\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$.
+%D. $\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{HCOOCH}_3$.
+\begin{ex}[2][]
+	Xà phòng hóa hoàn toàn 41,2 gam hỗn hợp $\mathrm{X}$ gồm hai este đơn chức bằng dung dịch $\mathrm{NaOH}$, thu được 45,2 gam hỗn hợp hai muối của hai axit cacboxylic đồng đẳng kế tiếp và $16 \mathrm{gam}$ một ancol. Công thức của hai este trong $X$ là                                                          
+	\choice
+	{%
+		$\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$ và $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOC}_2 \mathrm{H}_5$
+	}
+	{%
+		\True $\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{C}_2 \mathrm{H}_5 \mathrm{COOCH}_3$
+	}
+	{%
+		$\mathrm{HCOOC}_2 \mathrm{H}_5$ và $\mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5$
+	}
+	{%
+		$\mathrm{CH}_3 \mathrm{COOCH}_3$ và $\mathrm{HCOOCH}_3$
+	}
+	\sodongkeex[5]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bài tập nâng cao
+%Câu 14: Cho 4,4 gam este có công thức phân tử $\mathrm{C}_4 \mathrm{H}_8 \mathrm{O}_2$ tác dụng với dung dịch $\mathrm{NaOH}$ vừa đủ, thu được $\mathrm{m}$ gam ancol $\mathrm{Y}$. Đun $\mathrm{Y}$ với dung dịch $\mathrm{H}_2 \mathrm{SO}_4$ đặc ở nhiệt độ thích hợp, thu được chất hữu cơ $\mathrm{Z}$, có tỉ khối hơi so với Y bằng 1,7 . Biết các phản ứng xảy ra hoàn toàn. Giá trị của $m$ là
+%A. 3,00 .
+%B. 2,55 .
+%C. 2,30 .
+%D. 1,60 .
+\begin{ex}[3][]
+	Cho 4,4 gam este có công thức phân tử $\mathrm{C}_4 \mathrm{H}_8 \mathrm{O}_2$ tác dụng với dung dịch $\mathrm{NaOH}$ vừa đủ, thu được $\mathrm{m}$ gam ancol $\mathrm{Y}$. Đun $\mathrm{Y}$ với dung dịch $\mathrm{H}_2 \mathrm{SO}_4$ đặc ở nhiệt độ thích hợp, thu được chất hữu cơ $\mathrm{Z}$, có tỉ khối hơi so với Y bằng 1,7 . Biết các phản ứng xảy ra hoàn toàn. Giá trị của $m$ là                                                       
+	\choice
+	{%
+	\True	$ 3,00 $
+	}
+	{%
+		$ 2,55 $
+	}
+	{%
+		$2,30$
+	}
+	{%
+		$1,60$
+	}
+	\sodongkeex[5]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 16: Thủy phân 9,25 gam hai este có cùng công thức phân tử $\mathrm{C}_3 \mathrm{H}_6 \mathrm{O}_2$ bằng dung dịch $\mathrm{NaOH}$ vừa đủ. Cô cạn dung dịch sau phản ứng thu được hỗn hợp ancol $Y$ và $m$ gam chất rắn khan $Z$. Đun nóng $Y$ với $\mathrm{H}_2 \mathrm{SO}_4$ đặc ở  $135^{\circ} \mathrm{C}$, thu được 3,575 gam hỗn hợp các ete. Giá trị của m là
+%A. 10,0 .
+%B. 9,55 .
+%C. 10,55 .
+%D. 8,55 .
+\begin{ex}[3][]
+	Thủy phân 9,25 gam hai este có cùng công thức phân tử $\mathrm{C}_3 \mathrm{H}_6 \mathrm{O}_2$ bằng dung dịch $\mathrm{NaOH}$ vừa đủ. Cô cạn dung dịch sau phản ứng thu được hỗn hợp ancol $Y$ và $m$ gam chất rắn khan $Z$. Đun nóng $Y$ với $\mathrm{H}_2 \mathrm{SO}_4$ đặc ở  $135^{\circ} \mathrm{C}$, thu được 3,575 gam hỗn hợp các ete. Giá trị của m là                           
+	\choice
+	{%
+		$ 10,0 $
+	}
+	{%
+	\True	$ 9,55 $
+	}
+	{%
+	$ 	10,55 $
+	}
+	{%
+	$ 	8,55 $
+	}
+	\sodongkeex[5]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 18: Thủy phân hoàn toàn hỗn hợp gồm hai este đơn chức $X$, Y là đồng phân cấu tạo của nhau cần vừa đủ $100 \mathrm{ml}$ dung dịch $\mathrm{NaOH} 1 \mathrm{M}$, thu được 7,85 gam hỗn hợp muối của hai axit là đồng đẳng kế tiếp và 4,95 gam hai ancol bậc I. Công thức cấu tạo và phần trăm khối lượng của hai este là
+%A. $\mathrm{HCOOC}_2 \mathrm{H}_5, 45 \% ; \mathrm{CH}_3 \mathrm{COOCH}_3, 55 \%$.
+%C. $\mathrm{HCOOC}_3 \mathrm{H}_7, 25 \% ; \mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5, 75 \%$.
+%B. $\mathrm{HCOOC}_3 \mathrm{H}_7, 75 \% ; \mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5, 25 \%$.
+%D. $\mathrm{HCOOC}_2 \mathrm{H}_5, 55 \% ; \mathrm{CH}_3 \mathrm{COOCH}_3, 45 \%$.
+\begin{ex}[3][]
+	Thủy phân hoàn toàn hỗn hợp gồm hai este đơn chức $X$, Y là đồng phân cấu tạo của nhau cần vừa đủ $100 \mathrm{ml}$ dung dịch $\mathrm{NaOH} 1 \mathrm{M}$, thu được 7,85 gam hỗn hợp muối của hai axit là đồng đẳng kế tiếp và 4,95 gam hai ancol bậc I. Công thức cấu tạo và phần trăm khối lượng của hai este là                
+	\choice
+	{%
+		$\mathrm{HCOOC}_2 \mathrm{H}_5, 45 \% ; \mathrm{CH}_3 \mathrm{COOCH}_3, 55 \%$
+	}
+	{%
+		$\mathrm{HCOOC}_3 \mathrm{H}_7, 75 \% ; \mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5, 25 \%$
+	}
+	{%
+	\True	$\mathrm{HCOOC}_3 \mathrm{H}_7, 25 \% ; \mathrm{CH}_3 \mathrm{COOC}_2 \mathrm{H}_5, 75 \%$
+	}
+	{%
+		$\mathrm{HCOOC}_2 \mathrm{H}_5, 55 \% ; \mathrm{CH}_3 \mathrm{COOCH}_3, 45 \%$
+	}
+	\sodongkeex[5]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Câu 8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Câu 20: Thủy phân 17,2 gam este đơn chức $A$ trong $50 \mathrm{gam}$ dung dịch $\mathrm{NaOH} 28 \%$ thu được dung dịch $X$. Cô cạn dung dịch $X$ thu được chất rắn $Y$ và 42,4 gam ancol $Z$. Cho toàn bộ chất lỏng $Z$ tác dụng với một lượng $N a$ dư thu được 24,64 lít $\mathrm{H}_2$ (đktc). Đun toàn bộ chất rắn $\mathrm{Y}$ với $\mathrm{CaO}$ thu được $\mathrm{m}$ gam chất khí. Các phản ứng xảy ra hoàn toàn. Giá trị của $m$ là
+%A. 5,60 .
+%B. 4,20 .
+%C. 6,00 .
+%D. 4,50 .
+
+\begin{ex}[3][]
+Thủy phân 17,2 gam este đơn chức $A$ trong $50 \mathrm{gam}$ dung dịch $\mathrm{NaOH} ~28 \%$ thu được dung dịch $X$. Cô cạn dung dịch $X$ thu được chất rắn $Y$ và 42,4 gam ancol $Z$. Cho toàn bộ chất lỏng $Z$ tác dụng với một lượng $N a$ dư thu được 24,64 lít $\mathrm{H}_2$ (đktc). Đun toàn bộ chất rắn $\mathrm{Y}$ với $\mathrm{CaO}$ thu được $\mathrm{m}$ gam chất khí. Các phản ứng xảy ra hoàn toàn. Giá trị của $m$ là           
+	\choice
+	{%
+		$ 5,60 $
+	}
+	{%
+	\True	$4,20$
+	}
+	{%
+		$ 6,00 $
+	}
+	{%
+		$ 4,50 $
+	}
+	\sodongkeex[10]
+\end{ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thúc Câu 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Closesolutionfile{ans}
+
+
+
+
+
+
+\nhanmanh{TH2:ESTE CỦA ANKIN}
+\begin{vdm}{Ví dụ minh họa}
+\end{vdm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Kết thức Ví dụ 5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bắt đầu Ví dụ 6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{vdex}[2][]
+	Xà phòng hóa hoàn toàn este đơn chức, mạch hở X bằng NaOH dư thu được 16,4 gam muối và 8,8 gam chất hữu cơ Y. Cho Y tác dụng với ${AgNO}_3$ trong ${NH}_3$ dư thu được 43,2 gam kết tủa. Công thức cấu tạo của X là
+	\choice
+	{ %
+		${HCOOCH}_2$ – CH=${CH}_2$
+	}
+	{%
+		 HCOOCH=${CH}_2$
+	}
+	{%
+		\True ${CH}_3$COOCH=${CH}_2$
+	}
+	{%
+		${CH}_3$COOCH=CH-${CH}_3$
+    }
+	\huongdan{}
+\end{vdex}
+
+\begin{vdex}[2]% Cau 2
+	Este X mạch hở, có công thức phân tử ${C}_4{H}_6{O}_2$. Đun nóng a mol X trong dung dịch NaOH vừa đủ, thu được dung dịch Y. Cho toàn bộ Y tác dụng với lượng dư dung dịch ${AgNO}_3$ trong ${NH}_3$, thu được 4a mol Ag. Biết các phản ứng xảy ra hoàn toàn. Công thúc cấu tạo của X là
+	\choice
+	{ ${CH}_2$CH-COO-${CH}_3$}
+	{ ${CH}_3$COO-CH=${CH}_2$}
+	{\True HCOO-CH=CH-${CH}_3$}
+	{ HCOO-${CH}_2$-CH=${CH}_2$}
+	\huongdan{}
+\end{vdex}
+
+\begin{vdex}[2]% Cau 3
+	Chất hữu cơ X có công thức phân tử ${C}_5{H}_8{O}_2$. Cho 5 gam X tác dụng vừa hết với dung dịch NaOH, thu được một hợp chất hữu cơ có khả năng tráng bạc và 3,4 gam một muối. Công thức của X là
+	\choice
+	{ ${HCOOCH}_2$CH=${CHCH}_3$}
+	{ HCOOC(${CH}_3$)=${CHCH}_3$}
+	{\True HCOOCH=${CHCH}_2{CH}_3$}
+	{ ${CH}_3$COOC(${CH}_3$)=${CH}_2$}
+	\huongdan{
+	}
+\end{vdex}
+\begin{bttl}{Bài tập tự luyện}
+\end{bttl}
+\Opensolutionfile{ans}[DAPAN/BTTL0202]
+\begin{ex}[2]% Cau 4
+	Xà phòng hóa hoàn toàn este đơn chức, mạch hở X bằng KOH dư thu được 9,8 gam muối và 5,8 gam chất hữu cơ Y. Cho Y tác dụng với ${AgNO}_3$ trong ${NH}_3$ dư thu được 21,6 gam kết tủa. Công thức cấu tạo của X là
+	\choice
+	{\True ${CH}_3$COOCH=CH-${CH}_3$}
+	{ ${CH}_3$COOCH=${CH}_2$}
+	{ HCOOCH=${CH}_2$}
+	{ ${HCOOCH}_2$ – CH=${CH}_2$}
+	\sodongkeex[6]
+\end{ex}
+
+\begin{ex}[2]% Cau 5
+	Este X có công thức ${C}_5{H}_8{O}_2$. Thực hiện phản ứng xà phòng hóa 5 gam X với NaOH dư, đến khi phản ứng hoàn toàn thu được 4,1 gam muối và chất hữu cơ Y có khả năng tham gia phản ứng tráng bạc. Công thức cấu tạo của X là
+	\choice
+	{\True ${CH}_3$COOCH=CH-${CH}_3$}
+	{ HCOOCH=C(${CH}_3$)${}_2$}
+	{ ${CH}_3{COOCH}_2$ – CH=${CH}_2$}
+	{ ${C}_2{H}_5$COOCH=${CH}_2$}
+	\sodongkeex[6]
+\end{ex}
+
+\begin{ex}[2]% Cau 6
+Este X không no, mạch hở, có tỉ khối hơi so với oxi bằng 3,125 và khi tham gia phản ứng xà phòng hoá tạo ra một anđehit và một muối của axit hữu cơ. Có bao nhiêu công thức cấu tạo phù hợp với X?
+	\choice
+	{ 3}
+	{ 2}
+	{\True 4}
+	{ 5}
+	\sodongkeex[6]
+\end{ex}
+\Closesolutionfile{ans}
+
+
+
+\nhanmanh{TH3:ESTE CỦA PHENOL}
+\begin{vdm}{Ví dụ minh họa}
+\end{vdm}
+	\begin{vdex}[3]% Cau 1
+	Cho hỗn hợp X gồm hai este có cùng công thức phân tử ${C}_9{H}_8{O}_2$ và đều chứa vòng benzen. Để phản ứng hết với 7,4 gam X cần tối đa 75 ml dung dịch NaOH 1M, thu được dung dịch Y chứa m gam hai muối. Dung dịch Y tác dụng với lượng dư dung dịch ${AgNO}_3$ trong ${NH}_3$, thu được 16,2 gam Ag. Biết các phản ứng xảy ra hoàn toàn. Giá trị của m là
+	\choice
+	{\True 6,95}
+	{ 9,95}
+	{ 9,50}
+	{ 3,40}
+	\huongdan{
+
+	}
+\end{vdex}
+
+\begin{vdex}[2]% Cau 2
+	Đốt cháy hoàn toàn 20,16 gam hỗn hợp X gồm ba este đều đơn chức cần dùng 1,16 mol ${O}_2$, thu được ${CO}_2$ và 11,52 gam ${H}_2$O. Mặt khác đun nóng 20,16 gam X với dung dịch NaOH vừa đủ, thu được hỗn hợp Y gồm hai ancol kế tiếp trong dãy đồng đẳng và 25,2 gam hỗn hợp Z gồm hai muối. Dẫn toàn bộ Y qua bình đựng Na dư, thấy khối lượng bình tăng 5,06 gam. Phần trăm khối lượng của este có khối lượng phân tử nhỏ nhất trong hỗn hợp X là
+	\choice
+	{ 17,86\%}
+	{\True 22,02\%}
+	{ 17,46\%}
+	{ 26,19\%}
+	\huongdan{%
+		
+}
+\end{vdex}
+
+\begin{vdex}[2][(Sở HN – L2 - 2020)]% Cau 4
+	Cho 26,8 gam hỗn hợp X gồm hai este đơn chức tác dụng vừa đủ với 350 ml dung dịch NaOH 1M. Sau khi phản ứng kết thúc, thu được ancol T và m gam hỗn hợp Y gồm hai muối. Đốt cháy hoàn toàn T thu được 6,72 lít khí ${CO}_2$(đktc) và 8,1 gam nước. Giá trị của m là
+	\choice
+	{\True 32,1}
+	{ 20,5}
+	{ 23,9}
+	{ 33,9}
+	\huongdan
+	{%
+		
+	}
+\end{vdex}
+
+\begin{vdex}[3]% Cau 5
+	Hỗn hợp E gồm hai este X và Y đều có công thức phân tử ${C}_9{H}_{10}{O}_2$. Xà phòng hóa 15,0 gam hỗn hợp E cần vừa đủ 200 ml dung dịch KOH 1M, sau phản ứng thu được dung dịch chứa m gam muối đều có cùng số mol và không có khả năng tráng bạc. Khối lượng của muối của axit cacboxylic có phân tử khối lớn hơn là
+	\choice
+	{\True 5,6 gam}
+	{ 11,2 gam}
+	{ 4,8 gam}
+	{ 8,7 gam}
+	\huongdan
+	{%
+		
+		}
+\end{vdex}
+
+\begin{vdex}[3][(Sở HN – L3 – 2020)]% Cau 6
+	Cho 0,06 mol hỗn hợp hai este đơn chức X và Y tác dụng vừa đủ với dung dịch KOH thu được hỗn hợp Z gồm các chất hữu cơ. Đốt cháy hoàn toàn Z thu được ${H}_2$O; 0,144 mol ${CO}_2$ và 0,036 mol ${K}_2{CO}_3$. Làm bay hơi Z thu được m gam chất rắn. Giá trị của m là
+	\choice
+	{ 5,472}
+	{ 6,840}
+	{ 5,040}
+	{\True 6,624}
+	\huongdan
+	{%
+		}
+\end{vdex}
+
+\begin{vdex}[3][Sở TN – L1 - 2020]% Cau 7
+	Cho 0,075 mol hỗn hợp hai este đơn chức X và Y tác dụng vừa đủ với dung dịch NaOH thu được hỗn hợp các chất hữu cơ Z. Đốt cháy hoàn toàn Z thu được 0,18 mol ${CO}_2$, 0,045 mol ${Na}_2{CO}_3$. Làm bay hơi hỗn hợp Z thu được m gam chất rắn. Giá trị gần nhất của m là
+	\choice
+	{ 3,7}
+	{ 8,2}
+	{ 5,2}
+	{\True 6,8}
+	\huongdan
+	{%
+		
+		}
+\end{vdex}
+
+\begin{vdex}[3]% Cau 8
+	(202 – Q.17). Cho 0,3 mol hỗn hợp X gồm hai este đơn chức tác dụng vừa đủ với 250 ml dung dịch KOH 2M, thu được chất hữu cơ Y (no, đơn chức, mạch hở có tham gia phản ứng tráng bạc) và 53 gam hỗn hợp muối. Đốt cháy toàn bộ Y cần vừa đủ 5,6 lít khí ${O}_2$ (đktc). Khối lượng của 0,3 mol X là
+	\choice
+	{ 31,0 gam}
+	{\True 33,0 gam}
+	{ 29,4 gam}
+	{ 41,0 gam}
+	\huongdan
+	{%
+		
+}
+\end{vdex}
+%
+
+
+
+
+\begin{vdex}[3][(QG.18 - 203)]% Cau 9
+	Cho m gam hỗn hợp X gồm ba etse đều đơn chức tác dụng tối đa với 400 ml dung dịch NaOH 1M, thu được hỗn hợp Y gồm hai ancol cùng dãy đồng đẳng và 34,4 gam hỗn hợp muối Z. Đốt cháy hoàn toàn Y, thu được 3,584 lít khí ${CO}_2$ (đktc) và 4,68 gam ${H}_2$O. Giá trị của m là:
+	\choice
+	{\True 25,14}
+	{ 24,24}
+	{ 22,44}
+	{ 21,10}
+	\huongdan{%
+		
+	}
+\end{vdex}
+
+\begin{vdex}[3][MH2 - 2020]% Cau 10
+	 Hỗn hợp X gồm hai este có cùng công thức phân tử ${C}_8{H}_8{O}_2$ và đều chứa vòng benzen. Để phản ứng hết với 0,25 mol X cần tối đa 0,35 mol NaOH trong dung dịch, thu được m gam hỗn hợp hai muối. Giá trị của m là
+	\choice
+	{ 20,5}
+	{ 13,0}
+	{\True 30,0}
+	{ 17,0}
+	\huongdan{%
+		
+		}
+\end{vdex}
+\begin{bttl}{Bài tập tự luyện}
+\end{bttl}
+\Opensolutionfile{ans}[DAPAN/BTTL0203]
+
+\begin{ex}[3]% Cau 11
+ Khi cho 0,15 mol este đơn chức X tác dụng với dung dịch NaOH (dư), sau khi phản ứng kết thúc thì lượng NaOH phản ứng là 12 gam và tổng khối lượng sản phẩm hữu cơ thu được là 29,7 gam. Số đồng phân cấu tạo của X thoả mãn các tính chất trên là
+	\choice
+	{ 5}
+	{ 6}
+	{ 2}
+	{\True 4}
+	\sodongkeex[8]
+	\loigiai{
+	}
+\end{ex}
+
+\begin{ex}[3]% Cau 12
+Cho m gam hỗn hợp X gồm ba este đều đơn chức tác dụng tối đa với 350 ml dung dịch NaOH 1M, thu được hỗn hợp Y gồm hai ancol cùng dăy đồng đẳng và 28,6 gam hỗn hợp muối Z. Đốt cháy hoàn toàn Y, thu được 4,48 lít khí ${CO}_2$ (đktc) và 6,3 gam ${H}_2$O. Giá trị của m là
+	\choice
+	{ 22,8}
+	{ 30,4}
+	{\True 21,9}
+	{ 20,1}
+	\sodongkeex[8]
+	\loigiai
+{%
+	
+}
+\end{ex}
+
+\begin{ex}[3][(Sở HN – L1 - 2020)]% Cau 13
+Hỗn hợp E gồm hai este đơn chức, là đồng phân cấu tạo, đều chứa vòng benzen. Đốt cháy hoàn toàn m gam E cần vừa đủ 8,064 lít khí ${O}_{2 }$(đktc), thu được 14,08 gam ${CO}_{2 }$và 2,88 gam ${H}_2$O. Đun nóng m gam E với dung dịch KOH dư, có tối đa 2,8 gam KOH đã phản ứng, thu được 7,1 gam ba muối và a gam ancol. Giá trị của a là
+	\choice
+	{\True 0,96}
+	{ 1,08}
+	{ 1,76}
+	{ 1,14}
+	\sodongkeex[8]
+	\loigiai{%
+	
+}
+\end{ex}
+
+\begin{ex}[3][(Thanh Chương 1 – L2 - 2020)]% Cau 14
+Hỗn hợp E gồm hai este đơn chức, là đồng phân cấu tạo và đều chứa vòng benzen. Đốt cháy hoàn toàn m gam E cần vừa đủ 30,24 lít khí ${O}_2$ (đktc), thu được 52,80 gam ${CO}_2$ và 10,80 gam ${H}_2$O. Đun nóng m gam E với dung dịch NaOH dư thì có tối đa 200ml dung dịch NaOH 1M phản ứng, thu được dung dịch T chứa 16,70 gam hỗn hợp ba muối. Khối lượng muối của axit cacboxylic trong T là
+	\choice
+	{ 9,75 gam}
+	{\True 10,90 gam}
+	{ 4,10 gam}
+	{ 6,80 gam}
+	\sodongkeex[8]
+	\loigiai
+{%
+}
+\end{ex}
+
+
+
+\begin{ex}[3][(QG.18 - 202)]% Cau 15
+Hỗn hợp E gồm bốn este đều có công thức ${C}_8{H}_8{O}_2$ và có vòng benzen.Cho 16,32 gam E tác dụng tối đa với V ml dung dịch NaOH 1M (đun nóng), thu được hỗn hợp X gồm các ancol và 18,78 gam hỗn hợp muối. Cho hoàn toàn X vào bình đựng kim loại Na dư, sau khi phản ứng kết thúc khối lượng chất rắn trong bình tăng 3,83 gam so với ban đầu. Giá trị của V là
+	\choice
+	{\True 190}
+	{ 120}
+	{ 240}
+	{ 100}
+	\sodongkeex[8]
+	\loigiai{
+}
+\end{ex}
+
+
+
+\begin{ex}[3][(Sở TN – L2 - 2020)]% Cau 16
+Thủy phân hoàn toàn 38,5 gam hỗn hợp X gồm các este đơn chức trong dung dịch NaOH dư, đun nóng, thì có 0,6 mol NaOH đã tham gia phản ứng. Kết thúc phản ứng thu được m gam hỗn hợp muối và a gam hỗn hợp Y gồm các ancol. Đốt cháy hoàn toàn Y cần dùng 0,4 mol ${O}_2$, thu được 0,35 mol ${CO}_2$ và 0,4 mol ${H}_2$O. Giá trị của m là
+	\choice
+	{ 47,3}
+	{ 52,7}
+	{\True 50,0}
+	{ 45,8}
+	
+	\sodongkeex[8]
+	\loigiai
+{%
+	
+}
+\end{ex}
+
+
+
+
+\begin{ex}[3]% Cau 17
+	
+	Cho m gam phenyl axetat tác dụng vừa đủ với 300 ml dung dịch NaOH 1M, sau phản ứng thu được ${m}_1$ gam muối. Giá trị của m và ${m}_1$ lần lượt là
+	\choice
+	{ 22,5 và 43,2}
+	{\True 20,4 và 29,7}
+	{ 20,4 và 31,8}
+	{ 22,5 và 31,8}
+	\sodongkeex[8]
+	\loigiai{
+}
+\end{ex}
+
+
+
+\begin{ex}[3]% Cau 18
+	
+	(203 – Q.17). Hỗn hợp X gồm phenyl axetat, metyl benzoat, benzyl fomat và etyl phenyl oxalat. Thủy phân hoàn toàn 36,9 gam X trong dung dịch NaOH (dư, nóng), có 0,4 mol NaOH phản ứng, thu được m gam hỗn hợp muối và 10,9 gam hỗn hợp Y gồm các ancol. Cho toàn bộ Y tác dụng với Na dư, thu được 2,24 lít khí ${H}_2$ (đktc). Giá trị của m là
+	\choice
+	{\True 40,2}
+	{ 49,3}
+	{ 38,4}
+	{ 42,0}
+	\sodongkeex[8]
+	\loigiai{
+}
+\end{ex}
+
+
+\begin{ex}[3]% Cau 19
+	
+	Hỗn hợp E gồm hai este X và Y đều có công thức phân tử ${C}_9{H}_{10}{O}_2$. Xà phòng hoá 30,0 gam hỗn hợp E cần vừa đủ 400 ml dung dịch NaOH 1M, sau phản ứng thu được dung dịch chứa m gam muối đều có cùng số mol và không có khả năng tráng bạc. Khối lượng của muối có phân tử khối lớn nhất là
+	\choice
+	{ 11,6 gam}
+	{\True 13,0 gam}
+	{ 8,2 gam}
+	{ 9,6 gam}
+	\sodongkeex[8]
+	\loigiai{
+}
+\end{ex}
+
+
+\begin{ex}[3]% Cau 20
+	Hai este X, Y có cùng công thức phân tử ${C}_8{H}_8{O}_2$ và chứa vòng benzen trong phân tử. Cho 6,8 gam hỗn hợp gồm X và Y tác dụng với dung dịch NaOH dư, đun nóng, lượng NaOH phản ứng tối đa là 0,06 mol, thu được dung dịch Z chứa 4,7 gam ba muối. Khối lượng muối của axit cacboxylic có phân tử khối lớn hơn trong Z là
+	\choice
+	{\True 0,82 gam}
+	{ 3,40 gam}
+	{ 0,68 gam}
+	{ 2,72 gam}
+	\sodongkeex[8]
+	\loigiai{
+}
+\end{ex}
+
+
+\Closesolutionfile{ans}
+
+
+
+
+
+
+
+
+
+
+
+
+

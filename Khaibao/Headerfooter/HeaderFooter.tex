@@ -1,0 +1,53 @@
+%%%======================Thông tin nhóm học tập ===============================%%%
+\def\qrcodeytb{\maqr[\maunhan][0.65]{https://www.youtube.com/@hochoakhongkho}}
+%\def\qrcodezalo{\maqr[\maunhan][0.65]{https://zalo.me/g/sqemzd726}}%lớp 10
+\def\qrcodezalo{\maqr[\maunhan][0.65]{https://zalo.me/g/ogytdc722}}%lớp 11
+\def\myytb{\canhdong{\href{https://www.youtube.com/@hochoakhongkho}{\color{\maunhan} \bfseries\sffamily\faAngleDoubleLeft\ \faYoutubePlay\ Học hóa không khó\qrcodeytb \faAngleDoubleRight}}}
+\def\Groupzalo{\canhdong{\color{\maunhan}\small\sffamily\bfseries \faAngleDoubleLeft \qrcodezalo Tham gia group học tập trên zalo\ \faAngleDoubleRight}}
+\def\ycquetma{\fmmfamily Dùng ~\rotatebox{-15}{\faMobile}~quét mã QR}
+\usepackage{fancyhdr}
+\usepackage{textcase}
+\pagestyle{fancy}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LE]{}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RO]{}
+\cfoot{}
+\fancyhead[LE,RO]{\color{\mycolor!30!black}{\LARGE\fmmfamily\itshape Biên soạn: Nguyễn Tường Duy}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{\LARGE\fmmfamily\textbf{Chương \arabic{chapter}.}\ \LARGE\fmmfamily\textbf{#1}}{}%
+}
+\renewcommand{\sectionmark}[1]{\markright{\LARGE\fmmfamily\textbf{Bài \arabic{section}.}\LARGE\fmmfamily\textbf{#1}}}{}
+\usepackage{lastpage}
+\renewcommand{\headrule}{\hbox to\headwidth{%
+	\color{\mycolor!80!black}\leaders\hrule height \headrulewidth\hfill}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eso-pic}
+\usepackage{qrcode}
+\AddToShipoutPicture{%
+\hypersetup{urlcolor=\mycolor}
+	\ifodd\value{page}
+     \begin{tikzpicture}[overlay,remember picture]
+     	%%% Đầu trang lẻ
+%     	\path[fill=\mycolor] ($(current page.north west)+(2,-1.6)$) coordinate (A) rectangle ++(\linewidth,-0.05) coordinate (AT);
+     	%%% Chân trang lẻ
+     	\path ($(current page.south west)+(2,1.2)$) coordinate (B) -- ++(\linewidth,0) coordinate (BT) node [midway](ChanelYT){\myytb};
+     	\path (BT) node[anchor=east](ST){\shapepage{\thepage}};
+     	\path[draw=\mycolor,line width=1pt](B)--(ChanelYT)--(ST);
+%     	\path(ChanelYT) node[below=3pt]{\qrcodeytb};
+     	%%%Số trang lẻ
+     \end{tikzpicture}
+	\else
+	 \begin{tikzpicture}[overlay,remember picture]
+	 	%%% Đầu trang chẵn
+%	 	\path[fill=\mycolor] ($(current page.north west)+(1,-1.6)$) coordinate (A) rectangle ++(\linewidth,-0.05) coordinate (AT);
+	 	%%% Chân trang chẵn
+	 	\path ($(current page.south west)+(1,1.2)$) coordinate (BH) --++(\linewidth,0) coordinate (BTH) node [midway](GroupMXH){\Groupzalo};
+	 	\path (BH)node[anchor=west](STH){\shapepageH{\thepage}};
+	 	\path[draw=\mycolor,line width=1pt](STH)--(GroupMXH)--(BTH);
+%	 	\path(GroupMXH) node[below=3pt]{\qrcodezalo};
+	 	%%% Số trang chẵn
+	 \end{tikzpicture}
+	\fi
+}
+\raggedbottom

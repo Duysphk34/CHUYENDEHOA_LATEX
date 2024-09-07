@@ -1,0 +1,84 @@
+
+\newcounter{mycount} 
+\newtcolorbox{NTDBOX}{
+	before skip=6pt,
+	after skip=6pt,
+	boxsep=1pt,
+	colframe=\mycolor!50!black,
+	boxrule=1.25pt,
+	arc=3pt,
+	arc is angular,
+	colback=\mycolor!20,
+	title={Ví dụ mẫu \themycount},
+	colbacktitle=violet,
+	fonttitle=\sffamily\bfseries\color{\maunhan},
+	detach title,
+	code={\refstepcounter{mycount}},
+	before upper={{\tcbtitle.\ }}
+}
+ \tcbset {
+	base/.style={
+		arc=0mm, 
+		bottomtitle=0.5mm,
+		boxrule=0mm,
+		colbacktitle=\maunhan!20!white,
+		colback=\mycolor!20!white ,
+		coltitle=\maunhan, 
+		fonttitle=\bfseries, 
+		left=2.5mm,
+		leftrule=1mm,
+		right=3.5mm,
+		title={#1},
+		toptitle=0.75mm, 
+		fontupper=\itshape,
+	}
+}
+
+ 
+\NewDocumentCommand{\boxct}{O{\maunhan}O{0pt}O{}m}{
+	\tcbox[%
+	left=1pt,
+	right=1pt,
+	top=1pt,
+	bottom=1pt,
+	enhanced,
+	ignore nobreak,
+	arc=#2,
+	colback=#1!20,
+	boxrule=0.65pt,
+	colframe=#1, 
+	boxsep=2pt,
+	tikznode upper,
+	fontupper = #3,
+	]{#4}
+}
+\newcommand{\hopcttoan}[2][\maunhan]{%
+\tcboxmath[arc=3pt,arc is angular,colback=#1!10,boxrule=0.65pt,colframe=#1,boxsep=3pt]{#2}}
+
+\newcounter{dl}
+\newtcolorbox{hoptieude}[1]{
+	colframe=\mycolor, 
+	code={\refstepcounter{dl}},
+	base={#1 \thedl.}
+}
+
+\newtcolorbox[blend into=figures]{myfigure}[2][]{float=htb,capture=hbox,
+title={#2},every float=\centering,#1,colbacktitle=\maudam,colframe=\mauphu!50!black}
+
+\newenvironment{vidu}{\par\noindent \GSND[\bfseries\sffamily][\faBookReader][\maudam]{Ví dụ:}
+}
+
+{}
+
+
+
+
+
+
+
+
+
+
+
+
+

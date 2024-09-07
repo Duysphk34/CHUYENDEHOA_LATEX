@@ -1,0 +1,241 @@
+\newcommand{\taosao}[1]{%
+	\ifcase#1\relax%
+	\or
+	\faStar~\faStarO~\faStarO~\faStarO~\faStarO
+	\or
+	\faStar~\faStar~\faStarO~\faStarO~\faStarO
+	\or
+	\faStar~\faStar~\faStar~\faStarO~\faStarO
+	\or
+	\faStar~\faStar~\faStar~\faStar~\faStarO
+	\else
+	\faStar~\faStar~\faStar~\faStar~\faStar
+	\fi
+}
+\renewenvironment{center}
+{\parskip=3pt\par\nopagebreak\centering}
+{\par\noindent\ignorespacesafterend}
+
+\renewcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,inner sep=1pt,font=\footnotesize\sffamily,fill=\mycolor] (char) {#1};}}
+	
+\renewcommand*\circEX[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw=cyan,inner sep=1pt,fill=cyan!15,font=\footnotesize] (char) {\color{orange} #1};}}
+
+\renewcommand*\squareEX[1]{\tikz[baseline=(char.base)]{\node[shape=rectangle,draw=red,inner sep=2.5pt,fill=yellow!50] (char) {\color{red} #1};}}
+
+\newcommand\circlenumH[2][\mycolor]{\tikz[baseline=(char.base)]
+	{\node [shape=circle,inner sep=0.5pt,draw=#1!90!black,fill=#1!20,double,
+	font=\bfseries\large,minimum size=15pt,outer sep=0pt,anchor=base](char) {#2};
+	}}
+		   
+\newcommand\circleTrue[2][\mycolor]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw=#1,inner sep=1.5pt,fill=#1!10,font=\sffamily] (char) {\sffamily\color{#1}{\textbf{#2}}};}}
+	
+\newcommand\ntdshape[1]{\tikz[baseline=(char.base)]{\node[shape=circle,inner sep=1.5pt,fill=cyan!30!white,minimum size=15pt] (char) {%
+			#1};}}
+		
+\newcommand{\danhsoovuong}[1]{
+	\tikz[anchor=base, baseline] {
+		\node[inner sep=5pt] (MUC) {\bfseries#1};
+		\path[rounded corners=2pt,fill=\mycolor,
+		preaction={transform canvas={shift={(-45:2.5pt)}},left color=\mycolor!75!black,right color=\mycolor!50!black}] ($(MUC.north west)+(1.5pt,-1.5pt)$) -- ($(MUC.north east)+(1mm,0mm)+(1.5pt,-1.5pt)$) -- ($(MUC.south east)+(1.5pt,-1.5pt)$) -- ($(MUC.south west)+(-1mm,0)+(1.5pt,-1.5pt)$) -- cycle;
+		\path ([shift={(2.05pt,-6.05pt)}]MUC) node[inner sep=5pt]{\color{gray}\slshape\bfseries#1};
+		\path ([shift={(2pt,-6pt)}]MUC) node[inner sep=5pt]{\color{white}\slshape\bfseries#1};
+	}%
+}
+
+\newcommand{\khungvuong}[1]{
+	\tikz[anchor=base, baseline] {
+		\node[inner sep=5pt] (MUC) {\bfseries#1};
+		\path[rounded corners=2pt,fill=\mycolor!90,
+		preaction={transform canvas={shift={(-45:2.5pt)}},left color=\mycolor!80!black,right color=\mycolor!80!black}] ($(MUC.north west)+(1.5pt,-1.5pt)$) -- ($(MUC.north east)+(1mm,0mm)+(1.5pt,-1.5pt)$) -- ($(MUC.south east)+(1.5pt,-1.5pt)$) -- ($(MUC.south west)+(-1mm,0)+(1.5pt,-1.5pt)$) -- cycle;
+		\path ([shift={(2pt,-6pt)}]MUC) node[inner sep=5pt]{\color{white}\slshape\bfseries#1};
+	}%
+}
+
+
+%%%=====================Tìm hiểu gói tạo dòng kẻ===============%%%
+%\taodongke{5}
+%\taodongke[1.5]{5}
+%\taodongke[1.5][\hrule]{5}
+%\taodongke[1.5][\hrule][red]{5}
+%\taodongke[1.5][][red]{5}
+%\taodongke[][\hrule][red]{5}
+%\taodongke[][][red]{số dòng}
+%%%tùy chọn bỏ trống hai%\hfill %\dotfill%\hrule
+\usepackage{multido} % gói thêm dòng kẻ
+\NewDocumentCommand{\taodongke}{O{}O{}O{black}m}{%
+	\ifblank{#1}{\def\tuychonone{1.12}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{\dotfill}}{\def\tuychontwo{#2}}
+	\noindent%
+	\pgfmathparse{int(#4-1)}
+	\ifnum\pgfmathresult>1
+	\multido{}{\pgfmathresult}{\noindent\rule{0pt}{\tuychonone\baselineskip}%
+		{\color{#3}\mbox{}\tuychontwo\endgraf}}%
+	\fi%
+	{\noindent\rule{0pt}{\tuychonone\baselineskip}\color{#3}\mbox{}\tuychontwo\endgraf}}%
+\newcommand{\daucham}[1]{\leavevmode\hbox to #1{\cleaders\hbox to .35em{\raisebox{-1pt}.}\rule{0pt}{\baselineskip}\hfil}\ignorespaces}
+
+%%%%==========Chuyển nội dung thành số dòng kẻ==================%%%
+
+\newcommand{\doithanhdongke}[1]{%
+	\setbox0=\vbox{\hbox{
+			\noindent\begin{minipage}{\linewidth}%
+				#1 
+			\end{minipage}
+	}}
+	\linepar=\ht0
+	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+1)}
+	\taodongke{\pgfmathresult}
+}
+
+
+
+
+
+\def\phangiac(#1,#2,#3)(#4){
+	\path 
+	($ (#2)!1cm!(#1) $)  coordinate (#2#1)
+	($ (#2)!1cm!(#3) $)  coordinate (#2#3)
+	($(#2#1)!0.5!(#2#3)$) coordinate (#2t)
+	(intersection of #1--#3 and #2--#2t) coordinate (#4);
+}
+
+\def\khmotgach(#1,#2){%
+	\path (#1)--($ (#1)!0.5!(#2) $)--([turn]90:2pt) coordinate (AtB)
+	--([turn]180:4pt) coordinate (BtA);
+	\draw (AtB)--(BtA);
+}
+
+\def\khhaigach(#1,#2){%
+	\path (#1)--($ (#1)!0.495!(#2) $)--([turn]90:2pt) coordinate (AtB)
+	--([turn]180:4pt) coordinate (BtA);
+	\draw (AtB)--(BtA);
+	\path (#1)--($ (#1)!0.505!(#2) $)--([turn]90:2pt) coordinate (AtB)
+	--([turn]180:4pt) coordinate (BtA);
+	\draw (AtB)--(BtA);
+}
+
+\def\khdaux(#1,#2){%
+	\path (#1)--($ (#1)!0.5!(#2) $)--([turn]60:2pt) coordinate (AtB)
+	--([turn]240:4pt) coordinate (BtA);
+	\draw (AtB)--(BtA);
+	\path (#1)--($ (#1)!0.5!(#2) $)--([turn]120:2pt) coordinate (AtB)
+	--([turn]300:4pt) coordinate (BtA);
+	\draw (AtB)--(BtA);
+}
+
+\def\kyhieudolon(#1,#2)(#3){\path (#1)--(#2)--([turn]270:9pt) coordinate (X);
+	\path ($ (X)+(#1)-(#2) $) coordinate (Xt);
+	\draw[dotted] (#1)--(Xt) (#2)--(X);
+	\draw[|<->|,>=stealth] (Xt)--(X) node[fill=white,inner sep=1pt,%
+	midway,sloped]{#3};
+}
+\newcommand{\indam}[2][\maunhan]{{\bfseries\sffamily\color{#1}{#2}}}
+
+\NewDocumentCommand{\NTDtext}{O{}O{}O{black}m}{%
+	\ifblank{#1}{\def\tuychonone{\normalsize}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{\mdseries}}{\def\tuychontwo{#2}}
+	{\par\noindent\tuychonone\tuychontwo\color{#3}{#4}}
+}
+%%% Tùy chọn 1 : font chữ có thể bỏ trống
+%%%\tùy chọn 2 :nhãn có thể bỏ trống
+%%%\tùy chọn 3: màu
+\newcounter{gsnd}
+\renewcommand{\thegsnd}{\arabic{gsnd}}
+\NewDocumentCommand{\GSND}{O{}O{}O{\maunhan}m}{%
+	\stepcounter{gsnd}
+	\ifblank{#1}{\def\tuychonone{\bfseries\fontfamily{qag}\selectfont}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{\faAdjust\;}}{\def\tuychontwo{#2\;}}
+	{\par\noindent\tuychonone\color{#3}{\tuychontwo#4}}
+}
+
+\NewDocumentCommand{\MyNode}{O{}O{}O{\maunhan}m}{%
+	\ifblank{#1}{\def\optonce{\mauphu}}{\def\optonce{#1}}
+	\ifblank{#2}{\def\opttwo{4pt}}{\def\opttwo{#2}}
+	\tikz{%
+		\node[%
+		draw = \optonce, fill= \optonce!20, rounded corners = \opttwo,font = \color{#3}\Large\bfseries\sffamily,
+		inner sep =4pt, shape =rectangle, line width =1.2pt,text width =.9\textwidth, align = center
+		]
+		{#4}
+		;
+	}
+}
+
+
+
+%%%=============== Lệnh tạo mũi tên =====================%%%
+%%%\muiten[up][down][length][độ cao][style] %[up][down][length][độ cao] có thể bỏ trống
+%\NewDocumentCommand{\muiten}{O{}O{}O{}O{}O{-latex}m}{
+%	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+%	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+%	\ifblank{#3}{\def\tuychonthree{.7}}{\def\tuychonthree{#3}}
+%	\ifblank{#4}{\def\tuychonfour{0pt}}{\def\tuychonfour{#4}}
+%	\setchemfig{arrow offset=2pt,arrow double sep =2.45pt}
+%	\protect\mbox{\schemestart\vphantom{1}%
+%		\arrow{#6[\scriptsize\tuychonone][\scriptsize\tuychontwo][\tuychonfour]}[0,\tuychonthree,#5]
+%		\vphantom{1}\schemestop}
+%}
+%
+%%%==================Lệnh tạo phương trình phản ứng =====================%%%
+%%============\puhh[up][down][length][độ cao][style]{A \+ B\+ C}{-> %<=>}{D \+ E}====%%%
+%\NewDocumentCommand{\puhh}{O{}O{}O{}O{}O{-latex}mmm}{
+%	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+%	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+%	\ifblank{#3}{\def\tuychonthree{.7}}{\def\tuychonthree{#3}}
+%	\ifblank{#4}{\def\tuychonfour{0pt}}{\def\tuychonfour{#4}}
+%	\setchemfig{arrow double sep =2.45pt,arrow offset=6pt}
+%	\schemestart
+%	#6\arrow{#7[\scriptsize\tuychonone][\scriptsize\tuychontwo][\tuychonfour]}[0,\tuychonthree,#5]#8
+%	\schemestop}
+
+\NewDocumentCommand{\AOs}{O{1.8}O{}O{}O{}}{%
+	\ifblank{#2}{\def\tuychontwo{\maunhan}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{.80}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{densely dotted}}{\def\tuychonfour{#4}}
+	\begin{tikzpicture}[declare function={d=#1cm;r=.65*d;h=0.125*d;R=.36*d;},node font=\bfseries\sffamily]
+		\tikzstyle{linestyle} = [line width=0.015*d,\tuychontwo!80,\tuychonfour]
+		\tikzstyle{myshapestyle}=[ball color = \tuychontwo,opacity=\tuychonthree]
+		\draw[linestyle] ([xshift=-1.2*R]0*d,0)--([xshift=1.2*R]0*d,0);
+		\fill[myshapestyle] (0*d,0) circle (R);
+	\end{tikzpicture}
+}
+
+\NewDocumentCommand{\AOp}{O{1.8}O{}O{}O{}}{%
+	\ifblank{#2}{\def\tuychontwo{\maunhan}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{.80}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{densely dotted}}{\def\tuychonfour{#4}}
+	\begin{tikzpicture}[declare function={d=2cm;r=.65*d;h=0.125*d;R=.36*d;},node font=\bfseries\sffamily]
+		\tikzstyle{linestyle} = [line width=0.015*d,\maunhan!80,\tuychonfour,>=stealth]
+		\tikzstyle{myshapestyle} = [ball color = \tuychontwo,opacity=\tuychonthree]
+		\draw[linestyle] ([xshift=-1.1*d]2*d,0)--([xshift=1.1*d]2*d,0);
+		\path[myshapestyle] (1*d,0)..controls +(90:r) and +(90:{.25*r})..(2*d,0)--
+		(2*d,0)..controls +(-90:{.25*r}) and +(-90:r)..(1*d,0);
+		\path[myshapestyle] (3*d,0)..controls +(90:r) and +(90:{.25*r})..(2*d,0)--
+		(2*d,0)..controls +(-90:{.25*r}) and +(-90:r)..(3*d,0);
+	\end{tikzpicture}
+}
+
+
+
+\tikzset{
+	pics/.cd,
+	AOPa/.style={code={
+		\draw[linestyle] (0,{-d - h})--(0,{d + h});
+		\path[myshapestyle] (0,0)..controls +(0:{.25*r}) and +(0:r)..(0,d)--
+		(0,d)..controls +(180:r) and +(180:{.25*r})..(0,0);
+		\path[myshapestyle] (0,-d)..controls +(180:r) and +(180:{.25*r})..(0,0)--
+		(0,0)..controls +(0:{.25*r}) and +(0:r)..(0,-d);
+						}},
+	AOPb/.style={code={
+		\draw[linestyle] (0,{-d - h})--(0,{d + h});
+		\path[myshapestyle,ball color = \maunhan!90] (0,0)..controls +(0:{.25*r}) and +(0:r)..(0,d)--
+		(0,d)..controls +(180:r) and +(180:{.25*r})..(0,0);
+		\path[myshapestyle,ball color = \maunhan!90] (0,-d)..controls +(180:r) and +(180:{.25*r})..(0,0)--
+		(0,0)..controls +(0:{.25*r}) and +(0:r)..(0,-d);
+			}},
+	muiten/.style={code={
+		\path[draw,->,-latex,line width=.035*d,\maunhan!80] (0,0)--(3,0);
+	}}
+}

@@ -1,0 +1,137 @@
+%%%===========Lệnh bổ sung ===============%%%
+\usepackage{adjustbox}
+\usepackage{paracol}
+\usepackage[inline]{asymptote}
+\columnratio{0.65}
+\globalcounter{kp}
+\globalcounter{cauhoicount}
+\setlength{\columnseprule}{0pt}
+\def\gachngang{\resizebox{0.3cm}{!}{\_}}
+\tikzfading[name=fade in one, inner color=transparent!0,outer color=transparent!100]
+\tikzfading[name=fade in two, inner color=transparent!20,outer color=transparent!80]
+\tikzfading[name=fade in three, inner color=transparent!50,outer color=transparent!70]
+\tikzfading[name=fade in four, inner color=transparent!100,outer color=transparent!30]
+\setlist[itemize,1]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\maunhan}\rhombusdot},wide=0cm,leftmargin=0.5cm}
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\titlespacing*{\paragraph}{0cm}{0pt}{0pt}
+\NewDocumentCommand{\Rightpicture}{O{0.45}O{4pt}mm}{%
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{#1\linewidth}
+			\vspace*{#2}
+			#3
+		\end{minipage}
+	}
+	\hfill
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{0.98\linewidth-#1\linewidth}
+			#4
+		\end{minipage}
+	}
+}
+
+\newenvironment{vidu}[1][\mycolor]{
+	\begin{hopvidu}[#1]
+		\par\noindent\indam[#1]{Ví dụ:}
+	}{\end{hopvidu}}
+\AtBeginEnvironment{ex}{\renewcommand{\dotEX}{}}
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\titlespacing*{\paragraph}{0cm}{0pt}{0pt}
+
+
+\newenvironment{myitemize}
+{\begin{itemize}[leftmargin=*,nosep,topsep=0pt,partopsep=0pt,before=\vspace{-\baselineskip},after=\vspace{-\baselineskip}]}
+	{\end{itemize}}
+%\renewcommand{\thefootnote}{(*)}
+\renewcommand{\thefootnote}{\color{\maunhan}[\arabic{footnote}]}
+\usepackage{ifpdf}
+%%%====Định dạng ô nguyên tố===========%%%
+
+\tikzset{
+	pics/nguyen to/.style n args={7}{
+		code={
+			\def\width{3cm}  % Chiều rộng mặc định
+			\def\height{3.8cm}  % Chiều cao mặc định
+			\def\mau{dnvang}  % Màu mặc định
+			% Xử lý các tùy chọn
+			\pgfkeys{/nguyen to/.cd,#1}
+			% Vẽ hình chữ nhật
+			\path[fill=\mau!50] (0,0) rectangle (\width,\height);
+			\path[fill=\mau!50!black] (0,0) rectangle (\width,0.12*\height);
+			% Số hiệu nguyên tử
+			\node[anchor=north west, font=\color{\mau!40!black}\footnotesize\sffamily] (SHNT) at (0.04*\width,0.98*\height) {#2};
+			% Ghi chú Số hiệu nguyên tử
+			\if\ifshownotes1
+			\node [anchor=east, font=\color{\mycolor!30!black}\footnotesize] at (-0.3*\width,1.1*\height) (shnt) {Số hiệu nguyên tử};
+			\draw[\maunhan,line join=round,line join=round] (SHNT.north)|- (shnt);
+			\path[fill=\maunhan](SHNT.north)circle (1pt)(shnt.east)circle (1pt);
+			\fi
+			% Khối lượng nguyên tử
+			\node[anchor=north east, font=\color{\mau!40!black}\footnotesize] (KLNT) at (0.96*\width,0.98*\height) {#3};
+			% Ghi chú Khối lượng nguyên tử
+			\if\ifshownotes1
+			\node [anchor=west,text width=2.5cm,align=left, font=\color{\mycolor!30!black}\footnotesize] at (1.3*\width,1.1*\height) (klnt) {Nguyên tử khối trung bình};
+			\path[draw=\maunhan,line join=round,line join=round] (KLNT.north)|- (klnt.west);
+			\path[fill=\maunhan] (KLNT.north) circle (1pt) (klnt.west) circle (1pt);
+			\fi
+			% Ký hiệu nguyên tố
+			\node[anchor=center, font=\color{\mau!40!black}\Huge\bfseries\fontfamily{phv}\selectfont] at (0.5*\width,0.65*\height) (KHNT) {#4};
+			% Ghi chú Ký hiệu nguyên tố
+			\if\ifshownotes1
+			\node [anchor=west,text width=2.5cm,align=left, font=\color{\mycolor!30!black}\footnotesize] at (1.3*\width,0.65*\height) (khnt) {Kí hiệu nguyên tố hóa học};
+			\path[draw=\maunhan,line join=round,line join=round] (KHNT.east) -- (khnt.west);
+			\path[fill=\maunhan] (KHNT.east) circle (1pt) (khnt.west) circle (1pt);
+			\fi
+			% Tên nguyên tố
+			\node[anchor=north, font=\color{\mau!40!black}\bfseries\scriptsize\fontfamily{ugq}\selectfont] at (0.5*\width,0.52*\height)(NAME) {#5};
+			% Ghi chú Tên nguyên tố
+			\if\ifshownotes1
+			\node [anchor=east,left=1cm of NAME, font=\color{\mycolor!30!black}\footnotesize]  (name) {Tên nguyên tố hóa học};
+			\path[draw=\maunhan,line join=round,line join=round] (name.east) -- (NAME.west);
+			\path[fill=\maunhan] (NAME.west) circle (1pt) (name.east) circle (1pt);
+			\fi
+			% Cấu hình e
+			\node[anchor=south, font=\color{\mau!40!black}\scriptsize] at (0.5*\width,0.15*\height)(config) {#6};
+			% Ghi chú Cấu hình e
+			\if\ifshownotes1
+			\node [anchor=west,right = 1.5cm of config, font=\color{\mycolor!30!black}\footnotesize]  (CHE) {Cấu hình electron};
+			\path[draw=\maunhan,line join=round,line join=round] (config.east) -- (CHE.west);
+			\path[fill=\maunhan] (CHE.west) circle (1pt) (config.east) circle (1pt);
+			\fi
+			% Số oxi hóa
+			\node[anchor=center, font=\color{\mau!20}\footnotesize] at (0.5*\width,0.06*\height) (oxihoa) {#7};
+			% Ghi chú Số oxi hóa
+			\if\ifshownotes1
+			\node [anchor=west,below left=3mm of oxihoa, font=\color{\mycolor!30!black}\footnotesize]  (OXH) {Số oxi hóa};
+			\path[draw=\maunhan,line join=round,line join=round] (oxihoa.south) |- (OXH.east);
+			\path[fill=\maunhan] (OXH.east) circle (1pt) (oxihoa.south) circle (1pt);
+			\fi
+		}
+	},
+	/nguyen to/.cd,
+	width/.store in=\width,
+	height/.store in=\height,
+	color/.store in=\mau,
+	show notes/.is choice,
+	show notes/true/.code={\def\ifshownotes{1}},
+	show notes/false/.code={\def\ifshownotes{0}},
+	show notes=false % Mặc định hiển thị ghi chú
+}
+
+\newcommand{\nguyento}[7][]{%
+	\begin{tikzpicture}
+		\pic {nguyen to={#1}{#2}{#3}{#4}{#5}{#6}{#7}};
+	\end{tikzpicture}%
+}
+
+
+
+
+
+%%%=============================================%%%
+%\renewcommand{\chaptername}{Chủ đề}
+\renewcommand{\thesection}{Bài \arabic{section}.}
+\renewcommand{\thesubsection}{\Roman{subsection}.}
+\counterwithout*{section}{chapter}
+%\everymath{\displaystyle\color{dnvang!70!black}}
+%\everymath{\displaystyle}
+\everymath{\rm}

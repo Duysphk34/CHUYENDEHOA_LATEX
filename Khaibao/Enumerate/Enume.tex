@@ -1,0 +1,38 @@
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{ifthen}
+%%%Gói căn giữa theo chiều dọc giữa nội dung với item
+\usepackage{adjustbox}
+%% Tùy chỉnh toàn cục môi trường đánh số mới
+\newlist{myenum}{enumerate}{1}
+\setlist[myenum,1]{label=\protect\circl{\arabic*},before=\vspace{\dimexpr-\baselineskip}, after=\vspace{-\baselineskip},itemsep=3pt,topsep=3pt}
+\newlist{myitemize}{itemize}{1}
+\setlist[myitemize,1]{label=\protect{\small\color{\maunhan}\faArrowCircleORight}, itemindent=0.65cm, leftmargin=0.65cm, before=\vspace{\dimexpr-\baselineskip}, after=\vspace{\dimexpr-\baselineskip},itemsep= -3pt,topsep=3pt}
+\setenumerate{itemsep=1pt,topsep=1pt}
+\setlist[enumerate,1]{itemsep=3pt,topsep=3pt,label=\protect\circl{\arabic*}}
+\setlist[enumerate,2]{itemsep=3pt,topsep=3pt,label=\protect\circl{\alph*},wide=0cm,leftmargin=0cm}%wide=0.5cm,leftmargin=0.5cm
+\setlist[enumerate,3]{itemsep=-1pt,topsep=0pt,label=\protect{\textcolor{\maudam!50!black}{\roman*)}},wide=1cm,leftmargin=1cm}
+\setlist[itemize,1]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\maunhan}\faCheckSquareO}}
+\setlist[itemize,2]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\mauphu!85}\faCheckCircleO},wide=0.35cm,
+leftmargin=0.35cm}
+\setlist[itemize,3]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\maunhan!85}\faAngleDoubleRight},wide=0.5cm,leftmargin=.5cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\labelitemi}{\color{\maunhan}\faCheckSquareO}
+\renewcommand{\labelitemii}{\color{\mauchinh!50!black}\faCheckCircleO}
+\renewcommand{\labelitemiii}{\color{cyan}\faCheck}
+\renewcommand{\labelitemiv}{\color{cyan}$\bullet$}
+%\renewcommand{\labelenumi}{\color{\maudam!50}\bf \arabic{enumi})}
+%\renewcommand{\labelenumii}{\color{\mauphu!50}\bf\arabic{enumi}.\arabic{enumii}}
+%%%%%%%%%%%%%Liệt kê nhiều cột%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{enumEX}[\labelenumi]{3}
+%	\item Sử dụng định nghĩa giá trị lượng giác của một góc
+%	\item Sử dụng tính chất và bảng giá trị lượng giác đặc biệt
+%	\item Sử dụng các hệ thức lượng giác cơ bản
+%\end{enumEX}
+
+%\begin{listEX}[4]
+%	\item $A \cap B$.
+%	\item $A \backslash B$.
+%	\item $A \cup B$.
+%	\item $B \backslash A$
+%\end{listEX}

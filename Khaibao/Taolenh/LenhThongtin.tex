@@ -1,0 +1,35 @@
+ %%%==========================================================%%%
+\newcounter{so}
+\newcommand{\thongtin}[1]{%
+%\setcounter{bt}{0}%
+\par
+\noindent
+\stepcounter{so}
+\hspace*{-0.65cm}
+\begin{tikzpicture}[declare function={rt=0.5;d=sqrt(2)*rt;}]
+ \path (90:rt) coordinate (A)
+ (180:rt) coordinate (B)
+ (270:rt) coordinate (C)
+ (0:rt) coordinate (D)
+ ([shift={(0.15,0)}]0:rt) coordinate (E)
+ ($ (E)+(135:rt) $) coordinate (F)
+ ($ (E)+(-135:rt) $) coordinate (G)
+ ($ (A)!0.5!(F) $) coordinate (AF)
+ ($ (D)!0.5!(E) $) coordinate (DE)
+ ($ (C)!0.5!(G) $) coordinate (CG)
+ ;
+ \path[transform canvas={shift={(-45:2.5pt)}},left color=\mycolor!50,right color=\mycolor!5]
+ (F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+ \path[outer color=\mycolor!65!black,inner color=\mycolor!80,rounded corners=2pt] (A)--(B)--(C)--(D)--cycle;
+ \draw[line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt]
+ (AF)--(DE)--(CG);
+ \draw[transform canvas={xscale=-1},line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt] (AF)--(DE)--(CG);
+ \path[left color=\mycolor!90!black,right color=\mycolor!50] (F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+ \path (-0.7pt,-0.3pt) node[inner sep=0pt,font=\large\bfseries\color{gray}]{\theso};
+ \path (-1pt,0) node[inner sep=0pt,font=\large\bfseries\color{white}]{\theso};
+ \path ([shift={(0.11,-0.01)}]E) node[align=left,anchor=west,font=\sffamily\bfseries\color{gray}]{#1};
+ \path ([shift={(0.1,0)}]E) node[align=left,anchor=west,font=\sffamily\bfseries\color{white}]{#1};
+ \end{tikzpicture}%
+}
+
+

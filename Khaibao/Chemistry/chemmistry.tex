@@ -1,0 +1,426 @@
+\usepackage{pgfplots}
+\usepackage{filecontents}
+\pgfplotsset{compat=1.18}
+\usepackage{chemfig}
+\usepackage{chemmacros}
+%\DeclareMathAlphabet{\mathsf}{T1}{qag}{b}{n}
+\DeclareMathAlphabet{\mathsf}{T1}{qhv}{b}{n}
+\DeclareMathAlphabet{\mathbf}{T1}{put}{b}{n}
+\DeclareMathAlphabet{\mathtt}{T1}{pcr}{m}{n}   
+\DeclareMathAlphabet{\mathit}{T1}{ptm}{m}{it} 
+\usetikzlibrary{decorations.markings, positioning}
+%%%============Lệnh chữ không chân in đậm ===================%%%
+\NewDocumentCommand{\MathsfChemfig}{O{\mycolor}O{2.3}m}{
+	\renewcommand*\printatom[1]{\ensuremath{\mathsf{##1}}}
+	\chemfig[atom style={#1},atom sep=#2em,bond style={#1,line width =0.8pt}]{#3}
+}
+
+\NewDocumentCommand{\MathbfChemfig}{O{\mycolor}O{2.3}m}{
+	\renewcommand*\printatom[1]{\ensuremath{\mathbf{##1}}}
+	\chemfig[atom style={#1},atom sep=#2em,bond style={#1,line width =0.8pt}]{#3}
+}
+
+	
+%\everymath{\rm}
+%%%================Tạo lệnh mới trong chemfig==================%%%
+%\renewcommand*\printatom[1]{\ensuremath{\mathbf{#1}}}%%lệnh viết font không chân/in dậm\mathbf
+%%% =======Lệnh tô màu nguyên tử ==========%%%
+\def\colorchem{\mycolor!80!black}
+\newcommand*\maucthh[1]{\color{\colorchem}{\printatom{#1}}}
+%%% =======Lệnh khoanh tròn nguyên tử ==========%%%
+\newcommand*\circleatom[1]{\tikz\node[circle,draw,color=\mycolor]{\printatom{#1}};}
+%%%=============Tạo style nhiều tùy chọn===================%%%
+\tikzset{cfhbond/.style={% 
+		/utils/exec=\tikzset{cfh/.cd,#1},
+		draw=none,
+		postaction={decorate},
+		decoration={
+			markings,
+			mark = at position \pgfkeysvalueof{/tikz/cfh/position} with {\fill[\pgfkeysvalueof{/tikz/cfh/color}] circle[radius=\pgfkeysvalueof{/tikz/cfh/radius}*1pt];},
+			mark = at position 0.5 with {\fill[\pgfkeysvalueof{/tikz/cfh/color}] circle[radius=\pgfkeysvalueof{/tikz/cfh/radius}*1pt];},
+			mark = at position 1-\pgfkeysvalueof{/tikz/cfh/position} with {\fill[\pgfkeysvalueof{/tikz/cfh/color}] circle[radius=\pgfkeysvalueof{/tikz/cfh/radius}*1pt];}
+		}%
+	},cfh/.cd,color/.initial=red,radius/.initial=1,position/.initial=0.22} 
+%%%===========================Vòng có nhánh 5 tùy chọn bỏ trống=======================%%%
+\NewDocumentCommand{\cyclohexan}{O{}O{}O{}O{}O{}m}{%
+	\ifblank{#1}{\definesubmol\ortho{}}{\definesubmol\ortho{(-[,.7]#1)}}
+	\ifblank{#2}{\definesubmol\meta{}}{\definesubmol\meta{(-[,.7]#2)}}
+	\ifblank{#3}{\definesubmol\para{}}{\definesubmol\para{(-[,.7]#3)}}
+	\ifblank{#4}{\definesubmol\metax{}}{\definesubmol\metax{(-[,.7]#4)}}
+	\ifblank{#5}{\definesubmol\orthox{}}{\definesubmol\orthox{(-[,.7,]#5)}}
+	{\chemfig{**6(!\metax-!\para-!\meta-!\ortho-(-[,.7]#6)-!\orthox-)}}
+}
+
+%%%============Tùy chỉnh toàn cục=======================%%%
+
+%\setchemfig{%
+%	bond join=true,
+%	arrow label sep=3pt,
+%	arrow offset=1.5pt,
+%	arrow coeff=2.5pt,
+%	atom sep=3em,
+%	arrow style={\mycolor!40!black,>=stealth,thick},
+%	atom style={color = \mycolor!40!black},
+%	bond style={\mycolor!40!black,thick},
+%	bond offset=1pt
+%}
+
+%%%==================Lệnh tạo mũi tên điền vào các orbitan===================
+%%%Tùy chọn 1:màu sắc [bắt buộc, số lượng mũi tên và hướng <0,1u,1d,2uu,2dd,2ud,2du>, ngăn cách nhau bởi dấu phảy]
+%%%Tùy chọn 2:Kích thước 
+%%%Tùy chọn 3:Màu săc
+\NewDocumentCommand{\squarerow}{O{}O{0.65}O{\mycolor}O{0pt}m}{
+	\raisebox{#4}{\begin{tikzpicture}
+		\tikzstyle{styline} = [color=#3,-stealth,line width=0.8pt,line cap=round,line join=round]
+		\foreach \i in {1,...,#5} {
+			\draw[styline] ({(\i-1)*#2},0) rectangle ({\i*#2},#2);
+		}
+		\if\relax\detokenize{#1}\relax
+		\else
+		\foreach \arrows [count=\i] in {#1} {
+			\if\arrows0
+			% Không có mũi tên
+			\else
+			\ifnum\pdfstrcmp{\arrows}{1u}=0
+			\draw[styline] ({(\i-0.5)*#2},0.1*#2) -- ({(\i-0.5)*#2},0.9*#2);
+			\else\ifnum\pdfstrcmp{\arrows}{1d}=0
+			\draw[styline] ({(\i-0.5)*#2},0.9*#2) -- ({(\i-0.5)*#2},0.1*#2);
+			\else\ifnum\pdfstrcmp{\arrows}{2uu}=0
+			\draw[styline] ({(\i-0.62)*#2},0.1*#2) -- ({(\i-0.62)*#2},0.9*#2);
+			\draw[styline] ({(\i-0.38)*#2},0.1*#2) -- ({(\i-0.38)*#2},0.9*#2);
+			\else\ifnum\pdfstrcmp{\arrows}{2dd}=0
+			\draw[styline] ({(\i-0.62)*#2},0.9*#2) -- ({(\i-0.62)*#2},0.1*#2);
+			\draw[styline] ({(\i-0.38)*#2},0.9*#2) -- ({(\i-0.38)*#2},0.1*#2);
+			\else\ifnum\pdfstrcmp{\arrows}{2ud}=0
+			\draw[styline] ({(\i-0.62)*#2},0.1*#2) -- ({(\i-0.62)*#2},0.9*#2);
+			\draw[styline] ({(\i-0.38)*#2},0.9*#2) -- ({(\i-0.38)*#2},0.1*#2);
+			\else\ifnum\pdfstrcmp{\arrows}{2du}=0
+			\draw[styline] ({(\i-0.62)*#2},0.9*#2) -- ({(\i-0.62)*#2},0.1*#2);
+			\draw[styline] ({(\i-0.38)*#2},0.1*#2) -- ({(\i-0.38)*#2},0.9*#2);
+			\fi\fi\fi\fi\fi\fi
+			\fi
+		}
+		\fi
+	\end{tikzpicture}}
+}
+
+%%% Liên kết Pi giải tỏa đều %%%
+\catcode`\_=11 % manual p. 28
+\tikzset{
+	ddbond/.style args={#1}{
+		draw=none,
+		decoration={%
+			markings,
+			mark=at position 0 with {
+				\coordinate (CF@startdeloc) at (0,\dimexpr#1\CF_doublesep/2)
+				coordinate (CF@startaxis) at (0,\dimexpr-#1\CF_doublesep/2);
+			},
+			mark=at position 1 with {
+				\coordinate (CF@enddeloc) at (0,\dimexpr#1\CF_doublesep/2)
+				coordinate (CF@endaxis) at (0,\dimexpr-#1\CF_doublesep/2);
+				\draw[dash pattern=on 2pt off 1.5pt] (CF@startdeloc)--(CF@enddeloc);
+				\draw (CF@startaxis)--(CF@endaxis);
+			}
+		},
+		postaction={decorate}
+	}
+}
+\catcode`\_=8
+
+%%%========================Lệnh tạo tùy chọn liên kết hidro================%%%
+\catcode`\_=11
+\tikzset{
+	hidrobond/.style args={#1/#2/#3}{
+		draw=none,
+		decoration={%
+			markings,
+			mark=at position 0 with {
+				\coordinate (CF@startdeloc) at (0,\dimexpr#1\CF_doublesep/50);
+				\coordinate (CF@startaxis) at (0,\dimexpr#1\CF_doublesep/50);
+			},
+			mark=at position 1 with {
+				\coordinate (CF@enddeloc) at (0,\dimexpr#1\CF_doublesep/50);
+				\coordinate (CF@endaxis) at (0,\dimexpr#1\CF_doublesep/50);
+				\path (CF@startdeloc)--(CF@enddeloc) node[pos =.5]{
+					\begin{tikzpicture}[declare function={d=#2;k=.30*d;}]
+						\foreach \x in {1*k,2*k,3*k}{\fill[#3] (\x,0) circle (0.037*d);}
+					\end{tikzpicture}
+				};
+			}
+		},
+		postaction={decorate}
+	}
+}
+\catcode`\_=8
+
+%%%================Tạo lệnh chữ in đậm trong chemfig=================%%%
+\renewcommand*\printatom[1]{\ensuremath{\mathbf{#1}}}
+%%==========Phân tử nước đầu chuỗi============%%
+\definesubmol\ptnuocdau{%
+	\charge{135:2pt[red]=$\delta^{+} $}{H}-[:60]
+	\charge{90:2pt[red,anchor=-90]=$\delta^{-} $}{O}-\charge{-90:2pt[red,anchor=90]=$\delta^{+} $}{H}}%
+%%==========Phân tử nước giữa============%%
+\definesubmol\ptnuoca{%
+	\charge{-90:2pt[red,anchor=90]=$\delta^{-} $}{O}(-[:120]\charge{60:2pt[red,anchor=-120]=$\delta^{+} $}{H})-\charge{60:2pt[red,anchor=-90]=$\delta^{+} $}{H}}%
+%%==========Phân tử nước cuối============%%
+\definesubmol\ptnuocb{%
+	\charge{90:2pt[red,anchor=-90]=$\delta^{-} $}{O}(-[:-120]\charge{135:2pt[red,anchor=-120]=$\delta^{+} $}{H})-\charge{60:2pt[red,anchor=-90]=$\delta^{+} $}{H}}%
+%%=============== Lệnh tạo liên kết H ==================%%
+\definesubmol\hbond{%
+	-[,1.25,,,hidrobond={+}/{2.5em}/{red}]
+}%
+
+\newcommand{\lkhlpt}[1]{%
+	\ifcase#1\relax%
+	\or
+	\chemfig[chemfig style={line width =1pt}]{%
+		!\ptnuocdau!\hbond!\ptnuoca}
+	\or
+	\chemfig[chemfig style={line width =1pt}]{%
+		!\ptnuocdau!\hbond!\ptnuoca!\hbond!\ptnuocb
+	}%
+	\or
+	\chemfig[chemfig style={line width =1pt}]{%
+		!\ptnuocdau!\hbond!\ptnuoca!\hbond!\ptnuocb!\hbond!\ptnuoca
+	}%
+	\or
+	\chemfig[chemfig style={line width =1pt}]{%
+		!\ptnuocdau!\hbond!\ptnuoca!\hbond!\ptnuocb!\hbond!\ptnuoca!\hbond!\ptnuocb
+	}%
+	\else
+	\chemfig[chemfig style={line width =1pt}]{%
+		!\ptnuocdau!\hbond!\ptnuoca!\hbond!\ptnuocb!\hbond!\ptnuoca!\hbond!\ptnuocb!\hbond!\ptnuoca
+	}%
+	\fi
+}
+
+%%%===============Lệnh công thỨc hóa học kèm theo tên phía dưới=====================%%%
+\NewDocumentCommand{\ChemName}{O{3}O{0}mm}{%
+	\tikz{%
+		\node[inner sep =0pt,outer sep=0pt] (char){%
+		\chemfig{#3}%
+		};%
+		\node [below=#1pt of char,xshift = #2 cm,font=\scriptsize\color{\maunhan}\bfseries\sffamily ] {#4};
+		}%
+}%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%% Tùy chỉnh mũi tên %%%
+%%%% Tùy chỉnh mũi tên không phản ứng %%%
+\catcode`\_=11
+\definearrow4{-x>}{%
+	\edef\leng{\ifx\empty#4\empty 8pt\else #4\fi}% dot radius
+	\CF_arrowshiftnodes{#3}%
+	\expandafter\draw\expandafter[\CF_arrowcurrentstyle](\CF_arrowstartnode)--(\CF_arrowendnode)
+	coordinate[midway](mid@point);
+	\path (\CF_arrowstartnode)--(\CF_arrowendnode) node[midway,sloped,pos =.5]{\tikz{
+			\expandafter\draw\expandafter[\CF_arrowcurrentstyle,-](0,0)--++(35:\leng)--([turn]180:{2*\leng});
+			\expandafter\draw\expandafter[\CF_arrowcurrentstyle,-](0,0)--++(-35:\leng)--([turn]180:{2*\leng});
+	}};
+	\CF_arrowdisplaylabel{#1}{0.5}{+}{\CF_arrowstartnode}{#2}{0.5}{-}{\CF_arrowendnode}
+}
+\catcode`\_=8
+
+
+\makeatletter
+\definearrow{9}{<X>}{%
+	\CF@arrow@shift@nodes{#7}%
+	%\expandafter\draw\expandafter[\CF@arrow@current@style,-CF](\CF@arrow@start@node)--(\CF@arrow@end@node)node[midway](Xarrow@arctangent){};%
+	\path[allow upside down](\CF@arrow@start@node)--(\CF@arrow@end@node)%
+	node[pos=0,sloped,yshift=1pt](\CF@arrow@start@node @u0){}%
+	node[pos=0,sloped,yshift=-1pt](\CF@arrow@start@node @d0){}%
+	node[pos=1,sloped,yshift=1pt](\CF@arrow@start@node @u1){}%
+	node[pos=1,sloped,yshift=-1pt](\CF@arrow@start@node @d1){}%
+	node[midway,yshift=1pt](Xarrow@arctangent@u){}%
+	node[midway,yshift=-1pt](Xarrow@arctangent@d){};%
+	\begingroup
+	\pgfarrowharpoontrue
+	\expandafter\draw\expandafter[\CF@arrow@current@style](\CF@arrow@start@node @u0)--(\CF@arrow@start@node @u1);%
+	\expandafter\draw\expandafter[\CF@arrow@current@style](\CF@arrow@start@node @d1)--(\CF@arrow@start@node @d0);%
+	\endgroup
+	\edef\CF@tmp@str{\ifx\@empty#1\@empty[draw=none]\fi}%
+	\expandafter\draw\CF@tmp@str (Xarrow@arctangent@u)%
+	arc[radius=\CF@compound@sep*\CF@current@arrow@length*\ifx\@empty#8\@empty0.333\else#8\fi,start angle=\CF@arrow@current@angle-90,%
+	delta angle=-\ifx\@empty#9\@empty60\else#9\fi]node(Xarrow1@start){};
+	\edef\CF@tmp@str{[\ifx\@empty#2\@empty draw=none,\fi-CF]}%
+	\expandafter\draw\CF@tmp@str (Xarrow@arctangent@u)%
+	arc[radius=\CF@compound@sep*\CF@current@arrow@length*\ifx\@empty#8\@empty0.333\else#8\fi,start angle=\CF@arrow@current@angle-90,%
+	delta angle=\ifx\@empty#9\@empty60\else#9\fi]node(Xarrow1@end){};
+	\edef\CF@tmp@str{[\ifx\@empty#4\@empty draw=none,\fi-CF]}%
+	\expandafter\draw\CF@tmp@str (Xarrow@arctangent@d)%
+	arc[radius=\CF@compound@sep*\CF@current@arrow@length*\ifx\@empty#8\@empty0.333\else#8\fi,start angle=\CF@arrow@current@angle+90,%
+	delta angle=\ifx\@empty#9\@empty60\else#9\fi]node(Xarrow2@start){};
+	\edef\CF@tmp@str{[\ifx\@empty#5\@empty draw=none,\fi-CF]}%
+	\expandafter\draw\CF@tmp@str (Xarrow@arctangent@d)%
+	arc[radius=\CF@compound@sep*\CF@current@arrow@length*\ifx\@empty#8\@empty0.333\else#8\fi,start angle=\CF@arrow@current@angle+90,%
+	delta angle=-\ifx\@empty#9\@empty60\else#9\fi]node(Xarrow2@end){};
+	\edef\CF@tmp@str{\if\string-\expandafter\@car\detokenize{#7.}\@nil-\else+\fi}%
+	\CF@arrow@display@label{#1}{0}\CF@tmp@str{Xarrow1@start}{#2}{1}\CF@tmp@str{Xarrow1@end}%
+	\CF@arrow@display@label{#3}{0.5}\CF@tmp@str\CF@arrow@start@node{}{}{}\CF@arrow@end@node%
+	\edef\CF@tmp@str{\if\string-\expandafter\@car\detokenize{#7.}\@nil+\else-\fi}%
+	\CF@arrow@display@label{#4}{0}\CF@tmp@str{Xarrow2@start}{#5}{1}\CF@tmp@str{Xarrow2@end}%
+	\CF@arrow@display@label{#6}{0.5}\CF@tmp@str\CF@arrow@start@node{}{}{}\CF@arrow@end@node%
+}
+\makeatother
+
+
+%%%Tùy chỉnh mũi tên\rightxarrow[]{}%%%%%%%%%%
+\NewDocumentCommand{\rightxarrow}{O{}O{}}{%
+	\ifblank{#1}{\def\tuychonone{1}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\mathrel{%
+	\vcenter{\hbox{%
+			\begin{tikzpicture}[join=round,cap=round]
+				\node[minimum width=\tuychonone cm,minimum height=1ex,align=center,anchor=center,inner sep=0pt,outer sep =0pt] (a){\text{\vphantom{hg}}\\[0.0 ex]\text{\vphantom{hg}} };
+				\draw[->,\tuychontwo] ([yshift=0.2ex]a.west) -- ([yshift=0.2ex]a.east);
+				\path(a) node[pos=0.5,midway,yshift=0.2 ex]{\tikz[join=round,cap=round)]
+					\draw[\tuychontwo] (-2pt,-2pt) --(2pt,2pt)(2pt,-2pt) --(-2pt,2pt);
+				};
+			\end{tikzpicture}%thêm % xóa khoảng trắng phia sua lệnh
+	}}%
+	}
+	\mkern-2mu
+}%
+
+
+
+%%%Tùy chỉnh mũi tên\xrightarrow[]{}%%%%%%%%%%
+\RenewDocumentCommand{\xrightarrow}{O{}O{}O{}O{}O{black,>=stealth}O{line width=0.65pt}}{%
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{1}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{-0.5}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,#6]
+					\node[minimum width=\tuychonthree cm,minimum height=1ex,align=center,anchor=center,inner sep=0pt,outer sep =0pt] (a){\text{\vphantom{hg}\small\tuychonone}\\[\tuychonfour ex] \text{\vphantom{hg}\small\tuychontwo}};
+					\draw[->,#5] ([yshift=0.2ex]a.west) -- ([yshift=0.2ex]a.east);
+				\end{tikzpicture}%thêm % xóa khoảng trắng phia sua lệnh
+		}}%
+	}%
+	\mkern-2mu
+}
+%%%Tùy chỉnh mũi tên\xleftarrow[]%%%%%%%%%%
+\RenewDocumentCommand{\xleftarrow}{O{}O{}O{}O{}O{black,>=stealth}O{line width=0.65pt}}{%
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{1}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{0.2}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,#6]
+					\node[minimum width=\tuychonthree cm,minimum height=1ex,align=center,anchor=center,inner sep=0pt,outer sep =0pt] (a){\text{\vphantom{hg}\small\tuychonone}\\[\tuychonfour ex] \text{\vphantom{hg}\small\tuychontwo}};
+					\draw[<-,#5] ([yshift=0.2ex]a.west) -- ([yshift=0.2ex]a.east);
+				\end{tikzpicture}%
+		}}%
+	}%
+	\mkern-2mu
+}
+
+%%%Tùy chỉnh mũi tên\uparrow[]{}%%%%%%%%%%
+
+\RenewDocumentCommand{\uparrow}{O{}O{}O{}O{}}{%
+		\ifblank{#1}{\def\tuychonone{1.5}}{\def\tuychonone{#1}}
+		\ifblank{#2}{\def\tuychontwo{-stealth}}{\def\tuychontwo{#2}}
+		\ifblank{#3}{\def\tuychonthree{0pt}}{\def\tuychonthree{#3}}
+		\ifblank{#4}{\def\tuychonfour{-2mu}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,xshift=\tuychonthree,baseline=0pt]
+					\node[minimum width=0.1pt,minimum height=\tuychonone ex,inner sep=0pt,outer sep=0pt] (a) {};
+					\draw[\tuychontwo] ([xshift=-0.4ex]a.south) -- ([xshift=-0.4ex]a.north);
+				\end{tikzpicture}%
+		}}%
+	}%
+	\mkern\tuychonfour%
+}
+
+%%%Tùy chỉnh mũi tên\downarrow[]{}%%%%%%%%%%
+\RenewDocumentCommand{\downarrow}{O{}O{}O{}O{}}{%
+	\ifblank{#1}{\def\tuychonone{1.5}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{-stealth}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{0pt}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{-2mu}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,xshift=\tuychonthree,baseline=0pt]
+					\node[minimum width=0.1pt,minimum height=\tuychonone ex,inner sep=0pt,outer sep=0pt] (a) {};
+					\draw[\tuychontwo] ([xshift=-0.5ex]a.north) -- ([xshift=-0.5ex]a.south);
+				\end{tikzpicture}%
+		}}%
+	}%
+	\mkern\tuychonfour%
+}
+
+%%%=================Tạo mũi tên hai chiều=================%%%
+\RenewDocumentCommand{\xleftrightarrow}{O{}O{}O{}O{}O{black,>=stealth}O{line width=0.65pt,>=stealth}}{%
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{0.7}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{-0.9}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,#6]
+					\node[minimum width=\tuychonthree cm,minimum height=1ex,anchor=south,align=center,inner sep=0pt,outer sep =0pt] (a){\text{\vphantom{hg}\scriptsize\tuychonone}\\[\tuychonfour ex] \text{\vphantom{hg}\scriptsize\tuychontwo}};
+					\draw[->,#5] ([yshift=0.45ex]a.west) -- ([yshift=0.45ex]a.east);
+					\draw[<-,#5] ([yshift=-0.10ex]a.west) -- ([yshift=-0.10ex]a.east);
+				\end{tikzpicture}
+		}}%
+	}%
+	\mkern-4mu
+}
+
+
+%%%=================Tạo mũi tên hai chiều=================%%%
+\NewDocumentCommand{\xharpoonarrow}{O{}O{}O{}O{}O{black,>=stealth}O{line width=0.65pt}}{%
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{1.65}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{-0.9}}{\def\tuychonfour{#4}}
+	\mathrel{%
+		\vcenter{\hbox{%
+				\begin{tikzpicture}[join=round,cap=round,#6]
+					\node[minimum width=\tuychonthree cm,minimum height=1ex,anchor=south,align=center,inner sep=0pt,outer sep =0pt] (a){\text{\vphantom{hg}\scriptsize\tuychonone}\\[\tuychonfour ex] \text{\vphantom{hg}\scriptsize\tuychontwo}};
+					\draw[arrows = {-Stealth[harpoon]},#5] ([yshift=0.35ex]a.west) -- ([yshift=0.35ex]a.east);
+					\draw[arrows = {-Stealth[harpoon]},#5] ([yshift=-0.10ex]a.east) -- ([yshift=-0.10ex]a.west);
+				\end{tikzpicture}%thêm % xóa khoảng trắng phia sua lệnh
+		}}%
+	}%
+	\mkern -2mu
+}
+
+
+
+
+
+
+
+
+

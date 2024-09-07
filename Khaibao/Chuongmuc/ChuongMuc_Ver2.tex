@@ -1,0 +1,255 @@
+\usepackage[explicit]{titlesec}
+\setcounter{secnumdepth}{4}
+%%%===============Hộp chương mục==================%%%
+%%% Phần %%% Chỉ có trong lớp book
+
+\titleformat{\part}
+{}
+{}
+{3em}
+{
+\begin{tikzpicture}[overlay,remember picture]
+	\path (current page.north west) coordinate (NW)
+	(current page.north east) coordinate (NE)
+	(current page.south east) coordinate (SE)
+	(current page.south west) coordinate (SW)
+	($(NW)!0.5!(NE)$) coordinate (A)
+	($(SW)!0.5!(SE)$) coordinate (B)
+	;
+	%%% Tạo màu nền  %%%
+	\path[fill=\mycolor!80!orange!60](NW) rectangle (SE);
+	%%% Nội dung tạm%%%%
+	\path ($(B)+(0,0.55\paperheight)$) node [inner sep=6pt,text width=12cm, align=center,font=\color{\mycolor!5!white}\bfseries\fontsize{50pt}{0pt}\fontfamily{phv}\selectfont] (nd) {\MakeUppercase{#1}};
+	%%%Nền nội dung
+	\path[fill=\mycolor!50!orange] ($(nd.north west)+ (135 :0.5cm)$) rectangle ($(nd.south east)+ (-45:0.5cm)$);
+	%%% Nội dung %%%%
+	\path ([shift={(-45:1.0pt)}]$(B)+(0,0.55\paperheight)$) node [inner sep=6pt,text width=12cm, align=center,font=\color{\mycolor!50!black}\bfseries\fontsize{50pt}{0pt}\fontfamily{ugq}\selectfont]{\MakeUppercase{#1}};
+	\path ($(B)+(0,0.55\paperheight)$) node [inner sep=6pt,text width=12cm, align=center,font=\color{white}\bfseries\fontsize{50pt}{0pt}\fontfamily{ugq}\selectfont]{\MakeUppercase{#1}};
+	%%% Viền nội dung
+	\begin{scope}[transform canvas={shift={(140:0.3cm)}}]
+		\path[fill=white,even odd rule] 
+		($(nd.north west)+ (135:0.5cm)$) rectangle ($(nd.south east)+ (-45:0.5cm)$)
+		([shift={(135:4pt)}]$(nd.north west)+ (135:0.5cm)$) rectangle ([shift={(-45:4pt)}]$(nd.south east)+ (-45:0.5cm)$)
+		;
+	\end{scope}
+	%%% Chữ phần
+	\path ([yshift=1cm]nd.north) node [anchor =south,font=\color{\mycolor!50!black}\bfseries\fontsize{35pt}{0pt}\fontfamily{phv}\selectfont]{Phần};
+	%%% Thêm icon
+	\path ([yshift=-2cm]nd.south) node [fill=orange!40!\mycolor,anchor =north,inner sep=0pt,circle]{\includegraphics[width =5cm]{Images/Trangtri/binhtamgiac.png}};
+	\path ([yshift=4cm]nd.north) node [anchor =south,inner sep=0pt]{\includegraphics[width =5cm]{Images/Trangtri/Atom.png}};
+\end{tikzpicture}
+}
+[\thispagestyle{empty}]
+
+\renewcommand{\chaptertitlename}{Chương}
+\DeclareFixedFont{\chapternumberfont}{T5}{phv}{b}{sc}{50pt}
+\DeclareFixedFont{\bigsf}{T5}{ugq}{b}{n}{40pt}
+\DeclareFixedFont{\sectionfont}{T5}{ugq}{b}{n}{30pt}
+\DeclareFixedFont{\chapternamefont}{T5}{ugq}{b}{n}{22pt}
+\DeclareFixedFont{\chapterndfont}{T5}{ugq}{b}{n}{25pt}
+\DeclareFixedFont{\sectionndfont}{T5}{ugq}{b}{n}{22pt}
+\def\muctieu{}
+%%%=============Hộp mục tiêu==========%%%
+\newtcolorbox{Muctieu}{
+	enhanced jigsaw,
+	before skip =6pt, after skip= 6pt,left skip= .5cm,
+	grow to right by =2.5cm,
+	left=6pt,right=2.5cm,
+	boxsep=10pt,
+	boxrule=0mm,
+	arc=6pt,
+	arc is angular,
+	sharp corners,
+	rounded corners = west,
+	title= {Học xong bài này, em có thể:},
+	fonttitle=\large\bfseries\sffamily,
+	fontupper=\small\itshape,
+	coltitle=\mycolor,
+	%colback =\mycolor!5,
+	colbacktitle=\mycolor!20,
+	frame empty,
+	opacityback=0,%% Tách nền
+	boxed title style ={sharp corners,boxrule =0pt,rounded corners=northeast,arc = 3pt,arc is angular,rounded corners=southeast,},
+	attach boxed title to top left={xshift=-0.3cm,yshift*=-0.25cm-\tcboxedtitleheight},
+	interior style={
+		fill=red!20,
+		draw=\mycolor!30!black,
+		dashed,line width=1pt
+	}
+}
+%%%===============Hộp chương mục==================%%%
+\renewcommand{\thechapter}{\Roman{chapter}}
+\titlespacing*{\chapter}{0pt}{0cm}{2cm}
+\titleformat{\chapter}
+{}
+{}
+{0pt}
+{%
+\begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round]
+%%%=====Nội dung chương tạm==============%%%
+\path (current page.north east) coordinate (NE);
+\path($(current page.north west)+(4.8cm,-2.5cm)$) coordinate (NW)  node[anchor= north west, font=\color{\mycolor}\chapterndfont,text width=0.7\linewidth,align=left](ND){\MakeUppercase{#1}};
+%%%========Mảng nội dung=============%%%
+\path[fill=\mycolor!30,rounded corners =3pt] ($(current page.north west)+(8.6,0)$) coordinate (A) 
+..controls ++(-120:2cm) and ++(0:3cm).. ($(current page.north west)+(4.0cm,-2.5cm)$) coordinate (B) 
+..controls ++(-180:3cm) and ++(80:2cm)..($(ND.south west)+(-2.5,-0.2)$) coordinate (C)
+--($(ND.south east)+(0.2,-0.2)$) coordinate (D)-- ($(B)+(0.8\linewidth,0)$)coordinate (E)--(intersection of A--NE and D--E)--cycle;
+%%%=====Nội dung chương==============%%%
+\path[draw]($(current page.north west)+(4.8cm,-2.5cm)$) coordinate (NW)  node[anchor= north west, font=\color{\mycolor}\chapterndfont,text width=0.7\linewidth,align=left](ND){\MakeUppercase{#1}};
+%%%%==========Mảng góc trái=================%%%
+%%%==Khai báo thêm điểm=======%%
+\path[fill=\mycolor!40] (current page.north west) coordinate (At)
+--++(8.5,0)  coordinate (Bt)
+..controls ++(-120:2cm) and ++(0:3cm).. ($(B)+(135:0.1cm)$)  coordinate (Ct)
+..controls ++(-180:3cm) and ++(80:2cm)..($(C)+(135:0.1cm)$)  coordinate (Dt)
+..controls ++(-100:2.0cm) and ++(20:0.5cm)..($(current page.north west)+(0cm,-8cm)$)  coordinate (Et)--cycle
+;
+%%%%=======Số chương=======%%
+\path [fill=\mycolor!90] ($(ND.west)+(-1.8,0)$) coordinate (nc) circle (1.6cm);
+\path [fill=\mycolor!40] ($(ND.west)+(-1.8,0)$) coordinate (NC) circle (1.5cm);
+\path (NC.center) node[text width=3cm,align=center](sochuong){
+	{\large\bfseries\fontfamily{qag}\selectfont Chương} \\ \vspace{3pt} {\chapternumberfont \thechapter}};
+\end{tikzpicture}
+}
+[\setcounter{section}{0}\thispagestyle{empty}]
+%%%=================Section=========================%%%
+\titlespacing*{\section}{0pt}{1cm}{1cm}
+\titleformat{\section}[display]
+{}
+{}
+{0pt}
+{%
+\ifnum\value{section}=1
+	\begin{tikzpicture}[overlay,remember picture]
+		%%%========Mảng nội dung=============%%%
+		\path ($(current page.north west)+(8.6,0)$) coordinate (A) 
+		..controls ++(-120:2cm) and ++(0:3cm).. ($(current page.north west)+(4.0cm,-2.5cm)$) coordinate (B) 
+		..controls ++(-180:3cm) and ++(80:2cm)..($(ND.south west)+(-2.5,-0.2)$) coordinate (C)
+		--($(ND.south east)+(0.2,-0.2)$) coordinate (D)-- ($(B)+(0.8\linewidth,0)$)coordinate (E)--(intersection of A--NE and D--E)--cycle;
+		%%%%==========Mảng góc trái=================%%%
+		%%%==Khai báo thêm điểm=======%%
+		\path[fill=\mycolor!40] (current page.north west) coordinate (At)
+		--++(8.5,0)  coordinate (Bt)
+		..controls ++(-120:2cm) and ++(0:3cm).. ($(B)+(135:0.1cm)$)  coordinate (Ct)
+		..controls ++(-180:3cm) and ++(80:2cm)..($(C)+(135:0.1cm)$)  coordinate (Dt)
+		..controls ++(-100:2.0cm) and ++(20:0.5cm)..($(current page.north west)+(0cm,-8cm)$)  coordinate (Et)--cycle
+		;
+		%%%%=======Số chương=======%%
+		\path [fill=\mycolor!90] ($(ND.west)+(-1.8,0)$) coordinate (nc) circle (1.6cm);
+		\path [fill=\mycolor!40] ($(ND.west)+(-1.8,0)$) coordinate (NC) circle (1.5cm);
+		\path (NC.center) node[text width=3cm,align=center](sochuong){
+			{\large\bfseries\fontfamily{qag}\selectfont Chương} \\ \vspace{3pt} {\chapternumberfont \thechapter}};
+		%%%======Bài và số bài===============%%%
+		\path ($(sochuong.south)+(0.7,-1.3)$)node[anchor=north,inner sep=4pt,
+		circle,fill=\mycolor!80,path fading=fade in,minimum size=2.2cm, ,font=\color{white}\bfseries\sffamily\fontsize{26pt}{3pt}\selectfont](Cir) {};
+		\path (Cir)node[anchor=center,inner sep=4pt,
+		circle,fill=\mycolor!90!black,minimum size=1.9cm,path fading=fade out ,font=\color{white}\bfseries\sffamily\fontsize{26pt}{3pt}\selectfont](Bai) {\S \arabic{section}};
+		\path ($(Bai.east)+(0.5,-0.09)$) node[anchor=west,font=\color{gray!50!black}\sectionndfont,text width=0.8\linewidth](BaiND){\MakeUppercase{#1}};
+		\path ($(Bai.east)+(0.51,-0.08)$) node[anchor=west,font=\color{\mycolor}\sectionndfont,text width=0.8\linewidth](BaiNDh){\MakeUppercase{#1}};
+	\end{tikzpicture}
+\else
+\newpage
+\thispagestyle{empty}
+	\begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round,declare function={r=1.3cm;}]
+		%%%%==========Mảng góc trái=================%%%
+		%%%==Khai báo thêm điểm=======%%
+		\path[fill=\mycolor!40] (current page.north west) coordinate (At)
+		--++(8.5,0)  coordinate (Bt)
+		..controls ++(-120:2cm) and ++(0:3cm).. ($(current page.north west)+(4.0cm,-2.5cm)$)   coordinate (Ct)
+		..controls ++(-180:3cm) and ++(80:2cm)..($(current page.north west)+(2.0cm,-4.0cm)$)  coordinate (Dt)
+		..controls ++(-100:2.0cm) and ++(20:0.5cm)..($(current page.north west)+(0cm,-6cm)$)  	coordinate (Et)--cycle
+		;
+		%%%%=======Bài và số bài=======%%
+		\path ($(Ct)+(-1,0.75)$)node[anchor=north,inner sep=4pt,
+		circle,fill=\mycolor!80,path fading=fade in,minimum size=2.2cm, ,font=\color{white}\bfseries\sffamily\fontsize{26pt}{3pt}\selectfont](Cir) {};
+		\path (Cir)node[anchor=center,inner sep=4pt,
+		circle,fill=\mycolor!90!black,minimum size=1.9cm,path fading=fade out ,font=\color{white}\bfseries\sffamily\fontsize{26pt}{3pt}\selectfont](Bai) {\S \arabic{section}};
+		\path ($(Bai.east)+(0.3,0.6)$) node[anchor=north west,font=\color{gray!50!black}\sectionndfont,text width=0.8\linewidth](BaiND){\MakeUppercase{#1}};
+		\path ($(Bai.east)+(0.31,0.59)$) node[anchor=north west,font=\color{\mycolor}\sectionndfont,text width=0.8\linewidth](BaiNDh){\MakeUppercase{#1}};
+	\end{tikzpicture}
+\fi
+}
+[\ifnum\value{section}=1
+\vspace*{1cm}
+\else
+\vspace*{2cm}
+\fi
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{bt}{0}
+\setcounter{ex}{0}
+\setcounter{vd}{0}
+]
+%%%===========================subsection===============%%%
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\titlespacing*{\subsection}{0cm}{10pt}{0pt}
+\titleformat{\subsection}
+{}
+{%
+	\begin{tikzpicture}[remember picture]
+		\path (0,0) 
+		node [\mycolor,minimum height= .8cm,font=\large\bfseries \fontfamily{qag}\selectfont](Sub)%
+		{\thesubsection};
+		\path
+		(Sub.north west)coordinate (B)
+		(Sub.south east)coordinate (C)
+		(Sub.west)coordinate (D)
+		(Sub.east)coordinate (E)
+		($ (D)+(3pt,0) $) coordinate (D1)
+		($ (E)+(3pt,0) $) coordinate (E1)
+		;
+		\fill[\mycolor!40] (B)--(Sub.north east)--(E1)--(C)--(Sub.south west)--cycle 
+		;
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor,minimum height= .8cm,inner sep=3pt,anchor=west,font=\large\bfseries \fontfamily{qag}\selectfont](Muc)%
+		{#1};
+		\path
+		(Muc.north west)coordinate (Bt)
+		(Muc.south east)coordinate (Ct)
+		(Muc.west)coordinate (Dt)
+		(Muc.east)coordinate (Et)
+		($ (Dt)+(3pt,0) $) coordinate (D1t)
+		($ (Et)+(3pt,0) $) coordinate (E1t)
+		;
+		\fill[\mycolor!20] (D1t)--(Bt)--(Muc.north east)--(E1t)--(Ct)--(Muc.south west)--cycle 
+		;
+		\path (0,0) 
+		node [\mycolor!50!black,font=\large\bfseries\fontfamily{qag}\selectfont]
+		{\thesubsection};
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor!50!black,anchor= west,font=\large\bfseries \fontfamily{qag}\selectfont]{#1};
+\end{tikzpicture}}
+{3pt}{}
+
+%%%=======================subsubsection=============================%%%
+%%%%==========================================================%%%
+%\titlespacing*{\subsubsection}{0.5cm}{5pt}{0pt}
+%\titleformat{\subsubsection}
+%{\raggedright}
+%{\color{\mycolor!90!black}\large\bfseries\fontfamily{qag}\selectfont\circlenumH[\mycolor!90!black]{\arabic{subsubsection}}\;\bfseries\fontfamily{qag}\selectfont{#1}}
+%{1ex minus .2ex}
+%{}
+%{}
+\titlespacing*{\subsubsection}{0.5cm}{5pt}{0pt}
+\titleformat{\subsubsection}
+{\raggedright}
+{\color{\mycolor!90!black}\large\bfseries\fontfamily{qag}\selectfont\circlenumH[\mycolor!90!black]{\arabic{subsubsection}}}
+{0.5 ex minus .2ex}
+{\color{\mycolor!90!black}\large\bfseries\fontfamily{qag}\selectfont{#1}}
+{}
+%\titlespacing*{\subsubsection}{0.5cm}{5pt}{0pt}
+%\titleformat{\subsubsection}
+%{\raggedright}
+%{\color{\mycolor!90!black}\large\bfseries\fontfamily{qag}\selectfont\circlenumH[\mycolor!90!black]{\arabic{subsubsection}}}
+%{1ex minus .2ex}
+%{\bfseries\fontfamily{qag}\selectfont}
+%[\vspace{-\baselineskip}]
+%%%==========================================================%%%
+\titlespacing*{\paragraph}{0.65cm}{5pt}{0pt}
+\titleformat{\paragraph}
+{}
+{\color{\mycolor!90!black}\bfseries\fontfamily{qag}\selectfont\alph{paragraph})\;\bfseries\fontfamily{qag}\selectfont{#1}}
+{1ex minus .2ex}
+{}
+{}
+%%%==========================================================%%%

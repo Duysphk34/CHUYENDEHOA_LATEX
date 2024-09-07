@@ -1,0 +1,252 @@
+\usepackage[book]{ex_test}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+%%====================Hộp Bài tâp Có 3 đối số==========================%%%
+\newcounter{bt}[section]
+\NewTColorBox[auto counter]{btbox}{+!O{}O{}O{}}{%[use counter=bt]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Bài~\thetcbcounter},%\thebt
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=6pt,
+	left= 3pt,
+	right=3pt,
+	phantomlabel={baibt\thetcbcounter},%\thebt
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thetcbcounter}};%\thebt
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-2pt,7pt)}]frame.south east) node[anchor=east,font=\scriptsize\color{red!50!\maunhan}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+\newcommand{\bthead}[3]{\begin{btbox}[#1][#2][#3]}
+	\def\btend{\end{btbox}}
+\newcommand{\huongdan}[1]{}%tạo tạm lệnh hướng dẫn
+\NewDocumentEnvironment{bt}{+!O{}O{}O{}}{%
+	\ifblank{#1}{\bthead{1}{#2}{#3}}{\bthead{#1}{#2}{#3}}%
+}{\btend}
+\AtBeginEnvironment{bt}{%
+	\refstepcounter{bt}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{btbox} \def\btend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+	{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}}\par\noindent 
+	#1
+	\ifthenelse{\value{numTrueSol}>0}{
+		\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+	}{}
+}
+\renewcommand{\huongdan}[1]{%
+\end{btbox} \def\btend{}
+\par\noindent
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}\par\noindent  
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+	\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{excount}[section]
+\NewTColorBox[use counter=excount]{exbox}{+!O{}O{}O{}}{%[use counter=ex]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Câu~\theexcount},%\theex
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=12pt,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theexcount}};%\theex
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\fmmfamily\Large\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+
+\def\exbegin{%
+	\begin{exbox}}
+	\def\exend{\end{exbox}}
+%\newcommand{\huongdan}{}
+\renewenvironment{ex}
+{\exbegin}
+{\exend}
+\AtBeginEnvironment{ex}{%
+	\refstepcounter{ex}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{exbox} \def\exend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+	{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}}\par\noindent 
+	#1
+	\ifthenelse{\value{numTrueSol}>0}{
+		\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+	}{}
+}
+\renewcommand{\huongdan}[1]{%
+\end{exbox} \def\exend{}
+\par\noindent
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}\par\noindent  
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+	\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+
+\newcounter{vd}[section]
+\NewTColorBox[auto counter]{vdbox}{+!O{}O{}O{}}{%[use counter=vd]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Ví dụ~\thetcbcounter},%\thevd
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=12pt,
+	phantomlabel={baivd\thetcbcounter},%\thevd
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thetcbcounter}};%\thevd
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\fmmfamily\Large\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+
+\def\vdbegin{%
+	\begin{vdbox}}
+	\def\vdend{\end{vdbox}}
+%\newcommand{\huongdan}{}
+\newenvironment{vd}
+{\vdbegin}
+{\vdend}
+\AtBeginEnvironment{vd}{%
+	\refstepcounter{vd}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{vdbox} \def\vdend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+	{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}}\par\noindent 
+	#1
+	\ifthenelse{\value{numTrueSol}>0}{
+		\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+	}{}
+}
+\renewcommand{\huongdan}[1]{%
+\end{vdbox} \def\vdend{}
+\par\noindent
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}\par\noindent  
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+	\phantom{a}\hfill\textcolor{\mycolor!50!black}{\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+
+
+
+

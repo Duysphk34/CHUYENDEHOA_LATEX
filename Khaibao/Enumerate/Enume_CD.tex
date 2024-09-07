@@ -1,0 +1,50 @@
+\usepackage[shortlabels]{enumitem}
+\usepackage{ifthen}
+\setlist[enumerate,1]{label*=\circlenum{\arabic*},itemsep=-1pt,topsep=3pt}%
+\setlist[enumerate,2]{itemsep=0pt,topsep=0pt,label=\circlenumH{\alph*},wide=0cm,leftmargin=!}
+\setlist[enumerate,3]{itemsep=0pt,topsep=0pt,label=\protect{\textcolor{\mycolor}{\roman*)}},wide=1cm,leftmargin=1cm}
+\setlist[itemize,1]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\mycolor}\rhombusdot},wide=0.65cm,leftmargin=0.65cm}
+\setlist[itemize,2]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\mycolor}\starletdot},wide=1cm,leftmargin=1cm}
+\setlist[itemize,3]{itemsep=0pt,topsep=0pt,label=\protect{\small\color{\mycolor}\faAngellist},wide=1.5cm,leftmargin=1.5cm}
+
+\RenewEnviron{listEX}[1][]{
+	\ifthenelse{\equal{#1}{1}}%
+	{%
+		\begin{enumerate}%
+			\BODY%
+		\end{enumerate}%
+	}%
+	{\begin{multicols}{#1}
+			\begin{enumerate}%
+				\BODY%
+			\end{enumerate}%
+	\end{multicols}}%
+}
+
+\RenewEnviron{enumEX}[2][]{
+	\ifthenelse{\equal{#2}{1}}%
+	{%
+		\begin{enumerate}%
+			\BODY%
+		\end{enumerate}%
+	}%
+	{\begin{multicols}{#2}
+			\begin{enumerate}%
+				\BODY%
+			\end{enumerate}%
+	\end{multicols}}%
+}
+
+%%%%%%%%%%%%%%Liệt kê nhiều cột%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{enumEX}{3}
+%	\item Sử dụng định nghĩa giá trị lượng giác của một góc
+%	\item Sử dụng tính chất và bảng giá trị lượng giác đặc biệt
+%	\item Sử dụng các hệ thức lượng giác cơ bản
+%\end{enumEX}
+%
+%\begin{listEX}[4]
+%	\item $A \cap B$.
+%	\item $A \backslash B$.
+%	\item $A \cup B$.
+%	\item $B \backslash A$
+%\end{listEX}

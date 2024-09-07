@@ -1,0 +1,1102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%TẠO DÒNG KẺ CHỦ ĐỘNG HOẶC HIỆN HƯỚNG DẪN GIẢI%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\circl[2][\mycolor]{\tikz[baseline=(char.base)]{\node[shape=circle,inner sep=1pt,draw=#1,fill=#1!15,font=\fontfamily{qag}\selectfont,minimum size=15pt] (char) {\color{\mycolor!50!black}\bfseries%
+			#2};}}
+\usepackage{ex_test}
+\usepackage{ifthen}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl[cyan]{\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl[cyan]{\Alph{dapan}}}}
+\renewcommand{\immini}[3][]{%
+	\tcbsidebyside[
+	sidebyside adapt=right,
+	blanker,sidebyside gap=5mm,
+	sidebyside align=top seam
+	]{%
+		#2
+	}{%
+		#3
+	}
+}
+\renewcommand{\hinhphai}[2]{%
+	\tcbsidebyside[
+	sidebyside adapt=right,
+	blanker,sidebyside gap=3mm,
+	sidebyside align=top seam,
+	]{%
+		%		{\color{\mycolor!50!black}\tieudehinh}%
+		#1
+	}{%
+		#2
+	}
+}
+%%%%%%%%%%%%%%%%%%%%%%Tách loi giai%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Newassociation{giaibt}{loigiaibt}{ansbt}
+\Newassociation{giaiex}{loigiaiex}{ansex}
+\NewTColorBox{ansbt}{m}{
+	breakable,
+	enhanced,
+	outer arc=0pt,
+	arc=0pt,
+	colframe=white,
+	frame hidden,
+	left=-6pt,right=0pt,top=0pt,
+	colback=white,
+	attach boxed title to top left,
+	boxed title style={
+		colback=white,
+		outer arc=0pt,
+		arc=0pt,
+		top=1pt,
+		bottom=1pt,
+		left=3pt,
+		right=3pt,
+		colframe=white
+	},
+	fonttitle=\bfseries\sffamily\selectfont\color{white},
+	title={HDBT~#1},
+	overlay unbroken and first={
+		\path (title.north west) coordinate (A)
+		($ (title.south west) +(-4pt,0pt)$) coordinate (B)
+		(title.south east) coordinate (C)
+		($ (title.north east)+(4pt,0) $) coordinate (D);
+		\path[rounded corners=2pt,fill=\mycolor,
+		preaction={transform canvas={shift={(-45:2pt)}},left color=\mycolor!45,right color=\mycolor!25}] 
+		(A)--(B)--(C)--(D)--cycle;
+		\path (A)--(C) node[midway,font=\color{white}\bfseries\sffamily\selectfont](Bai){\textsl{HDBT~#1}};
+		\draw[rounded corners=2pt,thick,\mycolor] ([xshift=-3pt]B) coordinate (Bt)
+		--([shift={(-2pt,2pt)}]A)--+(\linewidth,0) coordinate (Ct);
+		\fill[\mycolor] (Bt) circle (1pt) (Ct) circle (2pt);
+	}
+}
+
+\NewTColorBox{ansex}{m}{
+	breakable,
+	enhanced,
+	outer arc=0pt,
+	arc=0pt,
+	colframe=white,
+	frame hidden,
+	left=-6pt,right=0pt,top=0pt,
+	colback=white,
+	attach boxed title to top left,
+	boxed title style={
+		colback=white,
+		outer arc=0pt,
+		arc=0pt,
+		top=1pt,
+		bottom=1pt,
+		left=3pt,
+		right=3pt,
+		colframe=white
+	},
+	fonttitle=\bfseries\sffamily\selectfont\color{white},
+	title={HD Câu~#1},
+	overlay unbroken and first={
+		\path (title.north west) coordinate (A)
+		($ (title.south west) +(-4pt,0pt)$) coordinate (B)
+		(title.south east) coordinate (C)
+		($ (title.north east)+(4pt,0) $) coordinate (D);
+		\path[rounded corners=2pt,fill=\mycolor,
+		preaction={transform canvas={shift={(-45:2pt)}},left color=\mycolor!45,right color=\mycolor!25}] 
+		(A)--(B)--(C)--(D)--cycle;
+		\path (A)--(C) node[midway,font=\color{white}\bfseries\sffamily\selectfont](Bai){\textsl{HD Câu~#1}};
+		\draw[rounded corners=2pt,thick,\mycolor] ([xshift=-3pt]B) coordinate (Bt)
+		--([shift={(-2pt,2pt)}]A)--+(\linewidth,0) coordinate (Ct);
+		\fill[\mycolor] (Bt) circle (1pt) (Ct) circle (2pt);
+	}
+}
+\def\ansexhead{\begin{ansex}}
+\def\ansexend{\end{ansex}}
+\renewenvironment{loigiaibt}[1]{\begin{ansbt}{#1}}{\end{ansbt}}
+\renewenvironment{loigiaiex}[1]{\ansexhead{#1}}{\ansexend}
+\def\luuloigiaibt{
+		\AtBeginEnvironment{bt}{
+				\renewcommand{\loigiai}[1]{%
+				\end{btbox}
+				\def\btend{}
+					\scantokens{%
+							\begin{giaibt}
+									##1
+							\end{giaibt}}
+				}
+		}
+}
+\def\luuloigiaiex{
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\loigiai}[1]{%
+			\ifnum\the\value{numTrue}=1
+			\scantokens{%
+				\begin{giaiex}
+					##1
+					\phantom{a}\hfill{\bfseries\sffamily Chọn~\circleTrue{A}}
+			\end{giaiex}}
+			\fi%
+			\ifnum\the\value{numTrue}=2
+			\scantokens{%
+				\begin{giaiex}
+					##1
+					\phantom{a}\hfill{\bfseries\sffamily Chọn~\circleTrue{B}}
+			\end{giaiex}}
+			\fi%	    
+			\ifnum\the\value{numTrue}=3
+			\scantokens{%
+				\begin{giaiex}
+					##1
+					\phantom{a}\hfill{\bfseries\sffamily Chọn~\circleTrue{C}}
+				\end{giaiex}}
+			\fi  %	   
+			\ifnum\the\value{numTrue}=4
+			\scantokens{%
+				\begin{giaiex}
+					##1
+					\phantom{a}\hfill{\bfseries\sffamily Chọn~\circleTrue{D}}
+				\end{giaiex}}
+			\fi  
+		}  
+	}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HỘP CÂU CÓ 3 TÙY CHỌN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newbool{ktex}
+\newcommand{\sodongkeex}[1][]{\global\setbool{ktex}{true}\end{exbox}\def\exend{} \noindent\textcolor{\mycolor}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{#1}}
+%\newcounter{ex}
+\NewTColorBox[auto counter]{exbox}{+!O{}O{}O{}}{%
+enhanced,
+fonttitle=\bfseries\sffamily\color{white},
+title={\faClockO\ Câu~\theex},
+colframe=\mycolor!65!black,
+colback=white,
+colbacktitle=white,
+fonttitle=\bfseries,
+coltitle=black,
+attach boxed title to top left=
+{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+boxed title style={
+	frame hidden,
+	outer arc=0pt,
+	arc=0pt,
+	top=3pt,
+	bottom=3pt,
+	left=0pt,
+	right=0pt
+},
+overlay unbroken and first={
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+	;
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theex}};
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+	\path ([shift={(-5pt,6pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+},
+top=\tcboxedtitleheight
+}
+\newcommand{\exhead}[3]{\begin{exbox}[#1][#2][#3]}
+\def\exend{\end{exbox}}
+\RenewDocumentEnvironment{ex}{+!O{}O{}O{}}{
+\ifblank{#1}{\exhead{1}{#2}{#3}}{\exhead{#1}{#2}{#3}}%
+}{\exend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{ex}{%
+\refstepcounter{ex} % tăng số điếm bt lên 1
+\global\setbool{ktex}{false}
+\setcounter{numTrue}{0}%
+\setcounter{numTrueSol}{0}%
+\renewcommand{\loigiai}[1]{%
+	\ifbool{ktex}{}{
+	\end{exbox}
+	\def\exend{}
+	%%==================Tính số dòng của lời giải==================%%%
+	\setbox0=\vbox{\hbox{
+			\noindent\begin{minipage}{\linewidth}%
+				#1aaaaaaaaaaa
+			\end{minipage}
+	}}
+	\linepar=\ht0
+	%	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight))}
+	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+3)}
+	\noindent\textcolor{\mycolor!70!black}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{\pgfmathresult}
+}
+}
+\renewcommand{\huongdan}[1]{%
+\par\noindent	
+\end{exbox}
+\def\exend{}
+\par\noindent%
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+\par\noindent
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HỘP Bai Tap CÓ 3 TÙY CHỌN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\huongdan}[1]{}%tạo tạm lệnh hướng dẫn
+\newbool{ktbt}
+\newcommand{\sodongkebt}[1][]{\global\setbool{ktbt}{true}\end{btbox}\def\btend{} \noindent\textcolor{\mycolor}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{#1}}
+\newcounter{bt}
+\NewTColorBox[auto counter]{btbox}{+!O{}O{}O{}}{%
+enhanced,
+fonttitle=\bfseries\sffamily\color{white},
+title={\faClockO\ Bài~\thebt},
+colframe=\mycolor!65!black,
+colback=white,
+colbacktitle=white,
+fonttitle=\bfseries,
+coltitle=black,
+attach boxed title to top left=
+{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+boxed title style={
+	frame hidden,
+	outer arc=0pt,
+	arc=0pt,
+	top=3pt,
+	bottom=3pt,
+	left=0pt,
+	right=0pt
+},
+overlay unbroken and first={
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+	;
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+	\path ([shift={(-5pt,6pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+},
+top=\tcboxedtitleheight
+}
+\newcommand{\bthead}[3]{\begin{btbox}[#1][#2][#3]}
+\def\btend{\end{btbox}}
+\NewDocumentEnvironment{bt}{+!O{}O{}O{}}{
+\ifblank{#1}{\bthead{1}{#2}{#3}}{\bthead{#1}{#2}{#3}}%
+}{\btend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{bt}{%
+\refstepcounter{bt} % tăng số điếm bt lên 1
+\global\setbool{ktbt}{false}
+\setcounter{numTrue}{0}%
+\setcounter{numTrueSol}{0}%
+\renewcommand{\loigiai}[1]{%
+	\ifbool{ktbt}{}{
+	\end{btbox}
+	\def\btend{}
+	%%==================Tính số dòng của lời giải==================%%%
+	\setbox0=\vbox{\hbox{
+			\noindent\begin{minipage}{\linewidth}%
+				#1aaaaaaaaaaa
+			\end{minipage}
+	}}
+	\linepar=\ht0
+	%	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight))}
+	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+3)}
+	\noindent\textcolor{\mycolor!70!black}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{\pgfmathresult}
+}
+}
+\renewcommand{\huongdan}[1]{%
+\par\noindent	
+\end{btbox}
+\def\btend{}
+\par\noindent%
+{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
+\par\noindent
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+
+%%====================Hộp Ví dụ có 3 tùy chọn==========================%%%
+\newbool{ktvd}
+\newcommand{\sodongkevd}[1][]{\global\setbool{ktvd}{true}\end{vdbox}\def\vdend{} \noindent\textcolor{\mycolor}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{#1}}
+\newcounter{vd}
+\NewTColorBox{vdbox}{+!O{}O{}O{}}{%
+enhanced,
+fonttitle=\bfseries\sffamily\color{white},
+title={\faClockO\ Ví dụ~\thevd},
+colframe=\mycolor!65!black,
+colback=white,
+colbacktitle=white,
+fonttitle=\bfseries,
+coltitle=black,
+attach boxed title to top left=
+{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+boxed title style={
+	frame hidden,
+	outer arc=0pt,
+	arc=0pt,
+	top=2pt,
+	bottom=2pt,
+	left=0pt,
+	right=0pt
+},
+overlay unbroken and first={
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+	;
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=0.86*\linewidth]C) coordinate (E)--([xshift=0.86*\linewidth]D) coordinate (F)--cycle;
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+	\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape,inner sep =3pt]{#3};
+},
+top=\tcboxedtitleheight
+}
+\newcommand{\vdhead}[3]{\begin{vdbox}[#1][#2][#3]}
+\def\vdend{\end{vdbox}}
+\NewDocumentEnvironment{vd}{+!O{}O{}O{}}{%
+\ifblank{#1}{\vdhead{1}{#2}{#3}}{\vdhead{#1}{#2}{#3}}%
+}{\vdend}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\AtBeginEnvironment{vd}{%
+\refstepcounter{vd} % tăng số điếm bt lên 1
+\global\setbool{ktvd}{false}
+\setcounter{numTrue}{0}%
+\setcounter{numTrueSol}{0}%
+\renewcommand{\loigiai}[1]{%
+	\ifbool{ktvd}{}{
+	\end{vdbox}
+	\def\vdend{}
+	%%==================Tính số dòng của lời giải==================%%%
+	\setbox0=\vbox{\hbox{
+			\noindent\begin{minipage}{\linewidth}%
+				#1
+			\end{minipage}
+	}}
+	\linepar=\ht0
+%		\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight))}
+		\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+3)}
+	\noindent\textcolor{\mycolor!70!black}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{\pgfmathresult}
+}
+}
+\renewcommand{\huongdan}[1]{%
+\end{vdbox}
+\def\vdend{}
+{\par\noindent\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}}
+#1
+\ifthenelse{\value{numTrueSol}>0}{
+	\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily Chọn~\circleTrue{\Alph{numTrueSol}}}
+}{}
+}
+}
+\newcommand\circlenum[2][\mycolor]{\tikz[baseline=(char.base)]
+	{\node[shape=circle,inner sep=1pt,draw=#1,fill=#1!10,
+		font=\footnotesize\bfseries\fontfamily{qag}\selectfont,minimum size=14pt,outer sep=0pt] (char) {#2};}}
+\newcounter{chex}
+\NewTColorBox{chexbox}{+!O{}O{}O{}}{%
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Câu~\thechex},
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\thechex}};
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,6pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+\newcommand{\chexhead}[3]{\begin{chexbox}[#1][#2][#3]}
+	\def\chexend{\end{chexbox}}
+\NewDocumentEnvironment{chex}{+!O{}O{}O{}}{
+	\ifblank{#1}{\chexhead{1}{#2}{#3}}{\chexhead{#1}{#2}{#3}}%
+}{\chexend}
+\AtBeginEnvironment{chex}{
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\refstepcounter{chex}
+	\renewcommand{\loigiai}[1]{
+	\end{chexbox}
+	\def\chexend{}
+	\par\noindent{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}
+	#1\hfill\faKey\circleTrue{\Alph{numTrue}} 
+}
+}
+%%%==================Tùy chỉnh lời giải=========================%%%
+%\newcommand{\LGchexTF}{
+%	\AtBeginEnvironment{chex}{
+	%		\renewcommand{\loigiai}[1]{%
+		%		\end{chexbox}
+	%		\def\chexend{}
+	%		\par\noindent%
+	%		{\reflectbox{\color{\mycolor}\Large\WritingHand}\ {\color{\mycolor}\fmmfamily\LARGE Lời giải.}} ##1 \hfill{{\faKey}~ 
+		%			\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+		%			\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+		%			\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+		%			\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+		%		}
+	%	}
+%}
+%}
+\newcommand{\LGchexTF}{
+\AtBeginEnvironment{chex}{
+\renewcommand{\loigiai}[1]{%
+	\par\noindent%
+	{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1 \hfill{{\faKey}~ 
+		\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+		\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+		\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+		\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+	}%
+	\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+	\scantokens{
+		\begin{solbook}
+			\writeANS
+		\end{solbook}%
+	}%		
+}
+}
+}
+%\def\luuloigiaichex{
+%	\AtBeginEnvironment{chex}{
+%		\renewcommand{\loigiai}[1]{%
+	%			\scantokens{%
+		%				\begin{giaiex}
+			%					##1
+			%			\end{giaiex}}
+	%		}
+%		\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+%		\scantokens{
+	%			\begin{solbook}
+		%				\writeANS
+		%			\end{solbook}%
+	%		} 
+%	}
+%}
+\def\luulgEXTF{
+\AtBeginEnvironment{chex}{
+\renewcommand{\loigiai}[1]{%
+	\Writetofile{ansex}{\string\def\string\writeANS{\saveans}}
+	\scantokens{%
+		\begin{giaiex}
+			##1
+			\phantom{a}\hfill{ \faKey~\writeANS}
+		\end{giaiex}
+	}% 
+	\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+	\scantokens{
+		\begin{solbook}
+			\writeANS
+		\end{solbook}%
+	} 
+}
+}
+\AtBeginEnvironment{ex}{
+\renewcommand{\loigiai}[1]{%
+	\Writetofile{ansex}{\string\def\string\writeANS{\saveans}}
+	\scantokens{%
+		\begin{giaiex}
+			##1
+			\phantom{a}\hfill{ \faKey~\writeANS}
+		\end{giaiex}
+	}% 
+	\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+	\scantokens{
+		\begin{solbook}
+			\writeANS
+		\end{solbook}%
+	} 
+}
+}
+}
+\newcommand{\Pointilles}[2][1.1]{%
+\par\nobreak
+\noindent\rule{0pt}{1.1\baselineskip}%
+\foreach \i in {1,...,#2}{%
+\ifnum\i=1
+\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\reflectbox{\Large\WritingHand}\dotfill}\endgraf
+\else
+\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf
+\fi
+}
+}
+
+\newcommand{\DoiThanhDongKe}[1]{
+\setbox0=\vbox{\hbox{
+	\noindent\begin{minipage}{\linewidth}%
+		#1 aaaaa
+	\end{minipage}
+	}}
+	\linepar=\ht0
+	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+1)}
+	\ifnum\pgfmathresult>3
+	\noindent%
+	\Pointilles{\pgfmathresult}
+	\else
+	\noindent%
+	\Pointilles{3}
+	\fi
+}
+
+\newcommand{\DoiThanhDongKeH}[1]{
+\setbox0=\vbox{\hbox{
+	\noindent\begin{minipage}{\linewidth}%
+		#1 aaaaa
+	\end{minipage}
+	}}
+	\linepar=\ht0
+	\pgfmathparse{int((\linepar-\fboxsep)/(0.85\lineheight)+1)}
+	\ifnum\pgfmathresult>3
+	\noindent%
+	\Pointilles{\pgfmathresult}
+	\else
+	\noindent%
+	\Pointilles{4}
+	\fi
+}
+%%%=============================================%%%
+\def\dongkeex{
+\AtBeginEnvironment{ex}{
+\renewcommand{\loigiai}[1]{%
+	\DoiThanhDongKe{##1}
+}
+}
+}
+
+%%%=============================================%%%
+\def\dongkeHaicotex{
+\AtBeginEnvironment{ex}{
+\renewcommand{\loigiai}[1]{
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}
+}
+}
+}
+
+%%%=============================================%%%
+\def\tatloigiaiex{%
+\AtBeginEnvironment{ex}{\renewcommand{\loigiai}[1]{}}
+}
+
+%%%=============================================%%%
+\def\hienthiloigiaiex{%
+\AtBeginEnvironment{ex}{
+\renewcommand{\loigiai}[1]{%
+	\par\noindent%
+	{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn}} \faKey\ \circlenum{\Alph{numTrue}} ##1
+}
+}
+}
+
+%%%=============================================%%%
+\def\dongkebt{
+\AtBeginEnvironment{bt}{
+\renewcommand{\loigiai}[1]{
+	\DoiThanhDongKe{##1}
+}
+}
+}
+
+%%%=============================================%%%
+\def\dongkeHaicotbt{
+\AtBeginEnvironment{bt}{
+\renewcommand{\loigiai}[1]{
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}
+}
+}
+}
+
+%%%=============================================%%%
+\def\tatloigiaibt{%
+\AtBeginEnvironment{bt}{\renewcommand{\loigiai}[1]{}}
+}
+
+%%%=============================================%%%
+\def\hienthiloigiaibt{%
+\AtBeginEnvironment{bt}{
+\renewcommand{\loigiai}[1]{%
+	\par\noindent%
+	{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn}} ##1
+}
+}
+}
+
+%%%=========================================%%%
+%\Newassociation{giaibt}{loigiaibt}{Ansbt}
+%\Newassociation{giaiex}{loigiaiex}{Ansbt}
+%\def\luuloigiaibt{
+%	\AtBeginEnvironment{bt}{
+%		\renewcommand{\loigiai}[1]{%
+	%		\end{btbox}
+%		\def\btend{}
+%			\scantokens{%
+	%				\begin{giaibt}
+		%					##1
+		%			\end{giaibt}}
+%		}
+%	}
+%}
+%\def\luuloigiaiex{
+%	\AtBeginEnvironment{ex}{
+%		\renewcommand{\loigiai}[1]{%
+%		\end{exbox}
+%		\def\exend{}
+%			\scantokens{%
+%				\begin{giaiex}
+	%					##1
+	%			\end{giaiex}}
+	%		}
+%	}
+%}
+
+
+%\NewTColorBox{ansbt}{m}{
+%	breakable,
+%	enhanced,
+%	outer arc=0pt,
+%	arc=0pt,
+%	colframe=white,
+%	frame hidden,
+%	left=-6pt,right=0pt,top=0pt,
+%	colback=white,
+%	attach boxed title to top left,
+%	boxed title style={
+%		colback=white,
+%		outer arc=0pt,
+%		arc=0pt,
+%		top=1pt,
+%		bottom=1pt,
+%		left=3pt,
+%		right=3pt,
+%		colframe=white
+%	},
+%	fonttitle=\bfseries\sffamily\selectfont\color{white},
+%	title={HDBT~#1},
+%	overlay unbroken and first={
+%		\path (title.north west) coordinate (A)
+%		($ (title.south west) +(-4pt,0pt)$) coordinate (B)
+%		(title.south east) coordinate (C)
+%		($ (title.north east)+(4pt,0) $) coordinate (D);
+%		\path[rounded corners=2pt,fill=\mauchinh,
+%		preaction={transform canvas={shift={(-45:2pt)}},left color=\mauchinh!45,right color=\mauchinh!25}] 
+%		(A)--(B)--(C)--(D)--cycle;
+%		\path (A)--(C) node[midway,font=\color{white}\bfseries\sffamily\selectfont](Bai){\textsl{HDBT~#1}};
+%		\draw[rounded corners=2pt,thick,\mauchinh] ([xshift=-3pt]B) coordinate (Bt)
+%		--([shift={(-2pt,2pt)}]A)--+(\linewidth,0) coordinate (Ct);
+%		\fill[\mauchinh] (Bt) circle (1pt) (Ct) circle (2pt);
+%	}
+%}
+%
+%\renewenvironment{loigiaibt}[1]{\begin{ansbt}{#1}}{\end{ansbt}}
+
+%%%=============================================%%%
+\def\dongkevd{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{%
+\end{vdbox}\def\vdend{}
+\vspace*{-\baselineskip}
+\DoiThanhDongKe{##1}
+}
+}%
+\AtBeginEnvironment{vdex}{
+\renewcommand{\loigiai}[1]{%	
+\end{boxvd}%
+\def\vdexend{}
+\par\noindent
+\DoiThanhDongKe{##1}
+}
+}
+}
+
+%%%=============================================%%%
+\def\dongkeHaicotvd{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{%
+\end{boxvd}\def\vdend{}
+\begin{multicols}{2}			
+\DoiThanhDongKeH{##1}
+\end{multicols}
+}
+}%
+\AtBeginEnvironment{vdex}{
+\renewcommand{\loigiai}[1]{%	
+\end{boxvd}%
+\def\vdexend{}
+\begin{multicols}{2}			
+\DoiThanhDongKeH{##1}
+\end{multicols}				
+}
+}
+}
+
+%%%=============================================%%%
+\def\tatloigiaivd{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{}%
+}%
+\AtBeginEnvironment{vdex}{
+\renewcommand{\loigiai}[1]{}%
+}
+}
+
+\def\hienthiloigiaivd{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{
+\end{vdbox}
+\def\vdend{}
+\par\noindent{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}
+##1
+}
+}
+}
+
+%%%=======================================================%%%
+\newbool{Ads}
+\newbool{Bds}
+\newbool{Cds}
+\newbool{Dds}
+\def\saveans{}
+\makeatletter
+\newcommand{\KiemtraA}{\@ifnextchar\True{\global\setbool{Ads}{true}\xdef\saveans{\saveans\string\TLdung{A}}}{\global\setbool{Ads}{false}\xdef\saveans{\saveans\string\TLsai{A}}}}
+\newcommand{\KiemtraB}{\@ifnextchar\True{\global\setbool{Bds}{true}\xdef\saveans{\saveans\string\TLdung{B}}}{\global\setbool{Bds}{false}\xdef\saveans{\saveans\string\TLsai{B}}}}
+\newcommand{\KiemtraC}{\@ifnextchar\True{\global\setbool{Cds}{true}\xdef\saveans{\saveans\string\TLdung{C}}}{\global\setbool{Cds}{false}\xdef\saveans{\saveans\string\TLsai{C}}}}
+\newcommand{\KiemtraD}{\@ifnextchar\True{\global\setbool{Dds}{true}\xdef\saveans{\saveans\string\TLdung{D}}}{\global\setbool{Dds}{false}\xdef\saveans{\saveans\string\TLsai{D}}}}
+\makeatother
+%\makeatletter
+%\newcommand{\KiemtraA}{\@ifnextchar\True{\global\setbool{Ads}{true}}{\global\setbool{Ads}{false}}}
+%\newcommand{\KiemtraB}{\@ifnextchar\True{\global\setbool{Bds}{true}}{\global\setbool{Bds}{false}}}
+%\newcommand{\KiemtraC}{\@ifnextchar\True{\global\setbool{Cds}{true}}{\global\setbool{Cds}{false}}}
+%\newcommand{\KiemtraD}{\@ifnextchar\True{\global\setbool{Dds}{true}}{\global\setbool{Dds}{false}}}
+%\makeatother
+\newcommand{\choiceTF}[5][1]{%
+\def\saveans{}%
+\ifnum#1=1
+\begin{enumerate}[wide=0.65cm,label*=\circlenum{\Alph*},itemsep=-3pt,topsep=-4pt]
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraA#2\dotEX	
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraB#3\dotEX
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraC#4\dotEX
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraD#5\dotEX
+\end{enumerate}
+\else
+\begin{multicols}{#1}
+\begin{enumerate}[wide=0.65cm,label*=\circlenum{\Alph*},itemsep=-3pt,topsep=-4pt]
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraA#2\dotEX	
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraB#3\dotEX
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraC#4\dotEX
+\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraD#5\dotEX
+\end{enumerate}
+\end{multicols}	
+\fi
+}
+
+
+%\newcommand{\choiceTFh}[4]{%
+%	\begin{multicols}{2}
+%		\begin{enumerate}[wide=0.65cm,label*=\circlenum{\Alph*},itemsep=-3pt,topsep=-4pt]
+%			\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraA#1\dotEX	
+%			\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraB#2\dotEX
+%			\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraC#3\dotEX
+%			\item\textcolor{gray}{\rule[-3pt]{0.65cm}{0.65pt}} \KiemtraD#4\dotEX
+%		\end{enumerate}
+%	\end{multicols}
+%}
+
+\newcommand{\LGexTF}{
+\AtBeginEnvironment{ex}{
+\renewcommand{\loigiai}[1]{%
+\par\noindent%
+{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1 \hfill{{\faKey}~ 
+\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+}%
+\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+\scantokens{
+\begin{solbook}
+\writeANS
+\end{solbook}%
+}%		
+}
+}
+}
+\newcommand{\LGbtTF}{
+\AtBeginEnvironment{bt}{
+\renewcommand{\loigiai}[1]{%
+\par\noindent%
+\end{btbox}
+\def\btend{}
+\par\noindent%
+{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1 \hfill{{\faKey}~ 
+\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+}
+}
+}
+}
+
+\newcommand{\LGvdTF}{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{%
+\end{vdbox}
+\def\vdend{}
+\par\noindent%
+{\reflectbox{\color{\mycolor}\Large\WritingHand}\ {\color{\mycolor}\fmmfamily\LARGE Lời giải.}} ##1 \hfill{{\faKey}~ 
+\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+}
+}
+}
+}
+
+\newcommand{\LGTNVD}{
+\AtBeginEnvironment{vdex}{
+\renewcommand{\loigiai}[1]{
+\end{vdbox}
+\def\vdend{}
+\par\noindent{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\color{\mycolor}\fmmfamily\LARGE Lời giải.}}
+##1\hfill\faKey\circlenum{\Alph{numTrue}} 
+}
+}
+}
+
+\newcommand{\dienkhuyetLGBT}{
+\AtBeginEnvironment{bt}{
+\renewcommand{\loigiai}[1]{
+\begin{center}
+\begin{tikzpicture}[cyan!85!blue,opacity=0.55,thick,x=0.65cm,y=0.65cm]
+\foreach \i in {14,...,22}{\draw (\i,0)--(\i,1);}
+\draw[rounded corners=2pt] (13,0) rectangle (23,1);
+\draw[rounded corners=2pt] (0,0) rectangle (11,1);
+\path (0.25,0.5) node[anchor=west,font=\sffamily]{\color{\mycolor}\reflectbox{\Large\WritingHand}};
+\end{tikzpicture}
+\end{center}%\vspace*{-\baselineskip}
+{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1
+}
+}
+}
+
+\newcommand{\TLdung}[1]{%
+\tikz[baseline=(char.base)]
+{\node[shape=circle,inner sep=0.5pt,draw=\mauphu!90!cyan,%fill=#1!10,
+font=\bfseries\footnotesize,text=\maudam,minimum size=12pt,outer sep=0pt] (char) {#1};
+\path (char) node[text=\mauphu!90!cyan,opacity=0.65]{\faCheck};
+}\ignorespaces}
+
+\newcommand{\TLsai}[1]{%
+\tikz[baseline=(char.base)]
+{\node[shape=circle,inner sep=0.5pt,draw=\maunhan!30!red,font=\bfseries\footnotesize,minimum size=12pt,outer sep=0pt] (char) {#1};
+\path (char) node[text=\maunhan!30!red,opacity=0.65]{\faTimes};
+}\ignorespaces}
+
+\def\saveans{}
+\def\writeANS{}
+\renewenvironment{Solbook}[1]{\noindent\textbf{\textsf{Câu~#1}}~}{ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Hộp bài tập một tùy chọn %%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%\newbool{ktbtntd}
+%\newcommand{\sodongkebtntd}[1]{\global\setbool{ktbtntd}{true}\end{boxbtntd}\def\btntdend{} \noindent\textcolor{\mycolor}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{#1}}
+%\newcounter{btntd}[section]
+%\newtcolorbox[use counter=bt]{boxbtntd}[1][]{%
+%	enhanced,
+%	sharp corners= northwest,
+%	sharp corners= southeast,
+%	arc=5pt,
+%	before skip =6pt,after skip=6pt,
+%	left=2pt,right=2pt,top=3pt,
+%	%	leftrule=0pt,rightrule=0pt,bottomrule=0pt,toprule=0pt,
+%	code={\ifblank{#1}{\edef\ghichu{}}{\edef\ghichu{(#1)}}},
+%	title={Bài \thebtntd \ \textit{\ghichu}},
+%	fonttitle=\bfseries\fontfamily{pag}\selectfont\color{white},
+%	fontupper=\color{\mycolor!20!black},
+%	coltitle=\mycolor!25!black,
+%	colback=white,
+%	colframe=\mycolor
+%}
+%\def\ghichu{}
+%\def\btntdbegin#1{%
+%	\begin{boxbtntd}[#1]}
+%	\def\btntdend{\end{boxbtntd}}
+%%\newcommand{\huongdan}{}
+%\newenvironment{btntd}[1][]
+%{\btntdbegin{#1}}
+%{\btntdend}	
+%\AtBeginEnvironment{btntd}{
+%	\refstepcounter{btntd} % tăng số điếm bt lên 1
+%	\global\setbool{ktbtntd}{false}
+%	\renewcommand{\loigiai}[1]{%
+%		\ifbool{ktbtntd}{}{
+%		\end{boxbtntd}
+%		\def\btntdend{}
+%		%%%==================Tính số dòng của lời giải==================%%%
+%		\setbox0=\vbox{\hbox{
+%				\noindent\begin{minipage}{\linewidth}%
+%					#1 a
+%				\end{minipage}
+%		}}
+%		\linepar=\ht0
+%		\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+1)}
+%		\noindent\textcolor{\mycolor}{\reflectbox{\Large\WritingHand}}\taodongke{\pgfmathresult}
+%	}
+%}
+%
+%\renewcommand{\huongdan}[1]{%
+%	\par\noindent%
+%	\phantom{a}\hfill\textcolor{\mycolor!80!black}{{\reflectbox{\Large\WritingHand}}\LARGE\fmmfamily  \textbf{Hướng dẫn Bài \thebtntd}}. #1
+%}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%===========Hop moi truong Ex một tùy chọn============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newbool{ktexntd}
+%\newcommand{\sodongkeexntd}[1]{\global\setbool{ktexntd}{true}\end{boxexntd}\def\exntdend{} \noindent\textcolor{\mauphu!80!black}{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}}\taodongke{#1}}
+%\newcounter{exntd}[section]
+%\newtcolorbox{boxexntd}[1][]{
+%enhanced,
+%sharp corners= northwest,
+%sharp corners= southeast,
+%arc=5pt,
+%before skip =6pt,after skip=6pt,
+%left=2pt,right=2pt,top=3pt,
+%fonttitle=\bfseries\fontfamily{pag}\selectfont\color{white},
+%code={\ifblank{#1}{\edef\ghichu{}}{\edef\ghichu{(#1)} } },
+%title={Câu \theexntd \textit{\ghichu}} ,
+%colback=\mauphu!5,
+%colframe=\mauphu
+%}
+%\def\ghichu{}
+%\def\exntdhead#1{%
+%\begin{boxexntd}[#1]
+%}%Bắt đầu môi trường bt
+%\def\exntdend{\end{boxexntd}}
+%\newcommand{\huongdan}[1]{}%tạo tạm lệnh hướng dẫn
+%\newenvironment{exntd}[1][]{\exntdhead{#1}}{\exntdend}
+%\renewcommand{\FalseEX}{\stepcounter{dapan}{\circleexntd{\Alph{dapan}}}}
+%\renewcommand{\TrueEX}{\stepcounter{dapan}{\circleexntd{\Alph{dapan}}}}
+%\AtBeginEnvironment{exntd}{
+%\refstepcounter{exntd} % tăng số điếm bt lên 1
+%\global\setbool{ktexntd}{false}
+%\setcounter{numTrue}{0}%
+%\setcounter{numTrueSol}{0}%
+%\renewcommand{\loigiai}[1]{%
+%	\ifbool{ktexntd}{}{
+%	\end{boxexntd}
+%	\def\exntdend{}
+%	%%%==================Tính số dòng của lời giải==================%%%
+%	\setbox0=\vbox{\hbox{
+%			\noindent\begin{minipage}{\linewidth}%
+%				#1 a
+%			\end{minipage}
+%	}}
+%	\linepar=\ht0
+%	\pgfmathparse{int((\linepar-\fboxsep)/(\lineheight)+1)}
+%	\noindent\textcolor{violet}{\reflectbox{\Large\WritingHand}}\taodongke{\pgfmathresult}
+%}
+%}
+%
+%\renewcommand{\huongdan}[1]{%
+%\par\noindent%
+%\phantom{a}\hfill\textcolor{\mauphu!80!black}{{\reflectbox{\Large\WritingHand}}\LARGE\fmmfamily  \textbf{Hướng dẫn Câu \theexntd}}. #1
+%}
+%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,148 @@
+\usepackage[explicit]{titlesec}
+\setcounter{secnumdepth}{3}
+\renewcommand{\chaptertitlename}{Chương}
+\DeclareFixedFont{\chapternumberfont}{T5}{phv}{b}{sc}{1in}
+\DeclareFixedFont{\bigsf}{T5}{ugq}{b}{n}{40pt}
+\DeclareFixedFont{\sectionfont}{T5}{ugq}{b}{n}{32pt}
+\DeclareFixedFont{\chapternamefont}{T5}{ugq}{b}{n}{18pt}
+%%%Hộp chương mục
+
+\titlespacing*{\chapter}{0pt}{-2.2cm}{1cm}
+\titleformat{\chapter}
+{\color{white}\bigsf}
+{\begin{tcolorbox}[
+		enhanced jigsaw,
+		before skip =6pt, after skip= 6pt,
+		colback=\mycolor!40,colframe=\mycolor!70!black,
+		arc=0pt,halign upper=left,
+		%	empty,opacityback=0
+		left=6cm, right=2.2cm, top=1cm, bottom=1cm,
+		grow to right by= 2.1cm,
+		grow to left by= 2.1cm,
+		title={\Large Chuyên đề 20},
+		boxed title style={empty},
+		attach boxed title to top left={xshift=1.5cm, yshift=-2mm},
+		overlay unbroken and first={%
+			\path (frame.north west) coordinate (A)
+			(frame.south west) coordinate (B)
+			(frame.north east) coordinate (D)
+			(frame.south east) coordinate (C);
+			\path (title.north west) coordinate (At)
+			(title.south west) coordinate (Bt)
+			(title.north east) coordinate (Dt)
+			(title.south east) coordinate (Ct)
+			;
+			%		 
+			\path [fill=\mycolor!50!black] (Dt)--([yshift=2mm]Ct)--++(15pt,0)--cycle;
+			\path[fill=\mycolor!60,draw=\mycolor] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+			([yshift=-2.25cm]Ct) arc (360:180:{veclen(\x1,\y1)/2})
+			([yshift=-2.25cm]Bt)--(At)--(Dt)--([yshift=-2.25cm]Ct)
+			;
+			\path[fill=\mycolor!90!black] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+			($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) circle ({veclen(\x1,\y1)/2*0.9});
+			\path[fill=\mycolor!10] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+			($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) circle ({veclen(\x1,\y1)/2*0.85});
+			\path ([yshift=-5pt]$(At)!0.5!(Ct)$) node[font=\color{\maunhan!50!black}\chapternamefont] {\chaptertitlename};
+			\path ($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) node [font=\color{\maunhan!50!black}\chapternumberfont]{\thechapter};
+		}
+		]
+		\color{\maunhan!50!black}\bigsf \MakeUppercase{#1}
+\end{tcolorbox}}
+{5ex minus .1ex}
+{}
+[
+\vspace{-0.5cm}
+\thispagestyle{empty}
+]
+
+
+%%%============================Định dạng section==================================%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\newtcolorbox{sectionbox}[1]{%
+	before skip=6pt,after skip= 6pt,
+	enhanced, skin=enhancedlast jigsaw,
+	arc is angular, halign=center,
+	fonttitle=\fontfamily{qag}\selectfont\bfseries,
+	fontupper=\color{\maunhan!50!black}\sectionfont,
+	attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+	colbacktitle=\mycolor!50!black, colframe=\maunhan!50!black,
+	colback=white,
+	boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+	underlay boxed title={
+		\fill[\mycolor!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+		-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+		\fill[\mycolor!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+		-- +(0,-0.3) -- +(0.4,0) -- cycle; 
+		\path[fill=\mycolor] (title.north west) -- (title.north east) coordinate (A)
+		-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+0.75mm) coordinate (B)
+		-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+		-- (title.south west) -- cycle;
+		\foreach \mau/\xt in {80/2,60/6,50/10,40/14,35/18}
+		\path[fill=\mycolor!\mau,transform canvas={xshift=\xt pt}] (A)--(B)--([xshift=2pt]B)--([xshift=2pt]A)--cycle;
+	},
+	title={\faDiamond\, #1}
+}
+\titlespacing*{\section}{0pt}{1cm}{0.5cm}
+\titleformat{\section}
+{}
+{%
+\begin{sectionbox}{\thesection}
+		\MakeUppercase{#1}
+\end{sectionbox}
+}
+{0pt}
+{}[\vspace{-0.5cm}] 
+
+%%%===========================subsection===============%%%
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\titlespacing*{\subsection}{3pt}{10pt}{0pt}
+\titleformat{\subsection}
+{}
+{%
+	\begin{tikzpicture}[remember picture]
+		\path (0,0) 
+		node [\mycolor,minimum height= .8cm,font=\bfseries \fontfamily{qag}\selectfont](Sub)%
+		{\thesubsection};
+		\path
+		(Sub.north west)coordinate (B)
+		(Sub.south east)coordinate (C)
+		(Sub.west)coordinate (D)
+		(Sub.east)coordinate (E)
+		($ (D)+(3pt,0) $) coordinate (D1)
+		($ (E)+(3pt,0) $) coordinate (E1)
+		;
+		\fill[\mycolor!40] (B)--(Sub.north east)--(E1)--(C)--(Sub.south west)--cycle 
+		;
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor,minimum height= .8cm,inner sep=3pt,anchor=west,font=\bfseries \fontfamily{qag}\selectfont](Muc)%
+		{#1};
+		\path
+		(Muc.north west)coordinate (Bt)
+		(Muc.south east)coordinate (Ct)
+		(Muc.west)coordinate (Dt)
+		(Muc.east)coordinate (Et)
+		($ (Dt)+(3pt,0) $) coordinate (D1t)
+		($ (Et)+(3pt,0) $) coordinate (E1t)
+		;
+		\fill[\mycolor!20] (D1t)--(Bt)--(Muc.north east)--(E1t)--(Ct)--(Muc.south west)--cycle 
+		;
+		\path (0,0) 
+		node [\mycolor!50!black,font=\bfseries\fontfamily{qag}\selectfont]
+		{\thesubsection};
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor!50!black,anchor= west,font=\bfseries \fontfamily{qag}\selectfont]{#1};
+\end{tikzpicture}}
+{3pt}{}
+
+%%%=======================subsubsection=============================%%%
+ %%%==========================================================%%%
+\titlespacing*{\subsubsection}{0.5cm}{0pt}{0pt}
+\titleformat{\subsubsection}
+{}
+{\color{\mycolor!90!black}\bfseries\fontfamily{qag}\selectfont\circlenumH[\mycolor!90!black]{\arabic{subsubsection}}\;\bfseries\fontfamily{qag}\selectfont{#1}}
+{0.5ex minus .2ex}
+{}
+{}
+%%%==========================================================%%%
+
+

@@ -1,0 +1,407 @@
+\subsubsection{Sự chuyển động của electron trong nguyên tử}
+\Noibat[][][\faArrowCircleORight]{Các mô hình nguyên tử}
+\begin{figure}[!htp]
+	\begin{center}
+		\subcaptionbox{Mô hình nguyên tử Borh-Rutherford\label{atomic_borh}}[0.4\textwidth]
+		{\begin{tikzpicture}[declare function={R=2;r=0.3*R;}]
+				\tikzset{%
+					pics/.cd,
+					hinhcau/.style args={#1}{%
+						code={\path[pic actions] circle (#1 pt);}
+					},
+				}
+				%%%Khai bao gốc tạo độ
+				\path (0,0) coordinate (O);
+				%%%Hạt nhân
+				\foreach \g/\c/\d in {0/\maunhan/0,40/\mauphu/4,80/\mauphu/8,120/\maunhan/8,160/\mauphu/7,220/\maunhan/7,280/\mauphu/7,340/\maunhan/8,40/\maunhan/8}{
+					\path ($(O)+(\g:\d pt)$) pic[ball color =\c] {hinhcau={4.5}};
+				}
+				%%% Quỹ đạo e
+				\foreach \goc/\p in {30/30,90/50,150/90}{
+					\path[left color=\mycolor,right color =\maunhan,line width=2pt,even odd rule,rotate around={\goc:(O)}] 
+					(O) ellipse ({R} and {r}) (O) ellipse ({0.98*R} and {0.96*r})
+					;
+					\path ($(O)+(180:{0.99*R})$) arc (180:\p:{0.99*R} and {0.98*r}) coordinate (G);
+					\path (G) pic[ball color =\mauphu,rotate around={\goc:(O)}] {hinhcau={3}};
+				}
+		\end{tikzpicture}}
+		\subcaptionbox{Mô hình nguyên tử hiện đại\label{atomic_modern}}[0.4\textwidth]
+		{\begin{tikzpicture}[declare function={R=2;r=0.3*R;}]
+				\tikzset{%
+					pics/.cd,
+					hinhcau/.style args={#1}{%
+						code={\path[pic actions] circle (#1 pt);}
+					},
+				}
+				%%%Khai bao gốc tạo độ
+				\path (0,0) coordinate (O);
+				%%%vong tron trong
+				\path[fill opacity=0.52,fill=\mauphu!90!black,path fading=fade in one](O) circle (2.2cm);
+				%%%Dam may e
+				\foreach \i in {1,...,2000}
+				{
+					\pgfmathsetmacro{\angle}{random()*360}
+					\pgfmathsetmacro{\u}{random()}
+					\pgfmathsetmacro{\radius}{2.18 * pow(\u, 2)}  
+					\pgfmathsetmacro{\x}{\radius*cos(\angle)}
+					\pgfmathsetmacro{\y}{\radius*sin(\angle)}
+					\path (\x,\y) pic[fill=\mauphu,path fading=fade in three] {hinhcau={0.65}};
+				}
+				%%%Hạt nhân
+				\path[fill=\maudam!70!white,path fading=fade in four](O) circle (0.48cm);
+				\foreach \g/\c/\d in {0/\maunhan/0,40/\mauphu/4,80/\mauphu/8,120/\maunhan/8,160/\mauphu/7,220/\maunhan/7,280/\mauphu/7,340/\maunhan/8,40/\maunhan/8}{
+					\path ($(O)+(\g:\d pt)$) pic[ball color =\c] {hinhcau={4.5}};
+				}
+				%%%vong tron ngoài
+				\path[fill opacity=0.50,fill=\mauphu,path fading=fade in one](O) circle (2.2cm);
+		\end{tikzpicture}}
+		\caption{Hai Mô hình nguyên tử }\label{fig:atomic_model}
+	\end{center}
+\end{figure}
+\begin{hoivadap}
+	\begin{cauhoi}
+		Quan sát hình \ref{atomic_borh} và hình \ref{atomic_modern} so sánh điểm giống và khác nhau giữa mô hình Rutherford - Bohr với mô hình hiện đại mô tả sự chuyển động của electron trong nguyên tử.
+	\end{cauhoi}
+	\loigiai{
+		\begin{longtable}{|C{0.25\textwidth}|p{0.33\textwidth}|p{0.33\textwidth}|}
+			\caption{So sánh hai mô hình nguyên tử}\label{tab:ssmhnt}\\
+			\hline\rowcolor{\maunhan!20}
+			\makecell[c]{\qagfont{Tiêu chí}} & \makecell[c]{\qagfont{Mô hình Rutherford-Bohr}} & \makecell[c]{\qagfont{Mô hình hiện đại}} \\
+			\hline
+			\endfirsthead
+			\multicolumn{3}{c}%
+			{{\bfseries \tablename\ \thetable{} -- tiếp theo}} \\
+			\hline\rowcolor{\maunhan!20}
+			\makecell[c]{\qagfont{Tiêu chí}} & \makecell[c]{\qagfont{Mô hình Rutherford-Bohr}} & \makecell[c]{\qagfont{Mô hình hiện đại}} \\
+			\hline
+			\endhead
+			\hline \multicolumn{3}{|r|}{{Tiếp theo ở trang sau}} \\ \hline
+			\endfoot
+			\hline
+			\endlastfoot
+			\multirow[c]{2.5}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Cấu trúc nguyên tử}}}} & Hạt nhân ở trung tâm, electron chuyển động quanh hạt nhân theo các quỹ đạo tròn & Hạt nhân ở trung tâm, electron chuyển động trong các obitan (đám mây electron) \\
+			\hline
+			\multirow[c]{2.0}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Quỹ đạo electron}}}} & Các quỹ đạo tròn cố định với bán kính xác định & Obitan - vùng không gian có xác suất tìm thấy electron cao \\
+			\hline
+			\multirow[c]{2.5}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Năng lượng electron}}}} & Electron chỉ tồn tại ở các mức năng lượng xác định (trạng thái dừng) & Electron có thể tồn tại ở nhiều mức năng lượng khác nhau trong một obitan \\
+			\hline
+			\multirow[c]{2.5}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Chuyển động}}\\\textcolor{\maunhan}{\textbf{của electron}}}} & Chuyển động tròn quanh hạt nhân & Chuyển động phức tạp, không thể xác định chính xác vị trí và vận tốc cùng lúc \\
+			\hline
+			\textcolor{\maunhan}{\textbf{Nguyên lý xác định vị tríelectron}} & Có thể xác định chính xác vị trí và vận tốc của electron & Tuân theo nguyên lý bất định Heisenberg \\
+			\hline
+			\textcolor{\maunhan}{\textbf{Sự mô tả electron}} & Hạt & Lưỡng tính sóng-hạt \\
+			\hline
+			\textcolor{\maunhan}{\textbf{Số lượng electron tối đa trên một lớp}} & 2n\textsuperscript{2} (n là số lớp) & Tuân theo nguyên lý Pauli và quy tắc Hund \\
+			\hline
+			\multirow[c]{2}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Hình dạng obitan}}}} & Không đề cập & Có nhiều hình dạng khác nhau (s, p, d, f) \\
+			\hline
+			\multirow[c]{2}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Spin của electron}}}} & Không đề cập & Được xem xét và ảnh hưởng đến cấu hình electron \\
+			\hline
+			\multirow[c]{2}{*}{\makecell[c]{\textcolor{\maunhan}{\textbf{Giải thích phổ}}\\ \textcolor{\maunhan}{\textbf{nguyên tử}}}} & Giải thích được phổ của nguyên tử hydro & Giải thích được phổ của tất cả các nguyên tử \\
+		\end{longtable}
+	}
+\end{hoivadap}
+\Noibat[][][\faArrowCircleORight]{Tìm hiểu về orbital nguyên tử}
+\Noibat{Khái niệm}
+\vspace{0.5cm}
+\begin{tomtat}
+	Orbital nguyên tử (ki hiệu là AO) là khu vực không gian xung quanh hạt nhân nguyên tử mà xác suất tìm thấy electron trong khu vực đó là lớn nhất (khoảng $90 \%$ ).
+\end{tomtat}
+\begin{hopvidu}[\maunhan]
+	\begin{itemize}
+		\item Các AO thường gặp là s, p, d, f.
+		\item Orbital nguyên tử có một số hình dạng khác nhau. Ví dụ: AO hình cầu, còn gọi là $\mathrm{AO} \mathrm{s} ; \mathrm{AO}$ hình số tám nổi, còn gọi là AO p (tùy theo vị tri của AO p trên hệ trục toạ độ Descartes (Đề-các), sẽ gọi là $\mathrm{AO} \mathrm{p}_{\mathrm{x}}, \mathrm{P}_{\mathrm{y}}$ và $\mathrm{p}_z$ )(xem hình \ref{fig:hinhdangAO}).
+	\end{itemize}
+\end{hopvidu}
+\begin{hopvidu}[\mycolor]
+	\begin{center}
+		\begin{tikzpicture}[declare function={d=1cm;r=.55*d;h=.125*d;R=.36*d;k=0.65*d;}]
+			\tikzstyle{linestyle} = [line width=1pt,\maunhan!80]
+			\tikzstyle{myshapestyle} = [line width=1pt,opacity=.90,ball color =\mauphu!90]
+			\tikzset{
+				pics/.cd,
+				AOs/.style args={#1/#2}{code={%
+						\if\relax\detokenize{#1}\relax
+						\def\ballcolor{red}
+						\else
+						\def\ballcolor{#1}
+						\fi,
+						\if\relax\detokenize{#2}\relax
+						\def\opacity{0.8}
+						\else
+						\def\opacity{#2}
+						\fi
+						\draw[linestyle] ([xshift=-1.8*R]0*d,0)--([xshift=1.8*R]0*d,0);
+						\fill[myshapestyle,ball color = \ballcolor,opacity=\opacity] (0*d,0) circle (R);
+				}},
+				AOp/.style args={#1/#2}{code={%
+						\draw[linestyle,pic actions] (0,{-1.5*d - h})--(0,{1.5*d + h}) node [pos=#2,above,font=\sffamily\bfseries] {#1};
+						\path[myshapestyle,pic actions] (0,0)..controls +(0:{.25*r}) and +(0:r)..(0,d)--
+						(0,d)..controls +(180:r) and +(180:{.25*r})..(0,0);
+						\path[myshapestyle] (0,-d)..controls +(180:r) and +(180:{.25*r})..(0,0)--
+						(0,0)..controls +(0:{.25*r}) and +(0:r)..(0,-d);
+				}}
+			}
+			\path (0*k,0) coordinate (A)
+			(4*k,0) coordinate (B)
+			(9*k,0) coordinate (C)
+			(13*k,0) coordinate (D)
+			;
+			\path (A) pic [local bounding box=AOsa] {AOs={red}/{}};
+			\path (B) pic[local bounding box=AOPx,rotate around={-45:(B)},<-,>=stealth]  {AOp={x}/{0}};
+			\path (C) pic [local bounding box=AOPy,rotate around={-90:(C)},-latex] at (C) {AOp={y}/{1}};
+			\path (D)  pic [local bounding box=AOPz,-latex] at (D) {AOp={z}/{1}};
+			\foreach \p/\n in {
+				A/AOs,B/AOpx,C/AOpy,D/AOpz
+			}{
+				\path ($(\p)+ (0,-2)$) node [inner sep =0pt, outer sep =0pt,font=\bfseries\sffamily] {\n};
+			}
+		\end{tikzpicture}
+	\end{center}
+	\captionof{figure}{Hình dạng các AO s và AOp\label{fig:hinhdangAO}}
+\end{hopvidu}
+\Noibat{Ô orbital}
+\vspace{0.5cm}
+\begin{tomtat}
+	\begin{itemize}
+		\item Một AO được biểu diễn bằng một ô vuông, gọi là ô orbital \raisebox{-3pt}{\squarerow[][0.5][\mycolor]{1}}
+		\item Trong 1 orbital chỉ chứa tối đa 2 electron có chiều tự quay ngược nhau (nguyên lí loại trừ Pauli (Pau-li)). Nếu orbital có 1 electron thì biểu diễn bằng 1 mũi tên đi lên (\raisebox{-3pt}{\squarerow[1u][0.5][\mycolor]{1}}), nếu orbital có 2 electron thì được biểu diễn bằng 2 mũi tên ngược chiều nhau, mũi tên đi lên viết trước (\raisebox{-3pt}{\squarerow[2ud][0.5][\mycolor]{1}}).
+	\end{itemize}
+\end{tomtat}
+\subsubsection{Lớp và phân lớp electron}
+\Noibat[][][]{Lớp electron}\\
+\begin{tomtat}
+	\begin{enumerate}
+		\item Thứ tự các lớp electron được ghi bằng các số nguyên $n=1, 2, 3, ... , 7$.
+		\item Các electron thuộc cùng một lớp có mức năng lương gần bằng nhau
+	\end{enumerate}
+\end{tomtat}
+\vspace{0.5cm}
+\begin{center}
+	\captionof{table}{\textbf{Tên gọi các lớp từ 1 đến 7}\label{lopelectron}}
+	\begin{tabular}{C{0.1\linewidth}*{7}{C{0.1\linewidth}}}
+		\textbf{n}&1&2&3&4&5&6&7\\
+		\textbf{Tên lớp} &K&L&M&N&O&P&Q
+	\end{tabular}
+\end{center}
+\Noibat[][][]{Phân lớp electron}\\
+\begin{tomtat}
+	\begin{enumerate}
+		\item  Mỗi lớp electron phân chia thành các phân lớp được kí hiệu bằng các chữ cái viết thường: s, p, d, f.
+		\item  Các electron trên cùng một phân lớp có mức năng lượng bằng nhau.
+		\item  Số phân lớp trong mỗi lớp bằng số thứ tự của lớp $(n \leq 4)$ :
+	\end{enumerate}
+\end{tomtat}
+\begin{vidu}
+	\begin{itemize}
+		\item Lớp thứ nhất (lớp K) có 1 phân lớp , đó là phân lớp 1s
+		\item Lớp thứ hai (lớp L) có 2 phân lớp , đó là phân lớp 2s và 2p
+		\item Lớp thứ ba (lớp M) có 3 phân lớp , đó là các phân lớp 3s, 3p và 3d
+		\item Lớp thứ 4 (lớp N) có 4 phân lớp , đó là các phân lớp 4s, 4p, 4d, 4f
+	\end{itemize}
+\end{vidu}
+\Noibat{Số lượng Orbital trong một lớp, phân lớp}
+\Noibat[][][\faAngleRight][][0.25]{Số lượng Orbital trong một phân lớp}
+\begin{tomtat}
+	Trong một phân lớp, các orbital có cùng mức năng lượng.
+	\begin{itemize}
+		\item Phân lớp s có 1 AO s
+		\item Phân lớp p có 3 AO px, py, pz
+		\item Phân lớp d có 5 AO 
+		\item Phân lớp f có 7 AO 
+	\end{itemize}
+\end{tomtat}
+\Noibat[][][\faAngleRight][][0.25]{Số lượng Orbital trong một lớp}
+\begin{tomtat}
+	Số obitan trong lớp electron thứ n là $n^2$ orbital
+	\begin{itemize}
+		\item Lớp K (n=1) có $1^2 =1$ AO đó là AO 1s.
+		\item Lớp L (n=2) có $2^2 =4$ AO đó là 1 AO 2s và 3 AO 2p.
+		\item Lớp M (n=3) có $3^2 =9$ AO đó là 1 AO 3s, 3 AO 3p và  5 AO 3d.
+		\item Lớp N (n=4) có $4^2 =16$ AO đó là 1 AO 4s, 3 AO 4p, 5AO 4d và 7 AO 4f.
+	\end{itemize}
+\end{tomtat}
+\begin{hoivadap}
+	\begin{cauhoi}
+		Hãy cho biết số electron  tối đa có trong một phân lớp , một lớp?
+	\end{cauhoi}
+	\loigiai{
+		Số AO có trong các phân lớp s,p,d,f  tương ứng là 1, 3, 5, 7 và mỗi AO chứa tối đa 2 electron do đó
+		\begin{itemize}[wide=0.65cm]
+			\item Phân lớp s chứa tối đa $2\cdot1 =2$ electron
+			\item Phân lớp p có chứ tối đa $2\cdot3 =6$  electron
+			\item Phân lớp d chứa tối đa $2\cdot5 =10$  electron
+			\item Phân lớp f có tối đa $2\cdot7 =14$  electron
+		\end{itemize}
+		Lớp n có $n^2$ AO do đó số electron tối đa có trong lớp electron thứ n là $2n^2$
+	}
+\end{hoivadap}
+\subsubsection{Cấu hình electron của nguyên tử}
+\Noibat{Năng lượng của electron trong nguyên tử}
+\Noibat[][][\faArrowCircleORight]{Trật tự mức năng lượng AO}\\
+\begin{tomtat}
+	\begin{itemize}
+		\item Khi số hiệu nguyên tử $Z$ tăng, các mức năng lượng $AO$ tăng dần theo trình tự sau:
+	\end{itemize}
+	\centering\boxct[\maunhan][3pt][\color{\maunhan}\qagfont]{1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5s 4d 5p 6s 4f 5d 6p 4f 5d 6p 7s 5f 6d \ldots}
+\end{tomtat}
+\Noibat[][][\faArrowCircleORight]{Nguyên lý và quy tắc phân bố electron trong nguyên tử}
+\begin{ghinho}
+	\indam{Nguyên lý Pau-ly.}Trên một obitan chỉ có thể nhiều nhất là hai electron và hai electron này chuyển động tự quay khác chiều nhau xung quanh trục riêng của mỗi electron.
+\end{ghinho}
+
+Như vậy theo nguyên lý Pau-li thì:
+\begin{itemize}[wide=0.65cm]
+	\item lớp n có tối đa $2n^2$ electron
+	\item Số electron tối đa trên các phân lớp s, p, d, f lần lượt là $2$, $6$, $10$, $14$ electron
+\end{itemize}
+
+\begin{hopvidu}[\maunhan]
+	\begin{itemize}[wide=0.65cm,leftmargin=0.65cm]
+		\item Để biểu thị phân lớp 1s có 2 electron  ta dùng kí hiệu $1s^2$.Trong đó:số 1 chỉ lớp n=1. Chữ s chỉ orbital s. Số 2 ở phía trên bên phải số electron có trong AO s.
+		\item Phân lớp: $s^2$,$p^6$, $d^{10}$, $f^{14}$ có đủ electron tối đa gọi là \indam{phân lớp bão hòa}.
+		\item Phân lớp $s^1$,$p^3$, $d^5$, $f^7$ có nửa số electron tối đa gọi là \indam{phân lớp bán bão hòa}.
+		\item Phân lớp chưa đủ số electron tối đa gọi là \indam{phân lớp chưa bão hòa}.Ví dụ $s^1$, $p^3$, $p^5$, $d^9$, $f^{11}$.
+	\end{itemize}
+\end{hopvidu}
+
+\begin{note}
+	Người ta biểu thị chiều tự quay khác nhau quanh trục riêng của hai electron bằng 2 mũi tên nhỏ:Một mũi tên có chiều đi lên  và một mũi tên có chiều đi xuống . 
+	\begin{itemize}[wide=0.65cm,leftmargin=0.65cm]
+		\item Trong 1 orbital đã có 2 electron, thì 2 electron này gọi là \indam{electron ghép đôi} .Khi biểu diễn mũi tên bên trái phải vẽ hướng lên và mũi tên bên phải vẽ hướng xuống (\squarerow[2ud][0.5][\maunhan][-4pt]{1})
+		\item Trong một Orbital chỉ có 1 electron, thì electron này gọi là  \indam{electron độc thân}. Khi biểu diễn mũi tên bắt buộc phải vẽ chiều hướng lên (\squarerow[1u][0.5][\maunhan][-4pt]{1})
+	\end{itemize}
+\end{note}
+\begin{ghinho}
+	\indam{Nguyên lý vững bền.} Các electron trong nguyên tử ở trạng thái cơ bản lần lượt chiếm các mức năng lượng từ thấp đến cao.
+\end{ghinho}
+\begin{vidu}
+	Nguyên tử helium ($Z=2$) có 2 electron. Theo nguyên lý pau - li hai electron này cùng chiếm orbital 1s có mức năng lượng thấp nhất. Do đó sự phân bố electron trên orbital của He là \[1s^2 \xrightarrow \squarerow[2ud][0.5][\maunhan][-4pt]{1}\]
+	Nguyên tử Boron ($Z=5$) có 5 electron. 2 electron đầu tiên chiếm AO 1s có năng lượng thấp nhất, 2 eletcron tiếp theo chiếm AO 2s và electron còn lại chiếm AO 2p . Do đó sự phân bố electron trên orbital của B là \[1s^22s^22p^1 \xrightarrow \underset{1s^2}{\squarerow[2ud][0.5][\maunhan][-4pt]{1}}\; \underset{2s^2}{\squarerow[2ud][0.5][\maunhan][-2pt]{1}}\hspace{-0.8pt} \underset{2p^1}{\squarerow[1u][0.5][\maunhan][0pt]{3}}\].
+\end{vidu}
+\begin{ghinho}
+	\indam{Quy tắc Hund.} Trong cùng một phân lớp, các electron sẽ phân bố trên các obitan sao cho số electron độc thân là tối đa và các electron này phải có chiều tự quay giống nhau.
+\end{ghinho}
+\begin{vidu}
+	Sự phân bố electron trên các orbital của carbon và nitrogen như sau: \[ C(Z=6):\quad \underset{1s^2}{\squarerow[2ud][0.5][\maunhan][-4pt]{1}}\; \underset{2s^2}{\squarerow[2ud][0.5][\maunhan][-2pt]{1}}\hspace{-0.8pt} \underset{2p^2}{\squarerow[1u,1u][0.5][\maunhan][0pt]{3}} \hspace{2cm}
+	N(Z=7):\quad \underset{1s^2}{\squarerow[2ud][0.5][\maunhan][-4pt]{1}}\; \underset{2s^2}{\squarerow[2ud][0.5][\maunhan][-2pt]{1}}\hspace{-0.8pt} \underset{2p^3}{\squarerow[1u,1u][0.5][\maunhan][0pt]{3}}
+	\].
+\end{vidu}
+\begin{hoivadap}
+	\begin{cauhoi}
+		Trong các trường hợp (1) và (2) dưới đây trường hợp nào phân bố electron tuân theo quy tắc hund%
+		\begin{center}
+			$\underset{(1)}{\squarerow[2ud,1u][0.65][\maunhan]{3}}$
+			\hspace{3cm} 
+			$\underset{(2)}{\squarerow[1u,1u,1u][0.65][\maunhan]{3}}$
+		\end{center}
+	\end{cauhoi}
+\end{hoivadap}
+\Noibat{Viết cấu hình e}
+
+Cấu hình electron của nguyên tử biểu diễn sự phân bố electron trên các phân lớp thuộc các lớp khác nhau.
+
+Quy ước cách biểu diễn sự phân bố electron trên các phân lớp thuộc các lớp như sau:
+\begin{center}
+	\tikz[baseline=(char.base)]{\node[fill=\mycolor!20, rounded corners,inner sep=3pt,outer sep=0pt] (char) {
+			\begin{tikzpicture}[declare function={d=3;}]
+				\path (0,0) coordinate (A) node [font=\color{\maunhan}\fontsize{25pt}{0pt}\bfseries\fontfamily{qag}\selectfont, inner sep=0pt, outer sep=0pt] (lop) {1};
+				\path (lop.south east) node [anchor=south west,font=\color{\mycolor}\fontsize{18pt}{0pt}\bfseries\fontfamily{qag}\selectfont, inner sep=0pt, outer sep=0pt](pl){S};
+				\path (pl.north east) node [anchor=west,font=\color{\mauphu}\fontsize{14pt}{0pt}\bfseries\fontfamily{qag}\selectfont, inner sep=2pt, outer sep=0pt](e){2};
+				\node [font=\color{\maunhan}\fontsize{12pt}{0pt}\bfseries\fontfamily{qag}\selectfont,left=1cm of lop, anchor= east] (sttl) {Số thứ tự lớp};
+				\node [font=\color{\mycolor}\fontsize{12pt}{0pt}\bfseries\fontfamily{qag}\selectfont,right =1cm of pl, anchor= west, yshift=-5pt] (khpl) {Kí hiệu phân lớp};
+				\node [font=\color{\mauphu}\fontsize{9pt}{0pt}\bfseries\fontfamily{qag}\selectfont,above =0.5cm of e, anchor= south] (soe) {Số e trên phân lớp};
+				\draw[-stealth,\maunhan] (sttl.east)--(lop.west);
+				\draw[-stealth,\mauphu] (soe.south)--(e.north);
+				\draw[-stealth,\mycolor] (khpl.west)--([yshift=-5pt]pl.east);
+			\end{tikzpicture}
+		};}
+\end{center}
+\newpage
+\begin{paracol}{2}
+	\begin{tomtat}
+		Các bước viết cấu hình electron
+		\begin{cacbuoc}
+			\item Xác định số electron của nguyên tử.
+			\item Điền electron theo thứ tự các mức năng lượng từ thấp đến cao (theo dãy Klechkovski xem hình \ref{fig:QTKlecchkowsky}). Điền electron bão hoà phân lớp trước rồi mới điền tiếp vào phân lớp sau.
+			\item Đổi lại vị trí các phân lớp sao cho số thứ tự lớp (n) tăng dần từ trái qua phải.
+		\end{cacbuoc}
+	\end{tomtat}
+	\begin{vidu}
+		$\mathrm{Ca}(\mathrm{Z}=20)$ Thứ tự mức năng lượng orbital : $1\mathrm{s}^22\mathrm{s}^22\mathrm{p}^63 \mathrm{s}^23\mathrm{p}^64\mathrm{s}^2$
+		\\
+		Cấu hình electron: $1\mathrm{s}^2 2 \mathrm{s}^2 2 \mathrm{p}^63 \mathrm{s}^23\mathrm{p}^6 4\mathrm{s}^2$
+		hoặc viết gọn là: $[\mathrm{Ar}]4\mathrm{s}^2$
+	\end{vidu}
+	\switchcolumn
+	%%%===Quy tắc Klechkowski=====%%%%
+	\begin{Bancobiet}
+		{Trật tự  năng lượng các AO được mô tả theo quy tắc đường chéo (quy tắc Klechkowski)}
+		\begin{center}
+			\begin{tikzpicture}[line join=round,line cap=round,line width=1pt]
+				\tikzstyle{mynode} =[
+				font=\color{white}\bfseries\fontfamily{qag}\selectfont,
+				inner sep =4pt,
+				outer sep =4pt,
+				align =center,
+				circle,
+				text width =0.5cm,
+				minimum width = 0.8cm,
+				minimum height =0.8cm
+				]
+				\tikzstyle{mymatrix} = [
+				matrix of nodes,
+				nodes={mynode},
+				column sep=3mm-\pgflinewidth,
+				row sep = 3mm-\pgflinewidth,
+				ampersand replacement=\&
+				]
+				\matrix(mt) [mymatrix]
+				{%
+					1s \&    \&    \&    \\
+					2s \& 2p \&    \&    \\
+					3s \& 3p \& 3d \&    \\
+					4s \& 4p \& 4d \& 4f \\
+					5s \& 5p \& 5d \&    \\
+					6s \& 6p \&    \&    \\
+					7s \& 	 \&    \&    \\
+				};%
+				\foreach \x/\y/\t/\u in {1/1/1/1,2/1/2/1,2/2/3/1,3/2/4/1,3/3/5/1,4/3/6/1,4/4/7/1}{
+					\draw[-stealth,\maunhan!90!black] ($(mt-\x-\y.north east)+(45:1.0mm)$)--($(mt-\t-\u.south west)+(-135:2mm)$);
+				}%
+				\foreach \x/\y/\c/\n in {%
+					1/1/\mycolor/1s,2/1/\mycolor/2s,3/1/\mycolor/3s,4/1/\mycolor/4s,5/1/\mycolor/5s,6/1/\mycolor/6s,7/1/\mycolor/7s,2/2/\mauphu/2p,3/2/\mauphu/3p,4/2/\mauphu/4p,5/2/\mauphu/5p,6/2/\mauphu/6p,3/3/\maunhan/3d,4/3/\maunhan/4d,5/3/\maunhan/5d,4/4/violet/4f
+				}{%
+					\path (mt-\x-\y) node [mynode,fill=\c!80!white] {\n};
+				}
+			\end{tikzpicture}%
+			\captionof{figure}{Quy tắc Klechkowski\label{fig:QTKlecchkowsky}}
+		\end{center}
+		`\end{Bancobiet}
+\end{paracol}
+\Noibat {Biểu diễn cấu hình e theo orbital}
+\vspace{0.3cm}
+\begin{tomtat}
+	\begin{cacbuoc}
+		\item Viết cấu hình electron của nguyên tử.
+		\item Biểu diễn mỗi AO bằng một ô vuông (ô orbital hay ô lượng tử), các AO trong cùng phân lớp thì viết liền nhau, các AO khác phân lớp thì viết tách nhau. Thứ tự các ô orbital từ trái sang phải theo thứ tự như ở cấu hình electron.
+		\item Điền electron vào từng ô orbital theo thứ tự lớp và phân lớp, mỗi electron biểu diễn bằng một mũii tên. Trong mỗi phân lớp, electron được phân bố sao cho số electron độc thân là lớn nhất, electron được điền vào các ô orbital theo thứ tự từ trái sang phải. Trong một ô orbital, electron đầu tiên được biểu diễn bằng mũii tên quay lên, electron thứ hai được biểu diễn bằng mũi tên quay xuống.
+	\end{cacbuoc}
+\end{tomtat}
+\begin{vidu}
+	Cấu hình electron của nguyên tử Aluminium có $Z=13: 1s^22s^22p^63s^23p^1$ có thể được biểu diễn theo ô orbital như sau:
+	\[\underset{\mathsf{1s^2}}{\squarerow[2ud][0.65][\maunhan]{1}}\;\;\;
+	\underset{\mathsf{2s^2}}{\squarerow[2ud][0.65][\maunhan]{1}}\;
+	\underset{\mathsf{2p^6}}{\squarerow[2ud,2ud,2ud][0.65][\maunhan]{3}}\;\;\;
+	\underset{\mathsf{3s^2}}{\squarerow[2ud][0.65][\maunhan]{1}}\;
+	\underset{\mathsf{3p^1}}{\squarerow[1u][0.65][\maunhan]{3}}
+	\]
+\end{vidu}
+\Noibat {Đặc điểm cấu hình e lớp ngoài cùng}
+\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline\rowcolor{\mycolor!20} \indam{Số e lớp ngoài cùng} & \indam{1,2,3 e} & \indam{4 e} & \indam{5, 6, 7e} & \indam{8e (He, 2e)} \\
+		\hline\rowcolor{\mycolor!20} \indam{Loại nguyên tố} & \indam{Kim loại} & \indam{KL hoặc PK} & \indam{Phi kim} & \indam{Khí hiếm} \\
+		\hline
+	\end{tabular}
+\end{center}

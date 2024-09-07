@@ -1,0 +1,153 @@
+%%%==========================Lệnh mũi tên cập nhật này 02-02-2024========================%%%
+
+
+%%%============Lệnh căn dòng khi dùng tikZ==============================%%%
+\newcommand{\canhdong}[2][0]{\tikz[baseline=(char.base)]{
+		\node[inner sep =0pt,outer sep=0pt,anchor =base, baseline,yshift=#1mm] (char){
+			#2
+		};
+	}
+}
+\newcommand{\canhdongH}[2][0]{\tikz[baseline=(current bounding box.base)]{
+		\node [inner sep=0pt,outer sep=0pt,yshift=#1mm]{
+			#2
+		};
+	}
+}
+%%%==========Các lệnh Kiểu mũi tên của thư viện Arrow.meta==============%%%
+\newcommand{\arrowS}{-{Stealth[width=3.65pt,length=4pt]}}
+\newcommand{\arrowL}{-{Latex[width=3.65pt,length=4pt]}}
+\newcommand{\arrowTN}{-{Stealth[left]}} %%% tùy chọn khi dùng phản ứng thuận nghịch
+\newcommand{\explus}{\;+\;}
+%%%============Mũi tên chất khí=============%%%
+\NewDocumentCommand{\MuiTenU}{O{}O{}O{}O{}}{%
+	\ifblank{#1}{\def\tuychonone{3}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{-3}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{\arrowS}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{black}}{\def\tuychonfour{#4}}
+	\ignorespaces\hspace*{-14pt}\canhdong{\begin{tikzpicture}[declare function={dodai=\tuychonone mm;goc=90;}]
+	\draw[->,\tuychonthree,\tuychonfour,line width =.8pt,shorten <=\tuychontwo pt] (0,0)--(goc:dodai);
+	\end{tikzpicture}}
+\hspace*{-5.65pt}\ignorespacesafterend
+}
+%%%============Mũi tên kết tủa=============%%%
+\NewDocumentCommand{\MuiTenD}{O{}O{}O{}O{}}{
+	\ifblank{#1}{\def\tuychonone{2}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{-5.65}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{\arrowS}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{black}}{\def\tuychonfour{#4}}
+	\ignorespaces\hspace*{-16pt}\canhdong{\begin{tikzpicture}[declare function={dodai=\tuychonone mm;goc=-90;}]
+			\draw[->,\tuychonthree,\tuychonfour,line width =.8pt,shorten <=\tuychontwo pt] (0,0)--(goc:dodai);
+	\end{tikzpicture}}
+	\hspace*{-10pt}\ignorespacesafterend
+}
+%%================Dùng cho phản ứng một chiều=============%%%
+\NewDocumentCommand{\MuiTen}{O{}O{}O{}O{}O{\arrowS}O{black}O{1.2}}{
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{.65}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{0}}{\def\tuychonfour{#4}}
+	\hspace*{-15pt}\ignorespaces%
+	\begin{tikzpicture}[declare function={d=\tuychonthree;h=\tuychonfour pt;r= 0.5*h;},baseline=(char.base)]
+			\path[->,#5,#6](0,0-r)--(d,0-r);
+			\draw[->,#5,#6](0,h+r)--(d,h+r) 
+			node [pos=0.5,above,yshift=-#7pt]{\scriptsize\tuychonone}node [pos=0.5,below,yshift=#7pt]{\scriptsize\tuychontwo};
+	\end{tikzpicture} 
+}
+%%================Dùng cho phản ứng hai chiều=============%%%
+\NewDocumentCommand{\MuiTenHC}{O{}O{}O{}O{}O{\arrowL}O{black,line width=.75pt}O{1.0}}{
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthree{1.2}}{\def\tuychonthree{#3}}
+	\ifblank{#4}{\def\tuychonfour{0.7}}{\def\tuychonfour{#4}}
+	\ignorespaces\hspace*{-14pt}\canhdong{\begin{tikzpicture}[declare function={d=\tuychonthree;h=\tuychonfour pt;r= 1.1*h;}]
+			\draw[->,#5,#6](d,0-1.8*r)--(0,0-1.8*r)node [pos=0.5,below,yshift= #7 pt,inner sep=opt,outer sep=0pt]{\scriptsize\tuychontwo};
+			\draw[->,#5,#6](0,h+r)--(d,h+r) node [pos=0.5,above,yshift=-#7 pt,inner sep=opt,outer sep=0pt]{\scriptsize\tuychonone};
+	\end{tikzpicture}}
+	\ignorespacesafterend\hspace*{-7pt}
+}
+
+\newcommand{\Tieudegiua}[2][\maunhan]{
+\begin{center}
+	\tikz[baseline=(char.base)]{
+		\node[inner sep =6pt,outer sep=6pt,anchor =base, baseline,shape=rectangle,rounded corners=6pt,fill=#1!10,font=\color{#1!80!black}\Huge\bfseries] (char){
+			#2
+		}; 
+	}
+\end{center}
+}
+%%%=========Lệnh tạo mã QR===========%%%
+\usepackage[linkcolor=\mycolor!70!black,colorlinks]{hyperref}
+\usepackage{qrcode}
+\NewDocumentCommand{\maqr}{O{\mycolor}O{0.8}m}{
+	\hypersetup{urlcolor=#1}
+	\tikz[baseline=(char.base)]{
+		\node[inner sep =1.5pt,outer sep=3pt,anchor =base, baseline,shape=rectangle,rounded corners=2pt,draw=#1!80!black](char){\qrcode[height=#2cm]{#3}};
+	}
+}
+%%%=========Lệnh đóng khung số trang=============%%%
+\NewDocumentCommand{\shapepage}{O{\mycolor}m}{
+	\begin{tikzpicture}[declare function={r=2;},join=rounr,cap=round,remember picture]
+			\path(0,0) node [outer sep=0pt,inner sep =3pt,align =center,font=\bfseries\fontfamily{put}\selectfont\color{white},minimum height=0.5cm] (TEXT){#2};
+			\path[fill=#1!90!black] ([xshift=-3pt]TEXT.north west) coordinate (NW)
+			--(TEXT.north east) coordinate (NE)
+			--(TEXT.south east) coordinate (SE)
+			--([xshift=-3pt]TEXT.south west) coordinate (SW)
+			--($(TEXT.south west)!0.5!(TEXT.north west)$) coordinate (G)
+			--cycle;
+			\path(0,0) node [outer sep=0pt,inner sep =3pt,align =center,font=\bfseries\fontfamily{put}\selectfont\color{white},minimum height=0.5cm]{#2};
+	\end{tikzpicture}
+}
+
+\NewDocumentCommand{\shapepageH}{O{\mycolor}m}{
+	\begin{tikzpicture}[declare function={r=2;},join=rounr,cap=round,remember picture]
+			\path(0,0) node [outer sep=0pt,inner sep =3pt,align =center,font=\bfseries\fontfamily{put}\selectfont\color{white},minimum height=0.5cm] (TEXT){#2};
+			\path[fill=#1!90!black] ([xshift=3pt]TEXT.north east) coordinate (NW)
+			--(TEXT.north west) coordinate (NE)
+			--(TEXT.south west) coordinate (SE)
+			--([xshift=3pt]TEXT.south east) coordinate (SW)
+			--($(TEXT.south east)!0.5!(TEXT.north east)$) coordinate (G)
+			--cycle;
+		\path(0,0) node [outer sep=0pt,inner sep =3pt,align =center,font=\bfseries\fontfamily{put}\selectfont\color{white},minimum height=0.5cm]{#2};
+	\end{tikzpicture}
+}
+
+%%%============Lệnh thongtin ========================%%%
+\newcounter{so}
+\newcommand{\thongtin}[1]{%
+	%\setcounter{bt}{0}%
+	\par
+	\noindent
+	\stepcounter{so}
+	\hspace*{-0.65cm}
+	\begin{tikzpicture}[declare function={rt=0.5;d=sqrt(2)*rt;}]
+		\path (90:rt) coordinate (A)
+		(180:rt) coordinate (B)
+		(270:rt) coordinate (C)
+		(0:rt) coordinate (D)
+		([shift={(0.15,0)}]0:rt) coordinate (E)
+		($ (E)+(135:rt) $) coordinate (F)
+		($ (E)+(-135:rt) $) coordinate (G)
+		($ (A)!0.5!(F) $) coordinate (AF)
+		($ (D)!0.5!(E) $) coordinate (DE)
+		($ (C)!0.5!(G) $) coordinate (CG)
+		;
+		\path[transform canvas={shift={(-45:2.5pt)}},left color=\mycolor!50,right color=\mycolor!5]
+		(F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+		\path[outer color=\mycolor!65!black,inner color=\mycolor!80,rounded corners=2pt] (A)--(B)--(C)--(D)--cycle;
+		\draw[line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt]
+		(AF)--(DE)--(CG);
+		\draw[transform canvas={xscale=-1},line width=0.65pt,\mycolor,line cap=round,rounded corners=1.5pt] (AF)--(DE)--(CG);
+		\path[left color=\mycolor!90!black,right color=\mycolor!50] (F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+		\path (-0.7pt,-0.3pt) node[inner sep=0pt,font=\large\bfseries\color{gray}]{\theso};
+		\path (-1pt,0) node[inner sep=0pt,font=\large\bfseries\color{white}]{\theso};
+		\path ([shift={(0.11,-0.01)}]E) node[align=left,anchor=west,font=\sffamily\bfseries\color{gray}]{#1};
+		\path ([shift={(0.1,0)}]E) node[align=left,anchor=west,font=\sffamily\bfseries\color{white}]{#1};
+	\end{tikzpicture}%
+}
+
+
+
+
+
+

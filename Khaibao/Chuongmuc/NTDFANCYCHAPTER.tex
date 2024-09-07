@@ -1,0 +1,314 @@
+\newlength{\myboxheight}
+\setlength{\myboxheight}{6cm}
+\usepackage[explicit]{titlesec}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+%%%%%%%%%%%%%%%%%%%%%%%%==========Định dạng Chuyên đề,chương========%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\chaptertitlename}{Chương}
+\titlespacing*{\chapter}{0pt}{-2cm}{1.5cm}%left,top,bottom
+\titleformat{\chapter}[display]
+{\color{white}\fontsize{24pt}{6pt}\fontfamily{qag}\selectfont\bfseries}
+{%
+\begin{tcolorbox}[
+	enhanced,
+	colback=\mycolor!45!white,
+	boxrule=0pt,
+	colframe=\mycolor!50!black,
+	arc=0pt,
+	halign=left,
+	valign=center,
+	outer arc=0pt,
+	leftrule=0pt,
+	rightrule=0pt,
+	height =\myboxheight,
+	fontupper=\color{\mycolor!35!black}\fontsize{36pt}{6pt}\fontfamily{qag}\selectfont\bfseries,
+	enlarge left by=-1in-\hoffset-\oddsidemargin, 
+	enlarge right by=-\paperwidth+1in+\hoffset+\oddsidemargin+\textwidth,
+	width=\paperwidth, 
+	left=1.35\myboxheight+\hoffset+\oddsidemargin, 
+	right=\paperwidth-1in-\hoffset-\oddsidemargin-\textwidth,
+	top=\myboxheight/2, 
+	bottom=\myboxheight/2,
+	overlay={
+		\path ([shift={(.7*\myboxheight,0.5)}]frame.south west) coordinate (A)
+		([shift={(0.2*\myboxheight,0.5)}]frame.south west) coordinate (B)
+		([shift={(1.2*\myboxheight,0.5)}]frame.south west) coordinate (C)
+		($(C)+(90:\myboxheight)+(0,-2pt)$) coordinate (D)
+		($(B)+(90:\myboxheight)+(0,-2pt)$) coordinate (E)
+		([shift={(1.2*\myboxheight,0)}]frame.north west) coordinate (F)
+		;
+		\fill[\mycolor!30!black](D)--(F)--++(8pt,0)--cycle;
+		\fill[white!25!\mycolor](B)--(C)--(D)--(E)--cycle;
+		\draw(B)--(C);
+		\node[%
+		anchor=center,
+		align=center,
+		font=\color{white}\sffamily\bfseries\LARGE
+		] 
+		at (A) (cirlon) {\tikz{\fill[white!25!\mycolor] circle (\myboxheight/2);}};		
+		\node[%
+		anchor=center,
+		align=center,
+		font=\color{white}\sffamily\bfseries\LARGE
+		] 
+		at (A) (cirnho) {\tikz{\fill[\mycolor!70!black,draw=\mycolor!10!white,line width=3pt] circle (\myboxheight/2.45);}};
+		\node[%
+		anchor=center,
+		align=center,
+		font=\color{white}\fontsize{60pt}{6pt}\fontfamily{put}\selectfont\bfseries
+		] 
+		at (A) (sochuong) {\thechapter};
+	 \node [above=-8pt of cirlon] {\chaptertitlename};
+	}
+	]
+	\MakeUppercase{#1}
+\end{tcolorbox}
+}
+{1ex minus .1ex}
+{}
+[
+\vspace{-0.5cm}
+\thispagestyle{empty}
+]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%==========Định dạng bài========%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\thesection}{\arabic{section}}
+%\titlespacing*{\section}{0pt}{3.5cm}{3cm}
+%\titleformat{\section}[display]
+%{}
+%{%
+%	\begin{tikzpicture}[remember picture, overlay,declare function={d=1.0cm;r=3.0cm;}]
+%		\path 
+%		(0,0) coordinate (A)
+%		(0,d) coordinate (B)
+%		(A)--(B)--([turn]-90:r) coordinate (C)
+%		(r+0.8cm,0) coordinate (D)
+%		(\linewidth-.5cm,-3pt) coordinate (E)
+%		(.25,0) coordinate (A1)
+%		(.25,-3) coordinate (B1)
+%		(\linewidth-0.75cm,0) coordinate (C1)
+%		(\linewidth-0.75cm,-3) coordinate (D1)
+%		($ (A)!0.5!(D) $) coordinate (ChuBai)
+%		($ (A1)!0.5!(B1) $) coordinate (A1B1)
+%		($ (C1)!0.5!(D1) $) coordinate (C1D1)
+%		($ (A1B1)!0.5!(C1D1) $) coordinate (Tenbai)
+%		([xshift=1pt]C) coordinate (Ct)
+%		([xshift=1pt]D) coordinate (Dt)
+%		;
+%		\fill[\mycolor] (A)--(B)--(C)--(D)--cycle
+%		(A) rectangle (E)
+%		;
+%		\path (Ct)--++(2pt,0) coordinate (Ctt)
+%		(Dt)--++(2pt,0) coordinate (Dtt)
+%		;
+%		\fill[\mycolor] (Ct)--(Dt)--(Dtt)--(Ctt)--cycle
+%		;
+%		\foreach \i/\j in{3/85,6/75,9/65,12/50,15/30}{
+%		\begin{scope}[transform canvas={xshift=\i pt}]
+%				\fill[\mycolor!\j] (Ct)--(Dt)--(Dtt)--(Ctt)--cycle
+%				;
+%		\end{scope}}
+%		\fill[\mycolor!75!black] ([yshift=-3pt]A)--([yshift=-3pt]A1)--([turn]-90:6pt)--cycle;
+%		\fill[\mycolor!75!black] (E)--([yshift=-3pt]C1)--([turn]90:6pt)--cycle;
+%		\draw[\mycolor,rounded corners=5pt,ultra thick] (A1)--(B1)--(D1)--(C1)
+%		;
+%		\path ([xshift= -.25cm,yshift=.5cm]ChuBai) node[inner sep=2pt,font=\fontsize{18pt}{6pt}\sffamily\selectfont\bfseries\color{gray}]{\faBong\ BÀI \arabic{section}};
+%		\path ([xshift= -.25cm,yshift=.5cm]ChuBai) node[inner sep=0pt,font=\fontsize{18pt}{6pt}\sffamily\selectfont\bfseries\color{white}]{\faBong\ BÀI \arabic{section}};  
+%		\path ([shift={(0.11,-0.01)}]Tenbai) node[align=center,font=\LARGE\sffamily\bfseries\color{gray},text width=0.9\linewidth]{\MakeUppercase{#1}};
+%		\path ([shift={(0.1,0)}]Tenbai) node[align=center,font=\LARGE\sffamily\bfseries\color{\mycolor!75!black},text width=0.9\linewidth]{\MakeUppercase{#1}};
+%\end{tikzpicture}}%
+%{0pt}
+%{} 
+%%%%%%%%%%%%%%%%%%%%%%%%==========Định dạng bài========%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\titlespacing*{\section}{0pt}{0cm}{-15pt}
+\titleformat{\section}[display]
+{}
+{%
+	\begin{bai}
+		\MakeUppercase{#1}
+	\end{bai}
+}%
+{0pt}
+{} 
+%%%===========================subsection===============%%%
+\titlespacing*{\subsection}{-3pt}{0pt}{-6pt}
+\titleformat{\subsection}[display]
+{}
+{%
+	\begin{tikzpicture}
+		\path (0,0) node[align=left,anchor=west,font=\Large\sffamily\bfseries\color{white},text width=0.95\linewidth](SEC){#1};
+		\path (SEC.north west) coordinate (A)
+		(SEC.south west) coordinate (B)
+		($ (A)+(-1pt,-3pt) $)  coordinate (At)
+		($ (B)+(-1pt,3pt) $)  coordinate (Bt)
+		($(At)!1!90:(Bt)$) coordinate (Dt)
+		($(Bt)!1!-90:(At)$) coordinate (Ct)
+		($ (Ct)!0.5!(Dt) $) coordinate (E)
+		($ (Ct)!0.5!(At) $) coordinate (AC)
+		;
+		\draw[line width=1pt,\mycolor!55!black,rounded corners=3pt] (A) rectangle ($(B)+(0.975\linewidth,0) $);
+		\fill[rounded corners=2pt,fill=\mycolor!80!black] ($ (At)+(-3pt,0) $) rectangle (Ct); 
+		\fill[rounded corners=2pt,fill=\mycolor] (At) rectangle (Ct);
+		\path ([shift={(-45:1pt)}]AC) node[inner sep=0pt,font=\large\bfseries\color{gray}]{\Alph{subsection}};
+		\path (AC) node[inner sep=0pt,font=\large\bfseries\color{white}]{\Alph{subsection}};  
+		\path ([shift={(-45:0.65pt)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{gray},text width=0.95\linewidth]{\MakeUppercase{#1}};
+		\path (E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{\mycolor!75!black},text width=0.95\linewidth]{\MakeUppercase{#1}};
+	\end{tikzpicture}%
+}%
+{0pt}
+{}
+
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+%%%===========================subsection===============%%%
+\titlespacing*{\subsubsection}{3pt}{.5cm}{-6pt}
+\titleformat{\subsubsection}[display]
+{}
+{
+	\begin{tikzpicture}[remember picture]
+		\path (0,0) 
+		node [white,minimum height= .8cm,font=\bfseries \fontfamily{qag}\selectfont](Sub)%
+		{\arabic{subsubsection}.};
+		\path
+		(Sub.north west)coordinate (B)
+		(Sub.south east)coordinate (C)
+		(Sub.west)coordinate (D)
+		(Sub.east)coordinate (E)
+		($ (D)+(3pt,0) $) coordinate (D1)
+		($ (E)+(3pt,0) $) coordinate (E1)
+		;
+		\fill[\mycolor] (B)--(Sub.north east)--(E1)--(C)--(Sub.south west)--cycle 
+		;
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor,minimum height= .8cm,inner sep=3pt,anchor=west,font=\bfseries \fontfamily{qag}\selectfont](Muc)%
+		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+		{\MakeUppercase{#1}};
+		\path
+		(Muc.north west)coordinate (Bt)
+		(Muc.south east)coordinate (Ct)
+		(Muc.west)coordinate (Dt)
+		(Muc.east)coordinate (Et)
+		($ (Dt)+(3pt,0) $) coordinate (D1t)
+		($ (Et)+(3pt,0) $) coordinate (E1t)
+		;
+		\fill[\mycolor!40] (D1t)--(Bt)--(Muc.north east)--(E1t)--(Ct)--(Muc.south west)--cycle 
+		;
+		\path (0,0) 
+		node [white,font=\bfseries\fontfamily{qag}\selectfont]%
+		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+		{\Roman{subsubsection}.};
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor!50!black,anchor= west,font=\bfseries \fontfamily{qag}\selectfont]%
+		%{\arabic{subsection}.\;\MakeUppercase{#1}};
+		{\MakeUppercase{#1}};
+	\end{tikzpicture}
+}{3pt}{}
+
+%\titlespacing*{\paragraph}{0pt}{0pt}{3pt}
+%\titleformat{\paragraph}
+%{}
+%{\color{\mycolor!50!black}\sffamily\large\bfseries\arabic{paragraph}.}
+%{0.5ex minus .2ex}
+%{\color{\mycolor!50!black}\large\bfseries\sffamily {#1}}
+%{}
+
+\titlespacing*{\paragraph}{3pt}{-3pt}{-.5cm}
+\titleformat{\paragraph}[display]
+{}
+{
+	\begin{tikzpicture}[remember picture]
+		\path (0,0) coordinate (paragraph);
+		\fill[\mycolor!20] (paragraph)
+		node [\mycolor!50!black,anchor= west,font=\bfseries \fontfamily{qag}\selectfont]
+		{\khungvuong{\arabic{paragraph}.\;\MakeUppercase{#1}}};
+	\end{tikzpicture}
+}{3pt}{}
+
+
+
+
+
+
+
+
+
+
+
+
+ %%%=====================Muc luc============================%%%
+\usepackage{titletoc}
+\patchcmd{\tableofcontents}{\contentsname}{\sffamily\contentsname}{}{}
+\makeatletter
+\newif\ifnotstarredversion
+\renewcommand{\numberline}[1]{#1.~}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand*\l@chapter[2]{%
+	\ifnum \c@tocdepth >-2\relax
+	\addpenalty{-\@highpenalty}%
+	\addvspace{10pt \@plus\p@}%
+	\setlength\@tempdima{3em}%
+	\begingroup
+	\tikz[remember picture]{
+		\path (0,0) coordinate (A)--(\linewidth,0) coordinate (B);%
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\large,align=center,text width=\linewidth] (TEXT)
+		{{Chương~#1 - Trang~#2}};
+		\fill[\mycolor!65!black,rounded corners=3.5pt] ([xshift=-2pt]TEXT.north west) rectangle ([xshift=2pt]TEXT.south east);
+		\fill[\mycolor!15,rounded corners=3pt] ([yshift=0.15pt]TEXT.north west) rectangle ([yshift=-0.15pt]TEXT.south east);
+		\hypersetup{linkcolor=\mycolor!85!black}
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\large\color{\mycolor!85!black},align=center,text width=\linewidth] (TEXT)
+		{{Chương~#1 - Trang~#2}};
+	}
+	\par\bigskip
+	\penalty\@highpenalty
+	\setcounter{section}{0}
+	\endgroup
+	\fi
+}
+\makeatother
+
+\renewcommand{\thesection}{\color{\mycolor!50!black}Bài \arabic{section}.}
+\titlecontents{section}
+[1.5cm]
+{\hypersetup{linkcolor=\mycolor!50!black}\vspace*{0.15\baselineskip}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+{\color{\mycolor!50!black}\titlerule*[0.65pc]{.}\thecontentspage}
+
+\renewcommand{\thesubsection}{\color{\mycolor!50!black}\Alph{subsection}.}
+\titlecontents{subsection}
+[2.25cm]
+{\hypersetup{linkcolor=\mycolor!50!black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+{\color{\mycolor!50!black}\titlerule*[1pc]{.}\thecontentspage}
+
+
+\renewcommand{\thesubsubsection}{\color{\mycolor!50!black}\Roman{subsubsection}.}
+\titlecontents{subsubsection}
+[2.65cm]
+{\hypersetup{linkcolor=\mycolor!50!black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+{\color{\mycolor!50!black}\titlerule*[1pc]{.}\thecontentspage}
+
+\renewcommand{\theparagraph}{\color{\mycolor!50!black}\arabic{paragraph}.}
+\titlecontents{paragraph}
+[2.75cm]
+{\hypersetup{linkcolor=\mycolor!50!black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
+{\color{\mycolor!50!black}\titlerule*[1pc]{.}\thecontentspage}
+\makeatletter
+\renewcommand{\tableofcontents}{%
+	\newpage
+	\markboth{Mục lục}{Mục lục}
+	%\renewcommand{\rightmark}{Mục lục}
+	\begin{center}
+		\begin{tcolorbox}[enhanced,hbox,
+			left=8mm,right=8mm,boxrule=0.55pt,
+			bottom=3pt,
+			colback=white,colframe=\mycolor,
+			%drop fuzzy midday shadow=black!50!yellow,
+			drop lifted shadow=black!50!yellow,arc is angular,
+			before=\par\vspace*{-1mm},after=\par\bigskip]
+			{\bfseries\Large\color{\mycolor}\sffamily MỤC LỤC} 
+		\end{tcolorbox}
+	\end{center}
+	\newcounter{somucluc}
+	\vskip-1.25cm
+	\@starttoc{toc}}
+\makeatother
+
+

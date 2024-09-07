@@ -1,0 +1,66 @@
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\renewcommand{\headrulewidth}{2pt}
+\fancyhf{}
+\pagestyle{fancy}
+%\chead{}\lhead{}\rhead{}
+\cfoot{}
+\renewcommand{\headrule}{\hbox to\headwidth{%
+		\color{\mycolor!80!black}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{2pt} % Đặt độ dày cho footrule
+\renewcommand{\footrule}{\hbox to\headwidth{%
+		\color{\mycolor!80!black}\leaders\hrule height \footrulewidth\hfill}}
+\fancyhead[LO,RE]{\color{\mycolor!30!black}{\Large\fmmfamily\itshape Biên soạn: Nguyễn Tường Duy}}	
+\fancyfoot[RO]{\color{\mycolor}{\Large\fmmfamily \textit{Trang \thepage/\pageref{LastPage} - Mã đề \x}}} 
+\fancyfoot[LE]{\color{\mycolor}{\Large\fmmfamily \textit{Trang \thepage/\pageref{LastPage} - Mã đề \x}}}
+\def\x{238}
+\newcommand{\sttde}[1]
+{\begin{center}
+		{\fontsize{16}{6pt}\fontfamily{qag}\bfseries\selectfont\color{\mycolor!75} ĐỀ SỐ #1}
+\end{center}}
+\newcommand{\madethi}[1]{\color{\maudam!75}\fbox{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries Mã đề thi #1}}
+\newcommand{\TN}[1]{{\noindent\fontsize{12pt}{4pt}\fontfamily{qag}\bfseries\selectfont\color{\maudam!75} Phần I: TRẮC NGHIỆM (#1~điểm)}\\}
+\newcommand{\TL}[1]{{\noindent\fontsize{12pt}{4pt}\fontfamily{qag}\bfseries\selectfont\color{\maudam!75} Phần II: TỰ LUẬN (#1~điểm)}\\}
+
+%%%Tùy chọn 1: Kì thi
+%%%Tùy chọn 2: Môn
+%%%Tùy chọn 3: lớp
+%%%Tùy chọn 4: Sở/Phòng
+%%%Tùy chọn 5: Ngày thi
+\NewDocumentEnvironment{name}{O{}O{}O{}O{}O{\today}m m}{
+	\ifblank{#1}{\def\tuychonone{KIỂM TRA GIỮA KÌ I}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{Toán}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthird{9}}{\def\tuychonthird{#3}}
+	\ifblank{#4}{\def\tuychonfour{PHÒNG GIÁO DỤC VÀ ĐÀO TẠO}}{\def\tuychonfour{#4}}
+	\newpage
+	\addcontentsline{toc}{section}
+	\noindent
+	\renewcommand{\arraystretch}{1.5}
+	\hspace{-1.5cm}
+	\begin{tabular}{C{0.4\textwidth}C{0.6\textwidth}}
+		\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries\color{\maudam!75} \tuychonfour &\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries\color{\maudam!75} \tuychonone \\
+		\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries\color{\maudam!75} #6 &\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries\color{\maudam!75} Môn: \tuychontwo \;- Lớp \tuychonthird \;- Chương trình chuẩn\\
+		{\color{\maudam!75}\fbox{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries ĐỀ CHÍNH THỨC}}&\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75}\textit{Năm học: #7}\\
+		\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75} (Đề thi có \pageref{\x} trang) & \fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75}\textit{Thời gian: 60 phút (không kể thời gian phát đề )}\\
+		&\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75}\textit{Ngày thi: #5}
+	\end{tabular}
+	\begin{minipage}[t]{13cm}
+		{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75}\bfseries{Họ, tên thí sinh:}}\dotfill\\
+		{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\color{\maudam!75}\bfseries{Số báo danh:}}\dotfill
+	\end{minipage}\hfill
+	\begin{minipage}[b]{3.5cm}
+		\setlength\fboxrule{1pt}
+		\setlength\fboxsep{5pt}
+		\vspace*{3mm}\madethi{\x}
+	\end{minipage}\\
+}{}
+
+
+
+
+
+
+
+
+
+

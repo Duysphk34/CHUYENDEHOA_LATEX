@@ -1,0 +1,429 @@
+%%%================ Phổ IR của 2methyl_butan1ol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=620.546, xmax=3993.111943,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={750,1000,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/2methyl_butan1ol.csv};
+		\path[name path=upper] (axis cs:620.546,1.03) -- (axis cs:3993.111943,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của 2methyl butan1ol};
+\end{tikzpicture} \]
+%%%================ Phổ IR của acetone ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=450.0, xmax=3795.0,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/acetone.csv};
+		\path[name path=upper] (axis cs:450.0,1.03) -- (axis cs:3795.0,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Acetone};
+\end{tikzpicture} \]
+%%%================ Phổ IR của acid_axetic ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=234.483, xmax=3791.13587,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/acid_axetic.csv};
+		\path[name path=upper] (axis cs:234.483,1.03) -- (axis cs:3791.13587,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Acid axetic};
+\end{tikzpicture} \]
+%%%================ Phổ IR của benzyl_ancohol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=401.0, xmax=3801.0,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/benzyl_ancohol.csv};
+		\path[name path=upper] (axis cs:401.0,1.03) -- (axis cs:3801.0,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Benzyl ancohol};
+\end{tikzpicture} \]
+%%%================ Phổ IR của butyl_Ancolhol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=250.0, xmax=3813.10354,ymin=0, ymax=0.93,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,3750},
+		ytick={0,0.1,...,0.9},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/butyl_Ancolhol.csv};
+		\path[name path=upper] (axis cs:250.0,0.93) -- (axis cs:3813.10354,0.93);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Butyl ancolhol};
+\end{tikzpicture} \]
+%%%================ Phổ IR của divinyl_ete ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=385.591, xmax=3792.02122,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/divinyl_ete.csv};
+		\path[name path=upper] (axis cs:385.591,1.03) -- (axis cs:3792.02122,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Divinyl ete};
+\end{tikzpicture} \]
+%%%================ Phổ IR của ethylen_glicol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=449.619, xmax=3792.385357,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/ethylen_glicol.csv};
+		\path[name path=upper] (axis cs:449.619,1.03) -- (axis cs:3792.385357,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Ethylen glicol};
+\end{tikzpicture} \]
+%%%================ Phổ IR của ethyl_acetate ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=248.249, xmax=3793.118063,ymin=0, ymax=0.93,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,3750},
+		ytick={0,0.1,...,0.9},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/ethyl_acetate.csv};
+		\path[name path=upper] (axis cs:248.249,0.93) -- (axis cs:3793.118063,0.93);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Ethyl acetate};
+\end{tikzpicture} \]
+%%%================ Phổ IR của Eugenol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=670.0, xmax=4000.0,ymin=0, ymax=1.03,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={750,1000,...,4000},
+		ytick={0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/Eugenol.csv};
+		\path[name path=upper] (axis cs:670.0,1.03) -- (axis cs:4000.0,1.03);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Eugenol};
+\end{tikzpicture} \]
+%%%================ Phổ IR của methyl_benzoate ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=451.337, xmax=3789.418229,ymin=0, ymax=1.1300000000000001,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,1.1},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/methyl_benzoate.csv};
+		\path[name path=upper] (axis cs:451.337,1.1300000000000001) -- (axis cs:3789.418229,1.1300000000000001);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Methyl benzoate};
+\end{tikzpicture} \]
+%%%================ Phổ IR của methyl_salicylate ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=235.41, xmax=3791.152655,ymin=0, ymax=1.1300000000000001,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,3750},
+		ytick={0,0.1,...,1.1},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/methyl_salicylate.csv};
+		\path[name path=upper] (axis cs:235.41,1.1300000000000001) -- (axis cs:3791.152655,1.1300000000000001);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Methyl salicylate};
+\end{tikzpicture} \]
+%%%================ Phổ IR của pentanal ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=396.094, xmax=3976.245469,ymin=0, ymax=0.93,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={500,750,...,3750},
+		ytick={0,0.1,...,0.9},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/pentanal.csv};
+		\path[name path=upper] (axis cs:396.094,0.93) -- (axis cs:3976.245469,0.93);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Pentanal};
+\end{tikzpicture} \]
+%%%================ Phổ IR của phenol ==================%%%
+\[ \begin{tikzpicture}[declare function={d=14cm;}]
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=238.466, xmax=3789.15673,ymin=0, ymax=0.93,
+		height=0.4*d, width=1.3*d,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num = 1,
+		minor y tick num = 1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,3750},
+		ytick={0,0.1,...,0.9},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{DuLieu/Lop_11/PhoIR/phenol.csv};
+		\path[name path=upper] (axis cs:238.466,0.93) -- (axis cs:3789.15673,0.93);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Phenol};
+\end{tikzpicture} \]

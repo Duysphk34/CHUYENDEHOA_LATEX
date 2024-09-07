@@ -1,0 +1,244 @@
+\usepackage[book]{ex_test}
+\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+%%====================Hộp Bài tâp Có 3 đối số==========================%%%
+\newcounter{bt}[section]
+\NewTColorBox[auto counter]{btbox}{+!O{}O{}O{}}{%[use counter=bt]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Bài~\thetcbcounter},%\thebt
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=12pt,
+	phantomlabel={baibt\thetcbcounter},%\thebt
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thetcbcounter}};%\thebt
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\fmmfamily\Large\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+
+\def\btbegin{%
+	\begin{btbox}}
+	\def\btend{\end{btbox}}
+\newcommand{\huongdan}{}
+\newenvironment{bt}
+{\btbegin}
+{\btend}
+\AtBeginEnvironment{bt}{%
+	\refstepcounter{bt}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{btbox} \def\btend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+
+}
+\renewcommand{\huongdan}[1]{%
+\end{btbox} \def\btend{}
+\par\noindent
+
+}
+}
+
+
+\newcounter{ex}[section]
+\NewTColorBox[use counter=ex]{exbox}{+!O{}O{}O{}}{%[use counter=ex]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Bài~\theex},%
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=12pt,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theex}};%\theex
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+
+\def\exbegin{%
+	\begin{exbox}}
+	\def\exend{\end{exbox}}
+\newcommand{\huongdan}{}
+\newenvironment{ex}
+{\exbegin}
+{\exend}
+\AtBeginEnvironment{ex}{%
+	\refstepcounter{ex}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{exbox} \def\exend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+	
+}
+\renewcommand{\huongdan}[1]{%
+\end{exbox} \def\exend{}
+\par\noindent
+
+}
+}
+
+
+
+\newcounter{vd}[section]
+\NewTColorBox[use counter=vd]{vdbox}{+!O{}O{}O{}}{%[use counter=ex]
+	enhanced,
+	fonttitle=\bfseries\sffamily\color{white},
+	title={\faClockO\ Ví dụ~\thevd},%
+	colframe=\mycolor!65!black,
+	colback=white,
+	colbacktitle=white,
+	fonttitle=\bfseries,
+	coltitle=black,
+	top= 12pt,
+	bottom=12pt,
+	attach boxed title to top left=
+	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
+	boxed title style={
+		frame hidden,
+		outer arc=0pt,
+		arc=0pt,
+		top=3pt,
+		bottom=3pt,
+		left=0pt,
+		right=0pt
+	},
+	overlay unbroken and first={
+		\path
+		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+		($ (title.south east)+(3pt,3pt) $) coordinate (C)
+		($ (title.north east)+(3pt,0) $) coordinate (D)
+		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		;
+		
+		\path[fill=\mycolor!15,rounded corners=3pt]
+		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		
+		\path[fill=\mycolor!70!black,rounded corners=2pt]
+		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+		
+		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		
+		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\thevd}};%\theex
+		
+		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#1}};
+		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#2};
+		\path ([shift={(-5pt,8pt)}]frame.south east) node[anchor=east,font=\small\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	},
+	top=\tcboxedtitleheight
+}
+
+\def\vdbegin{%
+	\begin{vdbox}}
+	\def\vdend{\end{vdbox}}
+\newcommand{\huongdan}{}
+\newenvironment{vd}
+{\vdbegin}
+{\vdend}
+\AtBeginEnvironment{vd}{%
+	\refstepcounter{vd}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\renewcommand{\loigiai}[1]{%
+	\end{vdbox} \def\vdend{} % đưa lời giải ra ngoài hộp		
+	\par\noindent
+	
+}
+\renewcommand{\huongdan}[1]{%
+\end{vdbox} \def\vdend{}
+\par\noindent
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

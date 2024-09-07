@@ -1,0 +1,389 @@
+\chapter{Liên kết hóa học}
+\section{Quy tắc Octet}
+\begin{mtbh}
+	\begin{itemize}
+		\item Trình bày được quy tắc octet với các nguyên tố nhóm $A$.
+		\item Vận dụng được quy tắc octet trong quá trình hình thành liên kết hoá học ở các nguyên tố nhóm $A$.
+	\end{itemize}
+\end{mtbh}
+\subsection{Kiến thức cần nhớ}
+\begin{hoplythuyet}
+	\GSND[\bfseries\sffamily][\faStar][\maunhan]{Liên kết hóa học:}
+	Liên kết hóa học là sụ kết hợp giữa các nguyên tử tạo thành phân tử hay tinh thể bền vững hơn.
+	\GSND[\bfseries\sffamily][\faStar][\maunhan]{Quy tắc octet:}
+	Trong quá trình hình thành liên kết hóa học, nguyên tử của các nguyên tố nhóm A có xu hương tạo thành lớp vỏ ngoài cùng có 8 electron tương ứng với khí hiếm gần nhất (hoặc 2 electron với khí hiếm helium).
+\end{hoplythuyet}
+\begin{notegsnd}
+	Không phải mọi trừờng hợp, nguyên tử của các nguyên tố khi tham gia liên kết đều tuân theo quy tắc octet. Người ta nhận thấy một số phân tủ không tuân theo quy tắc octet. Ví dụ: $\mathrm{NO}, \mathrm{BH}_3$, $S F_6, \ldots$
+\end{notegsnd}
+
+\columnratio{0.65}
+\begin{paracol}{2}
+	\begin{hoplythuyet}
+		\GSND[\bfseries\sffamily][\faStar][\maunhan]{Liên kết hóa học:}
+		Liên kết hóa học là sụ kết hợp giữa các nguyên tử tạo thành phân tử hay tinh thể bền vững hơn.
+		\GSND[\bfseries\sffamily][\faStar][\maunhan]{Quy tắc octet:}
+		Trong quá trình hình thành liên kết hóa học, nguyên tử của các nguyên tố nhóm A có xu hương tạo thành lớp vỏ ngoài cùng có 8 electron tương ứng với khí hiếm gần nhất (hoặc 2 electron với khí hiếm helium).
+	\end{hoplythuyet}
+	\switchcolumn 
+	\begin{vdnote}
+		Hai nguyên tử H liên kết với nhau tạo thành phân tử $H_2$ bền vững hơn nguyên tử H
+	\end{vdnote}
+	\begin{vdnote}
+		Nguyên tử chlorine với cấu hình electron là $[\mathrm{Ne}] 3 \mathrm{~s}^2 3 \mathrm{p}^5$, có 7 electron ở lớp vỏ ngoài cùng.Khi hình thành liên kết hoá học chlorine nhận thêm 1 electron để đạt được lớp vỏ có 8 electron ở lớp ngoài cùng như của khí hiếm $\mathrm{Ar}$ (thay vì $\mathrm{Cl}$ phải nhường đi 7 electron để có lớp vỏ ngoài cùng là $2 \mathrm{~s}^2 2 \mathrm{p}^6$ - khó khăn hơn rất nhiều)
+	\end{vdnote}
+\end{paracol}
+
+\newcommand{\ngoacvuongtron}[2][]{
+	\begin{tikzpicture}[declare function={d=-4pt;},node distance=-d]
+		\node (name) {#2};
+		\node[anchor = base, above right =of name,shift={(-2pt,-5pt)}](plus) {$#1$};
+		\draw[rounded corners=-d-1pt] (name.north west)--([xshift=d]name.north west)|-($(name.south west) +(0,0)$);
+		\draw[rounded corners=-d-1pt] (name.north east)--([xshift=-d]name.north east)|-($(name.south east) +(0,0)$);
+	\end{tikzpicture}
+}
+\newpage
+\GSND[\bfseries\sffamily][\faStar][\maunhan]{Giải thích sự hình thành liên kết}
+\columnratio{0.5}
+\begin{paracol}{2}
+	%%%================ Giải thích sự hình thành ion Cl ================%%%
+	\begin{vdnote}
+		Nguyên tử chlorine với cấu hình electron là $[Ne]3s^23p^5$, có 7 electron ở lớp ngoài cùng. Vậy có xu hướng nhận thêm 1 electron để đạt cấu hình bền vững giống khí hiếm Ar (hình \ref{ion_Cl})
+	\end{vdnote}
+	\begin{center}
+		\begin{tikzpicture}[declare function ={k=5cm;},node distance=1.5cm]
+			\node at (0:0) (Cl) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\tikzstyle{mystyle} = [draw=red,inner sep = 0pt,anchor=center, baseline]
+					\path (0:0) coordinate (O);
+					\fill[ball color=red!50](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+17}};
+					\draw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {0,45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25cm}) circle (1pt);}
+					\draw[mystyle] (O) circle (r+0.25*2cm);
+					\foreach \g in {45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25*2cm}) circle (1pt);}
+					\draw[mystyle] (O) circle (r);
+					\foreach \g in {90,-90}{\fill[ball color =\mauphu!50] (\g:r) circle (1pt);}
+				\end{tikzpicture}
+			};
+			\node[yshift=7pt] at (0:k)(ion-Cl) {
+				\ngoacvuongtron[-]{\begin{tikzpicture}[declare function={r=.5 cm;},scale=1.2]
+						\tikzstyle{mystyle} = [text centered, draw=red,inner sep = 0pt]
+						\path (0:0) coordinate (O);
+						\fill[ball color=red!50](O) circle (r -.25 cm);
+						\node[font=\tiny] at (O) {\textbf{+17}};
+						\draw[mystyle] (O) circle (r+0.25cm);
+						\foreach \g in {0,45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25cm}) circle (1pt);}
+						\draw[mystyle] (O) circle (r+0.25*2cm);
+						\foreach \g in {0,45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25*2cm}) circle (1pt);}
+						\draw[mystyle] (O) circle (r);
+						\foreach \g in {90,-90}{\fill[ball color =\mauphu!50] (\g:r) circle (1pt);}
+				\end{tikzpicture}}
+			};
+			\draw[-latex,line width=1pt] (Cl.east)--([yshift=-7pt]ion-Cl.west)node[midway,pos =0.5,above,font=\sf\small,yshift=-2pt]{nhận}node[midway,pos =0.5,below,font=\sf\small,yshift=2pt]{1 electron};
+			\node [below of= Cl,font=\bfseries\small] {Cl};
+			\node [below of= ion-Cl,font=\bfseries\small,shift={(-6pt,-9pt)}] {\text{Cl$^{-}$}};
+		\end{tikzpicture}
+		\captionof{figure}{Sơ đồ nguyên tử Cl nhận thêm 1 eclectron vào lớp ngoài cùng \label{ion_Cl}}
+	\end{center}
+	\switchcolumn
+	%%%================Giải thích sự hình thành ion Na================%%%
+	\begin{vdnote}
+		Nguyên tử Sodium với cấu hình $[Ne]3s^1$, có 1 electron ở lớp ngoài cùng .Vậy xu hướng khi hình thành liên kết là nhường đi 1 electron để đạt được cấu hình electron giống khí hiếm Ne.(hình \ref{ion_Na})
+	\end{vdnote}
+	\begin{center}
+		\begin{tikzpicture}[declare function ={k=5cm;},node distance=1.5cm]
+			\node at (0:0) (Na) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\tikzstyle{mystyle} = [draw=red,inner sep = 0pt,anchor=center, baseline]
+					\path (0:0) coordinate (O);
+					\fill[ball color=red!50](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+11}};
+					\draw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {0,45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25cm}) circle (1pt);}
+					\draw[mystyle] (O) circle (r+0.25*2cm);
+					\foreach \g in {0}{\fill[ball color =\mauphu!50] (\g:{r+0.25*2cm}) circle (1pt);}
+					\draw[mystyle] (O) circle (r);
+					\foreach \g in {90,-90}{\fill[ball color =\mauphu!50] (\g:r) circle (1pt);}
+				\end{tikzpicture}
+			};
+			\node[yshift=7pt] at (0:k)(ion-Na) {
+				\ngoacvuongtron[+]{\begin{tikzpicture}[declare function={r=.5 cm;},scale=1.2]
+						\tikzstyle{mystyle} = [text centered, draw=red,inner sep = 0pt]
+						\path (0:0) coordinate (O);
+						\fill[ball color=red!50](O) circle (r -.25 cm);
+						\node[font=\tiny] at (O) {\textbf{+11}};
+						\draw[mystyle] (O) circle (r+0.25cm);
+						\foreach \g in {0,45,90,135,180,225,270,315}{\fill[ball color =\mauphu!50] (\g:{r+0.25cm}) circle (1pt);}
+						\draw[mystyle] (O) circle (r);
+						\foreach \g in {90,-90}{\fill[ball color =\mauphu!50] (\g:r) circle (1pt);}
+				\end{tikzpicture}}
+			};
+			\draw[-latex,line width=1pt] (Na.east)--([yshift=-7pt]ion-Na.west)node[midway,pos =0.5,above,font=\sf\small,yshift=-2pt]{nhường}node[midway,pos =0.5,below,font=\sf\small,yshift=2pt]{1 electron};
+			\node [below of= Na,font=\bfseries\small] {Na};
+			\node [below of= ion-Na,font=\bfseries\small,shift={(-6pt,-9pt)}] {\text{Na$^{+}$}};
+		\end{tikzpicture}
+		\captionof{figure}{Sơ đồ nguyên tử Na nhường đi 1 eclectron  \label{ion_Na}}
+	\end{center}
+\end{paracol}
+
+\columnratio{0.5}
+\begin{paracol}{2}
+%%%================Giải thích sự hình thành phân tử H2================%%%		
+	\begin{vdnote}
+		Phân tử $\mathrm {H_2}$ được hình thành từ hai nguyên tử H bởi sự góp chung electron (hình \ref{hthidro})
+	\end{vdnote}
+	\begin{center}
+		\tikzstyle{mystyle} = [draw=\mauphu!90!black,inner sep = 0pt,anchor=center, baseline,fill=\mauphu!90,opacity=.5,line width=.8pt]
+		\begin{tikzpicture}[declare function ={k=1.8cm;},node distance=.5pt and .5pt]
+			\node at (0:0) (H1) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mauphu!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+1}};
+					\filldraw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {25}{\fill[ball color =\mauphu!90] (\g:{r+0.25cm}) circle (1.5pt);}
+				\end{tikzpicture}
+			};
+			\node [below=of H1]{\bf H};
+			\node at (0:k)(H2) {
+					\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mauphu!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+1}};
+					\filldraw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {205}{\fill[ball color =\mauphu!90] (\g:{r+0.25cm}) circle (1.5pt);}
+				\end{tikzpicture}
+			};
+			\node [below=of H2]{\bf H};
+			\node at (0:{3*k})(H3){
+			\begin{tikzpicture}[declare function={r=.5 cm;}]
+				\path (0:0) coordinate (O);
+				\fill[ball color=\mauphu!90](O) circle (r -.25 cm);
+				\node[font=\tiny] at (O) {\textbf{+1}};
+				\filldraw[mystyle] (O) circle (r+0.25cm);
+				\foreach \g in {-10}{\fill[ball color =\mauphu!90] (\g:{r+0.12cm}) circle (1.5pt);}
+			\end{tikzpicture}
+			};
+			\node at (0:{3.68*k})(H4){
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mauphu!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+1}};
+					\filldraw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {170}{\fill[ball color =\mauphu!90] (\g:{r+0.12cm}) circle (1.5pt);}
+				\end{tikzpicture}
+			};
+			\filldraw[-{Latex[length=5mm]},line width=6pt,draw=\mauphu,] (H2.east)--(H3.west) ;
+			\node [below=of H3,xshift={.34*k}]{ $\mathbf {H_2}$};
+		\end{tikzpicture}
+		\captionof{figure}{Sự góp chung electron trong phân tử hiđro \label{hthidro}}
+	\end{center}
+		\switchcolumn
+	%%%================Giải thích sự hình thành phân tử N2================%%%
+	\begin{vdnote}
+		Phân tử $\mathrm {N_2}$ được hình thành từ hai nguyên tử N bởi sự góp chung của 3 cặp electron (hình \ref{htnito})
+	\end{vdnote}
+	\begin{center}
+		\tikzstyle{mystyle} = [draw=\mycolor!90!black,inner sep = 0pt,anchor=center, baseline,fill=\mycolor!90,opacity=.3,line width=.8pt]
+		\begin{tikzpicture}[declare function ={k=2.5cm;R=1.2cm;},node distance=.5pt and .5pt]
+			\node at (0:0) (N1) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mycolor!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+7}};
+					\filldraw[mystyle] (O) circle (r);
+					\foreach \g in {90,-90}{\fill[ball color =\mycolor!70] (\g:{r}) circle (1.5pt);}
+					\filldraw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {170,-170,45,-45,0}{\fill[ball color =\mycolor!90] (\g:{r+0.25cm}) circle (1.5pt);}
+				\end{tikzpicture}
+			};
+%	
+			\node at (0:.5*k) (plus){\large +};
+			\node at (0:k) (N2) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mycolor!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+7}};
+				\begin{scope}[transform canvas={xscale=-1}]
+					\filldraw[mystyle] (O) circle (r);
+					\foreach \g in {90,-90}{\fill[ball color =\mycolor!70] (\g:{r}) circle (1.5pt);}
+					\filldraw[mystyle] (O) circle (r+0.25cm);
+					\foreach \g in {170,-170,45,-45,0}{\fill[ball color =\mycolor!90] (\g:{r+0.25cm}) circle (1.5pt);}
+				\end{scope}
+				\end{tikzpicture}
+			};
+			
+			\node at (0:{2.4*k}) (N3) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mycolor!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+7}};
+					\begin{scope}[transform canvas={xscale=1}]
+						\filldraw[mystyle] (O) circle (r);
+						\foreach \g in {90,-90}{\fill[ball color =\mycolor!70] (\g:{r}) circle (1.5pt);}
+						\filldraw[mystyle] (O) circle (r+0.25cm);
+						\foreach \g in {170,-170}{\fill[ball color =\mycolor!90] (\g:{r+0.25cm}) circle (1.5pt);}
+					\end{scope}
+				\end{tikzpicture}
+			};
+				\node at (0:{2.90*k}) (N4) {
+				\begin{tikzpicture}[declare function={r=.5 cm;}]
+					\path (0:0) coordinate (O);
+					\fill[ball color=\mycolor!90](O) circle (r -.25 cm);
+					\node[font=\tiny] at (O) {\textbf{+7}};
+					\begin{scope}[transform canvas={xscale=-1}]
+						\filldraw[mystyle] (O) circle (r);
+						\foreach \g in {90,-90}{\fill[ball color =\mycolor!70] (\g:{r}) circle (1.5pt);}
+						\filldraw[mystyle] (O) circle (r+0.25cm);
+						\foreach \g in {170,-170}{\fill[ball color =\mycolor!90] (\g:{r+0.25cm}) circle (1.5pt);}
+					\end{scope}
+				\end{tikzpicture}
+			};
+			\node at (0:{2.4*k+.56cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at (0:{2.4*k+.7cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at ([yshift=4pt]0:{2.4*k+.57cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at ([yshift=4pt]0:{2.4*k+.68cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at ([yshift=-4pt]0:{2.4*k+.57cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at ([yshift=-4pt]0:{2.4*k+.68cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\filldraw[-{Latex[length=5mm]},line width=6pt,draw=\mycolor,] ([xshift=.5cm]N2.east)--([xshift=-.5cm]N3.west) ;
+			\node at ([yshift=-4pt]0:{2.4*k+.68cm}) {\tikz{\fill[ball color =\mycolor!90]circle (1.45pt);}};
+			\node at ([yshift=-R]0:0) {\large N};
+			\node at ([yshift=-R]0:{k}) {\large N};
+			\node at ([yshift=-R]0:{2.65*k}) {\large $\mathbf{N_2}$};
+		\end{tikzpicture}
+		\captionof{figure}{Sự góp chung electron trong phân tử nitơ \label{htnito}}
+	\end{center}
+\end{paracol}
+\subsection{Bài tập}
+%%%===============Câu_01=======================%%%		
+\begin{ex}[][Quy tắc octet]
+	Biết phân tử magnesium được hình thành từ các ion $Mg^{2+}$ và ion $O^{2-}$.Vận dụng quy tắc octet, trình bày sự hình thành các ion trên từ những nguyên tử tương ứng.
+	\huongdan{
+	\begin{itemize}
+		\item Mg (Z=12):$1s^22s^22p^63s^2$ (có 2 electron ở lớp ngoài cùng) $\Rightarrow$ $Mg \longrightarrow$ $Mg^{2+} + 2e$
+		\item O (Z=8):$1s^22s^2p^4$ (có 6 electron ở lớp ngoài cùng) $\Rightarrow$ $O + 2e \longrightarrow$ $O^{2-} $
+	\end{itemize}
+	
+	}
+\end{ex}
+%%%===============Câu_02=======================%%%		
+\begin{ex}[][Quy tắc octet]
+	Cho các nguyên tử của các nguyên tố sau:Na(Z=11), Cl(Z=17), Ne(Z=10), Ar(Z=18).Những nguyên tử nào trong các nguyên tử trên có lớp electron bền vững.
+	\huongdan{
+		\begin{multicols}{2}
+			\begin{itemize}
+			\item Na (Z=11):$1s^22s^22p^63s^1$ 
+			\item Cl (Z=17):$ 1s^22s^22p^63s^23p^5$
+			\item Ne (Z=10):$ 1s^22s^22p^6$
+			\item Ar (Z=18):$ 1s^22s^22p^63s^23p^6$
+		\end{itemize}
+		\end{multicols}
+	}
+\end{ex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\newpage
+%\setchemfig{%
+%	atom sep= 2em,
+%	bond offset=2pt,
+%	compound sep=5em
+%}
+
+%\schemestart
+%\chemname{\chemfig{
+%H-@{N}\charge{0:2pt=\:}{N}(-[6]H)-[2]H
+%}}{\scriptsize\quad\quad Ammonia\vphantom{aa}}
+%\+
+%\chemfig{
+%@{H}\charge{45:3pt=$\scriptstyle+$}{H}
+%}
+%\arrow(.mid east--.mid west)[,.7,-latex]
+%\chemname{\ngoacvuongtron{\chemfig{
+%			H-N(-[2]H)(-[6]H)-[,,,,-stealth]H
+%}}}{\scriptsize Ammonium\quad}
+%\schemestop
+%
+%\chemmove[shorten <=4pt,shorten >=4pt,-latex] {
+%\draw ([shift={(-25:3.5pt)}]N.25).. controls +(80:8mm) and +(100:8mm)..([shift={(29:3.5pt)}]H.65)
+%;}
+%%%%=============Tinh thể NaCl===================%%%
+%\begin{tikzpicture}[node distance=0pt]
+%	% Định dạng cho cột của bảng
+%	\tikzset{%
+%		%% Định dạng ô
+%		mynode/.style={%
+%			circle,
+%			ultra thin,
+%			minimum height=0.65cm,
+%			minimum width=0.65cm,
+%			align=center
+%		},
+%		mymatrix/.style={%
+%			matrix of nodes,
+%			ampersand replacement=\&,
+%			inner sep =5pt,
+%			nodes in empty cells,
+%			fill =\mycolor!15,
+%			row sep=-3-\pgflinewidth,
+%			column sep=-3-\pgflinewidth,
+%			nodes={mynode}
+%		}
+%	}
+%	\matrix(Bang)[mymatrix]{%
+%	\&\&\&\&\&\\
+%	\&\&\&\&\&\\
+%	\&\&\&\&\&\\
+%	\&\&\&\&\&\\
+%	\&\&\&\&\&\\
+%	};
+%\foreach \x in {1,3,5}{
+%	\foreach \y in {1,3,5}{
+%	\fill [ball color=\maunhan!70 ] (Bang-\x-\y) circle (0.3cm) node[font=\tiny\sffamily\bfseries\color{white}](Na) {Na} ;
+%	\node [font=\fontsize{5pt}{3pt}\selectfont\sffamily\bfseries\color{white}] at ([shift={(60:4.8pt)}]Bang-\x-\y) {+};
+%	}
+%}
+%\foreach \x in {2,4}{
+%	\foreach \y in {2,4,6}{
+%		\fill [ball color=\maunhan!70 ] (Bang-\x-\y) circle (0.3cm);
+%	}
+%}
+%\foreach \x in {1,3,5}{
+%	\foreach \y in {2,4,6}{
+%		\fill [ball color=\maudam!70 ] (Bang-\x-\y) circle (0.2cm);
+%	}
+%}
+%\foreach \x in {2,4}{
+%	\foreach \y in {1,3,5}{
+%		\fill [ball color=\maudam!70 ] (Bang-\x-\y) circle (0.2cm);
+%	}
+%}
+%\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

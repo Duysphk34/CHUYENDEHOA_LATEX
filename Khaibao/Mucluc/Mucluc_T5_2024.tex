@@ -1,0 +1,104 @@
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\usepackage{tocloft}
+\newtcolorbox{chapternamebox}[1][]{%
+	enhanced jigsaw,
+	valign=center,
+	interior style={left color={darkmidnightblue!30!darkmidnightblue},
+		right color={darkmidnightblue!90!darkmidnightblue}},
+	width=1.02\linewidth,
+	colframe={white},
+	boxrule={1pt},
+	colupper={white},
+	size=small,
+	boxsep=2pt,
+	sharp corners,
+	fontupper={\sffamily\bfseries\large},
+	nobeforeafter,
+	equal height group=chaptertoc,
+	left=0.45cm,
+	overlay={
+		\path (frame.north west) coordinate (A)
+		(frame.south west) coordinate (B)
+		($(A)!0.5!(B)$) coordinate (O)
+		($(O)!1!90:(B)$) coordinate (C);
+		\draw[thick,white] (A)--(B)--(C)--cycle;
+	}
+	#1,
+}
+\newcommand{\mychapternamebox}[4][]{%
+	\begin{chapternamebox}[#1]
+		\begin{tabular}{p{0.15\linewidth}p{0.68\linewidth}R{0.1\linewidth}}
+			#2&\hspace*{-12pt}#3&#4%
+		\end{tabular}
+	\end{chapternamebox}%
+}
+
+\usepackage{titletoc}
+\usepackage{xpatch}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\makeatletter
+\xpatchcmd{\@chapter}{%
+	\addcontentsline{toc}{chapter}%
+	{\protect\numberline{\thechapter}#1}%
+}{%
+	\addtocontents{toc}{\protect\cftpagenumbersoff{chapter}}
+	\addcontentsline{toc}{chapter}{\protect\mychapternamebox{\protect\chaptername{} \thechapter.}{#1}{\thepage}}%%
+	\addtocontents{toc}{\protect\cftpagenumberson{chapter}}%
+}{}{}
+\makeatother
+%%Chỉnh mục lục của section
+%\newcommand*{\hnode}[1]{%
+%	\tikz[remember picture,overlay]\node[minimum size=0pt,inner sep=0pt,outer sep=5pt](#1){};}
+%\renewcommand{\cftsecfont}{\hnode{P1} \bfseries\sffamily}
+%\setlength{\cftbeforesecskip}{3pt}
+%\renewcommand{\cftdot}{}
+%\renewcommand{\cftsecfont}{\bfseries\sffamily}
+%\renewcommand{\cftsecpagefont}{\bfseries\sffamily\color{purple}}
+%\renewcommand{\cftsecafterpnum}{%
+%	\hnode{P2}\tikz[remember picture,overlay] {
+%		\draw[purple,thick] ($(P2.south east)+(-3pt,0)$)--+(-0.1\linewidth,0) coordinate (B);
+%		\draw[darkmidnightblue,thick] (B)--+(-0.87\linewidth,0);
+%		}
+%	} %
+
+\renewcommand{\numberline}[1]{#1.~}
+\titlecontents{section}[1.5cm]{{\textcolor{dnxanh}\faApple}\ 
+	\vspace*{0.15\baselineskip}\sffamily\bfseries{\thecontentslabel\;}}{}{}
+{\titlerule*[0.65pc]{.}\thecontentspage}
+
+\renewcommand{\tableofcontents}{%
+	\begin{center}
+		\begin{tcolorbox}[enhanced,hbox,
+			left=8mm,right=8mm,boxrule=0.55pt,
+			bottom=3pt,
+			colback=cyan!5,colframe=darkmidnightblue,
+			%drop fuzzy midday shadow=black!50!yellow,
+			drop lifted shadow=black!50!darkmidnightblue,arc is angular,
+			before=\par\vspace*{-1mm},after=\par\bigskip]
+			{\Large\bfseries\sffamily\color{\mycolor} MỤC LỤC}
+		\end{tcolorbox}
+	\end{center}
+	\thispagestyle{empty}
+	
+	\vspace*{-0.5cm}
+	\makeatletter
+	\@starttoc{toc}
+	\makeatother
+}
+
+%%%==============Mục lục chương========================%%%
+\titlecontents*{lsection}[0.65cm]
+{\sffamily}{\thecontentslabel.\space}{}
+{\dotfill\thecontentspage\linebreak%
+}[][]
+\titlecontents*{lsubsection}[0pt]{}{}{}{}
+\newcommand\partialtocname{Mục lục của chương}
+\newcommand{\muclucchuong}{
+	\begin{tcolorbox}[grow to left by=-2cm,enhanced,boxrule=0pt,frame hidden,%
+		borderline west={2.5pt}{0pt}{\mycolor},colback=gray!5,%
+		sharp corners,width=0.85\linewidth,bottom=-9pt,right=-9pt,top=3pt]
+		\startcontents
+		{\sffamily\bfseries\large\color{\mycolor}\partialtocname}\vskip1ex
+		\printcontents{l}{1}{\setcounter{tocdepth}{1}}
+	\end{tcolorbox}
+}

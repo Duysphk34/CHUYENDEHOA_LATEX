@@ -1,0 +1,52 @@
+\documentclass[border=0pt,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usetikzlibrary{calc,angles,intersections,shapes.geometric,arrows,decorations.markings,arrows.meta,patterns.meta,patterns}
+\usepackage{tikz-3dplot,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{polar}
+\usepackage{amsmath}
+\begin{document}
+\NewDocumentCommand{\bongden}{O{violet!80}O{0.7}}{
+	\begin{tikzpicture}[declare function={d=4.0;h=0.45*d;k=#2;R=1.2 cm ;w=R*sin(20);},line join=round,line cap=round,scale=k]
+	\path (0,0) circle (2pt) coordinate (O)
+	($(O)+(-d,0)$) circle (2pt) coordinate (Aa)
+	($(O)+(d,0)$) circle (2pt) coordinate (Ab)
+	($(O)+(0,-1.3*h)$) circle (2pt) coordinate (B)
+	($(B)+(-0.75*d,0)$) circle (2pt) coordinate  (Ba)
+	($(B)+(0.75*d,0)$) circle (2pt) coordinate (Bb)
+	($(O)+(0,-2.3*h)$) circle (2pt) coordinate (C)
+	($(C)+(-0.45*d,0)$) circle (2pt) coordinate  (Ca)
+	($(C)+(0.45*d,0)$) circle (2pt) coordinate (Cb)
+	($(O)+(0,-2.4*h)$) circle (2pt) coordinate (D)
+	($(D)+(-0.5*d,0)$) circle (2pt) coordinate  (Da)
+	($(D)+(0.5*d,0)$) circle (2pt) coordinate (Db)
+	($(Ca)!0.5!(Cb)$) coordinate (Co)
+	;
+	%%%=====Vẽ bóng tròn=========%%%
+	\path[fill=orange!70!white,even odd rule]
+	(O) circle (R)
+	($(O)+(250:R)$) --([xshift=-w]Co)--(Ca)..controls ++(90:0.8cm) and ++(-60:0.05cm)..
+	(Ba)..controls ++(120:0.01cm) and ++(-90:1.4cm)..(Aa)
+	--(Aa) arc (180:0:d) coordinate (Ab)
+	..controls ++(-90:1.4cm) and ++(60:0.01cm)..(Bb)
+	..controls ++(-120:0.05cm) and ++(90:0.8cm)..(Cb)--([xshift=w]Co)--($(O)+ (290:R)$)--cycle
+	;
+	%%%=====Vẽ tia sáng=========%%%
+	\foreach \g/\p in {-30/west,0/west,30/west,60/west,90/west,120/east,150/east,180/east,210/east}{
+		\path (O)--++(\g:1.05*d) node[anchor=\p,sloped,midway,pos=1,scale=k]{%
+			\tikz{%
+				\path[fill=yellow!20!orange,rounded corners=4pt]
+				(0,0)--++(0.25*d,0)--++(-90:10pt)--++(180:0.25*d)--cycle;
+			}
+		};
+	}
+	%%%=====Vẽ chuôi bóng hình chữ nhật=========%%%
+	\path[fill=white!30!gray,rounded corners=8pt] (Da)--++(-90:40pt)  coordinate (Dc)--++(0:d)  coordinate (Dd)--(Db);
+	%%%=====Vẽ chuôi bóng tròn=========%%%
+	\path[fill=white!90!gray] ([xshift=8pt]Dc)..controls ++(-90:2.2cm) and ++(-90:2.2cm)..([xshift=-8pt]Dd);
+	\path[fill=orange!30!white] (O) circle ({R-0.7cm}) ;
+	\path[fill=#1] ([yshift=3pt]$(O)+(250:R)$) rectangle ([yshift=-3pt]$(O)+(290:R)$);
+\end{tikzpicture}
+}
+\bongden[violet!80][1]
+\end{document}

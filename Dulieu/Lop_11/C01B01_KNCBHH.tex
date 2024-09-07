@@ -1,0 +1,2004 @@
+\section{Khái niệm về cân bằng hóa học}
+\begin{Muctieu}
+	\begin{itemize}
+		\item  Trình bày được khái niệm phản ứng thuận nghịch và trạng thái cân bằng của phản ứng thuận nghịch.
+		\item  Viết được biểu thức hằng số cân bằng $\left(K_C\right)$ của phản ứng thuận nghịch.
+		\item  Thực hiện được thí nghiệm nghiên cứuảnh hưởng của nhiệt độ tới chuyển dịch cân bằng:
+		\begin{itemize}
+			\item  Phản ứng: $2 \mathrm{NO}_2 \rightleftharpoons \mathrm{N}_2 \mathrm{O}_4$
+			\item  Phản ứng thuỷ phân sodium acetate.
+		\end{itemize}
+		\item  Vận dụng được nguyên lí chuyển dịch cân bằng Le Chatelier để giải thích ảnh hưởng của nhiệt độ, nổng độ, áp suất đến cân bằng hoá học.
+	\end{itemize}
+\end{Muctieu}
+\subsection{Nội dung bài học}
+\subsubsection{Phản ứng một chiều, phản ứng thuận nghịch và cân bằng hóa học}
+	\Noibat[\maunhan][][]{phản ứng một chiều}
+	
+	Phản ứng một chiều là phản ứng chỉ xảy ra một chiều từ trái sang phải.
+	\begin{vidu}
+		\begin{enumerate}[(1)]
+			\item $2KClO_3\xrightarrow[$MnO_2$][$t^\circ$][1.5] 2KCl +3O_2$
+			\item $C_3H_8 + 5O_2\xrightarrow[$t^\circ$][][1.5] 3CO_2 + 4H_2O $
+		\end{enumerate}
+	\end{vidu}
+	\Noibat[\maunhan][][]{phản ứng thuận nghịch}
+	
+	Phản ứng thuận nghịc là phản ứng xảy ra theo hai chiều trái ngược nhau trong cùng một điều kiện.Trong đó
+	\begin{itemize}
+		\item Chiều mũi tên từ trái sang phải là chiều phản ứng thuận
+		\item Chiều mũi tên từ phải sang trái là chiều phản ứng nghịch
+	\end{itemize}
+	\begin{vidu}
+		\begin{itemize}[(1)]
+			\item[(3)] $Cl_2 + H_2O \xleftrightarrow[thuận][nghịch][1] HCl +HClO$
+			\item[(4)] $\underset{\;\;\text{nâu đỏ}\;\;\;}{2NO_2} \xleftrightarrow[thuận][nghịch][1] \underset{\text{không màu}}{N_2O_4}$
+		\end{itemize}
+	\end{vidu}
+	\Noibat[\maunhan][][]{Cân bằng hóa học}
+	\\
+	Xét phản ứng thuận nghịch (\ref{eq:putn}):
+	\begin{subequations}\label{eq:putn}
+		\begin{equation}
+			\mathrm{H}_2(\mathrm{g})+\mathrm{I}_2(\mathrm{g}) \xleftrightarrow 2\mathrm{HI}(\mathrm{g}) \tag{\ref{eq:putn}}
+		\end{equation}
+		Tốc độ phản ứng thuận và nghịch phụ thuộc vào nồng độ các chất tham gia như sau:
+		\begin{equation}
+			v_{\mathrm{t}}=\mathrm{k}_{\mathrm{t}} \mathrm{C}_{\mathrm{H}_2} \mathrm{C}_{\mathrm{I}_2}\label{eq:a}
+		\end{equation}
+		\begin{equation}
+			v_{\mathrm{n}}=\mathrm{k}_{\mathrm{n}} \mathrm{C}_{\mathrm{HI}}^2 \label{eq:b}
+		\end{equation}
+	\end{subequations}
+	\vspace{-5mm}
+	\begin{hoivadap}
+		\begin{cauhoi}
+			Dựa vào biểu thức (\ref{eq:a}) và (\ref{eq:b}) hãy hoàn thành bảng sau:
+			\begin{center}
+				\begin{longtable}{|p{0.25\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+					\hline
+					\textbf{Thời điểm}&\textbf{Sự thay đổi nồng độ các chất}&\textbf{Sự thay đổi tốc độ phản ứng thuận và nghịch}\\
+					\hline
+					\textbf{Lúc đầu mới bắt đầu trộn $\mathbf{H_2}$ và $\mathbf{I_2}$}\rule[-5mm]{0cm}{5mm}&\makecell[l]{\rule[5pt]{0cm}{5mm}$C_{H_2}$, $C_{I_2}= Max$\\$C_{HI}=0$}&\makecell[l]{$v_t=max$\\$v_n=0$} \\
+					\hline
+					\textbf{Sau khi trộn hai khí $\mathbf{H_2}$ và $\mathbf{I_2}$}&\makecell[l]{\rule[5pt]{0cm}{5mm}$C_{H_2}$, $C_{I_2} \downarrow$ \\$C_{HI}\uparrow$} &\makecell[l]{$v_t\downarrow$\\$v_n\uparrow$}\\
+					\hline
+					\textbf{Sau một khoảng thời gian nhất định}&\makecell[l]{\rule[5pt]{0cm}{5mm}$C_{H_2}$, $C_{I_2} =const$ \\$C_{HI}=const$}&$v_t=v_n$\\
+					\hline
+				\end{longtable}
+			\end{center}
+		\end{cauhoi}
+	\end{hoivadap}
+	\begin{tabular}{C{0.4\linewidth}C{0.1\linewidth}C{0.4\linewidth}}
+		\begin{tikzpicture}[declare function={d=5;},line cap=round,line join=round]
+			\path (0,0) coordinate (A)
+			(0,{2*0.65*d*sin(38)-0.5}) coordinate (B);
+			;
+			%%%
+			\draw[\maudam,-stealth,ultra thick] (A)--(B)--++(90:{0.18*d}) node[left,font=\bfseries\sffamily]{C} ;
+			%%%
+			\draw[\maudam,-stealth,ultra thick] (A)--++(0:{1.2*d})node[font=\scriptsize\bfseries\sffamily,anchor=north east]{thời gian} ;
+			%%%
+			\draw[\maunhan,line width=1pt] (A)..controls ++(50:1cm) and ++(180:1cm)..++(38:{0.65*d})--++(0:{0.7*d})node[pos=0.5,above]{$C_{HI}$};
+			%%%
+			\draw[\mauphu,line width=1pt] (B)..controls ++(-50:1cm) and ++(180:1cm)..++(-38:{0.65*d})--++(0:{0.7*d}) node[pos=0.5,below]{$C_{H_2}$, $C_{I_2}$};
+		\end{tikzpicture}
+		\captionof{figure}{Sự biến thiên nồng độ các chất trong phản ứng thuận nghịch theo thời gian}
+		&&
+		\begin{tikzpicture}[declare function={d=5;},line cap=round,line join=round]
+			\path (0,0) coordinate (A)
+			(0,{2*0.65*d*sin(40)}) coordinate (B);
+			;
+			%%%
+			\draw[\maudam,-stealth,ultra thick] (A)--(B)--++(90:{0.1*d}) node[left,font=\bfseries\sffamily]{v} ;
+			%%%
+			\draw[\maudam,-stealth,ultra thick] (A)--++(0:{1.2*d})node[font=\scriptsize\bfseries\sffamily,anchor=north east]{thời gian} ;
+			%%%
+			\draw[\maunhan,line width=1pt] (A)..controls ++(50:1.2cm) and ++(180:1.2cm)..++(40:{0.65*d})--++(0:{0.7*d});
+			%%%
+			\draw[\mauphu,line width=1pt] (B)..controls ++(-50:1.2cm) and ++(180:1.2cm)..++(-40:{0.65*d})coordinate (C)--++(0:{0.7*d})coordinate (D);
+			\path (C)--(D) node [pos=0.5,above,font=\Large\color{\mauphu}] {$\mathbf{v_t}\mathbf{=}\mathbf{v_n}$};
+		\end{tikzpicture}
+		\captionof{figure}{Sự biến thiên tốc độ phản ứng thuận và nghịch theo thời gian}
+	\end{tabular}
+	\\
+	Khi đạt trạng thái cân bằng ta có 
+	\begin{equation}
+		v_t=v_n \label{eq:ttcb}
+	\end{equation}
+	Thay (\ref{eq:a}) và (\ref{eq:b}) vào (\ref{eq:ttcb}) ta được
+		\begin{align*}
+			\mathrm{k}_{\mathrm{t}} \mathrm{C}_{\mathrm{H}_2} \mathrm{C}_{\mathrm{I}_2}=\mathrm{k}_{\mathrm{n}} \mathrm{C}_{\mathrm{HI}}^2
+		\end{align*}
+		\begin{equation}
+			\Rightarrow \frac{\mathrm{C}_{\mathrm{HI}}^2}{\mathrm{C}_{\mathrm{H}_2} \mathrm{C}_{\mathrm{I}_2}}=\frac{\mathrm{k}_{\mathrm{t}}}{\mathrm{k}_{\mathrm{n}}} = \text{hằng số} \label{eq:bthscb}
+		\end{equation}
+	\begin{tomtat}
+		\indam{Cân bằng hóa học} là trạng thái của phản ứng thuận nghịch khi tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
+	\end{tomtat}
+	
+	\begin{note}
+		Ở trạng thái cân bằng phản ứng không dừng lại, mà phản ứng thuận và phản ứng nghịch vẫn diễn ra nhưng với tốc độ bằng nhau ($v_t=v_n$).Do dó \indam{cân bằng hóa học là cân bằng động}
+	\end{note}
+\subsubsection{Hằng số cân bằng}
+\Noibat[][][]{Biểu thức tính hằng số cân bằng}\\
+Xét một cách tổng quát, nếu có phản ứng thuận nghịch sau:
+	\begin{align*}
+		aA+bB \xharpoonarrow mM+nN
+	\end{align*}
+Áp dụng (\ref{eq:bthscb}) và đặt $\dfrac{k_t}{k_n}=K_C $ ta có
+\begin{equation}
+	\hopcttoan{\dfrac{\mathrm{C}_\mathrm{M}^\mathrm{m} \mathrm{C}_\mathrm{N}^\mathrm{n}}{\mathrm{C}_\mathrm{A}^\mathrm{a} \mathrm{C}_\mathrm{B}^\mathrm{b}}=\mathrm{K}_\mathrm{C} \footnotemark[1]}
+\end{equation}
+$\mathrm{K}_{\mathrm{C}}$ được gọi là \indam{hằng số cân bằng} (tính theo nồng độ mol); giá trị của $\mathrm{K}_{\mathrm{C}}$ chỉ \indam{phụ thuộc} vào \indam{bản chất của các chất} trong cân bằng và \indam{nhiệt độ}\footnotemark[2].
+\footnotetext[1]{Đối với phản ứng có chất rắn tham gia, trong công thức tính hằng số cân bằng $\mathrm{K}_{\mathrm{C}}$ không biểu diễn nồng độ chất rắn.}
+\footnotetext[2]{Thông thường, khi không nói tới nhiệt độ thì các giá trị của hằng số cân bằng được hiểu là ở $25^{\circ} \mathrm{C}$.}
+\Noibat[][][]{Ý nghĩa của hằng số cân bằng}
+
+\Noibat[][][\faArrowCircleORight]{Dự đoán chiều của phản ứng}
+
+Hằng số cân bằng lớn (hay nhỏ) chỉ cho biết phản ứng thuận diễn ra thuận lợi hay không thuận lợi mà không cho biết thời gian đạt đến trạng thái cân bằng là nhanh hay chậm.
+
+\begin{vidu}
+	Xét hai phản ứng sau ở $25^{\circ} \mathrm{C}$
+	\begin{equation}
+		\mathrm{H}_2(\mathrm{~g})+\mathrm{Br}_2(\mathrm{~g}) \rightleftharpoons 2 \mathrm{HBr}(\mathrm{g})\; \text{có}\; K_C=1,9 \cdot 10^{19}.\label{eq:hscb1}
+	\end{equation}
+	\begin{equation}
+		\mathrm{N}_2(\mathrm{~g})+\mathrm{O}_2(\mathrm{~g}) \rightleftharpoons 2 \mathrm{NO}(\mathrm{g})\; \text{có}\; K_C= 4,1 \cdot 10^{-31}.\label{eq:hscb2}
+	\end{equation}
+Ta thấy hằng số cân bằng $K_C$ của phản ứng (\ref{eq:hscb1}) rất lớn so với phản ứng (\ref{eq:hscb2}), điều đó chứng tỏ phản ứng thuận (\ref{eq:hscb1}) xảy ra dễ dàng hơn so với phản ứng thuận (\ref{eq:hscb2}).
+\end{vidu}
+	
+\Noibat[][][\faArrowCircleORight]{Tính toán nồng độ các chất tại cân bằng}
+	\begin{vidu}
+		Cho cân bằng hoá học:
+		\[\mathrm{N}_2(g)+3 \mathrm{H}_2(g) \rightleftharpoons 2 \mathrm{NH}_3(g) .\]
+		Tính nồng độ mol của $\mathrm{NH}_3$ ở trạng thái cân bằng (nồng độ cân bằng của $\mathrm{NH}_3$ ). Biết rằng ở $472{ }^{\circ} \mathrm{C}$, nồng dộ cân bằng của $\mathrm{N}_2$ và $\mathrm{H}_2$ lần lượt là $0,0402 \mathrm{M}$ và $0,1200 \mathrm{M}$; hằng số cân bằng $\mathrm{K}_{\mathrm{C}}$ là 0,1050 .
+		\begin{center}
+			\indam{Giải:}
+		\end{center}
+		Ta có
+		\begin{align*}
+			K_C&=\dfrac{[NH_3]^2}{[N_2]\cdot[H_2]^3}\\
+			\Rightarrow [NH_3] &=\sqrt{K_C\cdot[N_2]\cdot[H_2]^3}\\
+			 &=\sqrt{0{,}1050\cdot0{,}0402\cdot(0{,}1200)^3}\\
+			 &=2{,}7\cdot10^{-3}\;(M)
+		\end{align*}
+		Vậy nồng độ của $NH_3$ ở trạng thái cân bằng là $2{,}7\cdot10^{-3}\;(M)$.
+	\end{vidu}
+\Noibat[][][\faArrowCircleORight]{So sánh độ mạnh của axit và bazơ}
+\begin{paracol}{2}
+	\noindent Giả sử hai acid $HA$ và $HB$ khi hòa tan vào nước xảy ra cân bằng sau:
+	\begin{equation}
+		H A \rightleftharpoons H^{+}+A^{-} \; K_{C1} \label{equa:hsplaxm}
+	\end{equation}
+	\begin{equation}
+		H B \rightleftharpoons H^{+}+B^{-} \; K_{C2} \label{equa:hsplaxh}
+	\end{equation}
+	Hằng số phân li của hai phản ứng phân li này lần lượt là $K_{C1}$, $K_{C2}$.
+	\\
+	Nếu $K_{C1}$ > $K_{C2}$ thì ta nói axit $HA$ mạnh hơn $HB$ và ngược lại
+	\switchcolumn
+	\begin{Bancobiet}
+		Hằng số $K_{C1}$ và $K_{C2}$ ở (\ref{equa:hsplaxm}) và (\ref{equa:hsplaxh}) gọi là hằng số acid ($K_a$).
+		Ngoài ra còn có hằng số bazo ($K_b$) áp dụng cho phản ứng\\
+		$\mathrm{B}+\mathrm{H}_2 \mathrm{O} \rightleftharpoons \mathrm{BH}^{+}+\mathrm{OH}^{-}\; K_b$
+	\end{Bancobiet}
+\end{paracol}
+\subsubsection{Các yếu tố ảnh hưởng đến cân bằng}
+\Noibat[][][]{Ảnh hưởng của nhiệt độ}
+\vspace{0.5cm}
+\columnratio{0.5}
+\begin{paracol}{2}
+	\begin{tomtat}
+	Khi tăng nhiệt độ, cân bằng chuyển dịch theo chiều làm giảm nhiệt độ, tức là chiều phản ứng thu nhiệt $\left(\Delta_{\mathrm{r}} \mathrm{H}_{298}^{\circ}>0\right)$, nghĩa là chiều làm giảm tác động của việc tăng nhiệt độ và ngược lại.
+\end{tomtat}
+\switchcolumn
+	\begin{tabular}{|c|c|c|}
+		\hline Nhiệt độ & Cân bằng dời & Nhiệt hoá học \\
+		\hline Tăng & Nghịch & Thu nhiệt \\
+		\hline Giảm & Thuận & Toả nhiệt \\
+		\hline
+	\end{tabular}
+\end{paracol}
+
+\Noibat[][][]{Ảnh hưởng của nồng độ}
+\vspace{0.5cm}
+\begin{tomtat}
+	Khi tăng nồng độ một chất trong phản ứng thì cân bằng hoá học bị phá vỡ và chuyển dịch theo chiều làm giảm nồng độ của chất đó và ngược lại.
+\end{tomtat}
+
+\Noibat[][][]{Ảnh hưởng của áp suất}
+\vspace{0.5cm}
+\begin{tomtat}
+	Khi \indam{tăng áp suất} chung của hệ, thì cân bằng chuyển dịch theo chiểu làm giảm áp suất, tức là chiều làm \indam{giảm số mol khí} và ngược lại.
+	
+	\indam{Chú ý.}
+	Đối với phản ứng thuận nghịch có tổng hệ số tỉ lượng của các chất khí ở hai vế của phưong trình hoá học bẳng nhau thì trạng thái cân bằng của hệ không bị chuyển dịch khi thay đổi áp suất chung của hệ.
+\end{tomtat}
+\subsubsection{Nguyên lý chuyển dịch cân bằng (Le Chatelier)}
+\begin{tomtat}
+	Một phản ứng thuận nghịch đang ở trạng thái cân bằng, khi chịu một tác động bên ngoài như biến đổi nồng độ, nhiệt độ, áp suất thì cân bằng sẽ chuyển dịch theo chiều làm giảm tác động bên ngoài đó.
+\end{tomtat}
+\begin{tongket}{Tổng kết}
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\rowcolor{\mycolor!30} \hline \multicolumn{2}{|c|}{ \textbf{Biến đổi bên ngoài} } & \textbf{Cân bằng chuyển dịch theo chiều...} \\
+		\hline \multirow{2}{*}{ Nhiệt độ } & tăng & thu nhiệt \\
+		\cline { 2 - 3 } & giảm & toả nhiệt \\
+		\hline \multirow{2}{*}{ Nông độ (g hay aq) } & tăng & giảm nồng độ chất ấy \\
+		\cline { 2 - 3 } & giảm & tăng nồng độ chất ấy \\
+		\hline \multirow{2}{*}{ Áp suất (g) } & tăng & giảm số mol khí của phản ứng \\
+		\cline { 2 - 3 } & giảm & tăng số mol khí của phản ứng \\
+		\hline
+	\end{tabular}
+\end{center}
+\end{tongket}
+\subsection{Các dạng bài tập}
+%%%=============Tùy chỉnh lời giải================%%%
+%\luuloigiaiex
+%\luuloigiaibt
+
+\begin{dang}{Lý thuyết về cân bằng hóa học}
+\end{dang}
+\Noibat[][][\faBookmark]{Ví dụ mẫu}
+%%%==============VDM1==============%%%
+\begin{vd}
+	Phát biểu nào sau đây về một phản ứng thuận nghịch tại trạng thái cân bằng là \indam{không đúng}?
+	\choice
+	{Tốc độ của phản ứng thuận bằng tốc độ của phản ứng nghịch}
+	{Nồng độ của tất cả các chất trong hỗn hợp phản ứng là không đổi}
+	{\True Nồng độ mol của chất phản ứng luôn bằng nồng độ mol của chất sản phẩm phản ứng}
+	{Phản ứng thuận và phản ứng nghịch vẫn diễn ra}
+	\loigiai{
+	\begin{itemchoice}
+		\itemch Trạng thái cân bằng là trạng thái của phản ứng thuận nghịch mà tại đó tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
+		\item Khi phản ứng đạt trạng thái cân bằng nồng độ các chất trong hỗn hợp phản ứng không thay đổi
+		\item Nồng độ mol của chất phản ứng và nồng độ mol của chất sản phẩm có thể khác nhau
+		\item cân bằng hó học là cân bằng động có nghĩa là khi phản ứng đạt trạng thái cân bằng phản ứng thuận và nghịch vẫn diễn ra.
+	\end{itemchoice}
+	}
+\end{vd}
+%%%==============VDM2==============%%%
+\begin{vd}Yếu tố nào sau đây không ảnh hưởng đến sự chuyển dịch cân bằng hóa hóa học
+	\choice
+	{nồng độ}
+	{nhiệt độ}
+	{áp suất}
+	{\True xúc tác}
+	\loigiai{Chất xúc tát không ảnh hưởng đến sự chuyển dịch cân bằng mà làm cho cân bằng hóa học nhanh chóng được thiết lập.}
+\end{vd}
+\Noibat[][][\faBank]{Bài tập tự luyện dạng \thedang}
+\phan{Phần trắc nghiệm nhiều lựa chọn}
+
+%%%=============SOẠN EX===============%%%
+\Opensolutionfile{ansex}[Ans/LGEX-H11C01B01-BTTL01]
+\Opensolutionfile{ans}[Ans/Ans-H11C01B01-BTTL01]
+%\hienthiloigiaiex
+%\tatloigiaiex
+%\luuloigiaiex
+%%%==============EX1==============%%%
+\begin{ex}
+	Trong một phản ứng thuận nghịch đạt trạng thái cân bằng, điều nào sau đây là đúng?
+	\choice
+	{\True Tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch}
+	{Phản ứng đã dừng hoàn toàn}
+	{Nồng độ các chất tham gia phản ứng bằng nhau}
+	{Tỉ lệ nồng độ giữa các chất luôn bằng 1}
+	\loigiai{
+		Khi phản ứng đạt trạng thái cân bằng, tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch. Điều này không có nghĩa là phản ứng đã dừng, mà là một trạng thái động trong đó các chất vẫn tiếp tục phản ứng nhưng không có sự thay đổi về nồng độ theo thời gian.
+	}
+\end{ex}
+
+%%%==============VD2==============%%%
+\begin{ex}
+	Nguyên lý Le Chatelier được áp dụng cho:
+	\choice
+	{Mọi phản ứng hóa học}
+	{Chỉ các phản ứng một chiều}
+	{\True Các phản ứng thuận nghịch ở trạng thái cân bằng}
+	{Chỉ các phản ứng tỏa nhiệt}
+	\loigiai{
+		Nguyên lý Le Chatelier chỉ áp dụng cho các phản ứng thuận nghịch ở trạng thái cân bằng. Nguyên lý này mô tả cách hệ thống cân bằng phản ứng với các thay đổi bên ngoài để duy trì trạng thái cân bằng.
+	}
+\end{ex}
+
+%%%==============VD3==============%%%
+\begin{ex}
+	Khi tăng nồng độ của một chất trong hệ phản ứng cân bằng, điều gì sẽ xảy ra?
+	\choice
+	{Cân bằng luôn dịch chuyển theo chiều thuận}
+	{Cân bằng luôn dịch chuyển theo chiều nghịch}
+	{\True Cân bằng dịch chuyển theo chiều làm giảm nồng độ chất được thêm vào}
+	{Cân bằng không bị ảnh hưởng}
+	\loigiai{
+		Theo nguyên lý Le Chatelier, khi tăng nồng độ của một chất trong hệ phản ứng cân bằng, cân bằng sẽ dịch chuyển theo chiều làm giảm nồng độ của chất đó. Điều này có nghĩa là hệ thống sẽ tiêu thụ một phần chất được thêm vào để thiết lập trạng thái cân bằng mới.
+	}
+\end{ex}
+
+%%%==============VD4==============%%%
+\begin{ex}
+	Đối với phản ứng tỏa nhiệt, việc tăng nhiệt độ sẽ:
+	\choice
+	{Không ảnh hưởng đến cân bằng}
+	{\True Làm dịch chuyển cân bằng theo chiều nghịch}
+	{Làm dịch chuyển cân bằng theo chiều thuận}
+	{Làm tăng hằng số cân bằng}
+	\loigiai{
+		Đối với phản ứng tỏa nhiệt, việc tăng nhiệt độ sẽ làm dịch chuyển cân bằng theo chiều nghịch (chiều thu nhiệt). Điều này phù hợp với nguyên lý Le Chatelier, theo đó hệ thống sẽ phản ứng để giảm bớt tác động của sự thay đổi nhiệt độ.
+	}
+\end{ex}
+
+%%%==============VD5==============%%%
+\begin{ex}
+	Hằng số cân bằng K của một phản ứng phụ thuộc vào:
+	\choice
+	{Nồng độ ban đầu của các chất}
+	{Áp suất của hệ thống}
+	{\True Nhiệt độ của phản ứng}
+	{Sự có mặt của chất xúc tác}
+	\loigiai{
+		Hằng số cân bằng K chỉ phụ thuộc vào nhiệt độ của phản ứng. Nó không bị ảnh hưởng bởi nồng độ ban đầu, áp suất (trừ trường hợp cân bằng pha khí), hay sự có mặt của chất xúc tác.
+	}
+\end{ex}
+
+%%%==============VD6==============%%%
+\begin{ex}
+	Trong phản ứng tổng hợp amoniac: $N_2 + 3H_2 \rightleftharpoons 2NH_3$, việc tăng áp suất sẽ:
+	\choice
+	{Làm dịch chuyển cân bằng về phía các chất khí}
+	{\True Làm dịch chuyển cân bằng về phía tạo $NH_3$}
+	{Không ảnh hưởng đến cân bằng}
+	{Làm giảm hiệu suất tạo $NH_3$}
+	\loigiai{
+		Trong phản ứng này, số mol khí giảm từ 4 mol ($N_2 + 3H_2$) xuống còn 2 mol ($2NH_3$). Theo nguyên lý Le Chatelier, khi tăng áp suất, cân bằng sẽ dịch chuyển theo chiều làm giảm số mol khí, tức là về phía tạo $NH_3$.
+	}
+\end{ex}
+%%%==============VD7==============%%%
+\begin{ex}
+	Chất xúc tác trong phản ứng thuận nghịch có tác dụng:
+	\choice
+	{Làm tăng hiệu suất phản ứng}
+	{Làm dịch chuyển cân bằng}
+	{\True Làm tăng tốc độ đạt cân bằng}
+	{Làm thay đổi hằng số cân bằng}
+	\loigiai{
+		Chất xúc tác chỉ làm tăng tốc độ đạt cân bằng bằng cách tăng tốc độ cả phản ứng thuận và nghịch. Nó không ảnh hưởng đến vị trí cân bằng, hiệu suất phản ứng hay hằng số cân bằng.
+	}
+\end{ex}
+
+%%%==============VD8==============%%%
+\begin{ex}
+	Đối với phản ứng thu nhiệt: $A + B \rightleftharpoons C + D$, phương án nào sau đây làm tăng nồng độ C?
+	\choice
+	{Giảm nhiệt độ}
+	{\True Tăng nhiệt độ}
+	{Thêm chất xúc tác}
+	{Giảm áp suất (nếu các chất đều ở thể khí)}
+	\loigiai{
+		Đối với phản ứng thu nhiệt, việc tăng nhiệt độ sẽ làm dịch chuyển cân bằng theo chiều thuận (chiều thu nhiệt), do đó làm tăng nồng độ của sản phẩm C.
+	}
+\end{ex}
+
+%%%==============VD9==============%%%
+\begin{ex}
+	Trong phản ứng: $2SO_2 + O_2 \rightleftharpoons 2SO_3$, việc tăng nồng độ $O_2$ sẽ:
+	\choice
+	{Làm giảm nồng độ $SO_3$}
+	{\True Làm tăng nồng độ $SO_3$}
+	{Không ảnh hưởng đến nồng độ $SO_3$}
+	{Làm giảm hằng số cân bằng}
+	\loigiai{
+		Theo nguyên lý Le Chatelier, khi tăng nồng độ $O_2$ (một chất tham gia phản ứng), cân bằng sẽ dịch chuyển theo chiều tiêu thụ $O_2$, tức là theo chiều tạo $SO_3$. Do đó, nồng độ $SO_3$ sẽ tăng.
+	}
+\end{ex}
+
+%%%==============VD10==============%%%
+\begin{ex}
+	Đối với phản ứng tỏa nhiệt: $A + B \rightleftharpoons C + D$, phương án nào sau đây làm giảm hiệu suất tạo C?
+	\choice
+	{Tăng nồng độ A}
+	{Giảm nồng độ D}
+	{\True Tăng nhiệt độ}
+	{Tăng áp suất (nếu các chất đều ở thể khí)}
+	\loigiai{
+		Đối với phản ứng tỏa nhiệt, việc tăng nhiệt độ sẽ làm dịch chuyển cân bằng theo chiều nghịch (chiều thu nhiệt), do đó làm giảm hiệu suất tạo sản phẩm C.
+	}
+\end{ex}
+
+%%%==============VD11==============%%%
+\begin{ex}
+	Trong phản ứng: $N_2O_4 \rightleftharpoons 2NO_2$, màu của hỗn hợp phản ứng sẽ đậm hơn khi:
+	\choice
+	{Giảm nhiệt độ}
+	{Tăng áp suất}
+	{\True Tăng nhiệt độ}
+	{Thêm chất xúc tác}
+	\loigiai{%
+		$NO_2$ có màu nâu đỏ, trong khi $N_2O_4$ không màu. Phản ứng này là thu nhiệt. Khi tăng nhiệt độ, cân bằng dịch chuyển theo chiều thuận, tạo ra nhiều $NO_2$ hơn, làm cho màu của hỗn hợp đậm hơn.
+	}
+\end{ex}
+
+%%%==============VD12==============%%%
+\begin{ex}
+	Khi nào một phản ứng thuận nghịch được coi là đạt trạng thái cân bằng?
+	\choice
+	{Khi nồng độ các chất không đổi theo thời gian}
+	{Khi tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch}
+	{Khi không còn sự biến đổi hóa học xảy ra}
+	{\True Cả A và B đúng}
+	\loigiai{%
+		Một phản ứng thuận nghịch đạt trạng thái cân bằng khi tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch, và do đó, nồng độ các chất không đổi theo thời gian. Tuy nhiên, vẫn có sự biến đổi hóa học xảy ra ở mức độ vi mô.
+	}
+\end{ex}
+
+%%%==============VD13==============%%%
+\begin{ex}
+	Trong phản ứng: $CO + H_2O \rightleftharpoons CO_2 + H_2$, việc loại bỏ $H_2$ khỏi hệ phản ứng sẽ:
+	\choice
+	{Làm giảm nồng độ $CO_2$}
+	{\True Làm tăng nồng độ $CO_2$}
+	{Không ảnh hưởng đến nồng độ $CO_2$}
+	{Làm giảm hằng số cân bằng}
+	\loigiai{%
+		Theo nguyên lý Le Chatelier, khi loại bỏ $H_2$ (một sản phẩm) khỏi hệ phản ứng, cân bằng sẽ dịch chuyển theo chiều tạo ra thêm $H_2$ để bù đắp. Điều này đồng nghĩa với việc tạo ra thêm $CO_2$, do đó nồng độ $CO_2$ sẽ tăng.
+	}
+\end{ex}
+
+%%%==============VD14==============%%%
+\begin{ex}
+	Đối với phản ứng: $2NO_2 \rightleftharpoons N_2O_4 + Q$, phương án nào sau đây làm tăng nồng độ $NO_2$?
+	\choice
+	{Tăng áp suất}
+	{Thêm $N_2O_4$ vào hệ phản ứng}
+	{\True Tăng nhiệt độ}
+	{Thêm chất xúc tác}
+	\loigiai{%
+		Phản ứng này là tỏa nhiệt (+Q). Khi tăng nhiệt độ, theo nguyên lý Le Chatelier, cân bằng sẽ dịch chuyển theo chiều thu nhiệt, tức là chiều phân hủy $N_2O_4$ thành $NO_2$. Do đó, nồng độ $NO_2$ sẽ tăng.
+	}
+\end{ex}
+
+%%%==============VD15==============%%%
+\begin{ex}
+	Trong phản ứng: $PCl_5 \rightleftharpoons PCl_3 + Cl_2$, việc giảm thể tích phản ứng sẽ:
+	\choice
+	{Làm tăng nồng độ $Cl_2$}
+	{Không ảnh hưởng đến cân bằng}
+	{\True Làm dịch chuyển cân bằng về phía tạo $PCl_5$}
+	{Làm tăng hằng số cân bằng}
+	\loigiai{%
+		Giảm thể tích tương đương với tăng áp suất. Theo nguyên lý Le Chatelier, cân bằng sẽ dịch chuyển theo chiều giảm số mol khí. Trong phản ứng này, chiều thuận (tạo $PCl_5$) làm giảm số mol khí, nên cân bằng sẽ dịch chuyển về phía tạo $PCl_5$.
+	}
+\end{ex}
+
+%%%==============VD16==============%%%
+\begin{ex}
+	Hằng số cân bằng K của phản ứng: $A + B \rightleftharpoons C + D$ là 4. Hằng số cân bằng của phản ứng nghịch: $C + D \rightleftharpoons A + B$ là bao nhiêu?
+	\choice
+	{4}
+	{-4}
+	{\True $0{,}25$}
+	{2}
+	\loigiai{%
+		Hằng số cân bằng của phản ứng nghịch là nghịch đảo của hằng số cân bằng của phản ứng thuận. Do đó, $K(\text{nghịch}) = 1/K(\text{thuận}) = 1/4 = 0{,}25$.
+	}
+\end{ex}
+
+%%%==============VD17==============%%%
+\begin{ex}
+	Trong phản ứng tổng hợp amoniac: $N_2 + 3H_2 \rightleftharpoons 2NH_3 + Q$, yếu tố nào sau đây không làm tăng hiệu suất tạo $NH_3$?
+	\choice
+	{Tăng áp suất}
+	{Giảm nhiệt độ}
+	{Loại bỏ $NH_3$ khỏi hệ phản ứng}
+	{\True Thêm chất xúc tác}
+	\loigiai{%
+		Chất xúc tác chỉ làm tăng tốc độ đạt cân bằng mà không ảnh hưởng đến vị trí cân bằng hay hiệu suất phản ứng. Các yếu tố khác (tăng áp suất, giảm nhiệt độ, loại bỏ sản phẩm) đều làm tăng hiệu suất tạo $NH_3$ theo nguyên lý Le Chatelier.
+	}
+\end{ex}
+
+%%%==============VD18==============%%%
+\begin{ex}
+	Đối với phản ứng: $2SO_2 + O_2 \rightleftharpoons 2SO_3 + Q$, phương án nào sau đây làm giảm hiệu suất tạo $SO_3$?
+	\choice
+	{Tăng nồng độ $SO_2$}
+	{Tăng áp suất}
+	{\True Tăng nhiệt độ}
+	{Loại bỏ $SO_3$ khỏi hệ phản ứng}
+	\loigiai{%
+		Phản ứng này là tỏa nhiệt (+Q). Theo nguyên lý Le Chatelier, tăng nhiệt độ sẽ làm dịch chuyển cân bằng theo chiều thu nhiệt, tức là chiều phân hủy $SO_3$. Do đó, tăng nhiệt độ sẽ làm giảm hiệu suất tạo $SO_3$.
+	}
+\end{ex}
+
+%%%==============VD19==============%%%
+\begin{ex}
+	Trong phản ứng: $CaCO_3(r) \rightleftharpoons CaO(r) + CO_2(k)$, việc tăng áp suất sẽ:
+	\choice
+	{Làm tăng nồng độ $CO_2$}
+	{\True Làm giảm nồng độ $CO_2$}
+	{Không ảnh hưởng đến cân bằng}
+	{Làm tăng hằng số cân bằng}
+	\loigiai{%
+		Trong phản ứng này, chỉ có $CO_2$ ở thể khí. Khi tăng áp suất, theo nguyên lý Le Chatelier, cân bằng sẽ dịch chuyển theo chiều giảm áp suất, tức là giảm số mol khí. Do đó, cân bằng sẽ dịch chuyển về phía tạo $CaCO_3$, làm giảm nồng độ $CO_2$.
+	}
+\end{ex}
+
+%%%==============VD20==============%%%
+\begin{ex}
+	Khi nào việc thay đổi nồng độ không làm dịch chuyển cân bằng hóa học?
+	\choice
+	{Khi thêm chất xúc tác}
+	{Khi thay đổi nhiệt độ}
+	{\True Khi thay đổi nồng độ chất rắn trong cân bằng dị thể}
+	{Khi loại bỏ sản phẩm khỏi hệ phản ứng}
+	\loigiai{%
+		Trong cân bằng dị thể, việc thay đổi nồng độ (hay chính xác hơn là lượng) của chất rắn không làm dịch chuyển cân bằng. Điều này là do nồng độ của chất rắn không xuất hiện trong biểu thức hằng số cân bằng.
+	}
+\end{ex}
+%%%==============VD21==============%%%
+\begin{ex}Nhận xét nào sau đây \textbf{không} đúng?
+\choice
+{Trong phản ứng một chiều, phản ứng kết thúc khi có một chất tham gia hêt}
+{Trong phản ứng thuận nghịch, chất tham gia và sản phẩm đều có trong thành phần của hỗn hợp sau phản ứng}
+{\True Trong phản ứng một chiều, khi phản ứng kết thúc chỉ có duy nhất chất sản phẩm}
+{ Trong phản ứng thuận nghịch, nồng độ các chất tham gia và sản phẩm luôn không đổi khi phản ứng đật trạng thái cân bằng}
+\loigiai{
+Trong phản ứng một chiều , có thể chất tham gia còn dư lại sau phản ứng
+}
+\end{ex}
+%%%==============VD21==============%%%
+\begin{ex}Cân bằng hóa học là
+	\choice
+	{là trạng thái của phản ứng thuận nghịch khi diễn ra phản ứng  nồng độ chất tham gia bằng nồng độ chất sản phẩm}
+	{là trạng thái của phản ứng một chiều khi diễn ra phản ứng mà nồng độ chất tham gia bằng nồng độ chất sản phẩm }
+	{\True là trạng thái của phản ứng thuận nghịch  khi diễn ra phản ứng mà nồng độ các chất tham gia và sản phẩm không đổi theo thời gian}
+	{là trạng thái của phản ứng một chiều mà khi diễn ra phản ứng nồng độ các chất tham gia và sản phẩm không đổi theo thời gian}
+	\loigiai{%
+	Cân bằng hóa học là trạng thái của phản ứng thuận nghịch mà khi diễn ra phản ứng nồng độ các chất tham gia và sản phẩm không đổi theo thời gian 
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-H11C01B01-BTTL01}
+\phan{Phần trắc nghiệm đúng/sai}
+%%%=============SOẠN EXTF===============%%%
+\Opensolutionfile{ansex}[Ans/LGTF-H11C01B01-BTTl01]
+\Opensolutionfile{ansbook}[Ansbook/AnsTF-H11C01B01-BTTl01]
+\Opensolutionfile{ans}[Ans/Tempt-H11C01B01-BTTl01]
+%\luulgEXTF
+%\LGexTF
+%%%=========extf_1=========%%%
+\begin{ex}Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{Mọi phản ứng đều xảy ra cân bằng hóa học}
+	{\True Trong phản ứng thuận nghịch chất tham giá và sản phẩm đều có mặt trong hỗn hợp sau phản ứng}
+	{Trong phản ứng thuận nghịch, tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch}
+	{\True Tại trạng thái cân bằng, phản ứng hóa học vẫn diễn ra}
+	\loigiai{%
+	\begin{itemchoice}
+		\itemch \textbf{Sa}i.Chỉ có phản ứng thuận nghịch mới xảy ra cân bằng hóa học.
+		\itemch \textbf{Đúng}.Trong phản ứng thuận nghịch chiều thuận sẽ tạo ra sản phẩm và chiều nghịch tạo ra chất tham gia , hai quá trình này diễn ra đồng thời nên khi cân bằng xảy ra, chất sản phẩm và tham gia dều tồn tại trong hỗn hợp.
+		\itemch \textbf{Sai}.Trong phản ứng thuận nghịch khi cân bằng hóa học xảy ra thì tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
+		\itemch \textbf{Đúng}.Cân bằng hóa học là cân bằng động vì tại trạng thái cân bằng phản ứng vẫn diễn ra nhưng tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
+	\end{itemchoice}
+	}
+\end{ex}
+%%%=========extf_2=========%%%
+\begin{ex}Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Chất xúc tác không ảnh hưởng đến cân bằng hóa học }
+	{Khi tăng nhiệt độ cân bằng chuyển dịch theo chiều nghịch}
+	{Khi tăng áp suất cân bằng sau $2\mathrm{SO}_2\;(g)+\mathrm{O}_2\;(g) \xharpoonarrow[$450^{\circ} C-500^{\circ} C$][$V_2 O_5$][2.5] 2\mathrm{SO}_3\;(g) \quad \Delta_{r} H_{298}^{\circ}=-198,4\; kJ$ không chuyển dịch.}
+	{\True Khi tăng nhiệt độ cân bằng sau $2\mathrm{SO}_2\;(g)+\mathrm{O}_2\;(g) \xharpoonarrow[$450^{\circ} C-500^{\circ} C$][$V_2 O_5$][2.5] 2\mathrm{SO}_3\;(g) \quad \Delta_{r} H_{298}^{\circ}=-198,4\; kJ$ chuyển dịch theo chiều nghịch.}
+	\loigiai{%
+		\begin{itemchoice}
+		\itemch \textbf{Đúng}.Chất xúc tác không làm ảnh hưởng đến cân bằng mà chỉ làm tăng tốc độ phản ứng thuận và nghịch làm cho cân bằng nhanh chóng được thiết lập.
+		\itemch \textbf{Sai}.Khi tăng nhiệt độ căn bằng sẽ dịch chuyển theo chiều thu nhiệt (có thể là phản ứng thuận hay nghịch).
+		\itemch \textbf{Sai}.Áp suất ảnh hưởng đến phản ứng có tổng số mol khí trước và sau phản ứng khác nhau.Ở đây $n_{\text{khí trước}}=3$ và $n_{\text{khí sau}}=2$.
+		\itemch \textbf{Đúng}.Khi tăng nhiệt độ cân bằng chuyển dịch theo chiều thu nhiệt.Trong phản ứng này chiều thuận có $\Delta H <0$ là phản ứng tỏa nhiệt do đó chiều nghịch là chiều thu nhiệt.
+	\end{itemchoice}
+	}
+\end{ex}
+%%%==============EX_1===========%%%
+\begin{ex}
+	Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Chất xúc tác làm tăng tốc độ phản ứng thuận và nghịch như nhau}
+	{Khi giảm nồng độ sản phẩm, cân bằng luôn chuyển dịch theo chiều thuận}
+	{\True Nguyên lý Le Chatelier phát biểu về sự chuyển dịch của cân bằng khi có tác động từ bên ngoài}
+	{Hằng số cân bằng K không phụ thuộc vào nhiệt độ}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Chất xúc tác làm giảm năng lượng hoạt hóa của cả phản ứng thuận và nghịch, do đó tăng tốc độ của cả hai phản ứng như nhau mà không ảnh hưởng đến chuyển dịch cân bằng.
+			\itemch \textbf{Sai}. Khi giảm nồng độ sản phẩm, cân bằng sẽ chuyển dịch theo chiều tạo ra thêm sản phẩm để bù đắp sự giảm nồng độ, nhưng điều này không phải lúc nào cũng là chiều thuận.
+			\itemch \textbf{Đúng}. Nguyên lý Le Chatelier mô tả cách hệ thống cân bằng phản ứng với các thay đổi từ bên ngoài bằng cách chuyển dịch theo hướng giảm thiểu tác động của sự thay đổi đó.
+			\itemch \textbf{Sai}. Hằng số cân bằng K phụ thuộc vào nhiệt độ. Khi nhiệt độ thay đổi, giá trị của K cũng thay đổi theo.
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%==============EX_2===========%%%
+\begin{ex}
+	Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Khi tăng áp suất, cân bằng chuyển dịch theo chiều giảm số mol khí}
+	{Phản ứng tổng hợp amoniac là phản ứng thu nhiệt}
+	{\True Trong phản ứng tổng hợp amoniac, việc tăng áp suất sẽ làm tăng hiệu suất phản ứng}
+	{Chất xúc tác sắt trong phản ứng tổng hợp amoniac làm thay đổi hằng số cân bằng}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Theo nguyên lý Le Chatelier, khi tăng áp suất, cân bằng sẽ chuyển dịch theo chiều làm giảm áp suất, tức là giảm số mol khí.
+			\itemch \textbf{Sai}. Phản ứng tổng hợp amoniac ($N_2 + 3H_2 \xharpoonarrow 2NH_3$) là phản ứng tỏa nhiệt, không phải thu nhiệt.
+			\itemch \textbf{Đúng}. Trong phản ứng tổng hợp amoniac, số mol khí giảm từ 4 mol xuống còn 2 mol. Vì vậy, việc tăng áp suất sẽ làm cân bằng chuyển dịch theo chiều thuận, tăng hiệu suất tạo $NH_3$.
+			\itemch \textbf{Sai}. Chất xúc tác sắt chỉ làm tăng tốc độ đạt cân bằng mà không làm thay đổi hằng số cân bằng.
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%==============EX_3===========%%%
+\begin{ex}
+	Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Trong phản ứng tổng hợp HI, việc tăng nhiệt độ sẽ làm tăng hiệu suất phản ứng}
+	{Phản ứng este hóa giữa axit và rượu là phản ứng một chiều}
+	{\True Trong phản ứng este hóa, việc loại bỏ nước sẽ làm tăng hiệu suất phản ứng}
+	{Hằng số cân bằng K luôn lớn hơn 1}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Phản ứng tổng hợp HI ($H_2 + I_2 \xharpoonarrow 2HI$) là phản ứng thu nhiệt. Theo nguyên lý Le Chatelier, tăng nhiệt độ sẽ làm cân bằng chuyển dịch theo chiều thu nhiệt, tức là tăng hiệu suất tạo HI.
+			\itemch \textbf{Sai}. Phản ứng este hóa là phản ứng thuận nghịch, không phải phản ứng một chiều.
+			\itemch \textbf{Đúng}. Trong phản ứng este hóa, nước là một sản phẩm. Loại bỏ nước sẽ làm cân bằng chuyển dịch theo chiều tạo thêm sản phẩm (este), làm tăng hiệu suất phản ứng.
+			\itemch \textbf{Sai}. Hằng số cân bằng K có thể lớn hơn, nhỏ hơn hoặc bằng 1, tùy thuộc vào bản chất của phản ứng và điều kiện nhiệt độ.
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%==============EX_4===========%%%
+\begin{ex}
+	Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Trong phản ứng tổng hợp $SO_3$, việc tăng nồng độ $O_2$ sẽ làm tăng hiệu suất phản ứng}
+	{Phản ứng tổng hợp $SO_3$ là phản ứng thu nhiệt}
+	{\True Chất xúc tác $V_2O_5$ trong phản ứng tổng hợp $SO_3$ không làm thay đổi hiệu suất phản ứng}
+	{Khi giảm nhiệt độ, cân bằng luôn chuyển dịch theo chiều tỏa nhiệt}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Trong phản ứng $2SO_2 + O_2 \xharpoonarrow 2SO_3$, tăng nồng độ $O_2$ sẽ làm cân bằng chuyển dịch theo chiều tiêu thụ $O_2$, tức là tăng hiệu suất tạo $SO_3$.
+			\itemch \textbf{Sai}. Phản ứng tổng hợp $SO_3$ là phản ứng tỏa nhiệt, không phải thu nhiệt.
+			\itemch \textbf{Đúng}. Chất xúc tác $V_2O_5$ chỉ làm tăng tốc độ đạt cân bằng mà không làm thay đổi hiệu suất hay vị trí cân bằng của phản ứng.
+			\itemch \textbf{Sai}. Việc cân bằng chuyển dịch theo chiều nào khi giảm nhiệt độ phụ thuộc vào bản chất thu nhiệt hay tỏa nhiệt của phản ứng, không phải luôn theo chiều tỏa nhiệt.
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%==============EX_5===========%%%
+\begin{ex}
+	Trong các nhận định sau, nhận định nào đúng, nhận định nào sai?
+	\choiceTF[t]
+	{\True Trong phản ứng $N_2 + 3H_2 \xharpoonarrow 2NH_3$, khi tăng nồng độ $N_2$, cân bằng chuyển dịch theo chiều thuận}
+	{Hằng số cân bằng K phụ thuộc vào nồng độ ban đầu của các chất}
+	{\True Trong phản ứng tổng hợp HCl, việc tăng áp suất không ảnh hưởng đến cân bằng}
+	{Chất xúc tác làm thay đổi giá trị của hằng số cân bằng}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch \textbf{Đúng}. Khi tăng nồng độ $N_2$, theo nguyên lý Le Chatelier, cân bằng sẽ chuyển dịch theo chiều tiêu thụ $N_2$, tức là chiều thuận tạo ra $NH_3$.
+			\itemch \textbf{Sai}. Hằng số cân bằng K chỉ phụ thuộc vào nhiệt độ, không phụ thuộc vào nồng độ ban đầu của các chất.
+			\itemch \textbf{Đúng}. Trong phản ứng $H_2 + Cl_2 \xharpoonarrow 2HCl$, số mol khí trước và sau phản ứng không thay đổi. Do đó, việc thay đổi áp suất không ảnh hưởng đến cân bằng.
+			\itemch \textbf{Sai}. Chất xúc tác không làm thay đổi giá trị của hằng số cân bằng, nó chỉ làm tăng tốc độ đạt cân bằng.
+		\end{itemchoice}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbook}
+\Closesolutionfile{ansex}
+%\bangdapanTF{AnsTF-H11C01B01-BTTl01}
+\begin{dang}{Sự chuyển dịch cân bằng}
+\end{dang}
+\Noibat[][][\faBookmark]{Ví dụ mẫu}
+%%%==============VDM3======================%%%
+\begin{vd}
+	Trong quy trình sản xuất sulfuric acid $\left(H_2 {SO}_4\right)$ có giai đoạn dùng dung dịch $H_2{SO}_4$ $98\%$ hấp thụ sulfur trioxide $\left(SO_3\right)$ thu được oleum $\left(H_2SO_4nSO_3\right)$. Sulfur trioxide được tạo thành bằng cách oxi hoá sulfur dioxide bằng oxygen hoặc lượng dư không khí ở nhiệt độ $450^{\circ}$C - $500^{\circ}$C, chất xúc tác vanadium (V) oxide $\left(V_2 O_5\right)$ theo phương trình hoá học:
+	\begin{equation}\label{eq:sxH2SO4}
+	2\mathrm{SO}_2\;(g)+\mathrm{O}_2\;(g) \xharpoonarrow[$450^{\circ} C-500^{\circ} C$][$V_2 O_5$][2.5] 2\mathrm{SO}_3\;(g) \quad \Delta_{r} H_{298}^{\circ}=-198,4\; kJ
+	\end{equation}
+	Cân bằng hoá học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng nồng độ của khí $\mathrm{SO}_2$ ?
+		\item tăng nồng độ của khí $\mathrm{O}_2$ ?
+		\item dùng dung dịch $\mathrm{H}_2 \mathrm{SO}_4 98 \%$ hấp thụ $\mathrm{SO}_3$ sinh ra?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+	\begin{enumerate}
+		\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều nghịch)
+		\item Khi tăng nồng độ của khí $SO_2$ cân bằng sẽ chuyển dịch về phía làm giảm nồng độ $SO_2$ tức chuyển dịch theo chiều thuận
+		\item Khi tăng nồng độ của khí $O_2$ cân bằng sẽ chuyển dịch về phía làm giảm nồng độ $O_2$ tức chuyển dịch theo chiều thuận
+		\item Dung dịch $H_2SO_4\;98\%$ hấp thụ $SO_3$ làm nồng độ $SO_3$ giảm đi, cân bằng  chuyển dịch về phía làm tăng nồng độ $SO_3$ (tức chuyển dịch theo phản ứng thuận)
+	\end{enumerate}
+	}
+\end{vd}
+\Noibat[][][\faBookmark]{Bài tập tự luyện dạng \thedang}
+%%%=============SOẠN BT===============%%%
+\phan{Bài tập tự luận}
+\Opensolutionfile{ansbth}[Ans/LGBT-H11C01B01-BTTL02]
+\Opensolutionfile{ansbt}[Ans/AnsBT-H11C01B01-BTTL02]
+%\luuloigiaibt
+%\hienthiloigiaibt
+%%%==============Bai_BT1==============%%%
+\begin{bt}
+	Hệ cân bằng sau xảy ra trong bình kín:
+	\[
+	\mathrm{CaCO}_3(r) \rightleftarrows \mathrm{CaO}(r)+\mathrm{CO}_2(k) \Delta H=+178\mathrm{~kJ}
+	\]
+	Cân bằng trên dịch chuyển về chiều nào khi xảy ra một trong các biến đổi sau:
+	\begin{enumerate}
+		\item Tăng dung tích của bình phản ứng.
+		\item Thêm $\mathrm{CaCO}_3$ vào bình phản úng.
+		\item Tách CaO ra khỏi bình phản ứng.
+		\item Thêm một ít dung dịch NaOH vào bình phản ứng.
+		\item Tăng nhiệt độ.
+	\end{enumerate}
+	\loigiai{
+	\begin{enumerate}
+		\item $CaCO_3(r)$ và $CaO(r)$ có nồng độ là hằng số. Khi thể tích  bình chứa tăng $\Rightarrow$ nồng độ khí $CO_2$ giảm $\Rightarrow$ cân bằng dịch chuyển theo chiều thuận.
+		\item Vì $CaCO_3$ là chất rắn nên có nồng độ không thay đổi nên không làm dịch chuyển cân bằng.
+		\item Vì $CaO_3$ là chất rắn nên có nồng độ không thay đổi nên không làm dịch chuyển cân bằng.
+		\item Xảy ra phản ứng $2NaOH + CO_2 \xrightarrow Na_2CO_3+H_2O$ làm giảm nồng độ $CO_2$ $\Rightarrow$ tốc độ phản ứng nghịch giảm $\Rightarrow$ cân bằng dịch chuyển theo chiều thuận.
+		\item Tăng nhiệt độ cân bằng hóa học của phản ứng thuận nghịch dịch chuyển theo chiều thu nhiệt $\Rightarrow$ chiều thuận.
+	\end{enumerate}
+	}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+%%%==============Bai_BT2==============%%%
+\begin{bt}
+	Xét các hệ cân bằng sau xảy ra trong bình kín:
+	\begin{enumerate}
+		\item $C(r)+H_2O(k) \rightleftarrows CO(k)+H_2(k);\quad \Delta H=131\mathrm{~kJ}$
+		\item $CO(k)+H_2O(k) \rightleftarrows CO_2(k)+H_2(k);\quad \Delta H=-41\mathrm{~kJ}$
+	\end{enumerate}
+	Các cân bằng trên sẽ dịch chuyển theo chiều nào khi làm biến đổi một trong các điều kiện sau đây:
+	\begin{enumerate}[(1)]
+		\item Tăng nhiệt độ.
+		\item Thêm hơi nước vào bình phản ứng.
+		\item Thêm khí $H_2$ vào bình phản ứng.
+		\item Tăng áp suất chung bằng cách nén cho thể tích của hệ giảm xuống.
+	\end{enumerate}
+	\loigiai{%
+	{
+	\begin{longtable}{|c|c|c|}
+		\hline & \textbf{Cân bằng 1} & \textbf{Cân bằng 2} \\
+		\hline 
+		\endfirsthead
+		\hline
+		 & cân bằng $(\mathrm{a})$ & cân bằng $(b)$ \\
+		\hline
+		\endhead
+		\endfoot
+		\endlastfoot
+		(1) & \renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+			Chiều thuận thu nhiệt. \\
+			Khi tăng nhiệt độ cân bằng dời \\
+			theo chiều thu nhiệt $\Rightarrow$ chiều \\
+			thuânn.
+		\end{tabular} & \renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+			Chiều thuận tỏa nhiệt. \\
+			Khi tăng nhiệt độ cân bằng dời theo \\
+			chiều thu nhiệt $\Rightarrow$ chiều nghịch.
+		\end{tabular} \\
+		\hline \multirow[t]{2}{*}{ (2) } & $\mathrm{H}_2 \mathrm{O}(\mathrm{k})$ là chất tham gia. & $\mathrm{H}_2 \mathrm{O}(\mathrm{k})$ là chất tham gia. \\
+		\hline & \multicolumn{2}{c|}{\renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+				Tăng nồng độ $\mathrm{H}_2 \mathrm{O}(\mathrm{k}) \Rightarrow$ tốc độ phản ứng thuận tăng $\Rightarrow$ cân bằng \\
+				dịch chuyển theo chiều thuận.
+		\end{tabular}} \\
+		\hline \multirow[t]{2}{*}{ (3) } & \multicolumn{2}{c|}{$\mathrm{H}_2(\mathrm{k})$ là sản phẩm của phản ứng. } \\
+		\hline & \multicolumn{2}{c|}{\renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+				Thêm khí $\mathrm{H}_2 \Rightarrow$ nồng độ $\mathrm{H}_2$ tăng $\Rightarrow$ tốc độ phản ứng nghịch tăng $\Rightarrow$ cân \\
+				bằng dịch chuyển theo chiều nghich.
+		\end{tabular}} \\
+		\hline \multirow[t]{2}{*}{$(4)$} & $\Delta \mathrm{n}_{(\text{khí})}=1$ & $\Delta \mathrm{n}_{(\text{khí})}=0$ \\
+		\hline & \renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+			Tăng áp suất cân bằng dịch \\
+			chuyển theo chiều làm giảm số \\
+			mol khí $\Rightarrow$ chiều nghich.
+		\end{tabular} & \renewcommand{\arraystretch}{0.8}\begin{tabular}{l} 
+			Tăng áp suất không làm dịch chuyển \\
+			cân bằng.
+		\end{tabular} \\
+		\hline
+	\end{longtable}
+	}
+	}
+\end{bt}
+%%%==============HetBai_BT2==============%%%
+
+%%%==============Bai_BT3==============%%%
+\begin{bt}
+	Cho phản ứng: $2SO_2+O_2\rightleftarrows 2SO_3$. Xảy ra ở t $^{\circ} C$.\\
+	Nồng độ cân bằng: $\left[SO_2\right]=0,2\mathrm{~mol} / l;\left[O_2\right]=0,1\mathrm{~mol} / l;\left[SO_3\right]=1,8\mathrm{~mol} / l$. Hỏi tốc độ của phản ứng thuận và nghịch thay đổi như thế nào và cân bằng trên sẽ chuyển dịch về phía nào khi thể tích của hỗn hợp giảm xuống 3 lần.
+	\loigiai{
+	\[
+	\mathrm{SO}_2 +\mathrm{O}_2 \xleftrightarrow 2\mathrm{SO}_3
+	\]
+	Gọi $k_t$, $k_n$ là hằng số tốc độ phản ứng thuận và nghịch.
+	\\
+	Ta có $v_t=k_t[O_2][SO_2]^2$ và $v_n=k_n[SO_3]^2$.
+	\\
+	Giảm thể tích bình chứa 3 lần thì nồng độ các chất phản ứng sẽ tăng  3 lần.
+	\begin{align*}
+	v_t^\prime&=k_t(3\cdot[O_2])(3\cdot[SO_2]^2)=k_t\cdot27[O_2][SO_2]^2=27 \cdot v_t
+	\\
+	v_n^\prime&=k_n(3\cdot[SO_3])^2=k_n\cdot9[SO_3]^2=9\cdot v_n
+	\end{align*}
+	Do tốc độ phản ứng thuận tăng $27$ lần và tốc độ phản ứng nghịch tăng $9$ lần ( $v_t$ tăng nhiều hơn $v_n$) so với lúc cân bằng nên cân bằng sẽ dịch chuyển sang phía phải (theo chiều thuận)
+	}
+\end{bt}
+%%%==============HetBai_BT3==============%%%
+
+%%%=============BT_1=============%%%
+\begin{bt}
+	Trong quy trình sản xuất amoniac theo phương pháp Haber, nitrogen và hydrogen phản ứng với nhau theo phương trình:
+	\begin{equation}
+		\label{eq:Haber}
+		N_2\;(g) + 3H_2\;(g) \xrightleftharpoons[]{} 2NH_3\;(g) \quad \Delta_r H_{298}^{\circ}=-92\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng áp suất của hệ phản ứng?
+		\item thêm chất xúc tác sắt vào hệ phản ứng?
+		\item loại bỏ một phần $NH_3$ ra khỏi hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều nghịch)
+			\item Khi tăng áp suất, cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía sản phẩm có $2$ mol khí, trong khi phía reactant có $4$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Chất xúc tác sắt không ảnh hưởng đến vị trí cân bằng. Nó chỉ làm tăng tốc độ đạt đến trạng thái cân bằng
+			\item Khi loại bỏ một phần $NH_3$, nồng độ $NH_3$ giảm. Cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $NH_3$ để bù đắp sự mất mát, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_2=============%%%
+\begin{bt}
+	Trong quá trình sản xuất axit sulfuric bằng phương pháp tiếp xúc, $SO_2$ được oxi hóa thành $SO_3$ theo phương trình:
+	\begin{equation}
+		\label{eq:H2SO4}
+		2SO_2\;(g) + O_2\;(g) \xrightleftharpoons[]{} 2SO_3\;(g) \quad \Delta_r H_{298}^{\circ}=-198\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item giảm nhiệt độ của hệ phản ứng?
+		\item giảm thể tích của bình phản ứng?
+		\item thêm chất xúc tác $V_2O_5$ vào hệ phản ứng?
+		\item thêm một lượng nhỏ He (khí trơ) vào hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi giảm nhiệt độ cân bằng sẽ chuyển dịch theo chiều tỏa nhiệt (tức chuyển dịch theo chiều thuận)
+			\item Giảm thể tích tương đương với tăng áp suất. Cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía sản phẩm có $2$ mol khí, trong khi phía tham gia có $3$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Chất xúc tác $V_2O_5$ không ảnh hưởng đến vị trí cân bằng. Nó chỉ làm tăng tốc độ đạt đến trạng thái cân bằng
+			\item Thêm khí trơ He sẽ làm tăng áp suất tổng, nhưng không ảnh hưởng đến áp suất riêng phần của các chất tham gia phản ứng. Do đó, vị trí cân bằng không thay đổi
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_3=============%%%
+\begin{bt}
+	Xét phản ứng tạo thành nước từ hydrogen và oxygen:
+	\begin{equation}
+		\label{eq:H2O}
+		2H_2\;(g) + O_2\;(g) \xrightleftharpoons[]{} 2H_2O\;(g) \quad \Delta_r H_{298}^{\circ}=-484\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item giảm nồng độ của $O_2$?
+		\item thêm một lượng nhỏ $N_2$ (khí trơ) vào hệ phản ứng?
+		\item loại bỏ một phần $H_2O$ra khỏi hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều nghịch)
+			\item Khi giảm nồng độ $O_2$, cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $O_2$ để bù đắp sự mất mát, tức là chuyển dịch về phía trái (chiều nghịch)
+			\item Thêm khí trơ $N_2$ sẽ làm tăng áp suất tổng, nhưng không ảnh hưởng đến áp suất riêng phần của các chất tham gia phản ứng. Do đó, vị trí cân bằng không thay đổi
+			\item Khi loại bỏ một phần $H_2O$, nồng độ $H_2O$ giảm. Cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $H_2O$ để bù đắp sự mất mát, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_4=============%%%
+\begin{bt}
+	Xét phản ứng tổng hợp methanol từ carbon monoxide và hydrogen:
+	\begin{equation}
+		\label{eq:CH3OH}
+		CO\;(g) + 2H_2\;(g) \xrightleftharpoons[]{} CH_3OH\;(g) \quad \Delta_r H_{298}^{\circ}=-91\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item giảm nhiệt độ của hệ phản ứng?
+		\item tăng áp suất của hệ phản ứng?
+		\item thêm chất xúc tác $ZnO/Cr_2O_3$ vào hệ phản ứng?
+		\item tăng nồng độ của $H_2$?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi giảm nhiệt độ cân bằng sẽ chuyển dịch theo chiều tỏa nhiệt (tức chuyển dịch theo chiều thuận)
+			\item Khi tăng áp suất, cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía sản phẩm có $1$ mol khí, trong khi phía reactant có $3$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Chất xúc tác $ZnO/Cr_2O_3$ không ảnh hưởng đến vị trí cân bằng. Nó chỉ làm tăng tốc độ đạt đến trạng thái cân bằng
+			\item Khi tăng nồng độ $H_2$, cân bằng sẽ chuyển dịch theo hướng tiêu thụ $H_2$ để chống lại sự thay đổi, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_5=============%%%
+\begin{bt}
+	Xét phản ứng phân hủy calcium carbonate:
+	\begin{equation}
+		\label{eq:CaCO3}
+		CaCO_3\;(s) \xrightleftharpoons[]{} CaO\;(s) + CO_2\;(g) \quad \Delta_r H_{298}^{\circ}=+178\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng áp suất của hệ phản ứng?
+		\item thêm một lượng CaOvào hệ phản ứng?
+		\item loại bỏ một phần $CO_2$ ra khỏi hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H>0$ là phản ứng thu nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều thuận)
+			\item Khi tăng áp suất, cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía reactant không có khí, trong khi phía sản phẩm có $1$ mol khí $CO_2$. Do đó, cân bằng sẽ chuyển dịch về phía trái (chiều nghịch)
+			\item Khi thêm CaO, cân bằng sẽ chuyển dịch theo hướng tiêu thụ CaOđể chống lại sự thay đổi, tức là chuyển dịch về phía trái (chiều nghịch)
+			\item Khi loại bỏ một phần $CO_2$, nồng độ $CO_2$ giảm. Cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $CO_2$ để bù đắp sự mất mát, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_6=============%%%
+\begin{bt}
+	Xét phản ứng tổng hợp hydrogen iodide từ hydrogen và iodine:
+	\begin{equation}
+		\label{eq:HI}
+		H_2\;(g) + I_2\;(g) \xrightleftharpoons[]{} 2HI\;(g) \quad \Delta_r H_{298}^{\circ}=+53\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item giảm nhiệt độ của hệ phản ứng?
+		\item giảm thể tích của bình phản ứng?
+		\item thêm một lượng nhỏ Ar (khí trơ) vào hệ phản ứng?
+		\item tăng nồng độ của $I_2$?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H>0$ là phản ứng thu nhiệt, khi giảm nhiệt độ cân bằng sẽ chuyển dịch theo chiều tỏa nhiệt (tức chuyển dịch theo chiều nghịch)
+			\item Giảm thể tích tương đương với tăng áp suất. Tuy nhiên, số mol khí ở cả hai vế của phương trình là như nhau $2$ mol. Do đó, thay đổi áp suất không ảnh hưởng đến vị trí cân bằng
+			\item Thêm khí trơ Ar sẽ làm tăng áp suất tổng, nhưng không ảnh hưởng đến áp suất riêng phần của các chất tham gia phản ứng. Do đó, vị trí cân bằng không thay đổi
+			\item Khi tăng nồng độ $I_2$, cân bằng sẽ chuyển dịch theo hướng tiêu thụ $I_2$ để chống lại sự thay đổi, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_7=============%%%
+\begin{bt}
+	Xét phản ứng phân hủy dinitrogen tetroxide thành nitrogen dioxide:
+	\begin{equation}
+		\label{eq:N2O4}
+		N_2O_4\;(g) \xrightleftharpoons[]{} 2NO_2\;(g) \quad \Delta_r H_{298}^{\circ}=+57.2\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng thể tích của bình phản ứng?
+		\item thêm một lượng $NO_2$ vào hệ phản ứng?
+		\item thêm một lượng nhỏ He (khí trơ) vào hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H>0$ là phản ứng thu nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều thuận)
+			\item Tăng thể tích tương đương với giảm áp suất. Cân bằng sẽ chuyển dịch về phía có số mol khí nhiều hơn. Ở đây, phía sản phẩm có $2$ mol khí, trong khi phía reactant có $1$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Khi thêm $NO_2$, cân bằng sẽ chuyển dịch theo hướng tiêu thụ $NO_2$ để chống lại sự thay đổi, tức là chuyển dịch về phía trái (chiều nghịch)
+			\item Thêm khí trơ He sẽ làm tăng áp suất tổng, nhưng không ảnh hưởng đến áp suất riêng phần của các chất tham gia phản ứng. Do đó, vị trí cân bằng không thay đổi
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_8=============%%%
+\begin{bt}
+	Xét phản ứng tổng hợp hydrogen chloride từ hydrogen và chlorine:
+	\begin{equation}
+		\label{eq:HCl}
+		H_2\;(g) + Cl_2\;(g) \xrightleftharpoons[]{} 2HCl\;(g) \quad \Delta_r H_{298}^{\circ}=-184\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item giảm nhiệt độ của hệ phản ứng?
+		\item giảm nồng độ của $Cl_2$?
+		\item tăng áp suất của hệ phản ứng?
+		\item loại bỏ một phần HCl ra khỏi hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi giảm nhiệt độ cân bằng sẽ chuyển dịch theo chiều tỏa nhiệt (tức chuyển dịch theo chiều thuận)
+			\item Khi giảm nồng độ $Cl_2$, cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $Cl_2$ để bù đắp sự mất mát, tức là chuyển dịch về phía trái (chiều nghịch)
+			\item Khi tăng áp suất, cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Tuy nhiên, số mol khí ở cả hai vế của phương trình là như nhau $2$ (mol). Do đó, thay đổi áp suất không ảnh hưởng đến vị trí cân bằng
+			\item Khi loại bỏ một phần HCl, nồng độ HCl giảm. Cân bằng sẽ chuyển dịch theo hướng tạo ra thêm HCl để bù đắp sự mất mát, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_9=============%%%
+\begin{bt}
+	Xét phản ứng tổng hợp sulfur trioxide từ sulfur dioxide và oxygen:
+	\begin{equation}
+		\label{eq:SO3}
+		2SO_2\;(g) + O_2\;(g) \xrightleftharpoons[]{} 2SO_3\;(g) \quad \Delta_r H_{298}^{\circ}=-198\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng nồng độ của $O_2$?
+		\item giảm thể tích của bình phản ứng?
+		\item thêm chất xúc tác $V_2O_5$ vào hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều nghịch)
+			\item Khi tăng nồng độ $O_2$, cân bằng sẽ chuyển dịch theo hướng tiêu thụ $O_2$ để chống lại sự thay đổi, tức là chuyển dịch về phía phải (chiều thuận)
+			\item Giảm thể tích tương đương với tăng áp suất. Cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía reactant có $3$ mol khí, trong khi phía sản phẩm có $2$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Chất xúc tác $V_2O_5$ không ảnh hưởng đến vị trí cân bằng. Nó chỉ làm tăng tốc độ đạt đến trạng thái cân bằng
+		\end{enumerate}
+	}
+\end{bt}
+%%%=============BT_10=============%%%
+\begin{bt}
+	Xét phản ứng tổng hợp methane từ carbon và hydrogen:
+	\begin{equation}
+		\label{eq:CH4}
+		C\;(s) + 2H_2\;(g) \xrightleftharpoons[]{} CH_4\;(g) \quad \Delta_r H_{298}^{\circ}=-74.8\; kJ/mol
+	\end{equation}
+	Cân bằng hóa học sẽ chuyển dịch theo chiều nào khi
+	\begin{enumerate}
+		\item tăng nhiệt độ của hệ phản ứng?
+		\item tăng áp suất của hệ phản ứng?
+		\item thêm một lượng C vào hệ phản ứng?
+		\item loại bỏ một phần $CH_4$ ra khỏi hệ phản ứng?
+	\end{enumerate}
+	Giải thích.
+	\loigiai{
+		\begin{enumerate}
+			\item Phản ứng thuận có $\Delta H<0$ là phản ứng tỏa nhiệt, khi tăng nhiệt độ cân bằng sẽ chuyển dịch theo chiều thu nhiệt (tức chuyển dịch theo chiều nghịch)
+			\item Khi tăng áp suất, cân bằng sẽ chuyển dịch về phía có số mol khí ít hơn. Ở đây, phía reactant có $2$ mol khí, trong khi phía sản phẩm có $1$ mol khí. Do đó, cân bằng sẽ chuyển dịch về phía phải (chiều thuận)
+			\item Thêm $C$ (chất rắn) không ảnh hưởng đến vị trí cân bằng vì nồng độ của chất rắn không thay đổi trong phản ứng cân bằng
+			\item Khi loại bỏ một phần $CH_4$, nồng độ $CH_4$ giảm. Cân bằng sẽ chuyển dịch theo hướng tạo ra thêm $CH_4$ để bù đắp sự mất mát, tức là chuyển dịch về phía phải (chiều thuận)
+		\end{enumerate}
+	}
+\end{bt}
+%%%==============Bai_BT11==============%%%
+\begin{bt}
+	Chromium(VI) tạo ra hai dạng ion oxy khác nhau: ion đicromat màu cam $\left(\mathrm{Cr}_2 \mathrm{O}_7^{2-}\right)$ và ion cromat màu vàng $\left(\mathrm{CrO}_4^{2-}\right)$. Phản ứng cân bằng giữa hai ion này là:
+	\[
+	\mathrm{Cr}_2 \mathrm{O}_7^{2-}(aq) + \mathrm{H}_2 \mathrm{O}(l) \rightleftharpoons 2 \mathrm{CrO}_4^{2-}(aq) + 2 \mathrm{H}^+(aq)
+	\]
+	Giải thích tại sao dung dịch đicromat màu cam chuyển sang màu vàng khi thêm natri hydroxit (NaOH).
+	\loigiai{%
+		Khi thêm natri hydroxit (NaOH) vào dung dịch đicromat, các ion $\mathrm{OH}^-$ từ NaOH sẽ phản ứng với các ion $\mathrm{H}^+$ trong dung dịch để tạo thành nước:
+		\[
+		\mathrm{H}^+ (aq) + \mathrm{OH}^- (aq) \rightarrow \mathrm{H_2O} (l)
+		\]
+		Điều này làm giảm nồng độ $\mathrm{H}^+$ trong dung dịch, làm dịch chuyển cân bằng của phản ứng sau về phía sản phẩm (theo nguyên lý Le Chatelier):
+		\[
+		\mathrm{Cr}_2 \mathrm{O}_7^{2-}(aq) + \mathrm{H}_2 \mathrm{O}(l) \rightleftharpoons 2 \mathrm{CrO}_4^{2-}(aq) + 2 \mathrm{H}^+(aq)
+		\]
+		Khi cân bằng dịch chuyển về phía sản phẩm, nồng độ ion cromat $\left(\mathrm{CrO}_4^{2-}\right)$ tăng lên và làm cho dung dịch chuyển sang màu vàng.
+	}
+\end{bt}
+%%%==============HetBai_BT11==============%%%
+%%%==============Bai_BT12==============%%%
+\begin{bt}
+	Cho cân bằng hóa học sau
+	\[
+	2\mathrm{HI}(g) \rightleftharpoons \mathrm{H}_2(g) + \mathrm{I}_2(g)\quad (\Delta H <0)
+	\]
+	Cân bằng hóa học sẽ chuyển dịch như thế nào trong các trường hợp sau:
+	\begin{enumerate}[label=\alph*)]
+		\item Thêm $H_2(g)$.
+		\item Loại bỏ $I_2(g)$.
+		\item Loại bỏ $HI(g)$.
+		\item Thêm $Ar(g)$ vào bình phản ứng kín.
+		\item Thể tích bình phản ứng được tăng gấp đôi.
+		\item Giảm nhiệt độ .
+	\end{enumerate}
+	\loigiai{%
+		\begin{enumerate}[label=\alph*)]
+			\item Thêm $H_2(g)$:
+			\\Theo nguyên lý Le Chatelier, khi thêm $H_2(g)$, cân bằng sẽ chuyển dịch theo hướng giảm $H_2$, tức là về phía $HI$ để giảm nồng độ $H_2$.
+			\item Loại bỏ $I_2(g)$:
+			\\Khi loại bỏ $I_2(g)$, cân bằng sẽ chuyển dịch theo hướng tạo thêm $I_2$, tức là chiều thuận.
+			\item Loại bỏ $HI(g)$:
+			\\Khi loại bỏ $HI(g)$, cân bằng sẽ chuyển dịch theo hướng tạo thêm $HI$, tức là về chiều nghịch.
+			\item Thêm $Ar(g)$ vào bình phản ứng kín:
+			\\Thêm $Ar(g)$ sẽ không ảnh hưởng đến cân bằng vì nó là khí trơ và không tham gia vào phản ứng.
+			\item Thể tích bình phản ứng được tăng gấp đôi:
+			\\Tăng thể tích sẽ làm giảm áp suất tổng, tuy nhiên tổng mol khí ở chất tham gia và sản phẩm bằng nhau, do đó không ảnh hưởng đến cân bằng.
+			\item Giảm nhiệt độ sẽ làm cân bằng chuyển dịch về phía tỏa nhiệt tức là chiều thuận.
+		\end{enumerate}
+	}
+\end{bt}
+%%%==============HetBai_BT12==============%%%
+%%%==============Bai_BT13==============%%%
+\begin{bt}
+	Dự đoán sự dịch chuyển của vị trí cân bằng xảy ra đối với các phản ứng sau khi thể tích bình phản ứng được tăng lên:
+	\begin{enumerate}[label=\alph*)]
+		\item $N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$
+		\item $PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$
+		\item $H_2(g) + F_2(g) \rightleftharpoons 2HF(g)$
+		\item $COCl_2(g) \rightleftharpoons CO(g) + Cl_2(g)$
+		\item $CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)$
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}[label=\alph*)]
+			\item $N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$:
+			\\Khi thể tích bình phản ứng được tăng lên, áp suất tổng giảm. Theo nguyên lý Le Chatelier, cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn để tăng áp suất, tức là về phía các chất phản ứng.
+			\item $PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$:
+			\\Tăng thể tích làm giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía các sản phẩm, vì có 2 phân tử khí ở phía sản phẩm và 1 phân tử khí ở phía phản ứng.
+			\item $H_2(g) + F_2(g) \rightleftharpoons 2HF(g)$:
+			\\Khi thể tích tăng, áp suất giảm. Ở cả hai bên phản ứng, số lượng phân tử khí là như nhau (2 phân tử khí ở bên trái và 2 phân tử khí ở bên phải). Vì vậy, sự thay đổi thể tích không ảnh hưởng đến cân bằng.
+			\item $COCl_2(g) \rightleftharpoons CO(g) + Cl_2(g)$:
+			\\Tăng thể tích giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía sản phẩm vì có 2 phân tử khí ở phía sản phẩm và 1 phân tử khí ở phía phản ứng.
+			\item $CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)$:
+			\\Tăng thể tích giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía sản phẩm vì có 1 phân tử khí ở phía sản phẩm , 0 phân tử khí phía tham gia.
+	\end{enumerate}
+	}
+\end{bt}
+%%%==============Bai_BT14==============%%%
+\begin{bt}
+	Lượng đường glucose trong máu người thường ổn định ở nồng độ khoảng $0,1\%$. Khi ta ăn tinh bột, glucose sẽ được sinh ra trong cơ thể; còn khi cơ thể vận động và hoạt động trí não, glucose bị tiêu thụ.
+	\begin{enumerate}
+		\item Em hãy tìm hiểu để giải thích vì sao lượng glucose trong máu luôn ổn định ở mức khoảng $0,1\%$.
+		\item Theo em, khi cơ thể hoạt động thể thao hay khi ăn uống sẽ xảy ra đồng thời hai quá trình sinh ra và mất đi glucose? Giải thích. Sự ổn định của glucose trong máu có thể được coi là trạng thái cân bằng hoá học không? Nếu có, hãy đề xuất cân bằng đó.
+	\end{enumerate}
+	\loigiai{
+		\begin{itemize}
+			\item Lượng glucose trong máu luôn ổn định ở mức khoảng $0,1\%$ do cơ thể có các cơ chế điều hòa đường huyết như tiết insulin từ tuyến tụy để giảm nồng độ glucose khi nó quá cao và tiết glucagon để tăng nồng độ glucose khi nó quá thấp. Insulin giúp các tế bào hấp thu glucose từ máu, còn glucagon thúc đẩy gan giải phóng glucose vào máu.
+			\item Khi cơ thể hoạt động thể thao hoặc khi ăn uống, cả hai quá trình sinh ra và mất đi glucose đều diễn ra đồng thời. Sự ổn định của glucose trong máu là kết quả của trạng thái cân bằng hóa học giữa các quá trình này. Cân bằng này có thể được biểu diễn bằng phản ứng:
+			\[
+			\text{Glucose (từ thức ăn)} + \text{Glycogen} \rightleftharpoons \text{Glucose (trong máu)} + \text{Năng lượng}
+			\]
+		\end{itemize}
+	}
+\end{bt}
+%%%==============HetBai_BT15==============%%%
+\begin{bt}
+	Thành phần không khí trên Trái Đất tương đối ổn định qua hàng triệu năm, trong đó oxi chiếm khoảng 20\% thể tích. Tuy nhiên, trong tự nhiên luôn diễn ra các quá trình sản sinh và tiêu thụ oxi.
+	\begin{enumerate}
+		\item Em hãy tìm hiểu và giải thích vì sao hàm lượng oxi trong không khí có thể duy trì ổn định ở mức khoảng 20\% qua thời gian dài như vậy.
+		\item Theo em, có mối liên hệ nào giữa sự ổn định này với các khái niệm trong cân bằng hóa học không? Hãy giải thích và đề xuất một mô hình cân bằng (nếu có) để mô tả hiện tượng này.
+	\end{enumerate}
+	\loigiai{%
+		\begin{itemize}
+			\item Hàm lượng oxi trong không khí luôn ổn định ở mức khoảng 20\% do có sự cân bằng giữa các quá trình sản xuất và tiêu thụ oxi trong tự nhiên:
+			\begin{itemize}
+				\item Quá trình sản xuất oxi chủ yếu: quang hợp của thực vật và tảo.
+				\item Quá trình tiêu thụ oxi: hô hấp của động vật và thực vật, quá trình đốt cháy nhiên liệu hóa thạch, và các phản ứng oxy hóa khác trong tự nhiên.
+			\end{itemize}
+			\item Các yếu tố địa lý và khí hậu cũng góp phần duy trì sự ổn định này, như sự hòa tan và giải phóng oxi từ đại dương.
+			
+			\item Trong tự nhiên, hai quá trình sinh ra và mất đi oxi xảy ra đồng thời:
+			\begin{itemize}
+				\item Sinh ra oxi: quang hợp diễn ra liên tục ở các vùng có ánh sáng.
+				\item Mất đi oxi: hô hấp của sinh vật và các quá trình oxy hóa diễn ra liên tục trên toàn cầu.
+			\end{itemize}
+			
+			\item Sự ổn định của hàm lượng oxi trong không khí có thể được coi là một trạng thái cân bằng hóa học động, mặc dù phức tạp hơn so với các cân bằng trong phòng thí nghiệm. Cân bằng này có thể được biểu diễn đơn giản hóa như sau:
+			\[
+			6\mathrm{CO}_2 + 6\mathrm{H}_2\mathrm{O}   \xharpoonarrow[$\text{ánh sáng}$]\; \mathrm{C}_6\mathrm{H}_{12}\mathrm{O}_6 + 6\mathrm{O}_2
+			\]
+			Trong đó, chiều thuận đại diện cho quá trình quang hợp (sản xuất oxi), và chiều nghịch đại diện cho quá trình hô hấp và đốt cháy (tiêu thụ oxi).
+		\end{itemize}
+	}
+\end{bt}
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+%\bangdapanSA{AnsBT-H11C01B01-BTTL02}
+\phan{Bài tập trắc nghiệm nhiều phương án}
+%%%=============SOẠN EX===============%%%
+\Opensolutionfile{ansex}[Ans/LGEX-H11C01B01-BTTL02]
+\Opensolutionfile{ans}[Ans/Ans-H11C01B01-BTTL02]
+%\hienthiloigiaiex
+%\tatloigiaiex
+%\luuloigiaiex
+%%%==============Cau_EX1==============%%%
+\begin{ex}
+	Cho cân bằng: $2SO_2(k)+O_2(k) \rightleftarrows 2SO_3(k)$. Khi tăng nhiệt độ thì tỉ khối của hỗn hợp khí so với $H_2$ giảm đi. Phát biểu đúng khi nói về cân bằng này là:
+	\choice
+	{Phản ứng thuận thu nhiệt, cân bằng dịch chuyển theo chiều nghịch khi tăng nhiệt độ}
+	{Phản ứng nghịch toả nhiệt, cân bằng dịch chuyển theo chiều thuận khi tăng nhiệt độ}
+	{Phản ứng nghịch thu nhiệt, cân bằng dịch chuyển theo chiều thuận khi tăng nhiệt độ}
+	{Phản ứng thuận toả nhiệt, cân bằng dịch chuyển theo chiều nghịch khi tăng nhiệt độ}
+	\loigiai{
+	Áp dụng định luât $B T K L: m_{\text {(trước) }}=m_{\text {(sau) }}=m$\\
+	$
+	\Rightarrow \bar{M}=\dfrac{m}{n_{\text {khí }}} \Rightarrow d_{H_2}=\dfrac{\bar{M}}{2}=\dfrac{m}{2 \cdot n_{\text {khí }}}
+	$\\
+	Theo đề ra: $d_{\text {trước }}=\dfrac{m}{2 \cdot n_{\text {trước }}}>d_{\text {sau }}=\dfrac{m}{2 \cdot n_{\text {sau }}} \Rightarrow n_{\text {sau }}>n_{\text {trước }}$\\
+	Vậy: $n_{\text {khí }}$ tăng $\Rightarrow C B H H$ dịch chuyển theo chiều nghịch
+	$\Rightarrow$ chiều nghịch thu nhiệt $\Rightarrow$ chiều thuận tỏa nhiệt.
+	}
+\end{ex}
+%%%=============EX_2=============%%%
+\begin{ex}
+	Cho cân bằng: $\text{N}_2(k) + 3\text{H}_2(k) \rightleftharpoons 2\text{NH}_3(k)$. Khi giảm áp suất và tăng nhiệt độ thì nồng độ $NH_3$ giảm. Phát biểu đúng về cân bằng này là:
+	\choice
+	{Phản ứng thuận thu nhiệt}
+	{Phản ứng nghịch tỏa nhiệt}
+	{Số mol khí tăng khi phản ứng xảy ra theo chiều thuận}
+	{\True Số mol khí giảm khi phản ứng xảy ra theo chiều thuận}
+	\loigiai{%
+		\begin{itemize}
+		\item Khi giảm áp suất, cân bằng dịch chuyển theo chiều tăng số mol khí.
+		Số mol khí giảm khi phản ứng xảy ra theo chiều thuận ($4 mol \rightarrow 2 mol$).
+		Do đó, khi giảm áp suất, cân bằng dịch chuyển theo chiều nghịch, làm giảm nồng độ $NH_3$.
+		\item Khi tăng nhiệt độ cân bằng chuyển dịch theo chiều thu nhiệt do đó theo giả thiết chiều thu nhiệt ứng với chiều giảm nồng độ $NH_3$ tức chiều nghịch.
+		\end{itemize}
+	}
+\end{ex}
+
+%%%=============EX_1=============%%%
+\begin{ex}
+	Xét cân bằng: $2NO_2(k) \rightleftarrows N_2O_4(k) + Q$. Nhận xét đúng về cân bằng này là:
+	\choice
+	{Khi tăng nhiệt độ, cân bằng dịch chuyển theo chiều thuận}
+	{Khi giảm thể tích, nồng độ $NO_2$ tăng}
+	{Khi thêm chất xúc tác, cân bằng dịch chuyển theo chiều nghịch}
+	{\True Khi tăng áp suất, cân bằng dịch chuyển theo chiều thuận}
+	\loigiai{%
+		\begin{itemize}
+		\item Khi tăng nhiệt độ cân bằng chuyển dịch theo chiều thu nhiệt.
+		\item giảm thể tích dẫn đến áp suất tăng cân bằng dịch chuyển theo chiều giảm mol khí tức chiều thuận làm giảm nồng độ $N_2O_4$.
+		\item Chất xúc tác không ảnh hưởng đến chuyển dịch cân bằng
+		\item Khi áp suất tăng cân bằng dịch chuyển theo chiều giảm mol khí tức chiều thuận làm giảm nồng độ $N_2O_4$.
+		\end{itemize}
+	}
+\end{ex}
+%%%=============EX_2=============%%%
+\begin{ex}
+	Cho cân bằng: $CO(k) + H_2O(k) \rightleftarrows CO_2(k) + H_2(k)$. Khi tăng nồng độ $CO$, phát biểu đúng là:
+	\choice
+	{Nồng độ $H_2$ giảm}
+	{Nồng độ $CO_2$ giảm}
+	{Cân bằng dịch chuyển theo chiều thuận}
+	{Hằng số cân bằng K tăng}
+	\loigiai{%
+		\begin{itemize}
+			\item Theo nguyên lý Le Chatelier, khi tăng nồng độ $CO$, cân bằng sẽ dịch chuyển theo chiều tiêu thụ $CO$, tức là chiều thuận chiều tăng nồng độ $H_2$ và giảm nồng độ $CO_2$.
+			\item Hằng số cân bằng K chỉ phụ thuộc vào nhiệt độ, không thay đổi khi thay đổi nồng độ.
+		\end{itemize}
+	}
+\end{ex}
+%%%=============EX_3=============%%%
+\begin{ex}
+	Xét cân bằng: $Fe^{3+} + SCN^- \rightleftarrows [Fe(SCN)]^{2+}\quad \Delta H<0$. Biết rằng phức $[Fe(SCN)]^{2+}$ làm cho dung dịch có màu đỏ máu. Màu đỏ máu của dung dịch sẽ đậm hơn khi:
+	\choice
+	{Thêm dd  $AgNO_3$ vào dung dịch}
+	{Thêm dung dịch $Na_2{HPO_4}$ vào}
+	{Thêm dung dịch $NaOH$ vào}
+	{\True Thêm dung dịch $KSCN$ vào}
+	\loigiai{%
+		\begin{itemize}
+			\item Khi cho dung dịch $AgNO_3$ làm cho nồng độ ion $SCN^-$ giảm do xảy ra phản ứng\\ $Ag^+ + SCN^- \xrightarrow AgSCN \downarrow$ do đó cân bằng chuyển dịch theo chiều nghịch làm màu đỏ máu nhạt dần.
+			\item Khi cho dung dịch $Na_2HPO_4$  vào làm cho nồng độ ion $Fe^{3+}$ giảm do xảy ra phản ứng\\ $Fe^{3+} + HPO_4^{2-} \xrightarrow FeHPO_4^{+}$ do đó cân bằng chuyển dịch theo chiều nghịch làm màu đỏ máu nhạt dần.
+			\item Thêm dung dịch $NaOH$ vào làm cho nồng độ ion $Fe^{3+}$ giảm do xảy ra phản ứng\\ $Fe^{3+} + OH^{-} \xrightarrow Fe(OH)_3$ do đó cân bằng chuyển dịch theo chiều nghịch làm màu đỏ máu nhạt dần.
+			\item Thêm dung dịch $KSCN$ vào làm cho nồng độ ion $SCN^-$ tăng  do đó cân bằng chuyển dịch theo chiều làm giảm nồng độ ion $SCN^-$ tức chiều thuận  làm màu đỏ máu đậm dần.
+		\end{itemize}
+	}
+\end{ex}
+%%%=============EX_4=============%%%
+\begin{ex}
+	Cho cân bằng: $2SO_2(k) + O_2(k) \rightleftarrows 2SO_3(k) + Q$. Cách làm tăng hiệu suất tạo $SO_3$ là:
+	\choice
+	{Tăng nhiệt độ và giảm áp suất}
+	{\True Giảm nhiệt độ và tăng áp suất}
+	{Tăng nhiệt độ và tăng áp suất}
+	{Giảm nhiệt độ và giảm áp suất}
+	\loigiai{%
+		Phản ứng thuận tỏa nhiệt và có sự giảm số mol khí.
+		Để tăng hiệu suất tạo $SO_3$, cần dịch chuyển cân bằng sang phải bằng cách giảm nhiệt độ và tăng áp suất.
+	}
+\end{ex}
+%%%=============EX_5=============%%%
+\begin{ex}
+	Xét cân bằng: $N_2O_4(k) \rightleftarrows 2NO_2(k) - Q$. Màu của hỗn hợp khí sẽ đậm hơn khi:
+	\choice
+	{Giảm thể tích bình phản ứng}
+	{Thêm khí trơ vào hệ phản ứng}
+	{\True Tăng nhiệt độ của hệ phản ứng}
+	{Thêm chất xúc tác vào hệ phản ứng}
+	\loigiai{%
+		$NO_2$ có màu nâu đỏ, $N_2O_4$ không màu.
+		\begin{itemize}
+			\item Tăng nhiệt độ sẽ dịch chuyển cân bằng theo chiều thu nhiệt (chiều thuận), tạo thêm $NO_2$, làm đậm màu.
+			\item Giảm thể tích dẫn đến tăng áp suất cân bằng dịch chuyển sang chiều giảm mol khí ( chiều nghịch) làm màu hỗn hợp đậm dần
+			\item khi thêm khí trơ và chất xúc tác không ảnh hưởng đến cân bằng.
+		\end{itemize}
+	}
+\end{ex}
+%%%=============EX_6=============%%%
+\begin{ex}
+	Cho cân bằng: $H_2(k) + I_2(k) \rightleftarrows 2HI(k)$. Phát biểu đúng là:
+	\choice
+	{Tăng áp suất sẽ làm tăng hiệu suất tạo $HI$}
+	{Thêm chất xúc tác sẽ làm tăng nồng độ $HI$}
+	{\True Giảm nồng độ $H_2$ sẽ làm tăng nồng độ $I_2$}
+	{Tăng nhiệt độ không ảnh hưởng đến cân bằng}
+	\loigiai{%
+		Số mol khí không thay đổi, nên áp suất không ảnh hưởng.
+		Giảm nồng độ $H_2$ sẽ làm dịch chuyển cân bằng sang trái, tăng nồng độ $I_2$.
+	}
+\end{ex}
+
+
+%%%=============EX_7=============%%%
+\begin{ex}
+	Xét cân bằng: $CaCO_3(r) \rightleftarrows CaO(r) + CO_2(k) - Q$. Cách làm tăng nồng độ $CO_2$ là:
+	\choice
+	{Thêm $CaCO_3$ vào hệ phản ứng}
+	{\True Giảm áp suất của hệ phản ứng}
+	{Thêm chất xúc tác vào hệ phản ứng}
+	{\True Tăng nhiệt độ của hệ phản ứng}
+	\loigiai{%
+		Phản ứng thuận thu nhiệt.
+		Tăng nhiệt độ sẽ dịch chuyển cân bằng theo chiều thu nhiệt (chiều thuận), làm tăng nồng độ $CO_2$.
+		Giảm áp suất cũng sẽ dịch chuyển cân bằng sang phải (tăng số mol khí), làm tăng nồng độ $CO_2$.
+		Thêm $CaCO_3$ không ảnh hưởng vì nó là chất rắn.
+		Thêm chất xúc tác không làm thay đổi nồng độ cân bằng.
+	}
+\end{ex}
+
+%%%=============EX_8=============%%%
+\begin{ex}
+	Xét cân bằng: $2SO_2(k) + O_2(k) \rightleftarrows 2SO_3(k) + Q$. Cách làm tăng hiệu suất tạo $SO_3$ là:
+	\choice
+	{Giảm nồng độ $O_2$ trong hệ phản ứng}
+	{\True Tăng thể tích của bình phản ứng}
+	{Tăng nhiệt độ của hệ phản ứng}
+	{Thêm chất xúc tác $V_2O_5$ vào hệ phản ứng}
+	\loigiai{%
+		Giảm thể tích (tăng áp suất) sẽ dịch chuyển cân bằng sang phải (giảm số mol khí), làm tăng hiệu suất tạo $SO_3$.
+		Giảm nhiệt độ sẽ dịch chuyển cân bằng sang phải (chiều tỏa nhiệt), cũng làm tăng hiệu suất tạo $SO_3$.
+		Thêm chất xúc tác không làm thay đổi hiệu suất, chỉ làm tăng tốc độ đạt cân bằng.
+	}
+\end{ex}
+
+%%%=============EX_9=============%%%
+\begin{ex}
+	Cho cân bằng: $N_2(k) + O_2(k) \rightleftarrows 2NO(k) - Q$. Phát biểu đúng là:
+	\choice
+	{Tăng áp suất sẽ làm tăng nồng độ $NO$}
+	{Giảm nhiệt độ sẽ làm tăng hiệu suất tạo $NO$}
+	{Thêm khí trơ vào hệ sẽ làm tăng nồng độ $NO$}
+	{\True Tăng nồng độ $N_2$ sẽ làm giảm nồng độ $O_2$}
+	\loigiai{%
+		Phản ứng thuận thu nhiệt và có sự tăng số mol khí.
+		Tăng nhiệt độ và giảm áp suất sẽ làm tăng hiệu suất tạo $NO$.
+		Tăng nồng độ $N_2$ sẽ dịch chuyển cân bằng sang phải, làm giảm nồng độ $O_2$.
+	}
+\end{ex}
+
+%%%=============EX_10=============%%%
+\begin{ex}
+	Xét cân bằng: $H_2(k) + Br_2(k) \rightleftarrows 2HBr(k) + Q$. Cách làm giảm nồng độ $HBr$ là:
+	\choice
+	{Tăng nồng độ $H_2$ trong hệ phản ứng}
+	{Giảm thể tích của bình phản ứng}
+	{\True Tăng nhiệt độ của hệ phản ứng}
+	{Thêm chất xúc tác vào hệ phản ứng}
+	\loigiai{%
+		Tăng nhiệt độ sẽ dịch chuyển cân bằng sang trái (chiều thu nhiệt), làm giảm nồng độ $HBr$.
+		Thay đổi áp suất không ảnh hưởng đến cân bằng vì số mol khí không thay đổi.
+		Thêm chất xúc tác không làm thay đổi nồng độ cân bằng.
+	}
+\end{ex}
+
+%%%=============EX_11=============%%%
+\begin{ex}
+	Cho cân bằng: $4NH_3(k) + 5O_2(k) \rightleftarrows 4NO(k) + 6H_2O(k) + Q$. Nhận xét đúng là:
+	\choice
+	{Tăng nồng độ $O_2$ sẽ làm giảm nồng độ $NO$}
+	{Giảm áp suất sẽ làm tăng hiệu suất tạo $NO$}
+	{Tăng nhiệt độ sẽ làm giảm hiệu suất tạo $NO$}
+	{\True Thêm hơi nước vào hệ sẽ làm tăng nồng độ $NH_3$}
+	\loigiai{%
+		Tăng nồng độ $O_2$ sẽ dịch chuyển cân bằng sang phải, làm tăng nồng độ $NO$.
+		Giảm áp suất sẽ dịch chuyển cân bằng sang trái (tăng số mol khí), làm giảm hiệu suất tạo $NO$.
+		Tăng nhiệt độ sẽ dịch chuyển cân bằng sang phải (chiều thu nhiệt), làm tăng hiệu suất tạo $NO$.
+		Thêm hơi nước vào hệ sẽ dịch chuyển cân bằng sang trái, làm tăng nồng độ $NH_3$.
+	}
+\end{ex}
+
+%%%=============EX_12=============%%%
+\begin{ex}
+	Xét cân bằng: $2NO(k) + Cl_2(k) \rightleftarrows 2NOCl(k) + Q$. Cách làm tăng hiệu suất tạo $NOCl$ là:
+	\choice
+	{Giảm nồng độ $NO$ trong hệ phản ứng}
+	{\True Tăng thể tích của bình phản ứng}
+	{Tăng nhiệt độ của hệ phản ứng}
+	{Thêm khí trơ vào hệ phản ứng}
+	\loigiai{%
+		Giảm thể tích (tăng áp suất) sẽ dịch chuyển cân bằng sang phải (giảm số mol khí), làm tăng hiệu suất tạo $NOCl$.
+		Giảm nhiệt độ sẽ dịch chuyển cân bằng sang phải (chiều tỏa nhiệt), cũng làm tăng hiệu suất tạo $NOCl$.
+		Thêm khí trơ không ảnh hưởng đến cân bằng khi thể tích không đổi.
+	}
+\end{ex}
+
+%%%=============EX_13=============%%%
+\begin{ex}
+	Cho cân bằng: $Fe^{3+}(aq) + 3SCN^-(aq) \rightleftarrows Fe(SCN)_3$ $\Delta H<0$. Màu của dung dịch sẽ nhạt đi khi:
+	\choice
+	{Thêm dung dịch $FeCl_3$ vào}
+	{Thêm dung dịch $NH_4SCN$ vào}
+	{\True Thêm dung dịch $NaOH$ vào}
+	{Giảm nhiệt độ của dung dịch}
+	\loigiai{%
+		Phức $[Fe(SCN)_3]$ có màu đỏ máu.
+		Thêm $NaOH$ sẽ làm kết tủa $Fe(OH)_3$, giảm nồng độ $Fe^{3+}$, dịch chuyển cân bằng sang trái, làm giảm nồng độ phức màu đỏ.
+	}
+\end{ex}
+
+%%%=============EX_14=============%%%
+\begin{ex}
+	Xét cân bằng: $CaCO_3(r) + 2HCl(dd) \rightleftarrows CaCl_2(dd) + H_2O(l) + CO_2(k)$. Phát biểu đúng là:
+	\choice
+	{Tăng nồng độ $HCl$ sẽ làm giảm lượng $CO_2$ tạo ra}
+	{Giảm áp suất sẽ làm tăng hiệu suất tạo $CO_2$}
+	{Tăng nhiệt độ không ảnh hưởng đến cân bằng}
+	{\True Thêm $CaCO_3$ sẽ làm tăng pH của dung dịch}
+	\loigiai{%
+		Tăng nồng độ $HCl$ sẽ dịch chuyển cân bằng sang phải, làm tăng lượng $CO_2$ tạo ra.
+		Giảm áp suất sẽ dịch chuyển cân bằng sang phải (tăng số mol khí), làm tăng hiệu suất tạo $CO_2$.
+		Thêm $CaCO_3$ sẽ dịch chuyển cân bằng sang phải, làm tăng lượng $OH^-$ trong dung dịch, tăng pH.
+	}
+\end{ex}
+
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-H11C01B01-BTTL02}
+
+%%%====================Dạng 3===============================%%%
+\begin{dang}{Tính hằng số cân bằng}
+\end{dang}
+\Noibat[][][\faBookmark]{Ví dụ mẫu}
+%%%==============VDM1==============%%%
+%%%==================VD1================%%%
+\begin{vd}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $C(s) + 2H_2\;(\mathrm{g}) \rightarrow CH_4\;(\mathrm{g})$?
+	\choice
+	{$K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]}$}
+	{$K_C = \dfrac{\left[CH_4\right]}{[C]\left[H_2\right]^2}$}
+	{$K_C = \dfrac{\left[CH_4\right]}{[C]\left[H_2\right]}$}
+	{\True $K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]^2}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, nồng độ của chất rắn không được tính vào hằng số cân bằng. Do đó, biểu thức hằng số cân bằng $K_C$ cho phản ứng $C(s) + 2H_2\;(\mathrm{g}) \rightarrow CH_4\;(\mathrm{g})$ là $K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]^2}$.}
+\end{vd}
+\Noibat[][][\faBank]{Bài tập tự luyện dạng \thedang}
+\phan{Trắc nghiệm nhiều lựa chon}
+%%%=============SOẠN EX===============%%%
+\Opensolutionfile{ansex}[Ans/LGEX-H11C01B01-BTTL03]
+\Opensolutionfile{ans}[Ans/Ans-H11C01B01-BTTL03]
+%\hienthiloigiaiex
+%\tatloigiaiex
+%\luuloigiaiex
+%%%%=============EX_1=============%%%
+\begin{ex}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng \[\mathrm{N}_2\;(\mathrm{g}) + 3\mathrm{H}_2\;(\mathrm{g}) \xleftrightarrow 2\mathrm{NH}_3\;(\mathrm{g})\]
+	\choice
+	{\True $K_C = \dfrac{\left[NH_3\right]^2}{\left[N_2\right]\left[H_2\right]^3}$}
+	{$K_C = \dfrac{\left[NH_3\right]}{\left[N_2\right]\left[H_2\right]}$}
+	{$K_C = \dfrac{\left[NH_3\right]}{\left[H_2\right]^2}$}
+	{$K_C = \dfrac{\left[N_2\right]\left[H_2\right]}{\left[NH_3\right]}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $N_2\;(\mathrm{g}) + 3H_2\;(\mathrm{g}) \xleftrightarrow 2NH_3\;(\mathrm{g})$ là $K_C = \dfrac{\left[NH_3\right]^2}{\left[N_2\right]\left[H_2\right]^3}$.}
+\end{ex}
+%%%=============EX_2=============%%%
+\begin{ex}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $2SO_2\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2SO_3\;(\mathrm{g})$?
+	\choice
+	{\True $K_C = \dfrac{\left[SO_3\right]^2}{\left[SO_2\right]^2\left[O_2\right]}$}
+	{$K_C = \dfrac{\left[SO_3\right]}{\left[SO_2\right]\left[O_2\right]^2}$}
+	{$K_C = \dfrac{\left[SO_2\right]\left[O_2\right]}{\left[SO_3\right]}$}
+	{$K_C = \dfrac{\left[SO_3\right]}{\left[SO_2\right]\left[O_2\right]}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $2SO_2\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2SO_3\;(\mathrm{g})$ là $K_C = \dfrac{\left[SO_3\right]^2}{\left[SO_2\right]^2\left[O_2\right]}$.}
+\end{ex}
+%%%=============EX_3=============%%%
+\begin{ex}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $2NO_2\;(\mathrm{g}) \xleftrightarrow N_2O_4\;(\mathrm{g})$?
+	\choice
+	{$K_C = \dfrac{\left[NO_2\right]}{\left[N_2O_4\right]}$}
+	{$K_C = \dfrac{\left[NO_2\right]^2}{\left[N_2O_4\right]}$}
+	{\True $K_C = \dfrac{\left[N_2O_4\right]}{\left[NO_2\right]^2}$}
+	{$K_C = \dfrac{\left[N_2O_4\right]}{\left[NO_2\right]}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $2NO_2\;(\mathrm{g}) \xleftrightarrow N_2O_4\;(\mathrm{g})$ là $K_C = \dfrac{\left[N_2O_4\right]}{\left[NO_2\right]^2}$.}
+\end{ex}
+%%%=============EX_4=============%%%
+\begin{ex}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $2H_2\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2H_2O\;(\mathrm{g})$?
+	\choice
+	{\True $K_C = \dfrac{\left[H_2O\right]^2}{\left[H_2\right]^2\left[O_2\right]}$}
+	{$K_C = \dfrac{\left[H_2O\right]}{\left[H_2\right]\left[O_2\right]}$}
+	{$K_C = \dfrac{\left[H_2O\right]^2}{\left[H_2\right]\left[O_2\right]^2}$}
+	{$K_C = \dfrac{\left[H_2O\right]}{\left[H_2\right]^2\left[O_2\right]}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $2H_2\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2H_2O\;(\mathrm{g})$ là $K_C = \dfrac{\left[H_2O\right]^2}{\left[H_2\right]^2\left[O_2\right]}$.}
+\end{ex}
+%%%=============EX_5=============%%%
+\begin{ex}
+	Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $2CO\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2CO_2\;(\mathrm{g})$?
+	\choice
+	{$K_C = \dfrac{\left[CO_2\right]^2}{\left[CO\right]\left[O_2\right]}$}
+	{\True $K_C = \dfrac{\left[CO_2\right]^2}{\left[CO\right]^2\left[O_2\right]}$}
+	{$K_C = \dfrac{\left[CO_2\right]}{\left[CO\right]\left[O_2\right]}$}
+	{$K_C = \dfrac{\left[CO\right]\left[O_2\right]}{\left[CO_2\right]}$}
+	\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $2CO\;(\mathrm{g}) + O_2\;(\mathrm{g}) \xleftrightarrow 2CO_2\;(\mathrm{g})$ là $K_C = \dfrac{\left[CO_2\right]^2}{\left[CO\right]^2\left[O_2\right]}$.}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-H11C01B01-BTTL03}
+\phan{Bài tập tự luận}
+%%%=============SOẠN BT===============%%%
+\Opensolutionfile{ansbth}[Ans/LGBT-H11C01B01-BTTL03]
+\Opensolutionfile{ansbt}[Ans/AnsBT-LGBT-H11C01B01-BTTL03]
+%\luuloigiaibt
+%\hienthiloigiaibt
+%%%==============Bai_BT1==============%%%
+\begin{bt}
+	Cho $0,4$ mol $SO_2$ và $0,6$ mol $O_2$ vào một bình dung tích 1 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2SO_2(g)+O_2(g) \rightleftharpoons 2SO_3(g)$
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $SO_3$, trong bình là $0,3\mathrm{~mol}$. Tính hằng số cân bẳng $K_C$ của phản ứng tổng hợp $SO_3$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+	\[\begin{array}{rccccccl}
+		&\phantom{x}&2SO_2 & + & O_2 &\xrightleftharpoons &\; 2SO_3&\\
+		\text{Ban đầu:}&& 0{,}4 &  & 0{,}6 &  & 0& (mol)\\
+		\text{Phản ứng:}&& -2x &  & -x &  & +2x&(mol)\\
+		\text{Cân bằng:}&&0{,}4-2x &  & 0{,}6-x &  & 2x&(mol)
+	\end{array}\]
+	Theo đề bài $n_{SO_3}=0{,}3\Rightarrow 2x=0{,}3 \Rightarrow x = 0{,}15$
+	\\
+	Nồng độ các chất tại trạng thái cân bằng:
+	\begin{align*}
+		\left[SO_2\right]&=(0{,}4 -2 \cdot 0{,}15)/1=0{,}1\\
+		\left[O_2\right]&=(0{,}6 -0{,}15)/1=0{,}45\\
+		\left[SO_3\right]&=(2\cdot 0{,}15)/1=2 \cdot 0{,}15=0{,}3
+	\end{align*}
+	Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[SO_3\right]^2}{\left[SO_2\right]^2\cdot\left[O_2\right]}=\dfrac{0{,}3^2}{0{,}1^2\cdot0{,}45}=20$
+	}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+%%%==============Bai_BT1==============%%%
+\begin{bt}
+	Cho $0,5\mathrm{~mol} \, N_2$ và $1,5\mathrm{~mol} \, H_2$ vào một bình dung tích 2 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $N_2(g)+3H_2(g) \rightleftharpoons 2NH_3(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $NH_3$ trong bình là $0,4\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $NH_3$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&N_2 & + & 3H_2 &\xrightleftharpoons &\; 2NH_3&\\
+			\text{Ban đầu:}&& 0{,}5 &  & 1{,}5 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -x &  & -3x &  & +2x&(mol)\\
+			\text{Cân bằng:}&&0{,}5-x &  & 1{,}5-3x &  & 2x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{NH_3}=0{,}4\Rightarrow 2x=0{,}4 \Rightarrow x = 0{,}2$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[N_2\right]&=0{,}5 - 0{,}2=0{,}3\\
+			\left[H_2\right]&=1{,}5 - 3 \cdot 0{,}2=0{,}9\\
+			\left[NH_3\right]&=0{,}4
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[NH_3\right]^2}{\left[N_2\right]\cdot\left[H_2\right]^3}=\dfrac{0{,}4^2}{0{,}3\cdot0{,}9^3}\approx 0{,}65$
+	}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+
+%%%==============Bai_BT2==============%%%
+\begin{bt}
+	Cho $1\mathrm{~mol} \, CO$ và $2\mathrm{~mol} \, H_2$ vào một bình dung tích 1 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $CO(g)+2H_2(g) \rightleftharpoons CH_3OH(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $CH_3OH$ trong bình là $0,5\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $CH_3OH$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&CO & + & 2H_2 &\xrightleftharpoons &\; CH_3OH&\\
+			\text{Ban đầu:}&& 1 &  & 2 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -x &  & -2x &  & +x&(mol)\\
+			\text{Cân bằng:}&&1-x &  & 2-2x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{CH_3OH}=0{,}5\Rightarrow x=0{,}5$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[CO\right]&=1 - 0{,}5=0{,}5\\
+			\left[H_2\right]&=2 - 2 \cdot 0{,}5=1\\
+			\left[CH_3OH\right]&=0{,}5
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[CH_3OH\right]}{\left[CO\right]\cdot\left[H_2\right]^2}=\dfrac{0{,}5}{0{,}5\cdot1^2}=1$
+	}
+\end{bt}
+%%%==============HetBai_BT2==============%%%
+
+%%%==============Bai_BT3==============%%%
+\begin{bt}
+	Cho $1\mathrm{~mol} \, NO_2$ vào một bình dung tích 2 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2NO_2(g) \rightleftharpoons N_2O_4(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $N_2O_4$ trong bình là $0,3\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $N_2O_4$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2NO_2 & \xrightleftharpoons &\; N_2O_4&\\
+			\text{Ban đầu:}&& 1 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & +x&(mol)\\
+			\text{Cân bằng:}&&1-2x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{N_2O_4}=0{,}3\Rightarrow x=0{,}3$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[NO_2\right]&=\frac{1 - 2 \cdot 0{,}3}{2}=\frac{0{,}4}{2}=0{,}2\\
+			\left[N_2O_4\right]&=\frac{0{,}3}{2}=0{,}15
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[N_2O_4\right]}{\left[NO_2\right]^2}=\dfrac{0{,}15}{0{,}2^2}=3{,}75$
+	}
+\end{bt}
+%%%==============HetBai_BT3==============%%%
+
+%%%==============Bai_BT4==============%%%
+\begin{bt}
+	Cho $2\mathrm{~mol} \, H_2S$ vào một bình dung tích 1 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2H_2S(g) \rightleftharpoons 2H_2(g) + S_2(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $H_2$ trong bình là $1,5\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $H_2$ và $S_2$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2H_2S & \xrightleftharpoons &\; 2H_2 & + & S_2&\\
+			\text{Ban đầu:}&& 2 &  & 0 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & +2x &  & +x&(mol)\\
+			\text{Cân bằng:}&&2-2x &  & 2x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{H_2}=1{,}5\Rightarrow 2x=1{,}5 \Rightarrow x = 0{,}75$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[H_2S\right]&=2 - 2 \cdot 0{,}75=0{,}5\\
+			\left[H_2\right]&=1{,}5\\
+			\left[S_2\right]&=0{,}75
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[H_2\right]^2 \cdot \left[S_2\right]}{\left[H_2S\right]^2}=\dfrac{1{,}5^2 \cdot 0{,}75}{0{,}5^2}=13{,}5$
+	}
+\end{bt}
+%%%==============HetBai_BT4==============%%%
+
+%%%==============Bai_BT5==============%%%
+\begin{bt}
+	Cho $0,8\mathrm{~mol} \, HI$ vào một bình dung tích 4 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2HI(g) \rightleftharpoons H_2(g) + I_2(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $H_2$ trong bình là $0,1\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $H_2$ và $I_2$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2HI & \xrightleftharpoons &\; H_2 & + & I_2&\\
+			\text{Ban đầu:}&& 0{,}8 &  & 0 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & +x &  & +x&(mol)\\
+			\text{Cân bằng:}&&0{,}8-2x &  & x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{H_2}=0{,}1\Rightarrow x = 0{,}1$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[HI\right]&=\frac{0{,}8 - 2 \cdot 0{,}1}{4}=\frac{0{,}6}{4}=0{,}15\\
+			\left[H_2\right]&=\frac{0{,}1}{4}=0{,}025\\
+			\left[I_2\right]&=\frac{0{,}1}{4}=0{,}025
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[H_2\right] \cdot \left[I_2\right]}{\left[HI\right]^2}=\dfrac{0{,}025 \cdot 0{,}025}{0{,}15^2}\approx 0{,}028$
+	}
+\end{bt}
+%%%==============HetBai_BT5==============%%%
+%
+%%%==============Bai_BT6==============%%%
+\begin{bt}
+	Cho $0,5\mathrm{~mol} \, PCl_5$ vào một bình dung tích 1 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $Cl_2$ trong bình là $0,2\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $PCl_3$ và $Cl_2$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&PCl_5 & \xrightleftharpoons &\; PCl_3 & + & Cl_2&\\
+			\text{Ban đầu:}&& 0{,}5 &  & 0 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -x &  & +x &  & +x&(mol)\\
+			\text{Cân bằng:}&&0{,}5-x &  & x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{Cl_2}=0{,}2\Rightarrow x = 0{,}2$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[PCl_5\right]&=0{,}5 - 0{,}2=0{,}3\\
+			\left[PCl_3\right]&=0{,}2\\
+			\left[Cl_2\right]&=0{,}2
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[PCl_3\right] \cdot \left[Cl_2\right]}{\left[PCl_5\right]}=\dfrac{0{,}2 \cdot 0{,}2}{0{,}3}\approx 0{,}13$
+	}
+\end{bt}
+%%%%==============HetBai_BT6==============%%%
+%
+%%%==============Bai_BT7==============%%%
+\begin{bt}
+	Cho $1\mathrm{~mol} \, NH_3$ vào một bình dung tích 2 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2NH_3(g) \rightleftharpoons N_2(g) + 3H_2(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $H_2$ trong bình là $0,6\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng phân hủy $NH_3$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2NH_3 & \xrightleftharpoons &\; N_2 & + & 3H_2&\\
+			\text{Ban đầu:}&& 1 &  & 0 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & +x &  & +3x&(mol)\\
+			\text{Cân bằng:}&&1-2x &  & x &  & 3x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{H_2}=0{,}6\Rightarrow 3x = 0{,}6 \Rightarrow x = 0{,}2$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[NH_3\right]&=\frac{1 - 2 \cdot 0{,}2}{2}=\frac{0{,}6}{2}=0{,}3\\
+			\left[N_2\right]&=\frac{0{,}2}{2}=0{,}1\\
+			\left[H_2\right]&=\frac{0{,}6}{2}=0{,}3
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[N_2\right] \cdot \left[H_2\right]^3}{\left[NH_3\right]^2}=\dfrac{0{,}1 \cdot 0{,}3^3}{0{,}3^2}=0{,}1$
+	}
+\end{bt}
+%%%==============HetBai_BT7==============%%%
+%
+%%%==============Bai_BT8==============%%%
+\begin{bt}
+	Cho $0,6\mathrm{~mol} \, SO_2$ và $0,4\mathrm{~mol} \, O_2$ vào một bình dung tích 1 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2SO_2(g) + O_2(g) \rightleftharpoons 2SO_3(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $SO_3$ trong bình là $0,2\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $SO_3$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2SO_2 & + & O_2 &\xrightleftharpoons &\; 2SO_3&\\
+			\text{Ban đầu:}&& 0{,}6 &  & 0{,}4 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & -x &  & +2x&(mol)\\
+			\text{Cân bằng:}&&0{,}6-2x &  & 0{,}4-x &  & 2x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{SO_3}=0{,}2\Rightarrow 2x=0{,}2 \Rightarrow x = 0{,}1$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[SO_2\right]&=0{,}6 - 2 \cdot 0{,}1=0{,}4\\
+			\left[O_2\right]&=0{,}4 - 0{,}1=0{,}3\\
+			\left[SO_3\right]&=0{,}2
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[SO_3\right]^2}{\left[SO_2\right]^2 \cdot \left[O_2\right]}=\dfrac{0{,}2^2}{0{,}4^2 \cdot 0{,}3}\approx 0{,}83$
+	}
+\end{bt}
+%%%==============HetBai_BT8==============%%%
+%
+%%%==============Bai_BT9==============%%%
+\begin{bt}
+	Cho $1,2\mathrm{~mol} \, H_2$ và $1\mathrm{~mol} \, I_2$ vào một bình dung tích 2 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $H_2(g) + I_2(g) \rightleftharpoons 2HI(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $HI$ trong bình là $1\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng tổng hợp $HI$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&H_2 & + & I_2 &\xrightleftharpoons &\; 2HI&\\
+			\text{Ban đầu:}&& 1{,}2 &  & 1 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -x &  & -x &  & +2x&(mol)\\
+			\text{Cân bằng:}&&1{,}2-x &  & 1-x &  & 2x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{HI}=1\Rightarrow 2x=1 \Rightarrow x = 0{,}5$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[H_2\right]&=\frac{1{,}2 - 0{,}5}{2}=0{,}35\\
+			\left[I_2\right]&=\frac{1 - 0{,}5}{2}=0{,}25\\
+			\left[HI\right]&=\frac{1}{2}=0{,}5
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[HI\right]^2}{\left[H_2\right] \cdot \left[I_2\right]}=\dfrac{0{,}5^2}{0{,}35 \cdot 0{,}25}\approx 2{,}86$
+	}
+\end{bt}
+%%%==============HetBai_BT9==============%%%
+%
+%%%%==============Bai_BT10==============%%%
+\begin{bt}
+	Cho $0,3\mathrm{~mol} \, N_2O_5$ vào một bình dung tích 2 lít được giữ ở nhiệt độ không đổi. Phản ứng trong bình xảy ra như sau: $2N_2O_5(g) \rightleftharpoons 4NO_2(g) + O_2(g)$.
+	Khi phản ứng đạt đến trạng thái cân bằng, lượng $NO_2$ trong bình là $0,4\mathrm{~mol}$. Tính hằng số cân bằng $K_C$ của phản ứng phân hủy $N_2O_5$ ở nhiệt độ trên.
+	\loigiai{Ta có tiến trình của phản ứng như sau:
+		\[\begin{array}{rccccccl}
+			&\phantom{x}&2N_2O_5 & \xrightleftharpoons &\; 4NO_2 & + & O_2&\\
+			\text{Ban đầu:}&& 0{,}3 &  & 0 &  & 0& (mol)\\
+			\text{Phản ứng:}&& -2x &  & +4x &  & +x&(mol)\\
+			\text{Cân bằng:}&&0{,}3-2x &  & 4x &  & x&(mol)
+		\end{array}\]
+		Theo đề bài $n_{NO_2}=0{,}4\Rightarrow 4x=0{,}4 \Rightarrow x = 0{,}1$
+		\\
+		Nồng độ các chất tại trạng thái cân bằng:
+		\begin{align*}
+			\left[N_2O_5\right]&=\frac{0{,}3 - 2 \cdot 0{,}1}{2}=0{,}05\\
+			\left[NO_2\right]&=\frac{0{,}4}{2}=0{,}2\\
+			\left[O_2\right]&=\frac{0{,}1}{2}=0{,}05
+		\end{align*}
+		Hằng số cân bằng của phản ứng\\ $K_C=\dfrac{\left[NO_2\right]^4 \cdot \left[O_2\right]}{\left[N_2O_5\right]^2}=\dfrac{0{,}2^4 \cdot 0{,}05}{0{,}05^2}\approx 0{,}064$
+	}
+\end{bt}
+%%==============HetBai_BT10==============%%%
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+%\bangdapanSA{AnsBT-filename}
+
+\begin{dang}{Nồng độ các chất tại trạng thái cân bằng}
+\end{dang}
+\phan{Bài tập tự luận}
+%%%=============SOẠN BT===============%%%
+\Opensolutionfile{ansbth}[Ans/LGBT-H11C01B01-BTTL04]
+\Opensolutionfile{ansbt}[Ans/AnsBT-LGBT-H11C01B01-BTTL04]
+%\luuloigiaibt
+%\hienthiloigiaibt
+%%%==============Bai_BT1==============%%%
+\begin{bt}
+	Xét phản ứng thuận nghịch sau đây:
+	$N_2O_4(\mathrm{~g}) \rightleftharpoons 2NO_2(\mathrm{~g})$
+	Tại nhiệt độ $25^{\circ}$C, hằng số cân bằng $K_C$ của phản ứng là $4.61\times10^{-3}$. Ban đầu, trong một bình kín 1 lít chỉ có $N_2O_4$ với nồng độ $0.08 M$. Hệ phản ứng đạt đến trạng thái cân bằng.
+	\begin{enumerate}
+		\item Tính nồng độ cân bằng của $N_2O_4$ và $NO_2$.
+		\item Tính độ chuyển hóa của $N_2O_4$.
+	\end{enumerate}
+	\loigiai{
+	Ta có tiến trình phản ứng như sau:
+	\[
+	\begin{array}{rcccc}
+		&&N_2O_4 (g)&\xharpoonarrow&\;\;2NO_2(g)\\
+		\text{Ban đầu:}&&0{,}08& &0\\
+		\text{Phản ứng:}&&-x & &+2x\\
+		\text{Cân bằng:}&&0{,}08-x & &2x
+	\end{array}
+	\]
+	Ta có $K_C=\dfrac{\left[NO_2\right]^2}{\left[N_2O_4\right]}=\dfrac{\left(2x\right)^2}{(0{,}08-x)}=4{,}61\cdot10^{-3}$
+	$\Rightarrow 4x^2 +4{,}61.10^{-3}-3{,}688\cdot10^{-4}=0$
+	\\ 
+	$\Rightarrow x =9{,}043\cdot10^{-3}\;(M)$
+	\\
+	$\Rightarrow \left[N_2O_4\right]=0{,}08-9{,}043\cdot10^{-3}=0{,}071$ (M)
+	;
+	$\left[NO_2\right]=2\cdot9{,}043\cdot10^{-3}=0{,}0181$ (M)
+	\\
+	Độ chuyển hóa $N_2O_4$ là $\dfrac{9{,}043\cdot10^{-3}}{0{,}08}\cdot100\%\approx11{,}3\%$
+	}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+
+%%%==============Bai_BT2==============%%%
+\begin{bt}
+	Tìm các giá trị còn thiếu của các phản ứng sau:
+	\[
+	\mathrm{N}_2(g) + 3\mathrm{H}_2(g) \rightleftharpoons 2\mathrm{NH}_3(g)
+	\]
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		&$N_2(g),\;(M)$&$H_2(g),\;(M)$&$NH_3(g),\;(M)$&$K_C$\\
+		\hline
+		1. Ở $472^\circ$C &$0{,}042$&$0{,}1200$&$?$&$0{,}1050$\\
+		\hline
+		2. Ở $500^\circ$C &$0{,}750$&$0{,}420$&$0{,}250$&$?$\\
+		\hline
+		\end{tabular}
+	\end{center}
+	\loigiai{
+	\begin{enumerate}
+		\item Ở $472^\circ$C , ta có
+		 \begin{align*}
+		 	K_C&=\dfrac{\left[NH_3\right]^2}{\left[N_2\right]\cdot\left[H_2\right]^3}\\
+		 	\Rightarrow \left[NH_3\right]&=\sqrt{K_C\cdot\left[N_2\right]\cdot\left[H_2\right]^3}\\
+		 	&=\sqrt{0{,}1050\cdot0{,}042\cdot\left(0{,}1200\right)^3}\approx2{,}70\cdot10^{-3}\;(M)
+		 \end{align*}
+		\item Ở $500^\circ$C , ta có
+		\begin{align*}
+			K_C&=\dfrac{\left[NH_3\right]^2}{\left[N_2\right]\cdot\left[H_2\right]^3}\\
+			   &=\dfrac{\left(0{,}250\right)^2}{0{,}750\cdot(0{,}420)^3}\\
+			   &=1{,}125
+		\end{align*}
+	\end{enumerate}
+	}
+\end{bt}
+%%%==============HetBai_BT2==============%%%
+
+%%=====================Bài-BT3=======================%%%
+\begin{bt}
+	Cho $4{,}84$ gam $Fe(NO_3)_3$ vào 1 lít dung dịch $KSCN$ $0{,}1\;M$ và được giữ ở nhiệt độ không đổi. Trong dung dịch giữa ion $Fe^{3+}$ và $SCN^-$ xảy ra cân bằng hóa học sau
+	\[
+	\mathrm{Fe}^{3+} + \mathrm{SCN}^-\xharpoonarrow\;\;\mathrm{FeSCN}^{2+} \;\; \text{với}\;\; \mathrm{K}_\mathrm{C}=1{,}1\times10^{3}
+	\]
+	Hãy tính nồng độ của $Fe^{3+}$, $SCN^-$ và $FeSCN^{2+}$ ở trạng thái cân bằng. Biết thể tích dung dịch thay đổi không đáng kể
+	\loigiai{%
+	$n_{Fe{(NO_3)}_3}=0{,}02$ (mol); $C_{Fe^{3+}}=\dfrac{0{,}02}{1}=0{,}02$ (M).\\
+	Ta có tiến trình phản ứng sau:
+	\[
+	\begin{array}{rccccccc}
+		&Fe^{3+}& +&SCN^-&\xharpoonarrow&\;\;FeSCN^{2+}\;\;&\\
+		\text{Ban đầu:}\;\;&0{,}02& &0{,}1&&0&\text (mol/l)\\
+		\text{Phản ứng:}\;\;&-x& &-x&&+x&\text (mol/l)\\
+		\text{Cân bằng:}\;\;&0{,}02-x& &0{,}1-x&&x&\text (mol/l)\\
+	\end{array}
+	\]
+	Ta có $K_C=\dfrac{x}{(0{,}02-x)(0{,}1-x)}=1{,}1\times10^3$ $\Rightarrow1{,}1\times10^3x^2-133x+2{,}2=0$
+	$\Rightarrow \hoac{
+	&x=1{,}1011 \;(\text{loại})\\
+	&x=0{,}0198 \;(\text{nhận})
+	}$.
+	\\
+	Vậy nồng các chất tại trạng thái cân bằng là :
+	\begin{align*}
+		\left[Fe^{3+}\right]&=0{,}02-x=0{,}02-0{,}0198=0{,}002 \;(M)\\
+		\left[SCN^-\right]&=0{,}1-x=0{,}1-0{,}0198=0{,}802 \;(M)\\
+		\left[FeSCN^{2+}\right]&=x=0{,}0198 \;(M)
+	\end{align*}
+	}
+\end{bt}
+%%%==============Bai_BT1==============%%%
+\begin{bt}
+	Trong một thí nghiệm, ba ống nghiệm được chuẩn bị như sau:
+	\begin{itemize}
+		\item Ống nghiệm 1: chứa dung dịch kali chromate ($K_2CrO_4$)
+		\item Ống nghiệm 2 và 3: chứa dung dịch kali dichromate ($K_2Cr_2O_7$)
+	\end{itemize}
+	Trong hệ này, tồn tại hai cân bằng hóa học quan trọng:
+	\begin{enumerate}
+		\item Cân bằng giữa ion chromate và dichromate: 
+		$2CrO_4^{2-} + 2H^+ \rightleftharpoons Cr_2O_7^{2-} + H_2O$
+		\item Cân bằng tạo kết tủa giữa ion bari và ion chromate: 
+		$Ba^{2+} + CrO_4^{2-} \rightleftharpoons BaCrO_4$ (rắn)
+	\end{enumerate}
+	Khi thêm dung dịch bari clorua ($BaCl_2$) 0,1 M vào các ống nghiệm, người ta quan sát thấy:
+	\begin{itemize}
+		\item Ống nghiệm 1: xuất hiện lượng lớn kết tủa màu vàng.
+		\item Ống nghiệm 2: chỉ xuất hiện một lượng nhỏ kết tủa màu vàng.
+		\item Ống nghiệm 3: trước khi thêm $BaCl_2$, người ta thêm vào một ít axit nitric ($HNO_3$).
+	\end{itemize}
+	Sau đó, khi thêm $BaCl_2$, không có kết tủa nào xuất hiện.
+	\\
+	Dựa trên các quan sát trên và kiến thức về cân bằng hóa học, hãy trả lời các câu hỏi sau:
+	\begin{enumerate}
+		\item Viết biểu thức hằng số cân bằng ($K_C$) cho phản ứng cân bằng (1).
+		\item Giải thích tại sao lượng kết tủa trong ống nghiệm 2 ít hơn so với ống nghiệm 1. Phân tích dựa trên cân bằng hóa học giữa ion chromate và dichromate.
+		\item Áp dụng nguyên lý Le Chatelier để giải thích hiện tượng xảy ra trong ống nghiệm 3 khi thêm axit HNO$_3$. Tại sao không có kết tủa xuất hiện khi thêm $BaCl_2$ vào ống nghiệm này?
+		\item Nếu muốn tăng nồng độ ion $CrO_4^{2-}$ trong dung dịch $K_2Cr_2O_7$, bạn sẽ thêm chất nào vào? Giải thích lý do.
+		\item Viết biểu thức tích số tan ($K_{sp}$) cho cân bằng (2). Kết tủa $BaCrO_4$ có màu gì?
+		\item Độ tan của BaCrO$_4$ trong nước ở 25°C là $1{,}2 × 10^{-4}$ mol/L. Tính giá trị $K_{sp}$ của $BaCrO_4$ ở nhiệt độ này.
+		\item Nếu thêm một lượng nhỏ dung dịch NaOH vào ống nghiệm 2, dự đoán sự thay đổi về màu sắc của dung dịch và giải thích lý do dựa trên sự dịch chuyển của cân bằng (1).
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item $K_C = \dfrac{[Cr_2O_7^{2-}][H_2O]}{[CrO_4^{2-}]^2[H^+]^2}$
+			\item Trong ống nghiệm 2 chứa $K_2Cr_2O_7$, cân bằng nghiêng về phía $Cr_2O_7^{2-}$, nên nồng độ $CrO_4^{2-}$ thấp, dẫn đến ít kết tủa $BaCrO_4$ hình thành. Ngược lại, ống nghiệm 1 chứa $K_2CrO_4$ nên có nhiều $CrO_4^{2-}$, tạo nhiều kết tủa.
+			\item Khi thêm $HNO_3$, cân bằng (1) dịch chuyển sang phải theo nguyên lý Le Chatelier, tạo ra nhiều $Cr_2O_7^{2-}$ hơn và giảm nồng độ $CrO_4^{2-}$. Do đó, khi thêm $Ba^{2+}$, không đủ $CrO_4^{2-}$ để tạo kết tủa.
+			\item Thêm một base như NaOH. Base sẽ tiêu thụ $H^+$, làm cân bằng (1) dịch chuyển sang trái, tạo ra nhiều $CrO_4^{2-}$.
+			\item $K_{sp} = [Ba^{2+}][CrO_4^{2-}]$. Kết tủa $BaCrO_4$ có màu vàng.
+			\item Độ tan $S = 1,2 × 10^{-4}$ mol/L; $K_{sp} = S^2 = (1,2 × 10^{-4})^2 = 1,44 × 10^{-8}$
+			\item Khi thêm NaOH, cân bằng (1) sẽ dịch chuyển sang trái, tạo ra nhiều $CrO_4^{2-}$. Màu sắc sẽ chuyển từ da cam (màu của $Cr_2O_7^{2-}$) sang vàng (màu của $CrO_4^{2-}$).
+		\end{enumerate}
+	}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+
+\begin{bt}
+	Xét cân bằng sau trong dung dịch:
+	\[
+	\left[\mathrm{Co}\left(\mathrm{H}_2 \mathrm{O}\right)_6\right]^{2+}(\mathrm{aq})(\text{hồng}) + 4 \mathrm{Cl}^-(\mathrm{aq}) \rightleftharpoons \left[\mathrm{CoCl}_4\right]^{2-}(\mathrm{aq})(\text{xanh}) + 6 \mathrm{H}_2 \mathrm{O}(\mathrm{l})\quad \Delta H <0
+	\]
+	Hãy nêu hiện tượng quan sát được và giải thích khi:
+	\begin{enumerate}
+		\item Thêm dung dịch $\mathrm{NaCl}$ đậm đặc vào dung dịch $\left[\mathrm{Co}\left(\mathrm{H}_2 \mathrm{O}\right)_6\right]^{2+}$.
+		\item Thêm nước cất vào dung dịch $\left[\mathrm{CoCl}_4\right]^{2-}$.
+		\item Thêm dung dịch $\mathrm{AgNO}_3$ vào dung dịch $\left[\mathrm{CoCl}_4\right]^{2-}$.
+		\item Tăng nhiệt độ của hệ phản ứng.
+	\end{enumerate}
+	\loigiai{%
+		\begin{enumerate}
+			\item Hiện tượng: Màu dung dịch chuyển dần từ hồng sang xanh.
+			
+			Giải thích: Khi thêm $\mathrm{NaCl}$ đậm đặc, nồng độ $\mathrm{Cl}^-$ tăng mạnh. Theo nguyên lý Le Chatelier, cân bằng dịch chuyển sang phải để giảm nồng độ $\mathrm{Cl}^-$, tạo ra nhiều $\left[\mathrm{CoCl}_4\right]^{2-}$ (màu xanh) hơn.
+			
+			\item Hiện tượng: Màu xanh của dung dịch nhạt dần, có thể chuyển sang hồng nhạt.
+			
+			Giải thích: Thêm nước làm giảm nồng độ của tất cả các chất tan, bao gồm $\left[\mathrm{CoCl}_4\right]^{2-}$ và $\mathrm{Cl}^-$. Cân bằng dịch chuyển về phía có nhiều chất tan hơn, tức là về phía trái, tạo ra $\left[\mathrm{Co}\left(\mathrm{H}_2 \mathrm{O}\right)_6\right]^{2+}$ (hồng).
+			
+			\item Hiện tượng: Xuất hiện kết tủa trắng $\mathrm{AgCl}$, màu dung dịch chuyển dần từ xanh sang hồng.
+			
+			Giải thích: $\mathrm{Ag}^+$ kết hợp với $\mathrm{Cl}^-$ tạo kết tủa $\mathrm{AgCl}$, làm giảm nồng độ $\mathrm{Cl}^-$ trong dung dịch. Cân bằng dịch chuyển sang trái để bù đắp sự giảm này, tạo ra nhiều $\left[\mathrm{Co}\left(\mathrm{H}_2 \mathrm{O}\right)_6\right]^{2+}$ (hồng).
+			
+			\item Hiện tượng: Màu xanh của dung dịch đậm lên.
+			
+			Giải thích: Phản ứng chuyển $\left[\mathrm{Co}\left(\mathrm{H}_2 \mathrm{O}\right)_6\right]^{2+}$ thành $\left[\mathrm{CoCl}_4\right]^{2-}$ là thu nhiệt. Khi tăng nhiệt độ, cân bằng dịch chuyển theo chiều thu nhiệt (về phía phải) để chống lại sự tăng nhiệt độ, tạo ra nhiều $\left[\mathrm{CoCl}_4\right]^{2-}$ (xanh) hơn.
+		\end{enumerate}
+	}
+\end{bt}
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}

@@ -1,0 +1,156 @@
+\Opensolutionfile{ans}[DAPAN/DA_PhoIR]
+\begin{ex}Dựa vào phổ hồng ngoại (IR) của hợp chất X có công thức $CH_3COCH_3$ như hình vẽ bên, hãy chỉ ra peak nào giúp dự đoán X có nhóm C=O?\\
+\begin{tikzpicture}[declare function={d=13cm;}]
+		\begin{axis}[
+			name=plot,
+			line width=0.8pt,
+			smooth,
+			samples=30,
+			axis line style={\mycolor},
+			grid=both,
+			grid style={\mycolor!30,ultra thin},
+			xmin=450, xmax=3798,ymin=0, ymax=1,
+			height=0.4*d, width=1.3*d,
+			label style={font=\color{\mycolor!75!black}\sf\bfseries\scriptsize},
+			xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+			ylabel={độ truyền qua},
+			tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+			x dir=reverse,
+			minor x tick num =1,
+			minor y tick num=1,
+			major x tick style={thick,\mycolor!75!black,font=\tiny},
+			major y tick style={thick,\mycolor!75!black,font=\tiny},
+			ytick align=outside,
+			xtick={500,750,...,4000},
+			ytick={0.0,0.1,...,1.0},
+			xtick pos=bottom,
+			ytick pos=left,
+			]
+			\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{PhoIR/acetone.csv};
+			\path[name path=upper] (axis cs:450,1) -- (axis cs:3798,1);
+			\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+			\node[font=\sf\small] at ([shift={(135:.5cm)}]axis cs:1750,0){(1)};
+			\node[font=\sf\small] at ([shift={(-180:.27cm)}]axis cs:1375,0.1){(2)};
+			\node[font=\sf\small] at ([shift={(0:.5cm)}]axis cs:1250,0.1){(3)};
+			\node[font=\sf\small] at ([shift={(180:.1cm)}]axis cs:3000,0.3){(4)};
+		\end{axis}
+		%			\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của 2-PROPANONE};
+	\end{tikzpicture}
+	\choice{$(3)$}{$(2)$}{$(4)$}{\True$(1)$}
+%	\huongdan{}
+\end{ex}
+\begin{ex}[Phổ khối lượng]Kết quả phân tích nguyên tố của hợp chất X cho thấy $\%C=88,235,\; \%H =11,765$.Biết phổ khối lượng của X như hình dưới (Hình \ref{MS}).Hãy xác định công thức phân tử của X?
+	\begin{figure}[thb]
+		\centering
+		\begin{tikzpicture}[scale=1.1,declare function={d=17cm;}]
+			\pgfplotstableread[col sep=comma]{PhoMS/cyclohexen.csv}\datatable
+			\begin{axis}[
+				name=MS,
+				axis line style={\mycolor},
+				ybar,bar width=0.002*d,
+				enlarge x limits=0.02,
+				height=0.35*d, width=0.8*d,
+				xmin=27,xmax=204,ymin=0,ymax=120,
+				xlabel style={font=\color{\mycolor!75!black}\sf\bfseries\scriptsize},
+				ylabel style={font=\color{\mycolor!75!black}\sf\bfseries\scriptsize},
+				xlabel={m/z},ylabel={Cường độ tương đối(\%)},
+				ytick align=center,
+				y tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+				x tick label style={font=\sf\bf\tiny\color{\mycolor!65!black},yshift=1mm,rotate=60},
+				xtick={25,35,...,215},
+				ytick={0,10,...,100},
+				xtick pos=bottom,
+				ytick pos=left,
+				major x tick style={thick,\mycolor!75!black},
+				major y tick style={thick,\mycolor!75!black},
+				minor x tick style={\mycolor!75!black},
+				minor x tick num =9,
+				ymajorgrids=true,
+				grid style={\mycolor!30,ultra thin},
+				]
+				\addplot[fill=\mycolor,draw=none,y filter/.expression={\thisrow{intensity} > 0 ? \thisrow{intensity} : nan}] table[x=m/z, y=intensity] {\datatable};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:27,10){27};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:41,44.1){41};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:56,17.9){56};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:69,39.7){69};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:77,26.2){77};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:91,25.9){91};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:93,99.99){93};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:105,15.1){105};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:119,78.5){119};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:133,3.1){133};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:161,7){161};
+				\node[font=\color{\mycolor}\sf\tiny,above,yshift=-2pt] at (axis cs:204,8){204};
+			\end{axis}
+%			\node[above= 3pt of MS,font=\color{\mycolor!75!black}\sf\bf\footnotesize] { phổ MS của 5-(1,5-Dimethyl-4-hexenyl)-2-methyl-1,3-cyclohexadiene};
+		\end{tikzpicture}
+		\caption{phổ MS của X}
+		\label{MS}
+	\end{figure}
+\end{ex}
+\Closesolutionfile{ans}
+%%%================ Phổ IR của phenol ==================%%%
+\[ \begin{tikzpicture}
+	\begin{axis}[
+		name=plot,
+		line width=0.8pt,
+		smooth,
+		samples=30,
+		axis line style={\mycolor},
+		grid=both,
+		grid style={\mycolor!30,ultra thin},
+		xmin=238.466, xmax=3792.12,ymin=0, ymax=1,
+		height=0.3\textwidth, width=1.0\textwidth,
+		label style={font=\color{\mycolor!75!black}\sf\bfseries\small},
+		xlabel={số sóng ($\mathbf{cm}^{\mathbf{-1}}$)},
+		ylabel={độ truyền qua},
+		tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x dir=reverse,
+		minor x tick num =1,
+		minor y tick num=1,
+		major x tick style={thick,\mycolor!75!black,font=\tiny},
+		major y tick style={thick,\mycolor!75!black,font=\tiny},
+		ytick align=outside,
+		xtick={250,500,...,4000},
+		ytick={0.0,0.1,...,1.0},
+		xtick pos=bottom,
+		ytick pos=left,
+		]
+		\addplot [\mycolor,smooth,name path=A] table[x=x,y=y1,col sep=comma]{PhoIR/phenol.csv};
+		\path[name path=upper] (axis cs:238.466,1) -- (axis cs:3792.12,1);
+		\addplot[\mycolor!60,opacity=.4] fill between[of=A and upper];
+	\end{axis}
+	\node[above= 3pt of plot,font=\color{\mycolor!75!black}\sf\bf] { phổ IR của Phenol};
+\end{tikzpicture} \]
+%%%================ Phổ MS của phenol ==================%%%
+%%%================ Phổ MS của phenol ==================%%%
+\begin{tikzpicture}[scale=1.1,declare function={d=17cm;}]
+	\pgfplotstableread[col sep=comma]{PhoMS/phenol.csv}\datatable
+	\begin{axis}[
+		name=MS,
+		axis line style={\mycolor},
+		ybar,bar width=0.002*d,
+		enlarge x limits=0.02,
+		height=0.35*d, width=0.8*d,
+		xmin=10,xmax=100,ymin=0,ymax=120,
+		xlabel style={font=\color{\mycolor!75!black}\sf\bfseries\scriptsize},
+		ylabel style={font=\color{\mycolor!75!black}\sf\bfseries\scriptsize},
+		xlabel={m/z},ylabel={Cường độ tương đối(\%)},
+		ytick align=center,
+		y tick label style={font=\sf\bf\tiny\color{\mycolor!65!black}},
+		x tick label style={font=\sf\bf\fontsize{4pt}{2pt}\selectfont\color{\mycolor!65!black},yshift=1mm,rotate=60},
+		xtick={15,25,...,95},
+		ytick={0,10,...,100},
+		xtick pos=bottom,
+		ytick pos=left,
+		major x tick style={thick,\mycolor!75!black},
+		major y tick style={thick,\mycolor!75!black},
+		minor x tick style={\mycolor!75!black},
+		minor x tick num =9,
+		ymajorgrids=true,
+		grid style={\mycolor!30,ultra thin},
+		]
+		\addplot[fill=\mycolor,draw=none,y filter/.expression={\thisrow{intensity} > 0 ? \thisrow{intensity} : nan}] table[x=m/z, y=intensity] {\datatable};
+	\end{axis}
+	\node[above= 3pt of MS,font=\scriptsize\color{\mycolor!75!black}\sf\bf] { phổ MS của Phenol};
+\end{tikzpicture}

@@ -1,0 +1,136 @@
+\documentclass[12pt,twoside,openany]{book}%twoside, oneside,openany
+\usepackage[table]{xcolor} %,dvipsnames,svgnames
+\definecolor{dnvang}{HTML}{994D1C}%994D1C%E5890A%994D1C
+\definecolor{dnxanh}{HTML}{0766AD}%0B60B0 %3A98B9 %3081D0 %0766AD
+\definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{amsmath}
+\allowdisplaybreaks[4]
+\usepackage{graphicx}
+\usepackage{savesym}
+\savesymbol{Cross}
+\usepackage{bbding}
+\restoresymbol{bb}{Cross}
+\usepackage{textcmds}
+\usepackage[linkcolor=\mycolor!70!black,colorlinks]{hyperref}
+\usepackage{subfiles}
+\usepackage[utf8]{vietnam}
+\usepackage{pifont,oplotsymbl,marvosym,fontawesome}
+\usepackage{miama}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+\usepgfplotslibrary{fillbetween}
+\usepackage{yhmath,tkz-euclide}
+\usepackage{soulutf8}
+\usepackage{csquotes}
+\setul{1pt}{0.65pt}
+\setulcolor{violet}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+\tikzfading[name=fade out, inner color=transparent!0,outer color=transparent!40]
+\tikzfading[name=fade in, inner color=transparent!40,outer color=transparent!0]
+\tikzfading[name=fade left, top color=transparent!0,bottom color=transparent!0,middle color=transparent!100]
+\tikzfading[name=fade right,left color=transparent!0,right color=transparent!100]
+\usepackage[a4paper,top=1.75cm,bottom=1.75cm,left=2cm,right=1.0cm]{geometry}%,includefoot=true,includehead=true 
+\usepackage{multicol,environ,etoolbox}
+\usepackage{xparse}
+\setlength\multicolsep{2pt plus 2pt minus 1.5pt}
+\usepackage{intcalc}%Tính mod
+%%%%%Các lệnh thay đổi khoảng cách dọc
+\usepackage{setspace}
+\setstretch{1.25}% dãn dòng 1,5 = 1.25x1.2 line
+\setlength{\parskip}{6pt}%6pt co dãn khoảng cách các dòng
+\setlength{\parindent}{0.65cm}
+\setlength{\topskip}{0pt}%6pt
+\setlength{\footskip}{0pt}%6pt
+%\setlength{\topmargin}{1pt}
+%%%%Hoặc có thể thay đổi khoảng cách dọc theo cách khác
+%\linespread{1.5}
+\usepackage{dsfont}
+\usepackage{morewrites}%%Fix lỗi texlive2024
+\usepackage{amsmath,amssymb,mathrsfs,maybemath,xlop,polynom,graphics,systeme}
+%% Căn đều tài liệu
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{booktabs} 
+\usepackage{diagbox}
+\usepackage{pgfornament}
+\usepackage{pgfmath}
+\usepackage{array}
+\usepackage{mathptm}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\renewcommand{\parallel}{\mathbin{\!\raisebox{0.25pt}/\mkern-2mu\raisebox{0.25pt}/\!}}
+\renewcommand{\backsim}{\ \mathord{\raisebox{0.025\baselineskip}{\rotatebox{90}{\fontfamily{qag}\selectfont S}}}\ }
+\setlength\arraycolsep{2pt}
+\newcommand{\hoac}[1]{\renewcommand{\arraystretch}{0.85}\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\renewcommand{\arraystretch}{0.85}\left\{\begin{aligned}#1\end{aligned}\right.}
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\makeatletter
+\DeclareSymbolFontAlphabet{\math@bb}{AMSb}
+\AtBeginDocument{\protected\def\mathbb{\math@bb}} 
+\g@addto@macro\normalsize{
+ \setlength{\abovedisplayskip}{4pt}%
+ \setlength{\belowdisplayskip}{2pt}%
+ \setlength{\abovedisplayshortskip}{4pt}%
+ \setlength{\belowdisplayshortskip}{1pt}%
+ }
+\makeatother
+\input{Khaibao/Caption/caption.tex}
+\input{Khaibao/Tikz/tikz.tex}
+\input{Khaibao/Chemistry/chemmistry}
+\input{Khaibao/Headerfooter/HeaderFooter.tex}
+\input{Khaibao/Tcolorbox/Tcolorbox.tex}
+\input{Khaibao/Table/table.tex}
+\input{Khaibao/BOXBTVDCH/BOXEX_TEST_Ver3.tex}
+\input{Khaibao/BOXBTVDCH/BOXEX_TEST_DONGIAN.tex}
+%\input{Khaibao/Chuongmuc/ChuongMuc_ver3.tex}
+\input{Khaibao/Chuongmuc/ChuongMuc_ver2.tex}
+%\input{Khaibao/Mucluc/Mucluc_CD.tex}
+\input{Khaibao/Mucluc/Mucluc.tex}
+\input{Khaibao/CACHOP/NTDBOX_T5_2024.tex} 
+\input{Khaibao/Taolenh/viettat.tex}
+\input{Khaibao/Taolenh/Bangdapan.tex}
+\input{Khaibao/Enumerate/Enume_ver2.tex}
+\input{Khaibao/Taolenh/newcommand}
+\input{Khaibao/Taolenh/lenhbosung}
+%%%%===========================%%%%
+\begin{document}
+%Mục lục nên bậc biên dịch khi hoàn thành tài liệu thay cho lệnh \tableofcontents
+%\makeatletter
+%	\begin{center}
+%		\begin{tcolorbox}[enhanced,hbox,breakable,
+%			left=8mm,right=8mm,boxrule=0.55pt,
+%			bottom=3pt,
+%			colback=white,colframe=dnvang,
+%			%drop fuzzy midday shadow=black!50!yellow,
+%			drop lifted shadow=black!50!yellow,arc is angular,
+%			before=\par\vspace*{-1mm},after=\par\bigskip]
+%			{\bfseries\Large\color{dnvang}\sffamily MỤC LỤC} 
+%		\end{tcolorbox}
+%	\end{center}
+%	\newcounter{somucluc}
+%	\vskip-1.25cm
+%	\@starttoc{toc}
+%\makeatother
+%%%==========================%%%
+\setcounter{secnumdepth}{4}%%Ẩn hiển thị đến cấp
+\setcounter{tocdepth}{2}%%%Hiển thị đến cấp 2
+\tableofcontents%%Lệnh bật chữ mục lục
+%%%%%%%%%%%%%%%%%BẮT DẦU TÀI LIỆU%%%%%%%%%%%%%%%%%%%%%%
+\part{Hóa vô cơ}
+\subfile{Hoa10_C01_CTNT.tex}
+\subfile{Hoa10_C02_CTBTH.tex}
+%%%%%%%%%%============Hết tài liệu=============%%%%%%%%%%%%
+\end{document}

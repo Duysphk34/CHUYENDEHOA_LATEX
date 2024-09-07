@@ -1,0 +1,12 @@
+\usepackage{paracol}
+\columnratio{0.7}
+\globalcounter{vdnote}
+\globalcounter{figure}
+\globalcounter{table}
+\setlength{\columnsep}{12pt}
+\newcounter{vdnote}[section]
+\newenvironment{vdnote}{%
+\refstepcounter{vdnote}
+\par\noindent \fontsize{12pt}{3pt}\selectfont \textit{\textbf{Ví dụ \thevdnote.}}%
+}
+{}

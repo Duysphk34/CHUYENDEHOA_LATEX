@@ -1,0 +1,225 @@
+\makeatother
+\def\bmod{\operatorname{mod}\,}
+\makeatletter
+\DeclareRobustCommand
+\vdots{\,\vbox{\baselineskip3\p@ \lineskiplimit\z@
+		\hbox{.}\hbox{.}\hbox{.}}\,}
+\makeatother
+\usepackage[explicit]{titlesec}
+%\setcounter{secnumdepth}{3}
+%\renewcommand{\chaptertitlename}{Chương}
+\DeclareFixedFont{\chapternumberfont}{T5}{ugq}{b}{sc}{34pt}
+\DeclareFixedFont{\chapterndfont}{T5}{ugq}{b}{n}{45pt}
+\DeclareFixedFont{\chapterndfontH}{T5}{ugq}{b}{n}{24pt}
+\DeclareFixedFont{\chaptertitlefont}{T5}{ugq}{b}{n}{22pt}
+\DeclareFixedFont{\sectionnumfont}{T5}{ugq}{b}{n}{24pt}
+\DeclareFixedFont{\sectionndfont}{T5}{ugq}{b}{n}{22pt}
+%%%=============Hộp mục tiêu==========%%%
+\newtcolorbox{MuctieuM}{
+	enhanced jigsaw,
+	before skip =6pt, after skip=0.5cm,
+	grow to right by =1.5cm,
+	left=6pt,right=1.6cm,
+	boxsep=10pt,
+	boxrule=0mm,
+	arc=6pt,
+	arc is angular,
+	sharp corners,
+	rounded corners = west,
+	title= {Mục tiêu cần đạt:},
+	fonttitle=\large\bfseries\sffamily,
+	fontupper=\small\itshape,
+	coltitle=\mycolor,
+	%colback =\mycolor!5,
+	colbacktitle=\mycolor!20,
+	frame empty,
+	opacityback=0,%% Tách nền
+	boxed title style ={sharp corners,boxrule =0pt,rounded corners=northeast,arc = 3pt,arc is angular,rounded corners=southeast,},
+	attach boxed title to top left={xshift=-0.3cm,yshift*=-0.25cm-\tcboxedtitleheight},
+	interior style={
+		fill=red!20,
+		draw=\mycolor!30!black,
+		dashed,line width=1pt
+	}
+}
+%%%=============Hộp mục tiêu==========%%%
+\newtcolorbox{MuctieuH}{
+	enhanced jigsaw,
+	before skip =-1cm, after skip= 0.5cm,left skip= .5cm,
+	grow to right by =2.5cm,
+	left=6pt,right=2.5cm,
+	boxsep=10pt,
+	boxrule=0mm,
+	arc=6pt,
+	arc is angular,
+	sharp corners,
+	rounded corners = west,
+	title= {Mục tiêu cần đạt:},
+	fonttitle=\large\bfseries\sffamily,
+	fontupper=\small\itshape,
+	coltitle=\mycolor,
+	%colback =\mycolor!5,
+	colbacktitle=\mycolor!20,
+	frame empty,
+	opacityback=0,%% Tách nền
+	boxed title style ={sharp corners,boxrule =0pt,rounded corners=northeast,arc = 3pt,arc is angular,rounded corners=southeast,},
+	attach boxed title to top left={xshift=-0.3cm,yshift*=-0.25cm-\tcboxedtitleheight},
+	interior style={
+		fill=red!20,
+		draw=\mycolor!30!black,
+		dashed,line width=1pt
+	}
+}
+%%%===============Hộp chương mục==================%%%
+\titlespacing*{\chapter}{0pt}{-2.0cm}{0.5cm}
+\titleformat{\chapter}[display]
+{}
+{}
+{0pt}
+{%
+	\begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round,declare function={r=1.3cm;}]
+		\path ($(current page.north west)+(4.2cm,-3cm)$) coordinate (Goc) node[anchor=west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [draw=\mycolor,line width =1pt]($(Goc)+(-1.0cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =1pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=2cm,align=center,shape=circle,fill=\mycolor!20](numchap){\thechapter};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|C h u y {ê} n {đ} {ề}},text align=center}]($(CN)+({-1.2*r},0)$) arc (180:0:{1.2*r});
+		\path[fill=\mycolor!20] ($(ND.south west)+(-90:1.3*r)$) coordinate (A) -- ($(ND.south east)+(-90:1.3*r)$) coordinate (B)-|(current page.north east) coordinate (C) --(current page.north west) coordinate (D)|-(A);
+		\path ($(current page.north west)+(4.2cm,-3.0cm)$) coordinate (Goc) node[anchor= west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [fill=\mycolor!10!white,line width =1pt,path fading=fade out]($(Goc)+(-1.5cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =3pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=2cm,align=center,shape=circle,fill=\mycolor!90,path fading=fade out](numchap){\thechapter};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|C h u y {ê} n {đ} {ề}},text align=center}]($(CN)+({-1.2*r},0)$) arc (180:0:{1.2*r});
+	\end{tikzpicture}
+}
+[\setcounter{section}{0}\thispagestyle{empty}]
+\titlespacing*{\section}{0pt}{0cm}{1.0cm}
+\titleformat{\section}[display]
+{}
+{}
+{0pt}
+{%
+	\ifnum\value{section}=1
+	\begin{tcolorbox}[
+		before skip=2cm,
+		enhanced jigsaw,
+		left=2.2cm,right=2.3cm,
+		empty,
+		arc=0pt,
+		opacityback=0,
+		grow to right by= 2.2cm,
+		grow to left by= 2.5cm,
+		fontupper=\color{\mycolor!40!black}\sectionndfont,
+		halign upper= center,
+		overlay={%
+			frame code={%
+				\path (frame.north west) coordinate (NW)
+				(frame.north east) coordinate (NE)
+				(frame.south west) coordinate (SW)
+				(frame.south east) coordinate (SE)
+				;
+				\path[fill=\mycolor!40](NW)--(NE)--(SE)--(SW);
+				\path[draw=\mycolor,line width =1pt] ($(NW)!0.5!(SW)+(4,0)$) coordinate (Goc) ;
+				\path ($(NW)!0.5!(SW)+(4,0)$)node (numchap){};%
+			}
+		}
+		]
+		\MakeUppercase{Chủ đề} \arabic{section}:\;\MakeUppercase{#1}
+	\end{tcolorbox}
+	\else
+	\pagebreak
+	\thispagestyle{empty}
+	\begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round,declare function={r=1.3cm;}]
+		\path ($(current page.north west)+(3.5cm,-2.3cm)$) coordinate (Goc) node[anchor=west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [draw=\mycolor,line width =1pt]($(Goc)+(-1.5cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =1pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=2cm,align=center,shape=circle,fill=\mycolor!20](numchap){\arabic{section}};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|C h {ủ}  {đ} {ề} },text align=center}]($(CN)+({-1.1*r},0)$) arc (180:0:{1.1*r});
+		\path[fill=\mycolor!20] ($(ND.south west)+(-90:1.3*r)$) coordinate (A) -- ($(ND.south east)+(-90:1.3*r)$) coordinate (B)-|(current page.north east) coordinate (C) --(current page.north west) coordinate (D)|-(A);
+		\path ($(current page.north west)+(3.5cm,-3.0cm)$) coordinate (Goc) node[anchor= west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [fill=\mycolor!10!white,line width =1pt,path fading=fade out]($(Goc)+(-1.5cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =3pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=2cm,align=center,shape=circle,fill=\mycolor!90,path fading=fade out](numchap){\arabic{section}};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|C h {ủ}  {đ} {ề}},text align=center}]($(CN)+({-1.1*r},0)$) arc (180:0:{1.1*r});
+	\end{tikzpicture}
+	\fi
+}
+[\ifnum\value{section}=1
+\vspace*{-1.3cm}
+\else
+\vspace*{2.5cm}
+\fi]
+
+\titleformat{name=\section,numberless}[display]
+{\normalfont\huge\bfseries}
+{}
+{0pt}
+{%
+	\pagebreak
+	\thispagestyle{empty}
+	\addcontentsline{toc}{section}{#1}
+	\begin{tikzpicture}[overlay,remember picture,line join=round,line cap=round,declare function={r=1.3cm;}]
+		\path ($(current page.north west)+(3.5cm,-2.3cm)$) coordinate (Goc) node[anchor=west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [draw=\mycolor,line width =1pt]($(Goc)+(-1.5cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =1pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=1.5cm,align=center,shape=circle,fill=\mycolor!20](numchap){\arabic{section}};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|B {à}  i },text align=center}]($(CN)+({-1.1*r},0)$) arc (180:0:{1.1*r});
+		\path[fill=\mycolor!20] ($(ND.south west)+(-90:1.3*r)$) coordinate (A) -- ($(ND.south east)+(-90:1.3*r)$) coordinate (B)-|(current page.north east) coordinate (C) --(current page.north west) coordinate (D)|-(A);
+		\path ($(current page.north west)+(3.5cm,-3.0cm)$) coordinate (Goc) node[anchor= west,font=\color{\mycolor}\chapterndfontH,text width=0.9\linewidth](ND){\MakeUppercase{#1}};
+		\path [fill=\mycolor!10!white,line width =1pt,path fading=fade out]($(Goc)+(-1.5cm,0)$) coordinate (CN) circle (r);
+		\path (CN) node[inner sep =3pt,font=\color{\mycolor!40!black}\chapternumberfont,text width=1.5cm,align=center,shape=circle,fill=\mycolor!90,path fading=fade out](numchap){\arabic{section}};
+		\path [decorate, decoration={text along path,
+			text={|\large\sffamily\bfseries|B {à} i },text align=center}]($(CN)+({-1.1*r},0)$) arc (180:0:{1.1*r});
+	\end{tikzpicture}
+}
+
+%%%===========================subsection===============%%%
+\renewcommand{\thesubsection}{\Roman{subsection}}
+\titlespacing*{\subsection}{3pt}{10pt}{0pt}
+\titleformat{\subsection}
+{}
+{%
+	\begin{tikzpicture}[remember picture]
+		\path (0,0) 
+		node [\mycolor,minimum height= .8cm,font=\bfseries \fontfamily{qag}\selectfont](Sub)%
+		{\thesubsection};
+		\path
+		(Sub.north west)coordinate (B)
+		(Sub.south east)coordinate (C)
+		(Sub.west)coordinate (D)
+		(Sub.east)coordinate (E)
+		($ (D)+(3pt,0) $) coordinate (D1)
+		($ (E)+(3pt,0) $) coordinate (E1)
+		;
+		\fill[\mycolor!40] (B)--(Sub.north east)--(E1)--(C)--(Sub.south west)--cycle 
+		;
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor,minimum height= .8cm,inner sep=3pt,anchor=west,font=\bfseries \fontfamily{qag}\selectfont](Muc)%
+		{#1};
+		\path
+		(Muc.north west)coordinate (Bt)
+		(Muc.south east)coordinate (Ct)
+		(Muc.west)coordinate (Dt)
+		(Muc.east)coordinate (Et)
+		($ (Dt)+(3pt,0) $) coordinate (D1t)
+		($ (Et)+(3pt,0) $) coordinate (E1t)
+		;
+		\fill[\mycolor!20] (D1t)--(Bt)--(Muc.north east)--(E1t)--(Ct)--(Muc.south west)--cycle 
+		;
+		\path (0,0) 
+		node [\mycolor!50!black,font=\Large\bfseries\fontfamily{qag}\selectfont]
+		{\thesubsection};
+		\path ($ (Sub.east)+(1pt,0) $) 
+		node [\mycolor!50!black,anchor= west,font=\Large\bfseries \fontfamily{qag}\selectfont]{#1};
+\end{tikzpicture}}
+{3pt}{}
+
+%%%=======================subsubsection=============================%%%
+%%%==========================================================%%%
+\titlespacing*{\subsubsection}{0.5cm}{0pt}{0pt}
+\titleformat{\subsubsection}
+{}
+{\color{\mycolor!90!black}\large\bfseries\fontfamily{qag}\selectfont\circlenumH[\mycolor!90!black]{\arabic{subsubsection}}\;\large\bfseries\fontfamily{qag}\selectfont{#1}}
+{1ex minus .2ex}
+{}
+{}
+%%%==========================================================%%%

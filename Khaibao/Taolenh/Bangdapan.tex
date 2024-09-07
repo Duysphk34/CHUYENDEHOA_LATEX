@@ -1,0 +1,114 @@
+\usepackage{intcalc}
+\newcounter{itemcounth}
+\newcommand{\bangdapan}[1]{%
+	\setcounter{itemcounth}{0}
+	\begin{center}
+		{\large \bfseries\sffamily BẢNG ĐÁP ÁN TRẮC NGHIỆM }
+		\medskip 
+	\end{center}
+	\begin{center}
+		\begin{minipage}{16cm}
+			\setcounter{itemcounth}{0}
+			\RenewEnviron{Solution}[1]{%
+				\addtocounter{itemcounth}{1}
+				\ifodd\intcalcDiv{\value{itemcounth}-1}{10}
+				\tikz{\path (0,0) node[draw=\mauphu,thick,inner sep=3pt,text width=1.2cm,minimum height=0.65cm,
+					rounded corners=3pt,outer sep=0pt,fill=\mycolor!5]{%
+						\textcolor{\maudam}{\textbf{##1}}\hfill 
+						\textcolor{\maudam}{\textbf{\BODY}}%
+					};
+				}\ignorespaces
+				\else
+				\tikz{\path (0,0) node[draw=\mycolor,thick,inner sep=3pt,text width=1.2cm,minimum height=0.65cm,
+					rounded corners=3pt,outer sep=0pt,fill=\mycolor!5]{%
+						\textcolor{\mycolor}{\textbf{##1}}\hfill 
+						\textcolor{\mycolor}{\textbf{\BODY}}%
+					};
+				}\ignorespaces
+				\fi
+				\ifthenelse{\equal{\intcalcMod{\value{itemcounth}}{10}}{0}}
+				{\par\noindent\ignorespaces}{\hspace*{-3pt}}
+			}
+			\noindent
+			\input{Ans/#1}
+		\end{minipage}
+	\end{center}%
+}
+
+\newcommand{\bangdapanTF}[1]{%
+	\begin{center}
+		\textbf{\large\textsf{BẢNG ĐÁP ÁN ĐÚNG SAI Đ/S}}
+	\end{center}
+	\noindent
+	\setcounter{itemcounth}{0}
+	\RenewEnviron{Solbook}[1]{%
+		\addtocounter{itemcounth}{1}%
+		\ifodd\intcalcDiv{\value{itemcounth}-1}{4}%
+		\tikz{\path (0,0) node[draw=\mauphu,thick,inner sep=2pt,text width=4.1cm,minimum height=0.65cm,
+			rounded corners=3pt,outer sep=0pt,fill=\mycolor!5]{%
+				\textcolor{\maudam}{\textbf{Câu~##1}} \hfill
+				\textcolor{\maudam}{\textbf{\BODY}}%
+			};
+		}\ignorespaces
+		\else%
+		\tikz{\path (0,0) node[draw=\mycolor,thick,inner sep=2pt,text width=4.1cm,minimum height=0.65cm,
+			rounded corners=3pt,outer sep=0pt,fill=\mycolor!5]{%
+				\textcolor{\mycolor}{\textbf{Câu~##1}}\hfill 
+				\textcolor{\mycolor}{\textbf{\BODY}}%
+			};
+		}\ignorespaces
+		\fi%
+	}
+	\noindent
+	\input{Ansbook/#1}
+}
+
+%\newcommand{\bangdapanSA}[1]{%
+%	\RenewEnviron{loigiaibt}[1]{%
+%		\noindent{\small\textsf{\textbf{\color{\maunhan!50!black}\faKey BT ##1}}}\hfill
+%		\tikz[baseline=(char.base)]
+%		{\path (0,0) node[rounded corners,draw=cyan!75!blue,text width=2.25cm,align=center] (char){\BODY}%
+%		}
+%		
+%	}%
+%	
+%	\begin{center}
+%		{\sffamily\bfseries ĐÁP SỐ PHẦN TRẢ LỜI NGẮN}
+%	\end{center}
+%	
+%	\medskip
+%%	\begin{multicols}{4}%
+%		\input{Ans/#1}
+%%	\end{multicols}%
+%}	
+
+\newcommand{\bangdapanSA}[1]{%
+	\setcounter{itemcounth}{0}
+	\RenewEnviron{loigiaibt}[1]{%
+		\addtocounter{itemcounth}{1}%
+		\ifodd\intcalcDiv{\value{itemcounth}-1}{4}%
+		{\small{\textbf{\color{\maunhan!50!black}\faKey BT ##1}}}\hspace{0.1cm}
+			\noindent\tikz[baseline=(char.base)]
+			{\path (0,0) node[rounded corners,draw=\maunhan!50!black,text width=2.73cm,align=center,minimum height=0.65cm] (char){\BODY}%
+			}
+		\else%
+		{\small{\textbf{\color{\mauphu!50!black}\faKey BT ##1}}}\hspace{0.1cm}
+			\tikz[baseline=(char.base)]
+			{\path (0,0) node[rounded corners,draw=\mauphu!50!black,text width=2.73cm,align=center,minimum height=0.65cm] (char){\BODY}%
+			}
+		\fi%
+	}
+	\begin{center}
+		\textbf{\large\textsf{ĐÁP SỐ PHẦN TRẢ LỜI NGẮN}}
+	\end{center}
+	\noindent
+	\input{Ans/#1}
+}
+
+
+
+
+
+
+
+

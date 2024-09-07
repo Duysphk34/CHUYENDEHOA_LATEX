@@ -1,0 +1,395 @@
+\renewcommand\circl[2][\mycolor]{\tikz[baseline=(char.base)]{\node[shape=circle,inner sep=1pt,font=\color{#1!70!black}\bfseries\fontfamily{qag}\selectfont,minimum size=16pt,anchor=base,fill=#1!20] (char) {#2};
+	}
+}
+%%%================Lệnh immini================%%%
+\def\loaicau{}
+\renewcommand{\immini}[3][]{
+	\savebox{\imbox}{#3}
+	\setlength{\widthPB}{0.55\linewidth}
+	
+	\tcbsidebyside[
+	sidebyside adapt=right,
+	blanker,sidebyside gap=5mm,
+	sidebyside align=top seam,
+	]{%
+		{\tieudehinh}#2
+	}{%
+		\usebox{\imbox}
+	}
+	\loaicau
+}
+
+\renewcommand{\hinhphai}[2]{%
+	\tcbsidebyside[
+	sidebyside adapt=right,
+	blanker,sidebyside gap=5mm,
+	sidebyside align=top seam,
+	]{%
+		{\tieudehinh} #1
+	}{%
+		#2%
+	}
+}
+
+\def\luuloigiaibt{
+	\AtBeginEnvironment{bt}{
+		\renewcommand{\loigiai}[1]{%
+			\gdef\tieudehinh{}
+			\scantokens{%
+				\begin{giaibth}
+					##1
+				\end{giaibth}}
+		}
+	}
+}
+
+\newcommand{\taoNdongke}[2][5]{
+	\AtBeginEnvironment{#2}{
+		\renewcommand{\loigiai}[1]{%
+		\gdef\tieudehinh{}
+			\Pointilles{#1}
+		}
+	}
+
+}
+
+\newcommand{\taoNdongkevd}[1][5]{
+	\AtBeginEnvironment{vd}{
+		\renewcommand{\loigiai}[1]{%
+			\end{vdbox}
+			\def\vdend{}
+			\gdef\tieudehinh{}
+			\Pointilles{#1}
+		}
+	}
+	
+}
+%\def\hienthiloigiaiex{%
+%	\AtBeginEnvironment{ex}{
+%		\renewcommand{\loigiai}[1]{%
+%			{\par\noindent\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\bfseries\fmmfamily\LARGE Lời giải:}} 
+%			\par\noindent##1%\hfill \faKey~\circleTrue{\Alph{numTrue}}
+%			\ifthenelse{\value{numTrueSol}>0}{
+%				\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily \faKey~\circleTrue[\mycolor!50!\maunhan]{\Alph{numTrueSol}}}
+%			}{} 
+%		}
+%	}
+%}
+\def\hienthiloigiaibt{%
+	\AtBeginEnvironment{bt}{
+		\renewcommand{\loigiai}[1]{%
+		{\par\noindent\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}%
+		\par\noindent%
+		##1
+	}
+}
+}
+
+\def\luuloigiaiex{
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}\dotEX}}}
+		\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}\dotEX}}}
+		\setboolean{TNdungsai}{false}%
+		\gdef\loaicau{\setboolean{TNdungsai}{false}}%
+		\renewcommand{\loigiai}[1]{%
+			\ifthenelse{\boolean{TNdungsai}}{%Câu hỏi trắc nghiệm đúng sai
+				\scantokens{%
+					\begin{giaiex}
+						##1
+						\phantom{a}\hfill{{\faKey}~ 
+							\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+							\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+							\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+							\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+						}%
+				\end{giaiex}}
+				\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+				\scantokens{
+					\begin{solbook}
+						\writeANS
+					\end{solbook}
+				}%
+			}{%Câu hỏi trắc nghiệm 1 phương án
+				\ifnum\the\value{numTrue}=1
+				\scantokens{%
+					\begin{giaiex}
+						##1
+						\phantom{a}\hfill{ \faKey~\circlenum{A}}
+				\end{giaiex}}
+				\fi%
+				\ifnum\the\value{numTrue}=2
+				\scantokens{%
+					\begin{giaiex}
+						##1
+						\phantom{a}\hfill{ \faKey~\circlenum{B}}
+				\end{giaiex}}
+				\fi%	 
+				\ifnum\the\value{numTrue}=3
+				\scantokens{%
+					\begin{giaiex}
+						##1
+						\phantom{a}\hfill{ \faKey~\circlenum{C}}
+				\end{giaiex}}
+				\fi %	 
+				\ifnum\the\value{numTrue}=4
+				\scantokens{%
+					\begin{giaiex}
+						##1
+						\phantom{a}\hfill{ \faKey~\circlenum{D}}
+				\end{giaiex}}
+				\fi\vspace*{-3pt}%
+			} 
+		}
+	}
+}
+%%%======================================%%%%
+\def\tatloigiaiex{%
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+		\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}}}}
+		\setboolean{TNdungsai}{false}
+		\gdef\loaicau{\setboolean{TNdungsai}{false}}%
+		\renewcommand{\loigiai}[1]{%
+			\ifthenelse{\boolean{TNdungsai}}{
+				\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+				\scantokens{
+					\begin{solbook}
+						\writeANS
+					\end{solbook}
+				}
+			}{}
+		}
+	}
+}
+%%%=============================================%%%
+\def\hienthiloigiaiex{%
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\FalseEX}{\stepcounter{dapan}{\circl{\Alph{dapan}\dotEX}}}
+		\renewcommand{\TrueEX}{\stepcounter{dapan}{\circl{\Alph{dapan}\dotEX}}}
+		\setboolean{TNdungsai}{false}
+		\gdef\loaicau{\setboolean{TNdungsai}{false}}%
+		\renewcommand{\loigiai}[1]{%
+			\par\noindent%
+			{\color{dndo}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn.}}%
+			\ifthenelse{\boolean{TNdungsai}}{%Câu hỏi trắc nghiệm đúng sai
+				 ##1 \hfill{{\faKey}~ 
+					\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+					\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+					\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+					\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+				}%
+				\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+				\scantokens{
+					\begin{solbook}
+						\writeANS
+					\end{solbook}
+				}%
+			}%Câu hỏi trắc nghiệm nhiều lựa chọn
+			{%
+				\par\noindent%
+				##1
+				\ifthenelse{\value{numTrueSol}>0}{
+					\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily \faKey~\circleTrue[\mycolor!50!\maunhan]{\Alph{numTrueSol}}}
+				}{} 
+			}
+		}%
+	}%
+}
+
+\def\luulgEXTF{
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\loigiai}[1]{%
+			\Writetofile{ansex}{\string\def\string\writeANS{\saveans}}
+			\scantokens{%
+				\begin{giaiex}
+					##1
+					\phantom{a}\hfill{ \faKey~\writeANS}
+				\end{giaiex}
+			}% 
+			\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+			\scantokens{
+				\begin{solbook}
+					\writeANS
+				\end{solbook}%
+			} 
+		}
+	}
+}
+
+
+\renewcommand{\LGexTF}{
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\loigiai}[1]{%
+		\par\noindent%
+		{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1 \hfill{{\faKey}~ 
+			\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+			\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+			\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+			\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+		}%
+		\Writetofile{ansbook}{\string\def\string\writeANS{\saveans}}
+		\scantokens{
+			\begin{solbook}
+				\writeANS
+			\end{solbook}%
+		}%		
+	}
+}
+}
+\newcommand{\LGbtTF}{
+\AtBeginEnvironment{bt}{
+	\renewcommand{\loigiai}[1]{%
+	\par\noindent%
+	{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải.}} ##1 \hfill{{\faKey}~ 
+		\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+		\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+		\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+		\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+	}
+}
+}
+}
+
+\newcommand{\LGvdTF}{
+\AtBeginEnvironment{vd}{
+\renewcommand{\loigiai}[1]{%
+\end{vdbox}
+\def\vdend{}
+\par\noindent%
+{\reflectbox{\color{\mycolor}\Large\WritingHand}\ {\color{\mycolor}\fmmfamily\LARGE Lời giải.}} ##1 \hfill{{\faKey}~ 
+	\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
+	\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
+	\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
+	\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
+}
+}
+}
+}
+
+\newcommand{\LGTNVD}{
+\AtBeginEnvironment{vdex}{
+\renewcommand{\loigiai}[1]{
+\end{vdexbox}
+\def\vdexend{}
+\par\noindent{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\color{\mycolor}\fmmfamily\LARGE Lời giải.}}
+##1\hfill\faKey\circlenum{\Alph{numTrue}} 
+}
+}
+}
+
+\def\dongkeex{
+	\AtBeginEnvironment{ex}{
+		\renewcommand{\loigiai}[1]{%
+		\DoiThanhDongKe{##1}
+	}
+}
+}
+
+%%%=============================================%%%
+\def\dongkeHaicotex{
+\AtBeginEnvironment{ex}{
+	\renewcommand{\loigiai}[1]{
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}
+}
+}
+}
+
+%%%=============================================%%%
+\def\dongkebt{
+	\AtBeginEnvironment{bt}{
+		\renewcommand{\loigiai}[1]{
+		\DoiThanhDongKe{##1}
+	}
+}
+}
+
+%%%=============================================%%%
+\def\dongkeHaicotbt{
+\AtBeginEnvironment{bt}{
+	\renewcommand{\loigiai}[1]{
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}
+}
+}
+}
+
+\makeatletter
+\RenewDocumentEnvironment{ex}{+!O{}}{%
+	\ifblank{#1}{%
+		\@ifnextchar\immini{
+				\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex.\,}}\ignorespaces%
+			}%
+			{
+				\@ifnextchar\hinhphai{%
+				 \gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex.\,}}\ignorespaces\ignorespaces%
+				}{%
+				{\par\noindent{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex}.\,}\ignorespaces%
+				}
+		    }%
+		}%
+		{\@ifnextchar\immini{
+				\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex }{\;(\textit{#1}).\,}}\ignorespaces%
+			}%
+			{
+				\@ifnextchar\hinhphai{
+					\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex }{\;(\textit{#1}).\,}}\ignorespaces%
+				}{
+				    {\par\vspace*{-6pt}\noindent\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Câu \theex}{\;(\textit{#1}).\,}\ignorespaces%
+				}
+			}%
+		}%
+}{\gdef\tieudehinh{}\ignorespacesafterend}
+\makeatother
+\AtBeginEnvironment{ex}{
+%	\refstepcounter{ex}
+	\setcounter{numTrue}{0}%
+	\setcounter{numTrueSol}{0}%
+	\def\dotEX{.}%
+	\setcounter{numChoice}{0}%
+	\renewcommand{\loigiai}[1]{\gdef\tieudehinh{}\par\noindent%
+		{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1
+		\ifthenelse{\value{numTrueSol}>0}{
+			\hfill \textcolor{\mycolor}{\fontfamily{qag}\selectfont \faKey~\circlenum{\Alph{numTrueSol}}}
+		}{}
+	}
+} 
+
+\makeatletter
+\RenewDocumentEnvironment{bt}{+!O{}}{%
+		\ifblank{#1}{%
+		\@ifnextchar\immini{
+			\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt.\,}}%
+		}%
+		{
+			\@ifnextchar\hinhphai{%
+				\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt.\,}}%
+			}{%
+				{\par\noindent{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt}.\,}%
+			}
+		}%
+	}%
+	{\@ifnextchar\immini{
+			\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt } {(\textit{#1}).\,}}%
+		}%
+		{
+			\@ifnextchar\hinhphai{
+				\gdef\tieudehinh{{\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt } {(\textit{#1}).\,}}%
+			}{
+				{\par\vspace*{-6pt}\noindent\color{\mycolor!50!black}\bfseries\fontfamily{qag}\selectfont Bài \thebt} {(\textit{#1}).\,}%
+			}
+		}%
+	}%
+}{\gdef\tieudehinh{}\ignorespacesafterend}
+\makeatother
+
+\AtBeginEnvironment{bt}{
+%	\refstepcounter{bt}
+	\renewcommand{\loigiai}[1]{
+		\gdef\tieudehinh{}\par\noindent%
+		{\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1
+	}
+} 
+

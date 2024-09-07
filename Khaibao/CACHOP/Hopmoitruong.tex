@@ -1,0 +1,350 @@
+\newcounter{hd}[section]
+\newtcolorbox{hd}{before skip=6pt,after skip=6pt,
+	left skip=-0.35cm,
+	boxsep=1pt,
+	enhanced,
+	top=0pt,
+	frame empty,
+	frame hidden,
+	opacityback=0,
+	code={\refstepcounter{hd}},
+	before upper={
+		\begin{tikzpicture}[declare function={r=0.165;},baseline=(char.base)]
+			\path (30:1.1*r) pic[fill=orange,draw=white]{laphuong};
+			\path (150:1.1*r) pic[fill=red!75!blue,draw=white]{laphuong};
+			\path (270:1.075*r) pic[fill=green!75!blue,draw=white]{laphuong};
+			\fill[darkmidnightblue] (60:{2.5*r})--+(4*r,0)--(7.5*r,0)--($(-60:{2.5*r})+(4*r,0)$)--+(-4*r,0) arc(-60:60:{2.5*r});
+			\draw[ultra thick,darkmidnightblue](0,0) circle (2.5*r) (8*r,0);
+			\path ($({4*r},0)+(0.5pt,-0.65pt)$) node[font=\bfseries\sffamily\color{gray!65}\large] (char){\thehd};
+			\path ({4*r},0) node[font=\bfseries\sffamily\color{white}\large] (char){\thehd};
+	\end{tikzpicture}}
+}
+
+\newtcolorbox{kttrongtam}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=1cm,
+	right=0.25cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=7pt,
+	colback=orange!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=orange!35,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{orange!65},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[orange,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(2,0)--($(A)+(0,-1.25)$)--cycle;
+		\path ($(A)+(0.65,-0.15)$) coordinate (B) node{
+			\begin{tikzpicture}[x=3.65pt,y=3.65pt,xscale=-1]
+				\draw[thick,orange,fill=white] (-1,-4) to[out=50,in=-90,looseness=1.4] (-1,-3) to[out=-160,in=0]
+				(-2,-3.2) to[out=180,in=-120] (-2.7,-2) to[out=120,in=-120] (-2.9,-1.5)
+				to[out=120,in=-120] (-2.95,-1.1) to[out=60,in=-30] (-3.2,-0.9)
+				to[out=150,in=-120] (-3,0.4) to[out=60,in=-90] (-3,1.2)
+				to[out=90,in=90,looseness=1.8] (3.3,1.2)
+				to[out=-90,in=90,looseness=0.8] (2,-2)
+				to[out=-90,in=150,looseness=0.8] (3.2,-4) -- cycle;
+			\end{tikzpicture}
+		};
+		\tikzset{declare function={r=0.275;}}
+		\path (B) pic[fill=orange,draw=white]{laphuong};
+	}
+}
+
+\newenvironment{tomtat}{\begin{kttrongtam}}{\end{kttrongtam}}
+
+\newcounter{lt}[section] %số điếm của môi trường luyện tập
+\newtcolorbox{luyentap}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=green!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=green!30!blue!45,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{green!50},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[green!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0)--($(A)+(0,-1.25)$)--cycle;
+		\path ($(A)+(0.5,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faEdit};
+		\path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{yellow}]{\faEdit};
+	},
+	code={\refstepcounter{lt}},
+	before upper={
+		\circlenum{\thelt}
+	}
+}
+
+\newtcolorbox{bttuongtu}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=green!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=green!30!blue!45,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{green!50},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[green!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0) coordinate (Bt)--($(A)+(0,-1.25)$)coordinate (Ct)--cycle;
+		\path ($(A)+(0.5,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faEdit};
+		\path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{yellow}]{\faEdit};
+		\path (Bt)--(Ct) node[below=-2.5pt,sloped,pos=0.5,text=green!75!black]{\scriptsize\sffamily bài tập tương tự};
+	}
+}
+%%%=============Lưu ý===============%%%%
+\newtcolorbox{luuy}{
+	enhanced,breakable,
+	before skip=6pt,after skip=6pt,
+	boxsep=9pt,
+	before skip=16pt,
+	left=0.75cm,
+	right=0.15cm,
+	bottom=0pt,
+	frame empty,
+	frame hidden,
+	arc=5pt,
+	colback=teal!7,
+	sharp corners,
+	rounded corners=south,
+	colframe=teal!55,
+	boxrule=0pt,
+	borderline north={9pt}{0pt}{teal!65},
+	drop fuzzy shadow=gray!75,
+	overlay unbroken and first ={
+		\fill[teal!80!black,drop shadow={opacity=0.25,shadow xshift=1pt, shadow yshift=-1.5pt,shadow scale=1.05}] (frame.north west) coordinate (A)--+(1.5,0)--($(A)+(0,-1.25)$)--cycle;
+		\draw[teal!80!black,ultra thick,rounded corners=2pt] ($(A)+(6pt,0)$)--++(0,9pt)--++(12pt,0)--+(0,-9pt)
+		($(A)+(9pt,0)$)--++(0,5pt)--++(6pt,0)--+(0,-5pt)
+		;
+		\draw[white,ultra thick,rounded corners=2pt] ($(A)+(18pt,0)$)--++(0,-15pt)--++(-8.5pt,0)--+(0,15pt);
+		% \path ($(A)+(0.15,-0.4)$) coordinate (B) node[font=\LARGE\color{gray!65}]{\faPaperclip};
+		% \path ($(B)+(-1pt,1pt)$) node[font=\LARGE\color{yellow}]{\faPaperclip};
+	}
+}
+
+\usetikzlibrary{shapes.symbols}
+
+\usepackage{paracol}%chia cột có tùy chọn độ rộng
+\columnratio{0.7}
+\globalcounter{lt}
+\usetikzlibrary{decorations.pathmorphing}
+\NewEnviron{cauhoikd}{
+\begin{center}
+	\begin{tikzpicture}
+		\node[cloud,cloud ignores aspect=true,cloud puffs=35,cloud puff arc=70,draw=cyan!65,fill=white,
+		text width=0.5\linewidth,font=\sffamily,drop shadow={opacity=0.25,color=cyan}]
+		(nA){\BODY};
+		\begin{scope}[rotate=5]
+			\draw[cyan,fill=white] ($(nA.south west)+(-2,0.5)$) coordinate (A) circle (0.6)
+			($(A)+(240:0.375)$) arc (240:310:0.35)
+			($(A)+(30:0.2)$) circle (2pt)
+			($(A)+(150:0.2)$) circle (2pt);
+			\draw[thin,cyan!65] (A) circle (0.675);
+			\draw[cyan!85,line cap=round,thick,shift={(A)}] (15:0.675) arc (15:165:0.675)
+			(-15:0.675) arc (-15:-165:0.675);
+			\fill[cyan] ($(A)+(150:0.185)$) circle (1pt)
+			($(A)+(30:0.185)$) circle (1pt);
+			\path ($(A)+(60:0.7)+(-45:1pt)$) node[rotate=5,font=\bfseries\LARGE\color{gray}]{?};
+			\path ($(A)+(60:0.7)$) node[rotate=5,font=\bfseries\LARGE\color{orange}]{?};
+		\end{scope}
+	\end{tikzpicture}
+	\end{center}}
+	
+\NewEnviron{trithuc}{
+\begin{center}
+	\begin{tikzpicture}
+		\node[decorate,decoration={snake},segment length=15pt,draw=cyan!65,thick,
+		fill=white,text width=0.75\linewidth,font=\sffamily,drop shadow={opacity=0.25,color=cyan}]
+		(nA){\BODY};
+		\begin{scope}[rotate=5]
+			\draw[cyan,fill=white] ($(nA.north west)+(-1,-0.25)$) coordinate (A) circle (0.6)
+			($(A)+(240:0.375)$) arc (240:310:0.35)
+			($(A)+(30:0.2)$) circle (2pt)
+			($(A)+(150:0.2)$) circle (2pt);
+			\draw[thin,cyan!65] (A) circle (0.675);
+			\draw[cyan!85,line cap=round,thick,shift={(A)}] (15:0.675) arc (15:165:0.675)
+			(-15:0.675) arc (-15:-165:0.675);
+			\fill[cyan] ($(A)+(150:0.185)$) circle (1pt)
+			($(A)+(30:0.185)$) circle (1pt);
+			\path ($(A)+(60:0.7)+(-45:1pt)$) node[rotate=-5,font=\bfseries\LARGE\color{gray}]{\faLightbulbO};
+			\path ($(A)+(60:0.7)$) node[rotate=-5,font=\bfseries\LARGE\color{red}]{\faLightbulbO};
+		\end{scope}
+	\end{tikzpicture}
+	\end{center}}
+	\newcommand{\timhieuthem}{%
+\par
+\noindent
+\hspace*{-0.65cm}
+\begin{tikzpicture}[declare function={rt=0.65;d=sqrt(2)*rt;}]
+	\path (90:rt) coordinate (A)
+	(180:rt) coordinate (B)
+	(270:rt) coordinate (C)
+	(0:rt) coordinate (D)
+	([shift={(0.15,0)}]0:rt) coordinate (E)
+	($ (E)+(135:rt) $) coordinate (F)
+	($ (E)+(-135:rt) $) coordinate (G)
+	($ (A)!0.5!(F) $) coordinate (AF)
+	($ (D)!0.5!(E) $) coordinate (DE)
+	($ (C)!0.5!(G) $) coordinate (CG)
+	;
+	\path[transform canvas={shift={(-45:2.5pt)}},left color=darkmidnightblue!50,right color=darkmidnightblue!5]
+	(F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+	\path[outer color=darkmidnightblue!65!black,inner color=darkmidnightblue!80,rounded corners=2pt] (A)--(B)--(C)--(D)--cycle;
+	\draw[line width=0.65pt,darkmidnightblue,line cap=round,rounded corners=1.5pt]
+	(AF)--(DE)--(CG);
+	\draw[transform canvas={xscale=-1},line width=0.65pt,darkmidnightblue,line cap=round,rounded corners=1.5pt] (AF)--(DE)--(CG);
+	\path[left color=darkmidnightblue!90!black,right color=darkmidnightblue!50] (F)--(E)--(G)--+(1.25*\linewidth,0)--([turn]90:d)--cycle;
+	\path (-0.7pt,-0.3pt) node[inner sep=0pt,font=\Large\itshape\bfseries\color{gray},xscale=-1]{\faSearchPlus};
+	\path (-1pt,0) node[inner sep=0pt,font=\Large\itshape\bfseries\color{white},xscale=-1]{\faSearchPlus};
+	\path ([shift={(0.11,-0.01)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{gray}]{TÌM HIỂU THÊM};
+	\path ([shift={(0.1,0)}]E) node[align=left,anchor=west,font=\large\sffamily\bfseries\color{white}]{TÌM HIỂU THÊM};
+\end{tikzpicture}%
+}
+
+\newcommand{\baitap}{\par%
+\noindent
+\begin{tikzpicture}
+	\path[left color=black!25,right color=white] (0,0) --(5cm,0)--([turn]90:0.7cm)--([turn]90:5cm)--cycle;
+	\path[fill=darkmidnightblue] (0,0)--(0.7cm,0)--([turn]90:0.7cm)--([turn]90:0.7cm)--cycle;
+	\path[left color=darkmidnightblue,right color=white] (0,0)--(\linewidth,0)--([turn]90:1pt)--([turn]90:\linewidth)--cycle;
+	\path (0.75,-1.5pt) node[anchor=south west,font=\sffamily\bfseries\color{\mauchinh}]{BÀI TẬP};
+	\path (0.73,-2pt) node[anchor=south west,font=\sffamily\bfseries\color{cyan}]{BÀI TẬP};
+\end{tikzpicture}
+}
+
+\newcounter{dang}
+\newtcolorbox{dang}[1]{
+fonttitle=\sffamily\bfseries,%fontupper=\itshape,
+breakable,
+enhanced jigsaw,
+colbacktitle=\mauchinh,
+coltitle=white,
+colframe=\mauchinh,
+colback=white,
+sharp corners,
+rounded corners=south,
+borderline north={1pt}{0pt}{maudoilap},
+drop fuzzy shadow=gray!75,
+before skip=3mm,after skip=3mm,
+left=2mm,right=2mm,top=2mm,bottom=2mm,
+title style={left color=\mauchinh,right color=\mauchinh!65},
+underlay unbroken and first={
+	\def\dai{0.75}
+	\pgfmathsetmacro{\daih}{\dai/cos(20)}
+	\def\cao{0.5}
+	\fill[\mauchinh!85!black,rounded corners=1pt,drop shadow={shadow xshift=1pt, shadow yshift=-1pt,fill=gray!65}]
+	([shift={(2*\dai,5pt)}]title.north west)
+	coordinate (A1)
+	--+(2*\dai,0) coordinate (A2)
+	--([turn]-90:\cao) coordinate (A3)
+	--([turn]-70:\daih)
+	--([turn]-40:\daih) coordinate (A4)
+	--cycle;
+	\begin{pgfonlayer}{background}
+		\fill[gray!65] (A1)--++(225:0.5)--+(1,0)--cycle;
+	\end{pgfonlayer}
+	\node[circle,draw=white,fill=maudoilap,line width=1pt, inner sep=3pt,text=white,font=\sffamily\bfseries] at ($(A1)!0.5!(A3)+(0,-5pt)$){\thedang};
+	\path([yshift=-1.5pt]A4) node[font=\sffamily\bfseries,text=white,anchor=east]{Dạng};
+},
+overlay middle and last={
+	\def\dai{0.75}
+	\pgfmathsetmacro{\daih}{\dai/cos(20)}
+	\def\cao{0.5}
+	\fill[left color=\mauchinh,right color=\mauchinh!65,draw=\mauchinh,line width=1.4pt] ($(frame.north west)+(0.7pt,13pt)$) rectangle ($(frame.north east)+(-0.7pt,-7pt)$);
+	\fill[\mauchinh!85!black,rounded corners=1pt,drop shadow={shadow xshift=1pt, shadow yshift=-1pt,fill=gray!65}]
+	([shift={(2*\dai,17pt)}]frame.north west)
+	coordinate (A1)
+	--+(2*\dai,0) coordinate (A2)
+	--([turn]-90:\cao) coordinate (A3)
+	--([turn]-70:\daih)
+	--([turn]-40:\daih) coordinate (A4)
+	--cycle;
+	\begin{pgfonlayer}{background}
+		\fill[gray!65] (A1)--++(225:0.5)--+(1,0)--cycle;
+	\end{pgfonlayer}
+	\node[circle,draw=white,fill=maudoilap,line width=1pt, inner sep=3pt,text=white,font=\sffamily\bfseries] at ($(A1)!0.5!(A3)+(0,-5pt)$){\thedang};
+	\path([yshift=0.5pt]A4) node[font=\sffamily\bfseries,text=white,anchor=east]{Dạng};
+	\path([yshift=0.5pt]A3) node[font=\sffamily\bfseries,text=white,anchor=west]{Phần tiếp theo};
+},
+title={\hspace*{2.9cm}\parbox{\textwidth-3cm}{#1}\refstepcounter{dang}},%
+}
+%%%========môi trường note==============%%%
+\usepackage{relsize}
+\newenvironment{note}{\begin{luuy}%
+	{\faBellO\ \relscale{0.9}{\usefont{T5}{put}{b}{sc} Lưu ý}}. \ignorespaces}{\end{luuy}}
+	
+	\newenvironment{nx}{\begin{luuy}%
+	{\faPaperclip\ \relscale{0.9}{\usefont{T5}{put}{b}{sc} Nhận xét}}. \ignorespaces}{\end{luuy}}
+	
+	\newenvironment{pp}{\begin{luuy}%
+	{\faSpinner\ \relscale{0.9}{\usefont{T5}{put}{b}{sc} Phương pháp}}. \ignorespaces}{\end{luuy}}
+	
+	\newenvironment{phuongphap}{\begin{luuy}%
+	{\faSpinner\ \relscale{0.9}{\usefont{T5}{put}{b}{sc} Phương pháp}}. \ignorespaces}{\end{luuy}}
+	
+	\newcommand\khungct[1]
+	{\noindent
+\begin{tikzpicture}[baseline=(char.base)]%
+	\tikzstyle{khung} = [rectangle,draw=darkmidnightblue,inner sep=6pt,rounded corners]%
+	\node [khung] (char){%
+		$
+		\; #1.\;
+		$
+	};%
+	\end{tikzpicture}}
+	\newenvironment{phantich}{\begin{luuy}%
+	{\faGears\ \relscale{0.9}{\usefont{T5}{put}{b}{sc} Phân tích}}. \ignorespaces}{\end{luuy}}
+	\usepackage{amsxtra,amssymb,latexsym,amscd,amsfonts}
+	\renewcommand{\thesubsection}{\arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+	%%%============môi trường định lý============%%%
+	\newcounter{dl}
+	\newenvironment{dl}[1][]{\setcounter{dl}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{dl}\ifblank{#1}{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thedl) Định lý.\,}}%
+{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thedl) Định lý (#1).\,}}\itshape}{}
+%%%============môi trường hq============%%%
+\newcounter{hq}
+\newenvironment{hq}[1][]{\setcounter{hq}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{hq}\ifblank{#1}{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thehq) Hệ quả.\,}}%
+{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thehq) Hệ quả (#1).\,}}\itshape}{}
+%%%============môi trường tc============%%%
+\newcounter{tc}
+\newenvironment{tc}[1][]{\setcounter{tc}{\arabic{subsubsection}}\refstepcounter{subsubsection}\refstepcounter{tc}\ifblank{#1}{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thetc) Tính chất.\,}}%
+{{\sffamily\bfseries\color{darkmidnightblue}\par\noindent\thetc) Tính chất (#1).\,}}\itshape}{}
+%%%============môi trường định nghĩa============%%%
+\definecolor{dnxanh}{HTML}{00CC99}
+\definecolor{dndo}{HTML}{CC0033}
+\newcounter{dncount}
+\newtcolorbox[use counter=dncount]{dn}{%
+empty,
+title={Định nghĩa \thetcbcounter.},
+left=5pt,right=3pt,top=3pt,bottom=2pt,
+boxed title style={empty,size=minimal},
+coltitle=dndo,fonttitle=\bfseries\sffamily,
+before=\par\medskip\noindent,parbox=false,boxsep=0pt,
+breakable,pad at break*=0mm,vfill before first,
+overlay unbroken={
+	\fill[rounded corners=5pt,dnxanh] (frame.north west) rectangle (frame.south east); 
+	\fill[rounded corners=5pt,dnxanh!9] ([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0.2pt,-0.2pt)}]frame.south east); 
+},
+overlay broken={
+	\fill[rounded corners=5pt,dnxanh] (frame.north west) rectangle (frame.south east); 
+	\fill[rounded corners=5pt,dnxanh!9] ([shift={(2pt,0.2pt)}]frame.north west) rectangle ([shift={(0.2pt,-0.2pt)}]frame.south east); 
+},
+}
