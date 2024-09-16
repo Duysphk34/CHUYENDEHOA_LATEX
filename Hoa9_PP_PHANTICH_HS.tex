@@ -1,0 +1,28 @@
+\documentclass[Main.tex]{subfiles}
+\everymath{\rm}
+\setlist[itemize,1]{itemsep=-3pt,topsep=0pt,label=\protect{\small\color{\mycolor}\rhombusdot},wide=0cm,leftmargin=0cm}
+\begin{document}
+	%%%Nhớ tắt 3 lệnh này khi chạy filemain
+	\setcounter{tocdepth}{3}
+	\setcounter{secnumdepth}{4}
+	%\tableofcontents
+	\makeatletter
+	\begin{center}
+		\begin{tcolorbox}[enhanced,hbox,breakable,
+			left=8mm,right=8mm,boxrule=0.55pt,
+			bottom=3pt,
+			colback=white,colframe=dnvang,
+			%drop fuzzy midday shadow=black!50!yellow,
+			drop lifted shadow=black!50!yellow,arc is angular,
+			before=\par\vspace*{-1mm},after=\par\bigskip]
+			{\bfseries\Large\color{dnvang}\sffamily MỤC LỤC} 
+		\end{tcolorbox}
+	\end{center}
+	\newcounter{somucluc}
+	\vskip-0.25cm%-1.25cm
+	\@starttoc{toc}
+	\makeatother
+	\titlespacing*{\subsubsection}{-0.5cm}{0cm}{0pt}
+    \input{DuLieu/Lop_9/Hoa/PhantichHS_G22P07G07N14T06N2024.tex}
+\end{document}
+

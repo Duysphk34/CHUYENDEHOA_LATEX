@@ -1,0 +1,178 @@
+\documentclass[Main.tex]{subfiles}
+\usepackage{adjustbox}
+\usepackage{paracol}
+\columnratio{0.65}
+\globalcounter{kp}
+\setlength{\columnseprule}{0pt}
+\def\gachngang{\resizebox{0.3cm}{!}{\_}}
+\NewDocumentCommand{\Rightpicture}{O{0.45}O{4pt}mm}{%
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{#1\linewidth}
+		\vspace*{#2}
+			#3
+		\end{minipage}
+	}
+	\hfill
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{0.98\linewidth-#1\linewidth}
+			#4
+		\end{minipage}
+	}
+}
+
+\AtBeginEnvironment{ex}{\renewcommand{\dotEX}{}}
+
+\newenvironment{vidu}[1][\mycolor]{
+	\begin{hopvidu}[#1]
+	\par\noindent\indam[#1]{Ví dụ:}
+	}{\end{hopvidu}}
+\newcommand{\khoanhvuong}[2][0.5cm]{\tikz[baseline=(char.base)]
+	{\node [draw=\maunhan, inner sep=0pt, outer sep=3pt, fill =\maunhan!10, minimum width =#1, minimum height =#1, anchor =base, baseline,rounded corners=3pt](char){#2};}
+	}
+\begin{document}
+%%%Lệnh hiển thị mục lục%%%
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%%%Lệnh hiển thị nội dung đến cấp mấy %%%
+\setcounter{secnumdepth}{4} % Hiển thị đến \paragraph
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\titlespacing*{\paragraph}{0cm}{0pt}{0pt}
+\chapter{Ôn tập đầu năm}
+\section{Phép cộng trừ có nhớ trong phạm vi 20}
+\subsection{Ôn tập số}
+\Noibat{Ví dụ mẫu}
+\begin{vidu}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 58 & 5 & 8 & $58=50+8$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{vidu}
+\subsubsection{Điền vào ô vuông theo ví dụ mẫu ở trên để hoàn thành các bài tập sau}
+
+%%% Bài Tập 1
+\begin{bt}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 25 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 25 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 89 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 89 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 34 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 34 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 57 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 57 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 68 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 68 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{bt}
+
+%%% Bài Tập 2
+\begin{bt}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 42 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 42 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 53 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 53 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 76 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 76 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 91 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 91 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 30 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 30 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 65 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 65 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{bt}
+
+
+%%% Bài Tập 3
+\begin{bt}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 11 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 11 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 24 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 24 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 38 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 38 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 49 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 49 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 72 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 72 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 85 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 85 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{bt}
+
+%%% Bài Tập 4
+\begin{bt}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 63 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 63 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 79 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 79 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 40 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 40 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 55 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 55 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 97 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 97 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 28 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 28 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{bt}
+
+%%% Bài Tập 5
+\begin{bt}
+	\begin{center}
+		\begin{tabular}{|C{0.15\linewidth}|*{3}{C{0.22\linewidth}|}}
+			\hline \textbf{Số} & \textbf{Chục} & \textbf{Đơn vị} & \textbf{Viết} \\
+			\hline 22 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 22 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 36 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 36 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 48 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 48 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 50 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 50 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 69 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 69 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline 91 & \khoanhvuong{\phantom{?}} & \khoanhvuong{\phantom{?}} & 91 = \khoanhvuong{\phantom{?}} + \khoanhvuong{\phantom{?}} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{bt}
+\subsection{Ôn tập các phép tinh}
+\subsubsection{Đặt các phép tính sau}
+
+\begin{bt}	
+	\begin{enumEX}{4}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 10+3 \\ 14-4 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 23+5 \\ 34-4 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 17+2 \\ 19-3 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 8+7 \\ 15-5 \end{array}$}
+	\end{enumEX}
+\end{bt}
+\begin{bt}	
+	\begin{enumEX}{4}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 12+6 \\ 18-4 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 25+3 \\ 30-5 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 9+8 \\ 16-2 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 21+7 \\ 28-6 \end{array}$}
+	\end{enumEX}
+\end{bt}
+\begin{bt}	
+	\begin{enumEX}{4}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 15+4 \\ 20-3 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 11+9 \\ 20-7 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 18+5 \\ 23-8 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 22+2 \\ 24-4 \end{array}$}
+	\end{enumEX}
+\end{bt}
+\begin{bt}	
+	\begin{enumEX}{4}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 7+6 \\ 13-2 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 14+4 \\ 18-5 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 20+3 \\ 23-1 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 13+7 \\ 20-6 \end{array}$}
+	\end{enumEX}
+\end{bt}
+\begin{bt}	
+	\begin{enumEX}{4}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 5+8 \\ 13-6 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 16+3 \\ 19-2 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 27+2 \\ 29-5 \end{array}$}
+		\item \khoanhvuong[1.8cm]{$\begin{array}{c} 24+6 \\ 30-4 \end{array}$}
+	\end{enumEX}
+\end{bt}
+\end{document}
+

@@ -1,0 +1,346 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\setlist[enumerate,1]{itemsep=-1pt,topsep=3pt,label*=\circlenum{\arabic*}}%
+
+\newcommand{\ngoacvuongtron}[2][]{
+	\begin{tikzpicture}[declare function={d=-4pt;},node distance=-d]
+		\node (name) {#2};
+		\node[anchor = west, above right =of name,shift={(2pt,-3pt)}](plus) {\large{#1}};
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north west)--([xshift=d]name.north west)|-($(name.south west) +(0,0)$);
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north east)--([xshift=-d]name.north east)|-($(name.south east) +(0,0)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+\NewDocumentCommand{\SanserifFont}{O{qag}O{12}O{\maunhan}O{\faCoffee}}{
+\color{#3}\bfseries\fontsize{#2pt}{6pt}\fontfamily{#1}\selectfont#4
+}
+%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\begin{center}
+	{\SanserifFont[qag][16]cách tính pH của dung dịch }
+\end{center}
+\subsubsection{Lý thuyết cần nhớ}
+\Noibat[][][\faAndroid]{Khái niệm pH}
+\begin{hopvidu}
+	\taodongke[0.9][\dotfill][gray]{15}
+\end{hopvidu}
+%%%%%===================%%%%%%
+\Noibat[\maudam][][\faAndroid]{pH của dung dịch acid/bazo mạnh}
+\begin{hopvidu}[\maudam]
+	\taodongke[0.9][\dotfill][gray]{10}
+\end{hopvidu}
+%%%%==========================%%%%
+\begin{hopvidu}[\mauphu]
+	\taodongke[0.9][\dotfill][gray]{10}
+\end{hopvidu}
+\Noibat[][][\faBank]{Một số ví dụ minh họa}
+\dongkevd
+%%%=============VD_1=============%%%
+\begin{vd}
+	Tính pH của các dung dịch sau:
+	\begin{enumerate}
+		\item Dung dịch $\mathrm{KOH}$ $0,01\;M$;
+		\item Dung dịch $\mathrm{HNO_3}$ $0,1\;M$;
+		\item Dung dịch $\mathrm{Ba{(OH)}_2}$ $0,005\;M$;
+		\item Dung dịch $\mathrm{H_2SO_4}$ $0,05\;M$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Dung dịch $\mathrm{KOH}$ $0,01\;M$:
+			\begin{align*}[\mathrm{OH^-}]
+				&= 0,01 \mathrm{M} \\
+				\mathrm{pOH} &= -\log[\mathrm{OH^-}] = -\log(0,01) = 2 \\
+				\mathrm{pH} &= 14 - \mathrm{pOH} = 14 - 2 = 12
+			\end{align*}
+			\item Dung dịch $\mathrm{HNO_3}$ $0,1\;M$:
+			\begin{align*}[\mathrm{H^+}]
+				&= 0,1 \mathrm{M} \\
+				\mathrm{pH} &= -\log[\mathrm{H^+}] = -\log(0,1) = 1
+			\end{align*}
+			\item Dung dịch $\mathrm{Ba{(OH)}_2}$ $0,005\;M$:
+			\begin{align*}[\mathrm{OH^-}]
+				&= 2 \times 0,005 = 0,01 \mathrm{M} \\
+				\mathrm{pOH} &= -\log[\mathrm{OH^-}] = -\log(0,01) = 2 \\
+				\mathrm{pH} &= 14 - \mathrm{pOH} = 14 - 2 = 12
+			\end{align*}
+			\item Dung dịch $\mathrm{H_2SO_4}$ $0,05\;M$:
+			\begin{align*}[\mathrm{H^+}]
+				&= 2 \times 0,05 = 0,1 \mathrm{M} \\
+				\mathrm{pH} &= -\log[\mathrm{H^+}] = -\log(0,1) = 1
+			\end{align*}
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============VD_2=============%%%
+\begin{vd}
+	Tính pH của các dung dịch sau:
+	\begin{enumEX}{2}
+		\item Dung dịch $\mathrm{NaOH}$ $0,001\;M$;
+		\item Dung dịch $\mathrm{HCl}$ $0,01\;M$;
+		\item Dung dịch $\mathrm{Mg{(OH)}_2}$ $0,002\;M$.
+	\end{enumEX}
+	\loigiai{
+		\begin{enumerate}
+			\item Dung dịch $\mathrm{NaOH}$ $0{,}001\;M$:
+			\[
+			\begin{array}{ccccc}
+				NaOH& \xrightarrow& Na^+& +& OH^-\\
+				0{,}001&&&\rightarrow&0{,}001
+			\end{array}
+			\]
+			\begin{align*}[\mathrm{OH^-}]
+				&= 0,001 \mathrm{M} \\
+				\mathrm{pOH} &= -\log[\mathrm{OH^-}] = -\log(0,001) = 3 \\
+				\mathrm{pH} &= 14 - \mathrm{pOH} = 14 - 3 = 11
+			\end{align*}
+			\item Dung dịch $\mathrm{HCl}$ $0,01\;M$:
+			\[
+			\begin{array}{ccccc}
+				HCl& \xrightarrow& H^+&+& Cl^-\\
+				0{,}01&\rightarrow &0{,}01&&
+			\end{array}
+			\]
+			\begin{align*}[\mathrm{H^+}]
+				&= 0,01 \mathrm{M} \\
+				\mathrm{pH} &= -\log[\mathrm{H^+}] = -\log(0,01) = 2
+			\end{align*}
+			\item Dung dịch $\mathrm{Mg{(OH)}_2}$ $0{,}002\;M$:
+			\[
+			\begin{array}{ccccc}
+				Mg(OH)_2& \xrightarrow& Mg^{2+}&+& 2OH^-\\
+				0{,}002&&&\rightarrow &0{,}004
+			\end{array}
+			\]
+			\begin{align*}[\mathrm{OH^-}]
+				&= 2 \times 0,002 = 0,004 \mathrm{M} \\
+				\mathrm{pOH} &= -\log[\mathrm{OH^-}] = -\log(0,004) = 2,4 \\
+				\mathrm{pH} &= 14 - \mathrm{pOH} = 14 - 2,4 = 11,6
+			\end{align*}
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============VD_3=============%%%
+\begin{vd}
+	Tính pH của dung dịch sau khi trộn $100$ ml dung dịch $H_2SO_4$ $0{,}1$ M với $200$ ml dung dịch $HCl$ $0{,}2$ M.
+	\loigiai{%
+		Nồng độ $H^+$ sau khi trộn $[H^+]=\dfrac{2\cdot C_1\cdot V_1 + C_2\cdot V_ 2}{V_1+V_2}= \dfrac{2\cdot 0{,}1\cdot 0{,}1 + 0{,}2\cdot 0{,}2}{0{,}1+0{,}2}=0{,}2$
+		\\
+		$\Rightarrow pH =-log(0{,}2)=0{,}7$
+	}
+\end{vd}
+%%%=============VD_4=============%%%
+\begin{vd}
+	Cho $200$ ml $H_2SO_4$ $0{,}05$ M vào $300$ ml dung dịch $\mathrm{NaOH}$ $0{,}06$ M. pH của dung dịch tạo thành là
+	\choice
+	{$2{,}7$}
+	{$1{,}6$}
+	{$1{,}9$}
+	{\True $2{,}4$}
+	\loigiai{%
+		$n_{H^+}=2n_{H_2SO_4}=2\cdot0{,}2\cdot0{,}05=0{,}02$ mol;
+		$n_{OH^-}=2n_{NaOH} =0{,}3\cdot0{,}06=0{,}018$ mol
+		\[
+		\begin{matrix}
+			H^+&+& OH^-& \xrightarrow & H_2O\\
+			0{,}018&\leftarrow&0{,}018&&
+		\end{matrix}
+		\]
+		$\Rightarrow$ $n_{H^+\text{dư}}= 0{,}02-0{,}018=0{,}002$ mol $\Rightarrow [H^+]=\dfrac{0{,}002}{0{,}5}=0{,}004$ M
+		\\
+		$\Rightarrow pH=-log[H^+]=-log(0{,}004)=2{,}4$
+	}
+\end{vd}
+%%%=============VD_5=============%%%
+\begin{vd}
+	Dung dịch X là hỗn hợp $Ba{(OH)}_2$ $0{.}1$ M và $NaOH$ $0{.}1$ M. Dung dịch Y là hỗn hợp của $H_2SO_4$ $0{,}0375$ M; $HCl$ $0{,}0125$ M. Trộn $100$ ml dung dịch X với $400$ ml dung dịch Y thu được dung dịch Z. pH của dung dịch Z là
+	\choice
+	{$1$}
+	{$7$}
+	{$2$}
+	{$6$}
+	\loigiai{
+		\indam{Phân tích:} Bài toán trộn dung dịch, lưu ý phải tính lại nồng độ các chất vì thể tích dung dịch  thay đổi. Xác định chất dư để tính pH theo chất đó.
+		\\[5pt]
+		$\left.
+		\begin{aligned}
+			Ba(OH)_2:[OH^-]=0{,}2 \;M\\
+			NaOH :[OH^-]=0{,}1\; M
+		\end{aligned}
+		\right\}$ $\Rightarrow$ $\sum[OH^-]=0{,}3$ M $\Rightarrow$ $nOH^-=0{,}3\cdot0{,}1=0{,}03$ mol.
+		\\
+		$\left.
+		\begin{aligned}
+			H_2SO_4 :[H^+]=0{,}075\;M\\
+			HCl:[H^+]=0{,}0125\;M
+		\end{aligned}
+		\right\}$ $\Rightarrow$ $\sum[H^+]=0{,}0875$ M $\Rightarrow$ $nH^+=0{,}0875\cdot0{,}4=0{,}035$ mol.
+		\[
+		\begin{matrix}
+			& H^+&+& OH^- & \xrightarrow & H_2O\\
+			&0{,}03\;\text{mol}&\xleftarrow&0{,}03\;\text{mol}&&
+		\end{matrix}
+		\]
+		$\Rightarrow$ $n_{H^+\text{dư}}=\dfrac{0{,}005}{0{,}5}=0{,}01\;M$ $\Rightarrow pH =2$.
+	}
+\end{vd}
+\Noibat[\maunhan][][\faAndroid]{pH của dung dịch acid/base yếu}
+\begin{hopvidu}[\maunhan]
+	\taodongke[0.9][\dotfill][gray]{10}
+\end{hopvidu}
+%%%%==========================%%%%
+\begin{hopvidu}[\maunhan]
+	\taodongke[0.9][\dotfill][gray]{10}
+\end{hopvidu}
+\Noibat[][][\faBank]{Một số ví dụ minh họa}
+%%%=============VD_1=============%%%
+\begin{vd}
+	Tính pH của các dung dịch sau:
+	\begin{enumerate}
+		\item $CH_3COOH$ $0{,}1$M có $K_a=1{,}75\cdot10^{-5}$.
+		\item $NH_3$ $0{,}10$M có $K_b=1{,}80\cdot10^{-5}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item \phantom{x}
+			
+			$
+			\begin{matrix}
+				&CH_3COOH& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& CH_3COO^-&+& H_3O^+&\\
+				\text{ban đầu:}	&0{,}1&&&&&&&\\
+				\text{phản ứng:}&-x&&&&+x&&+x&\\
+				\text{cân bằng:}&0{,}1-x&&&&x&&x&
+			\end{matrix}
+			$\\
+			Ta có $K_a=\dfrac{x \cdot x}{0{,}1-x} = 1{,}75\cdot10^{-5} \Rightarrow [H^+] = x = 1{,}31\cdot10^{-3} $ $\Rightarrow pH =-log(1{,}31\cdot10^{-3}) = 2{,}88$
+			\item \phantom{x}
+			
+			$
+			\begin{matrix}
+				&\mathrm{NH_3}& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& \mathrm{NH_4}^+& +& \mathrm{OH}^-&\\
+				\text{ban đầu:}	&0{,}1&&&&&&&\\
+				\text{phản ứng:}&-x&&&&+x&&+x&\\
+				\text{cân bằng:}&0{,}1-x&&&&x&&x&
+			\end{matrix}
+			$\\
+			$K_b=\dfrac{x \cdot x}{0{,}1-x} = 1{,}80\cdot10^{-5} $
+			$\Rightarrow [OH^-] = x = 1{,}33\cdot10^{-3} $ $\Rightarrow [H^+]=\dfrac{10^{-14}}{1{,}33\cdot10^{-3}} = 7{,}5\cdot10^{-12}\\ \Rightarrow pH =-log(7{,}5\cdot10^{-12}) = 11{,}12$
+		\end{enumerate}
+	}
+\end{vd}
+%%%=============VD_2=============%%%
+\begin{vd}
+	Tính pH của dung dịch $HClO$ (axit hypochlorous) $0,05$M biết $K_a = 3,0 \cdot 10^{-8}$.
+	\loigiai{
+		$
+		\begin{matrix}
+			&HClO& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& ClO^-&+& H_3O^+&\\
+			\text{ban đầu:}	&0{,}05&&&&&&&\\
+			\text{phản ứng:}&-x&&&&+x&&+x&\\
+			\text{cân bằng:}&0{,}05-x&&&&x&&x&
+		\end{matrix}
+		$
+		
+		Ta có: $K_a=\dfrac{x \cdot x}{0{,}05-x} = 3{,}0\cdot10^{-8}$
+		
+		Giả sử $x \ll 0{,}05$, ta có:
+		
+		$x^2 = 3{,}0\cdot10^{-8} \cdot 0{,}05 = 1{,}5\cdot10^{-9}$
+		
+		$x = \sqrt{1{,}5\cdot10^{-9}} = 1{,}22\cdot10^{-5}$
+		
+		Kiểm tra giả thiết: $\dfrac{1{,}22\cdot10^{-5}}{0{,}05} = 2{,}44\cdot10^{-4} \ll 1$ (giả thiết đúng)
+		
+		Vậy $[H^+] = 1{,}22\cdot10^{-5}$
+		
+		$pH = -\log[H^+] = -\log(1{,}22\cdot10^{-5}) = 4{,}91$
+	}
+\end{vd}
+%%%=============VD_3=============%%%
+\begin{vd}
+	Tính pH của dung dịch $CH_3NH_2$ (methylamine) $0,2$M biết $K_b = 4,38 \cdot 10^{-4}$.
+	\loigiai{
+		$
+		\begin{matrix}
+			&CH_3NH_2& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& CH_3NH_3^+&+& OH^-&\\
+			\text{ban đầu:}	&0{,}2&&&&&&&\\
+			\text{phản ứng:}&-x&&&&+x&&+x&\\
+			\text{cân bằng:}&0{,}2-x&&&&x&&x&
+		\end{matrix}
+		$
+		
+		Ta có: $K_b=\dfrac{x \cdot x}{0{,}2-x} = 4{,}38\cdot10^{-4}$
+		
+		Giải phương trình: $x^2 + 4{,}38\cdot10^{-4}x - 8{,}76\cdot10^{-5} = 0$
+		
+		$x = \dfrac{-4{,}38\cdot10^{-4} + \sqrt{(4{,}38\cdot10^{-4})^2 + 4\cdot8{,}76\cdot10^{-5}}}{2} = 8{,}85\cdot10^{-3}$
+		
+		Vậy $[OH^-] = 8{,}85\cdot10^{-3}$
+		
+		$pOH = -\log[OH^-] = -\log(8{,}85\cdot10^{-3}) = 2{,}05$
+		
+		$pH = 14 - pOH = 14 - 2{,}05 = 11{,}95$
+	}
+\end{vd}
+%%%=============VD_4=============%%%
+\begin{vd}
+	Tính pH của dung dịch $HCOOH$ (axit formic) $0,1$M biết $K_a = 1,8 \cdot 10^{-4}$.
+	\loigiai{
+		$
+		\begin{matrix}
+			&HCOOH& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& HCOO^-&+& H_3O^+&\\
+			\text{ban đầu:}	&0{,}1&&&&&&&\\
+			\text{phản ứng:}&-x&&&&+x&&+x&\\
+			\text{cân bằng:}&0{,}1-x&&&&x&&x&
+		\end{matrix}
+		$
+		
+		Ta có: $K_a=\dfrac{x \cdot x}{0{,}1-x} = 1{,}8\cdot10^{-4}$
+		
+		Giải phương trình: $x^2 + 1{,}8\cdot10^{-4}x - 1{,}8\cdot10^{-5} = 0$
+		
+		$x = \dfrac{-1{,}8\cdot10^{-4} + \sqrt{(1{,}8\cdot10^{-4})^2 + 4\cdot1{,}8\cdot10^{-5}}}{2} = 4{,}02\cdot10^{-3}$
+		
+		Vậy $[H^+] = 4{,}02\cdot10^{-3}$
+		
+		$pH = -\log[H^+] = -\log(4{,}02\cdot10^{-3}) = 2{,}40$
+	}
+\end{vd}
+%%%=============VD_5=============%%%
+\begin{vd}
+	Tính pH của dung dịch $C_6H_5COOH$ (axit benzoic) $0,02$M biết $K_a = 6,3 \cdot 10^{-5}$.
+	\loigiai{
+		$
+		\begin{matrix}
+			&C_6H_5COOH& +& \mathrm{H}_2\mathrm{O}& \xrightleftharpoons{}& C_6H_5COO^-&+& H_3O^+&\\
+			\text{ban đầu:}	&0{,}02&&&&&&&\\
+			\text{phản ứng:}&-x&&&&+x&&+x&\\
+			\text{cân bằng:}&0{,}02-x&&&&x&&x&
+		\end{matrix}
+		$
+		
+		Ta có: $K_a=\dfrac{x\cdot x}{0{,}02-x} = 6{,}3\cdot 10^{-5}$
+		
+		Giả sử $x << 0{,}02$, ta có:
+		
+		$x^2 = 6{,}3\cdot 10^{-5} \cdot 0{,}02 = 1{,}26\cdot 10^{-6}$
+		
+		$x = \sqrt{1{,}26 \cdot 10^{-6}} = 1{,}12\cdot 10^{-3}$
+		\\
+		Kiểm tra giả thiết: $\dfrac{1{,}12\cdot 10^{-3}}{0{,}02} = 0{,}056 < 0{,}05$ (giả thiết đúng)
+		\\
+		Vậy $[H^+] = 1{,}12\cdot 10^{-3}$ $\Rightarrow$
+		$pH = -\log[H^+] = -\log(1{,}12\cdot 10^{-3}) = 2{,}95$
+	}
+\end{vd}
+
+\end{document}
+
+
+
+
+

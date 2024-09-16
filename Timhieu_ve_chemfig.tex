@@ -1,0 +1,472 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\setlist[enumerate,1]{itemsep=-1pt,topsep=3pt,wide=0.65cm,label*=\circlenum{\arabic*}}%
+\RenewDocumentCommand{\boxct}{O{\maunhan}O{0pt}O{}m}{
+	\tcbox[%
+	left=1pt,
+	right=1pt,
+	top=1pt,
+	bottom=1pt,
+	enhanced,
+	ignore nobreak,
+	arc=#2pt,
+	colback=#1!20,
+	boxrule=0.65pt,
+	colframe=#1, 
+	boxsep=2pt,
+	tikznode upper,
+	fontupper = #3,
+	]{#4}
+}
+
+\newcommand{\ngoacvuongtron}[2][]{
+	\begin{tikzpicture}[declare function={d=-4pt;},node distance=-d]
+		\node (name) {#2};
+		\node[anchor = west, above right =of name,shift={(2pt,-3pt)}](plus) {\large{#1}};
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north west)--([xshift=d]name.north west)|-($(name.south west) +(0,0)$);
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north east)--([xshift=-d]name.north east)|-($(name.south east) +(0,0)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+%\part{}
+\chapter{Tổng quan về lệnh trong chemfig}
+\section{Các tùy chọn khi gõ công thức hóa học}
+\subsection{Tùy chọn về nguyên tử,liên kết, góc liên kết}
+    \boxct[\mycolor][5]{\Large \indam{Cú pháp} :\bfseries \textbackslash{}chemfig[danh sách các tùy chọn]\{<molecule code>\}}
+	\subsubsection{Một số tùy chọn cần nhớ:}
+	\begin{enumerate}
+		\item \indam{atom sep = 〈dim〉: độ dài liên kết}
+		\begin{vd}[atom sep =<dim>]
+			\immini{\textbackslash{}chemfig[atom sep=2em]\{A-B\}\textbackslash{}par}{\chemfig[atom sep=2em]{A-B}\par}
+			\immini{\textbackslash{}chemfig[atom sep=50pt]\{A-B\}\textbackslash{}par}{\chemfig[atom sep=50pt]{A-B}\par}
+		\end{vd}
+		\item \indam{bond offset = 〈dim〉 : khoảng cách từ đầu mút liên kết đến mỗi nguyên tử}
+		\begin{vd}[bond offset = 〈dim〉]
+			\immini{\textbackslash{}chemfig[bond offset=0pt]\{A-B\}\textbackslash{}par}{\chemfig[bond offset=0pt]{A-B}\par}
+			\immini{\textbackslash{}chemfig[bond offset=5pt]\{A-B\} }{\chemfig[bond offset=5pt]{A-B}}
+		\end{vd}
+		\item \indam{bond style = 〈tikz code〉: kiểu liên kết}
+		\begin{vd}[bond style = 〈tikz code〉]
+		\immini{\resizebox{10cm}{!}{\textbackslash{}chemfig[bond style=\{line width=1pt,red\}]\{A-B=C>|D<E>:F\}}}{\chemfig[bond style={line width=1pt,red}]{A-B=C>|D<E>:F}}
+		\end{vd}
+		
+		\begin{vd}[điều chỉnh khoảng cách đầu liên kết và cuối liên kết]
+			$\begin{array}{lr}
+				\textbackslash{}setchemfig\{bond offset=4pt\}\textbackslash{}par&\\
+				\textbackslash{}chemfig\{A-B-C\}\textbackslash{}par&\hspace{8.0cm}\chemfig{A-B-C}\\
+				\textbackslash{}chemfig\{A-\#(,0pt)B-C\}\textbackslash{}par&\hspace{8.0cm}\chemfig{A-#(,0pt)B-C}
+			\end{array}$
+		\end{vd}
+		\item \indam{cram width = 〈dim〉, cram dash width = 〈dim〉, cram dash sep = 〈dim〉}
+		\begin{vd}[cram bond]
+			$\begin{array}{lr}
+			\textbackslash{}chemfig[cram\
+			width=10pt,\\ \quad cram\ dash\ width=0.4pt,\\ \quad cram\ dash\
+			 sep=1pt]\{A>B>:C>|D\}&\hspace{5.0cm}\chemfig[cram width=10pt, cram dash width=0.4pt, cram dash sep=1pt]{A>B>:C>|D}
+			\end{array}$
+		\end{vd}
+	\end{enumerate} 
+	\subsubsection{Một số kiểu liên kết:}
+		\begin{longtable}{C{0.1\linewidth}C{0.25\linewidth}C{0.31\linewidth}L{0.3\linewidth}}
+			\caption{\indam{Một số kiểu liên kết hóa học thường gặp}}\label{tab:bondstyte}\\
+			\hline
+			\indam{Bond}&\indam{Code}&\indam{Result}& \indam{Bond styte}\\
+			\midrule
+			1 &\textbackslash{}chemfig\{A-B\}&\chemfig{A-B}&Single\\
+			2 &\textbackslash{}chemfig\{A=B\}&\chemfig{A=B}&Double\\
+			3 &\textbackslash{}chemfig\{A\~{}B\}&\chemfig{A~B}&Triple\\
+			4 &\textbackslash{}chemfig\{A>B\}&\chemfig{A>B}&right Cram, plain\\
+			5 &\textbackslash{}chemfig\{A<B\}&\chemfig{A<B}&left Cram, plain\\
+			6 &\textbackslash{}chemfig\{A>:B\}&\chemfig{A>:B}&right Cram, dashed\\
+			7 &\textbackslash{}chemfig\{A<:B\}&\chemfig{A<:B}&left Cram, dashed\\
+			8 &\textbackslash{}chemfig\{A>|B\}&\chemfig{A>|B}&right Cram, hollow\\	
+			9 &\textbackslash{}chemfig\{A<|B\}&\chemfig{A<|B}&left Cram, hollow\\	
+			\bottomrule			
+		\end{longtable}
+	\subsubsection{Góc liên kết:}
+	\paragraph{Góc định sẵn <[hệ số]>}
+	- Thông thường hệ số ở đây là từ 1 đến 7 nhân với với góc đơn vị (mặc định là  $45^\circ$). Tuy nhiên ta có thể thay đổi góc đơn vị bằng lệnh \indam{<angle increment = 〈angle〉>}
+	\begin{vd}[góc định sẵn]
+		\immini{\textbackslash{}chemfig\{A-B-[1]C-[3]-D-[7]E-[6]F\}}{\chemfig{A-B-[1]C-[3]-D-[7]E-[6]F}}
+	\end{vd}
+	\noindent- Khi các liên kết tạo đường gấp khúc ta dùng tùy chọn \indam{<bond join =true>} để \lq\lq làm mịn \rq\rq các nếp gấp
+	\begin{vd}[làm mịn đường gấp khúc <bond join =true>]
+		\immini{\textbackslash{}chemfig[bond join=true]\{-[1]-[7]\}}{\chemfig[bond join=true]{-[1]-[7]}}
+	\end{vd}
+	
+	\begin{vd}[thay đổi góc đơn vị <angle increment = 〈angle〉>]
+		\immini{\textbackslash{}chemfig[angle increment=30,bond join =true]\{-[1]-[-1]-[1]-[-1]\}}{\chemfig[angle increment=30,bond join =true]{-[1]-[-1]-[1]-[-1]}}
+	\end{vd}
+
+	\paragraph{Góc tuyệt đối [:<góc>]}
+	- Việc sử dụng góc định sẵn sẽ gây bất tiện trong trường hợp góc liên kết không là bội của góc đơn vị, do đó người ta dùng góc tuyệt đối (giống với việc xác đinh góc lượng giác trong toán học nhưng chỉ giới hạn trong phạm vi từ 0 - 360 độ)
+		\begin{vd}[góc tuyệt đối]
+			\immini{\textbackslash{}tikz\{\textbackslash{}node at (0,0) (propan) \{\textbackslash{}chemfig[atom sep=2.2em,atom style=\{\textbackslash{}mycolor\}]\{H-C(-[:90]H)(-[:-90]H)-C(-[:90]H)(-[:-90]H)-C(-[:90]H)(-[:-90]H)-H\}\};
+				\textbackslash{}node [below= 3pt of propan] \{\textbackslash{}indam\{propan\}\};
+				\}}{\tikz{\node at(0,0) (propan) {\chemfig[atom sep=2.2em,atom style={\mycolor}]{H-C(-[:90]H)(-[:-90]H)-C(-[:90]H)(-[:-90]H)-C(-[:90]H)(-[:-90]H)-H}};
+					\node [below= 3pt of propan] {\indam{propan}};
+			}}
+		\end{vd}
+	\paragraph{Góc tương đối [::<góc>]}
+	- Trong một số công thức hóa học có nhiều góc liên kết việc dùng góc tuyệt đối sẽ gây rối do đó người ta dùng góc tương đối ( lấy liên kết trước đó làm chuẩn) sẽ khác biệt với lấy phương ngang làm chuẩn trong góc tuyệt đối
+	\begin{vd}[góc tương đối]
+	$\begin{array}{ll}
+	\resizebox{12cm}{!}{\textbackslash{}chemfig\{R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R\}}&\hspace{1cm}\chemfig{R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R}\\
+	&\\
+	\resizebox{12cm}{!}{\textbackslash{}chemfig\{[:90]R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R\}}&\hspace{1cm}\chemfig{[:90]R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R}
+	\end{array}$
+	\end{vd}
+	\subsection{Các tùy chọn cho một liên kết hóa học}
+		Có 5 tùy chọn chính cho một liên kết hóa học:
+		
+		\resizebox{16cm}{!}{\boxct{\indam{[<góc liên kết>,<độ dài>,<nguyên tử bắt đầu>,<nguyên tử kết thúc>,<các tùy chọn của tikz>]}}} 
+		
+		\subsubsection{Liên kết trong một nhóm nguyên tử}
+		Khi một liên kết nối giữa hai nhóm nguyên tử ta cần quan tâm nguyên tử đầu liên kết và nguyên tử cuối liên kết
+		\\
+		- Khi góc liên kết nằm trong khoảng $(-90,90)$ thì nguyên tử khởi đầu liên kết nằm ở cuối nhóm 1 và nguyên tử kết thúc liên kết nằm ở đầu nhóm hai, các bạn sẽ thấy rõ trong ví dụ dưới đây.
+		\begin{vd}[nguyên tử đầu và nguyên tử cuối]
+			\immini{\textbackslash{}chemfig\{ABCD-[:75]EFG\}\textbackslash{}quad\\ \textbackslash{}chemfig\{ABCD-[:-85]EFG\}\textbackslash{}quad\\ \textbackslash{}chemfig\{ABCD-[1]EFG\}}{\chemfig{ABCD-[:75]EFG}\quad \chemfig{ABCD-[:-85]EFG}\quad \chemfig{ABCD-[1]EFG}}
+		\end{vd}
+		\noindent- Khi góc liên kết nằm trong khoản [90:270] thì nguyên tử khởi đầu liên kết nằm đầu nhóm 1 và nguyên tử kết thúc liên kết nằm ở cuối nhóm 2 như ví dụ sau:
+		\begin{vd}[nguyên tử đầu và nguyên tử cuối]
+			\immini{\textbackslash{}chemfig\{ABCD-[:100]EFG\}\textbackslash{}quad\\ \textbackslash{}chemfig\{ABCD-[:-110]EFG\}\textbackslash{}quad\\ \textbackslash{}chemfig\{ABCD-[5]EFG\}}{\chemfig{ABCD-[:100]EFG}\quad \chemfig{ABCD-[:-110]EFG}\quad \chemfig{ABCD-[5]EFG}}
+		\end{vd}
+		\noindent Để linh hoạt người ta đưa vào tùy chọn thứ 3 và 4 sau tùy chọn độ dài liên kết [,,<nguyên tử khởi đầu>,<nguyên tử kết thúc>]
+		\begin{vd}
+			\immini{\textbackslash{}chemfig\{ABCD-[:75,,2,3]EFG\}\textbackslash{}qquad\\ \textbackslash{}chemfig\{ABCD-[:75,,,2]EFG\}\textbackslash{}qquad\\ \textbackslash{}chemfig\{ABCD-[:75,,3,2]EFG\}}{\chemfig{ABCD-[:75,,2,3]EFG}\qquad \chemfig{ABCD-[:75,,,2]EFG}\qquad \chemfig{ABCD-[:75,,3,2]EFG}}
+		\end{vd}
+		
+		\subsubsection{Tùy chỉnh hình dạng liên kết}
+		Để tùy chỉnh hình dạng  liên kết ta dùng tùy chọn thứ 5 liên quan đến tikz để tùy biến  độ dày, mảnh; kiểu nét liền , nét đứt, màu sắc , $\ldots$
+		
+		\begin{vd}
+			$\begin{array}{lll}
+			\textbackslash{}chemfig\{A-[,,,,red]B\}\textbackslash{}par&\phantom{xxxxxxxxxxxxxxxxxxxxxxxx}&\chemfig{A-[,,,,red]B}\\
+			\textbackslash{}chemfig\{A-[,,,,dash pattern=on\ 2pt\ off\ 2pt]B\}\textbackslash{}par&\phantom{xxxxxxxxxxxxxxxxxxxxxxxx}&\chemfig{A-[,,,,dash pattern=on 2pt off 2pt]B}\\
+			\textbackslash{}chemfig\{A-[,,,,line width=2pt]B\}\textbackslash{}par&\phantom{xxxxxxxxxxxxxxxxxxxxxxxx}&\chemfig{A-[,,,,line width=2pt]B}\\
+			\textbackslash{}chemfig\{A-[,,,,red,line width=2pt]B&\phantom{xxxxxxxxxxxxxxxxxxxxxxxx}&\chemfig{A-[,,,,red,line width=2pt]B}
+			\end{array}$
+		\end{vd}
+		
+		\begin{vd}
+			$\begin{array}{lll}
+				\textbackslash{}chemfig\{A-[,3,,,decorate,decoration=snake]B\}&\phantom{xxxxxxxxxxxxxxxxxxxxxx}&\chemfig{A-[,3,,,decorate,decoration=snake]B}
+			\end{array}$
+		\end{vd}
+		\subsection{Nhánh trong công thức hóa học}
+		Để vẽ nhánh ta đưa nhánh vào trong cặp ngoặc tròn
+		\begin{vd}[nhánh trong công thức hóa học]
+			\immini{\textbackslash{}chemfig[atom sep =3em]\{H-C(-[:90]H)(-[:-90]H)-H\}}{\chemfig[atom sep =3em]{H-C(-[:90]H)(-[:-90]H)-H}}
+		\end{vd}
+		\noindent -- Để nối các nguyên tử ở các nhánh khác nhau ta dùng cú pháp \colorbox{\mycolor!20}{\indam{?[name,bond,tikz]}} ngay sau các nguyên tử cần liên kết
+		\begin{vd}
+			\immini{\resizebox{13cm}{!}{\textbackslash{}chemfig[atom sep =3em]\{H?[a]-[:40,2]N(<[:-70,2]H?[a,,dashed]?[b])<:[:-30,2]H?[a,,dashed]?[b,,dashed]\}}}{\chemfig[atom sep =3em]{H?[a]-[:40,2]N(<[:-70,2]H?[a,,dashed]?[b])<:[:-30,2]H?[a,,dashed]?[b,,dashed]}}
+		\end{vd}
+		- Dưới đây một ví dụ về công thức hóa học của các đồng phân pentan
+		\begin{vd}[Các đồng phân của pentan]
+			\begin{center}
+				$\begin{matrix}
+					\ChemName{CH_3-CH_2-CH_2-CH_2-CH_3}{pentan}
+					&\phantom{xxx}&
+					\ChemName{CH_3-CH(-[:-90]CH_3)-CH_2-CH_3}{isopentan}
+					&\phantom{xxx}&
+					\ChemName{CH_3-C(-[:-90]CH_3)(-[:90]CH_3)-CH_3}{neopentan}
+				\end{matrix}$
+			\end{center}
+		\end{vd}
+		\section{Công thức hóa học có mạch vòng}
+		\subsection{Vòng đơn}
+		\subsubsection{Cú pháp}
+		Để vẽ mạch vòng ta dùng cú pháp tổng quát sau: \indam{<atom>*<n>(<code>)}.Trong đó:
+		\begin{itemize}
+			\item  \indam{atom} là nguyên tử bắt đầu của vòng nằm ở vị trí south west của vòng,từ vị trí đó đi theo chiều ngược chiều kim đồng hồ
+			\item \indam{n} là số cạnh của vòng
+		\end{itemize}
+		\subsubsection{Một số ví dụ}
+		\begin{vd}
+			\immini{\textbackslash{}chemfig\{X*6(-A-B-C-D-E-)\}}{\chemfig{X*6(-A-B-C-D-E-)}}
+			\immini{\textbackslash{}chemfig\{X*5(-A-B-C-D-)\}}{\chemfig{X*5(-A-B-C-D-)}}
+			\immini{\textbackslash{}chemfig\{X*4(-A-B-C-)\}}{\chemfig{X*4(-A-B-C-)}}
+		\end{vd}
+		- Ta có thể bỏ qua các nguyên tử chỉ thể hiện các liên kết
+		\begin{vd}
+			\immini{\textbackslash{}chemfig\{*6(------)\}}{\chemfig{*6(------)}}
+		\end{vd}
+		- Ta cũng có thể vẽ thêm một vòng tròn hoặc cung tròn nằm trong vòng chính với cú pháp như sau:
+		\begin{center}
+			\colorbox{\mycolor!10}{\indam{<atom>**[<angle1>,<angle2>,tikz]<n>(<code>)}}
+		\end{center}
+		\begin{vd}
+			\immini{\textbackslash{}chemfig\{X**[0,270,red]6(-A-B-C-D-E-)\}}{\chemfig{X**[0,270,red]6(-A-B-C-D-E-)}}
+			\immini{\textbackslash{}chemfig\{**[,,\mycolor]6(- - - - - -)\}}{\chemfig{**[,,\mycolor]6(------)}}
+		\end{vd}
+		- Sau đây là một vài công thức hợp chất mạch vòng quen thuộc
+		\begin{vd}[hợp chất vòng benzen]
+			\begin{center}
+				$\begin{matrix}
+				\ChemName{**[,,\mycolor]6(------)}{benzen}
+				&\phantom{xxxx}&
+				\ChemName{[:-90]CH_3-**[,,\mycolor]6(------)}{toluen}
+				&\phantom{xxxx}&	
+				\ChemName[3][-0.5]{**[,,\mycolor]6(----(-[:90]CH=[::-90]CH_2)--)}{stiren}
+				&\phantom{xxxx}&
+				\ChemName{**[,,\mycolor]6(----(-[:90]NO_2)--)}{Nitrobenzen}
+				\end{matrix}$
+			\end{center}
+		\end{vd}
+	\noindent-- Khi một vòng không bắt đầu một phân tử và một hoặc nhiều liên kết đã được vẽ, vị trí góc mặc định thay đổi: vòng được vẽ theo cách mà liên kết kết thúc trên nguyên tử đính kèm chia đôi góc được hình thành bởi các cạnh đầu tiên và cuối cùng của vòng.
+	\begin{vd}
+		\immini{\textbackslash{}chemfig\{CH\_3-X*6(-A-B-C-D-E-)\} \textbackslash{}quad\\ \textbackslash{}chemfig\{X*6(-A-B-C-D-E-)\}}{\chemfig{CH_3-X*6(-A-B-C-D-E-)} \quad \chemfig{X*6(-A-B-C-D-E-)}}
+	\end{vd}
+	\subsection{Vòng chung cạnh,chung đỉnh}
+	\subsubsection{Cú pháp}
+		\begin{center}
+		\boxct[\mauphu]{\indam[\mauphu]{<atom>**<n1>(code1 <atom>**<n2>(code2))}}
+		\end{center}
+	\subsubsection{Một số ví dụ}
+	\begin{vd}[vòng chung cạnh]
+		\immini{\textbackslash{}chemfig\{**[,,\textbackslash{}mycolor]6(- -(**[,,\textbackslash{}mycolor]6(- - - - - -))- - - -)\}}{\ChemName{**[,,\mycolor]6(- -(**[,,\mycolor]6(------))----)}{Napthtalen}}
+	\end{vd}
+		\begin{vd}[vòng chung đỉnh]
+		\immini{\textbackslash{}chemfig\{[:30]**[,,\textbackslash{}mycolor]6(- -?[a]([::-60]**[,,\textbackslash{}mycolor]6(- - -?[b]([::-60]**[,,\textbackslash{}mycolor]6(- - - - -?[b]))- -?[a]))- - - -)\}}{\chemfig{[:30]**[,,\mycolor]6(--?[a]([::-60]**[,,\mycolor]6(---?[b]([::-60]**[,,\mycolor]6(-----?[b]))--?[a]))----)}}
+	\end{vd}
+	\subsubsection{Chỉ số vòng trung tâm}
+	- Để hiển thị chỉ số vòng trung tâm ta dùng tùy chọn \indam{[<show cntcycle =true>]}. Và khi sử dụng sử dụng tikz nó được gán với tên node là \indam{<cyclecenter><chỉ số>}. Ví dụ sau đây các bạn sẽ được làm rõ.
+	\begin{vd}
+		\immini{\textbackslash{}chemfig[show cntcycle=true]\{*5(- - -(-*3(- - -))- -)\}}{%
+			\chemfig{*5(---(-*3(---))--)}
+			\chemmove {%
+				\path [draw=\maunhan,>=stealth](cyclecenter1) to[out=120,in=-165](cyclecenter2);
+			}
+		}
+	\end{vd}
+	
+	\begin{vd}
+		\immini{
+		\textbackslash{}chemfig\{*6(-=-=-=)\}
+		\textbackslash{}chemmove \{\%\\
+		\textbackslash{}path (cyclecenter1) node (start) \{\textbackslash{}large.+\}\\ ++(180:2cm ) node (end) \{\textbackslash{}printatom\{R\^{}1\}\}  ;\\
+		\textbackslash{}draw[shorten <=0.3cm] (cyclecenter1)- -(end);
+		\}
+		}{%
+			\chemfig{*6(-=-=-=)}
+			\chemmove {%
+			\path (cyclecenter1) node (start) {\large.+} ++(180:2cm ) node (end) {\printatom{R^1}}  ;
+			\draw[shorten <=0.3cm] (cyclecenter1)--(end);
+			}
+		}
+	\end{vd}
+	\section{Hiệu ứng electron}
+	
+	\begin{vd}[hiệu ứng electron]
+		\vspace{1.2cm}
+		\setchemfig{+ vshift=0.4cm}
+		\schemestart
+		\chemfig[atom sep=4em]{H-[:40]@{e}\charge{90:2pt=\:}{N}(<[:-60]H)<:[:-20]H}
+		\+
+		\raisebox{0.4cm}{\chemfig{@{p}\charge{45:2pt=+}{H}}}
+		\arrow
+		\ngoacvuongtron[+]{\chemfig[atom sep=4em]{H-[:40]N(<[:-60]H)(-[:90]H)<:[:-20]H}
+			\chemmove[overlay,remember picture] {
+				\draw[\mycolor,>=stealth,ultra thick] ([shift={(80:7pt)}]p.north east) ..controls +(100:2cm) and +(60:1cm)..([shift={(-3pt,7pt)}]e.north east) node [pos=0.5,above=2pt]{nhận 1 proton};}
+			}
+		\schemestop
+	\end{vd}
+- Ví dụ về cơ chế phản ứng thế ở vòng benzen
+	\setchemfig{arrow double sep=3pt}
+	\begin{vd}[Cơ chế phản ứng thế vòng benzen]
+		
+	\begin{enumerate}[itemsep=0pt,topsep=0pt,label=\protect{\indam{Giai đoạn \arabic*:}},wide=1cm,leftmargin=1cm]
+			\item {\schemestart [][base west]
+				\chemfig{O_2N-\charge{90:2pt=\:}{O}-H} 
+				\+ 
+				\chemfig{\charge{60:3pt=+}{H}}
+				\arrow(.mid east--.mid west){<=>}[,,\mycolor,line width =1pt,-latex]
+				\chemfig{O_2N-\charge{90:3pt=+}{O}(-[:-90]H)-H}
+				\schemestop}
+			\item{\schemestart [][base west]
+				\chemfig{O_2N-[@{sb}]@{o}\charge{90:3pt=+}{O}(-[:-90]H)-H}
+				\arrow(.mid east--.mid west){<=>}[,,\mycolor,line width =1pt,-latex]
+				\chemfig{O=\charge{90:2pt=+}{N}=O}
+				\+
+				\chemfig{H-O-H}
+				\schemestop
+				\chemmove[>=stealth] {%
+					\draw[->,\maunhan]([yshift=1pt]sb.north)..controls ++(90:10pt) and ++(120:10pt)..(o);
+			}}
+			
+			\item {\schemestart [][mid west]
+				\setchemfig{+ vshift=0.4cm}
+				\chemfig{**[,,\mycolor]6(------)}
+				\+
+				\raisebox{0.4cm}{\chemfig{\charge{90:3pt=+}{N}(=[:-30]O)=[:30]O}}
+				\arrow(.mid east--.mid west){<=>[][][0.4cm]}[,,\mycolor,line width =1pt,-latex]
+				\chemfig{**[160,380,\mycolor]6(----(-[:60]NO_2)(-[:120]H)--)}
+				\chemmove {\path (cyclecenter1) node[font=\color{\maunhan}\large\bfseries]{+};}
+				\arrow(.mid east--.mid west){->[][][0.4cm]}[,,\mycolor,line width =1pt,-latex]
+				\chemfig{**[,,\mycolor]6(----(-NO_2)--)}
+				\raisebox{0.4cm}{\+}
+				\raisebox{0.4cm}{\chemfig{\charge{60:3pt=+}{H}}}
+				\schemestop}
+	\end{enumerate}
+	\end{vd}
+\chapter {Phương trình hóa học}
+\section{Tổng quan về phương trình hóa học}
+\subsection{Cú pháp}
+\subsection{Một số ví dụ}
+	\begin{vd}
+	\setchemfig{+ vshift=0.4cm}
+	\schemestart
+	\chemfig{**[,,\mycolor]6(----(-[:90]{\color{\maunhan}H})--)}
+	\+
+	\raisebox{0.4cm}{\chemfig{Br_2}}
+	\arrow(.mid east--.mid west){->[Fe][][0.4cm]}[,1.2,,,\mycolor]
+	\ChemName{**[,,\mycolor]6(----(-[:90]{\color{\maunhan}Br})--)}{brombenzen} 
+	\+
+	\raisebox{0.4cm}{\chemfig{HBr}}
+	\schemestop
+\end{vd}
+\begin{vd}
+	\schemestart
+	\chemfig{*6(-=(*6(-(=O)-NH-NH-(=O)-))-=(-NH_2)-=)}
+	\arrow{0}[,.1] \+
+	\chemfig{H_2O_2}        
+	\arrow{-U>[][\chemfig{N_2}]}
+	\chemfig{*6(-(-[6,,,,,draw=none])=(-COO^{-})-(-COO^{-})=(-NH_2)-=)}
+	\arrow(.east--.west){0}[,.1]\+  Licht
+	\schemestop
+\end{vd}
+\begin{vd}
+	\setchemfig{+ vshift=0.4cm}
+	\schemestart
+	\chemfig{**[,,\mycolor]6(----(-[:90]{\color{\maunhan}H})--)}
+	\+
+	\raisebox{0.4cm}{\chemfig{Br_2}}
+	\arrow{->[Fe][][-0.5cm]}[,1.2,,,\mycolor]
+	\chemfig{**[,,\mycolor]6(----(-[:90]{\color{\maunhan}Br})--)}
+	\+
+	\raisebox{0.4cm}{\chemfig{HBr}}
+	\schemestop
+\end{vd}
+
+	\subsection{Viết phương trình phản ứng kết hợp với tikz}
+	\begin{enumerate}
+		
+		\item {\begin{tikzpicture}[declare function={d=2cm;},node distance =0.5cm,>=stealth,line join =round,line cap =round,line width =1pt,baseline={(current bounding box.center)}]
+				\path (0,0) coordinate (A);
+				\path (A) node (benzen)	{\chemfig{**6(----(-[:90]CH_3)--)}}
+				node [right= of benzen] (plus) {+}
+				node [right= of plus] (brom) {\chemfig{Br_2}}
+				node [right= 4cm of brom,yshift = 2cm] (obrombz) {\chemfig{**[,,\mycolor]6(---(-Br)-(-[:90]CH_3)--)}}
+				node [right= 4cm of brom,yshift = -2cm] (pbrombz) {\chemfig{**[,,\mycolor]6(-(-Br)---(-[:90]CH_3)--)}}
+				node [right= of obrombz,text width =3cm,font=\color{\maunhan}\sffamily\itshape,align=center] (n1) {o-bromtoluen (41\%)}
+				node [right= of pbrombz,text width =3cm,font=\color{\maunhan}\sffamily\itshape,align=center,xshift=0.85cm] (n2) {p-bromtoluen (59\%)}
+				;
+				\draw [->] (brom)--++(2,0) node[pos =0.5,above]{Fe} |-(obrombz);
+				\draw [->] (brom)--++(2,0)node[pos =0.5,below]{-HBr} |-(pbrombz);
+		\end{tikzpicture}}
+	
+		\item {\begin{tikzpicture}[declare function={d=2cm;},node distance =0.5cm,>=stealth,line join =round,line cap =round,line width =1pt,baseline={([yshift=-1em]current bounding box.center)}]
+			\path (0,0) coordinate (A);
+			\path (A) node (toluen)	{\chemfig{**[,,\mycolor]6(----(-[:90]CH_3)--)}}
+			node [right= of toluen] (plus) {+}
+			node [right= of plus] (axnitric) {\chemfig{HO-NO_2}}
+			node [right= 3cm of axnitric,yshift = 2cm] (onitrotoluen) {\chemfig{CH_3-**[,,\mycolor]6(-----(-NO_2)-)}}
+			node [right= 3cm of axnitric,yshift = -2cm] (pnitrotoluen) {\chemfig{CH_3-**[,,\mycolor]6(---(-NO_2)---)}}
+			node [right=-0.1cm of onitrotoluen,text width =2.5cm,font=\small\color{\maunhan}\sffamily\itshape,align=center] (n1) {o-nitrotoluen (58\%)}
+			node [right=-0.1cm of pnitrotoluen,text width =2.5cm,font=\small\color{\maunhan}\sffamily\itshape,align=center] (n2) {p-nitrotoluen (42\%)}
+			;
+			\draw [->] (axnitric)--++(3,0) node[pos =0.5,above]{Fe} |-(onitrotoluen);
+			\draw [->] (axnitric)--++(3,0)node[pos =0.5,below]{-HBr} |-(pnitrotoluen);
+		\end{tikzpicture}}
+	\end{enumerate}
+	\subsection{Định nhĩa một nhóm nguyên tử}
+	\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+	\begin{vd}[dạng mạch vòng của glucozo]
+		\schemestart
+		\chemname{
+			\definesubmol{x}{(-[2,0.5]H)(-[6,0.5]OH)}
+			\definesubmol{y}{(-[6,0.5]H)(-[2,0.5]OH)}
+			\definesubmol{z}{(-[6,0.5]H)(-[2,0.5]@{f}CH_2OH)}
+			\chemfig[cram width=2.5pt,bond join=true,bond offset=1pt,atom style={font=\color{\maunhan}\scriptsize},atom sep=3em]{?@{e}!z-[:0,1]O-[::-35,0.8]@{a}!x<[::-95,1]@{b}!x-[@{c23}::-50,1,,,line width =2.5pt]@{c}!y>[::-50,1]?@{d}!x}
+			\chemmove [remember picture]{%
+				\path 
+				(a) node[right=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{1}$}
+				(b) node[above left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{2}$}
+				(c) node[below left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{3}$}
+				(d) node[left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{4}$}
+				(e) node[left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{5}$}
+				(f) node[left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{6}$}
+				;
+			}
+			}{\indam[\maudam]{dạng $\alpha$ glucose}}
+	\arrow{<=>[][][0.4cm]}[,1,,\mycolor,>=stealth,line width =1pt]
+	\chemname[-2cm]{
+		\definesubmol{x}{(-[4,0.7]H)(-[0,0.7]OH)}
+		\definesubmol{y}{(-[0,0.7]H)(-[4,0.7]OH)}
+		\chemfig{[2]@{c6}CH_2OH-[2]@{c5}!x-@{c4}!x-@{c3}!y-@{c2}!x-@{c1}C(-[3]H)=[1]O}
+		\chemmove [remember picture]{%
+			\path 
+			(c1) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{1}$}
+			(c2) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{2}$}
+			(c3) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{3}$}
+			(c4) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{4}$}
+			(c5) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{5}$}
+			(c6) node[left=4pt,font=\color{\mauphu}\scriptsize,yshift=4pt] {$\mathsf{6}$}
+			;
+		}
+		}{\indam[\maudam]{glucose, mạch hở}}
+	\arrow{<=>[][][0.4cm]}[,1,,\mycolor,>=stealth,line width =1pt]
+	\chemname{
+		\definesubmol{xx}{(-[2,0.5]H)(-[6,0.5]OH)}
+		\definesubmol{yy}{(-[6,0.5]H)(-[2,0.5]OH)}
+		\definesubmol{zz}{(-[6,0.5]H)(-[2,0.5]@{ff}CH_2OH)}
+		\chemfig[cram width=2.5pt,bond join=true,bond offset=1pt,atom style={font=\color{\maunhan}\scriptsize},atom sep=3em]{?@{ee}!{zz}-[:0,1]O-[::-35,0.8]@{aa}!{yy}<[::-95,1]@{bb}!{xx}-[@{c23}::-50,1,,,line width =2.5pt]@{cc}!{yy}>[::-50,1]?@{dd}!{xx}}
+		\chemmove[remember picture] {%
+			\path 
+			(aa) node[right=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{1}$}
+			(bb) node[above left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{2}$}
+			(cc) node[below left =2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{3}$}
+			(dd) node[left =2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{4}$}
+			(ee) node[left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{5}$}
+			(ff) node[left=2pt,font=\color{\mauphu}\scriptsize] {$\mathsf{6}$}
+			;
+		}
+		}{\indam[\maudam]{dạng $\beta$ glucose}}
+	\schemestop
+	\end{vd}
+\chapter{Công thức hợp chất polime}
+\section{Một số lệnh tổng quát}
+\subsection{Cú pháp}
+\begin{center}
+	\boxct{\textbackslash{}polymerdelim[<keys>=<values>]\{<node1>\}\{<node2>\}}
+\end{center}
+- Sau đây là một số tùy chọn cần nhớ:
+	\begin{itemize}
+		\item delimiters : loại dấu ngoặc đóng mở
+		\item height
+		\item depth
+	\end{itemize}
+\subsection{Một số ví dụ}
+	\begin{vd}[công thức PE]
+		\chemfig{\vphantom{CH_2}-[@{op,.75}]CH_2-CH_2-[@{cl,0.25}]}
+		\polymerdelim[height = 5pt, indice = \!\!n]{op}{cl}
+	\end{vd}
+	\begin{vd}[công thức Nilon-6]
+		\chemfig{\phantom{N}-[@{op,.75}]{N}(-[2]H)-C(=[2]O)-{(}CH_2{)_5}-[@{cl,0.25}]}
+		\polymerdelim[height = 30pt, depth = 5pt, indice = {}]{op}{cl}
+	\end{vd}
+\end{document}
+
+
+
+
+

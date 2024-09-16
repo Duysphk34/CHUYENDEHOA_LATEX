@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{asymptote}
+\begin{document}
+	\begin{asy}
+	settings.outformat="pdf";
+	import math;
+	size(200);
+	unitsize(1cm);dotfactor=1.2;
+	defaultpen(fontsize(5pt));
+	//Khai báo các điểm
+	pair A=(0,0),B=(2,0),C=(2,2),D=(0,2), O=(0,0);
+	//Định nghĩa màu 
+	pen mycolor = rgb(3,52,110);
+	real r=2;
+	pen pa=fontsize(5pt)+1bp+mycolor; // dinh nghia kieu but
+	add(shift(-2,-2)*grid(4,4,gray));
+	draw(rotate(22.5)*scale(r)*polygon(8),mycolor);
+	//------
+	label("\sffamily N",O+r*N,N,pa);
+	label("\sffamily S",O+r*S,S,pa);
+	label("\sffamily W",O+r*W,W,pa);
+	label("\sffamily E",O+r*E,E,pa);
+	label(rotate(45)*"\sffamily NE",O+r*NE,NE,pa);
+	label(rotate(-45)*"\sffamily SE",O+r*SE,SE,pa);
+	label(rotate(-45)*"\sffamily NW",O+r*NW,NW,pa);
+	label(rotate(45)*"\sffamily SW",O+r*SW,SW,pa);
+	\end{asy}
+\end{document}

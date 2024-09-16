@@ -1,0 +1,922 @@
+\chapter{Một số phương pháp giải toán hóa học}
+\section{Phương pháp phân tích hệ số}
+\begin{MuctieuH}
+	\begin{itemize}
+		\item Nắm được quy tắc phân tích hệ số thuận và quy tắc phân tích hệ số ngược.
+		\item Hiểu được bản chất của phương pháp này là dựa vào mối liên hệ giữa số mol các chất với hệ số và chỉ số trong phương trình hóa học.
+		\item Vận dụng linh hoạt phương pháp này vào một số bài toán cụ thể
+	\end{itemize}
+\end{MuctieuH}
+\subsection{Cơ sở của phương pháp}
+\begin{tomtat}
+	\subsubsection{Phân tích theo tỉ lệ}
+	\begin{center}
+		\begin{tikzpicture}[declare function={r=11;},line cap=round,line join=round,font=\bfseries\sffamily\color{\maunhan}]
+			\tikzstyle{shapenode} = [draw=\mycolor,inner sep =4pt,outer sep=4pt,align =center,fill=\mycolor!20,text width =5cm,rounded corners =5pt,font=\large\bfseries\sffamily,minimum height =2.5cm]
+			\path (0,0) coordinate (A) node[shapenode] (n) {Tỉ lệ hệ số các chất trong phương trình hóa học}
+			++(0:r)  coordinate(B) node[shapenode] (m) {Tỉ lệ mol tương ứng}
+			;
+			\draw [<-,>=stealth,ultra thick] ([yshift=-3pt]n.east)--([yshift=-3pt]m.west) node[pos=0.5,below]{Phân tích hệ số ngược};
+			\draw [->,>=stealth,ultra thick] ([yshift=3pt]n.east)--([yshift=3pt]m.west) node[pos=0.5,above]{Phân tích hệ số thuận};
+		\end{tikzpicture}
+	\end{center}
+	\begin{vdex}[Phân tích hệ số thuận]
+		Cho $m_1$ (gam) hỗn hợp X gồm $CuO$, $Fe_2O_3$, $Fe_3O_4$, $FeO$ tác dụng vừa đủ với $V$ (lít) (đktc) hỗn hợp gồm $CO$, $H_2$ thu dduocj $m_2$ (gam) chất rắn $Y$.  Biết phản ứng xảy ra hoàn toàn. Tính $V$ theo $m_1$, $m_2$?
+		\loigiai{
+			\begin{eqnarray*}
+				&R_xO_y + yCO \xrightarrow[$t^\circ$] xR + yCO_2 \quad &\left(1\right) (\text{Phân tích hệ số thấy \indam{hệ số CO = chỉ số O} trong oxit})
+				\\
+				&R_xO_y + yH_2 \xrightarrow[$t^\circ$] xR + yH_2O \quad &\left(2\right) (\text{Phân tích hệ số thấy \indam{hệ số $\text{H}_\text{2}$ = chỉ số O} trong oxit})
+			\end{eqnarray*}
+			Theo phương trình phản ứng ta thấy $n_{H_2} + n_{CO} = n_O = \dfrac{m_1-m_2}{16}$\\
+			$\Rightarrow V =\dfrac{m_1-m_2}{16}\cdot 22{,}4=1{,}4\left(m_1-m_2\right)$.
+		}
+	\end{vdex}
+	%%%==============Vidu1==============%%%
+	\begin{vdex}[Phân tích hệ số ngược]
+		Đốt cháy hoàn toàn $200\mathrm{ml}$ hợp chất hữu cơ $(A)$ cần dùng $600\mathrm{ml}$ khí oxi, thu được $400$ (ml) khí $CO_2$ và $600$ $\mathrm{ml}$ hơi nước. Các thể tích khí và hơi đo cùng nhiệt độ, áp suất. Tìm CTPT của chất hữu cơ (A).
+		\loigiai{
+			Ở cùng nhiệt độ, áp suất thì tỉ lệ số mol khí (hơi) bằng tỉ lệ thể tích tương ứng
+			\\
+			$\Rightarrow n_A: n_{O_2}: n_{CO_2}: n_{H_2 O}=200: 600: 400: 600=1: 3: 2: 3$
+			Như đã nói ở trên, tỉ lệ số mol chính là tỉ lệ hệ số. Vậy ta có PTHH như sau:
+			\begin{eqnarray*}
+				C_x H_y O_z+ 3O_2 \xrightarrow[$t^\circ$] 2 CO_2+3 H_2 O
+			\end{eqnarray*}
+			Bảo toàn số mol $C$, $H$, $O$  ta có: 
+			$\heva{&x=2\\ &y=3\cdot 2=6\\ &z=2\cdot2+3-3\cdot2=1}$
+			Vậy PTPT của hợp chất $(A)$ là $C_2 H_6 O$.
+		}
+	\end{vdex}
+	%%%==============HetVidu1==============%%%
+	\subsubsection{Phân tích theo tổng đại số}
+	\paragraph{Quy tắc chung}
+	(Dưới đây gọi chung hệ số, chỉ số là hệ số).\\
+	Nếu hệ số A $\pm$ hệ số B=hệ số C $\pm$ hệ số D
+	Thì $\Rightarrow \mathrm{n}_{A} \pm \mathrm{n}_{B}=\mathrm{n}_{C} \pm \mathrm{n}_{D}$
+	\paragraph{Phân tích minh họa}
+	Dưới đây là cách phân tích minh họa cho một số chất và một số phương trình hóa học thường gặp ở cấp THCS. \\Từ các phân tích minh họa, bạn đọc có thể mở rộng vận dụng cho nhiều trường hợp khác:
+	\begin{longtable}{|L{0.48\linewidth}|L{0.48\linewidth}|}
+		\caption{\indam{Phân tích minh họa cho một số chất và một số phương trình hóa học thường gặp}}\label{tab:pppths}\\
+		\hline\rowcolor{\maunhan!30}
+		\makecell[c]{\indam[\maudam]{Một số phản ứng khảo sát}\\ 
+			\indam{(thường gặp ở cấp THCS)}}
+		& 
+		\makecell[c]{\indam[\maudam]{Kết quả phân tích hệ số}\\
+			\indam{(Quan hệ số mol)}}
+		\\ 
+		\hline
+		\rowcolor{\mauphu!10}
+		\makecell[l]{\indam{\faCheckCircle} \text{Phản ứng đốt cháy hợp chất hữu cơ chứa}\\ $C$, $H$,$O$ }
+		\begin{tabular}{c}
+			\small$C_nH_{2n+2-2k}O_m$  + \small $O_2$ $\xrightarrow[$t^\circ$][][0.65][-0.5]$ \small$nCO_2$ +$\left(n+1-k\right)H_2O$
+		\end{tabular}
+		(giả sử Chất $X$ mạch hở, $K$ $=$ số liên kết $\pi$)
+		&
+		\begin{tabular}{l} 
+			\text{Hệ số $CO_2$ $-$ hệ số $H_2O$ $=$ $n-(n+1-k)$}\\
+			\text{$=k-1$ $=$ chỉ số liên kết $\pi$ $-$ hệ số chất cháy}
+		\end{tabular} \\
+		\hline
+		\begin{tabular}{l}
+			\indam{\faCheckCircle}  Hợp chất $\mathbf{X}: \mathrm{C}_{\mathrm{x}} \mathrm{H}_{\mathrm{y}} \mathrm{O}_{\mathrm{z}} \mathrm{N}_{\mathrm{t}}$\\
+			Độ bất bão hòa là $\mathrm{k}=$ số vòng + số $\mathrm{LK}$ pi\\ (Nếu $\mathbf{X}$ mạch hở thì $\mathbf{k}=$ số liên kết pi)
+		\end{tabular}   & 
+		\makecell[l]{\indam{\faCheckCircle} Theo công thức độ bất bão hòa:}
+		\[
+		\begin{aligned}
+			k &=\dfrac{2C+2-H+N}{2}= C+1-0,5H + 0,5N \\
+			&=\text{chỉ số C}+\text {hệ số X}-0,5\text{chỉ số H}\\
+			&+0,5 \text {chỉ số N} 
+		\end{aligned}
+		\]
+		\makecell[l]{Nếu X mạch hở thì}
+		\makecell[l]{$\Rightarrow\left\{\begin{aligned}
+				\mathrm{n}_\pi & =\mathrm{n}_{\mathrm{C}}+\mathrm{n}_{\mathrm{x}}-0,5 \mathrm{n}_{\mathrm{H}}+0,5 \mathrm{n}_{\mathrm{N}} \\
+				& =\mathrm{n}_{\mathrm{CO}_2}+\mathrm{n}_{\mathrm{x}}-\mathrm{n}_{\mathrm{H}_2 \mathrm{O}}+\mathrm{n}_{\mathrm{N}_2}
+			\end{aligned}\right.$}
+		\\
+		\hline\rowcolor{\mauphu!10}
+		\indam{\faCheckCircle} Hidrocacbon X: $C_nH_{2n+2-2k}$ & \makecell[l]{$M=14n+2-2k$\\$\Rightarrow m_{\text{hidrocacbon}}=14n_C+n_X-2n_{\pi}$}\\
+		\hline
+		\indam{\faCheckCircle} An col no đơn chức, mạch hở (X): $C_nH_{2n+2}O$ & \makecell[l]{$M=14n+18$\\ $\Rightarrow$ $m_{ancol}=14n_C+18n_X$}\\
+		\hline \rowcolor{\mauphu!10}
+		\indam{\faCheckCircle} An col  đơn chức, mạch hở (X): $C_nH_{2n+2-2k}O$ & \makecell[l]{$M=14n+18-2k$\\ $\Rightarrow$ $m_{ancol}=14n_C+18n_X-2n_{Lk\pi}$}\\
+		\hline
+		\indam{\faCheckCircle} Axit no đơn chức, mạch hở (X): $C_nH_{2n}O_2$ & \makecell[l]{$M=14n+32$\\ $\Rightarrow$ $m_{axit}=14n_C+32n_X$}\\
+		\hline \rowcolor{\mauphu!10}
+		\makecell[l]{\indam{\faCheckCircle} Axit hoặc este đơn chức mạch hở (X):\\$C_nH_{2n-2k}O_2$\\(Với k=số liên kết $\pi$ ngoài nhóm chức\\ $-COO-$)} &\makecell[l]{$M=14n+32-2k$\\ $\Rightarrow$ $m_{axit}=14n_C+32n_X-2n_{\pi(\text{ngoài chức})}$}\\
+		\hline
+		\makecell[l]{\indam{\faCheckCircle} Chất béo (triglixerit) (X): $C_nH_{2n-4-2k}O_6$\\(Với $k$ $=$ số liên kết $\pi$ ngoài nhóm chức\\ $-COO-$)}& \makecell[l]{$M=14n+92-2k$\\ $\Rightarrow$ $m_{CB}=14n_C+92n_X-2n_{\pi(\text{ngoài chức})}$} \\
+		\hline  \rowcolor{\mauphu!10}
+		\multicolumn{2}{|c|}{
+			{\renewcommand{\arraystretch}{0.7}\begin{tabular}{c}
+					\indam{\faCheckCircle} Hỗn hợp $Fe$ và các oxit sắt $\left(Fe,O\right)$ tác dụng với axit có tính oxi hóa mạnh \\($HNO_3$, $H_2SO_4$ đặc nóng)
+			\end{tabular}}
+		}
+		\\
+		\hline
+		$\begin{array}{r}3 \mathrm{Fe}_x \mathrm{O}_y+(12 \mathrm{x}-2 \mathrm{y}) \mathrm{HNO}_3 \rightarrow 3 \mathrm{xFe}\left(\mathrm{NO}_3\right)_3\\+(6 \mathrm{x}-\mathrm{y}) \mathrm{H}_2 \mathrm{O}  +(3 \mathrm{x}-2 \mathrm{y}) \mathrm{NO} \uparrow\end{array}$ & $\begin{array}{l}
+			\small\text{Hệ số NO } =3x-2y= \text{số n/tử Fe}-\dfrac{2}{3} \text{số n/tử O}\\ \Rightarrow n_{NO}=n_{Fe}-\dfrac{2}{3}n_{O}
+		\end{array}$\\
+		\hline
+		$\begin{array}{r} \mathrm{Fe}_{\mathrm{x}} \mathrm{O}_{\mathrm{y}}+(6 \mathrm{x}-2 \mathrm{y}) \mathrm{HNO}_3 \rightarrow \mathrm{xFe}\left(\mathrm{NO}_3\right)_3 \\ +(3 \mathrm{x}-\mathrm{y}) \mathrm{H}_2 \mathrm{O}   +(3 \mathrm{x}-2 \mathrm{y}) \mathrm{NO}_2 \uparrow\end{array}$&$\begin{array}{l}
+			\small\text{Hệ số}\ NO_2 =3x-2y\\=3\cdot \text{số n/tử Fe} -2\cdot\text{số n/tử O}\\ \Rightarrow n_{NO_2}=3n_{Fe}-2n_O
+		\end{array}$\\
+		\hline 
+		$\begin{array}{r}2 \mathrm{Fe}_{\mathrm{x}} \mathrm{O}_{\mathrm{y}}+(6 \mathrm{x}-2 \mathrm{y}) \mathrm{H}_2 \mathrm{SO}_{4\text{đặc}} \rightarrow \mathrm{xFe}_2\left(\mathrm{SO}_4\right)_3\\+(6 \mathrm{x}-2 \mathrm{y}) \mathrm{H}_2 \mathrm{O}  +(3 \mathrm{x}-2 \mathrm{y}) \mathrm{SO}_2 \uparrow\end{array}$ &$\begin{array}{l}
+			\text{Hệ số}\ SO_2 =3x -2y\\ =1{,}5\cdot \text{số nguyên tử} Fe -\text{số nguyên tử} O\\ \Rightarrow n_{SO_2} =1{,}5n_{Fe}-n_O
+		\end{array}$\\
+		\hline
+		\indam{\faCheckCircleO} Phản ứng este hóa giữa rượu đơn chức và axit đơn chức.
+		\[
+		\mathrm{RCOO\textcolor{\maunhan}{H}} + \mathrm{R^{\prime}O\textcolor{\maunhan}{H}} \xleftrightarrow[][][0.65][][>=stealth] \mathrm{RCOOR^{\prime}}+\mathrm{\textcolor{\maunhan}{H}OH}
+		\] & \begin{tabular}{l}
+			$\Delta\ \text{hệ số} H^+ =1+1-1=1 = \text{hệ số ancol pu}$\\
+			$\Rightarrow n_{H^+} \left(\text{giảm}\right) = n_{\text{ancol}}\left(\text{phản ứng}\right)$
+		\end{tabular}\\
+		\hline \rowcolor{\mauphu!10}
+		$\begin{array}{l}
+			\text{\indam{\faCheckCircleO}\ Hỗn hợp} \left(CO_2, \text{hơi nước}\right) \text{qua than nóng đỏ}
+		\end{array}$
+		$\begin{array}{r}
+			C + CO_2 \xrightarrow[$t^\circ$][][][0.5] 2CO \quad \left(1\right)
+			\\
+			C + H_2O \xrightarrow[$t^\circ$][][][0.5] CO + H_2 \quad \left(2\right)
+			\\
+			C + 2H_2O \xrightarrow[$t^\circ$][][][0.5] CO_2 + 2H_2 \quad \left(3\right)
+		\end{array}$ 
+		\begin{tabular}{l}
+			\Noibat[\maunhan][\small\bfseries][\faBell]{Lưu ý}: {\small\itshape Viết tắt ở cột bên phải:\lq\lq \textbf{HS}\rq\rq là hệ số}
+		\end{tabular}
+		& $\begin{array}{l}
+			\small \left(1\right): \Delta\ \text{HS}_{\text{khí}} =2\text{HS}_{\text{trước}} - \text{HS}_{\text{sau}} =0\\
+			\small \text{HS}_{\text{khí sau}} - \text{HS}_{\text{khí trước}} = 1 = \dfrac{1}{2}\text{HS}_{\left(CO + H_2\right)}\\
+			\small \left(2\right): \Delta\ \text{HS}_{\text{khí}} =2\text{HS}_{\text{trước}} - \text{HS}_{\text{sau}} =0\\
+			\small \text{HS}_{\text{khí sau}} - \text{HS}_{\text{khí trước}} = 1 = \dfrac{1}{2}\text{HS}_{\left(CO + H_2\right)}\\
+			\small \left(3\right): \Delta\ \text{HS}_{\text{khí}} =2\text{HS}_{\text{trước}} - \text{HS}_{\text{sau}} =1=\text{HS}_{CO_2}\\
+			\small \text{HS}_{\text{khí sau}} - \text{HS}_{\text{khí trước}} = 1 = \tfrac{1}{2}\text{HS}_{\left(CO + H_2\right)}\\
+		\end{array}$ 
+		\begin{tabular}{l}
+			\Noibat[\maunhan][\small\bfseries][\faApple]{Kết luận}:\\
+			\textbf{X} $\left(CO_2, H_2O\right) \xrightarrow[$C \left(t^\circ\right)$][][1.5][0.5] \textbf{Y}\left(CO_2, CO, H_2\right) $\\
+			Thì luôn có các quan hệ sau đây:\\
+			\indam{\faArrowCircleORight} $n_{CO_2} =2n_X-n_Y$\\
+			\indam{\faArrowCircleORight} $n_{\left(H_2, CO\right)} =2\left(n_Y-n_X\right)$
+		\end{tabular}
+		\\
+		\hline
+		\begin{tabular}{l}
+			\indam{\faCheckCircleO} Hỗn hợp X (HC hở,$H_2$)
+			$\xrightarrow[$Ni,t^\circ$][][1][0.5]$ Y:\\
+			$C_nH_{2n+2-2k} + kH_2 \xrightarrow[$Ni,t^\circ$][][1][0.5] C_nH_{2n+2}$
+		\end{tabular}
+		& 
+		\begin{tabular}{l}
+			$\Delta\ \text{hệ số} =1+k-1=k=\text{hệ số}\ H_2$\\
+			$\Rightarrow \text{số mol khí giảm} = \text{số mol}\ H_2\ \text{phản ứng}$\\
+			Hay: $n_Y=n_X-n_{{H_2}_\text{(pư)}}$
+		\end{tabular}\\
+		\hline
+		\begin{tabular}{l}
+			\small\indam{\faCheckCircleO} Hỗn hợp X ($SO_2$, $O_2$)
+			$\xrightarrow[$xt$][$t^\circ$][1][0.5]$ Y($SO_3$,$SO_2$, $O_2$):\\
+			$2SO_2 + O_2 \xrightarrow[$xt$][$t^\circ$][1][0.5] 2SO_3$
+		\end{tabular}
+		&
+		\begin{tabular}{l}
+			$\Delta\ \text{hệ số} =2+1-2=1=\text{hệ số}\ O_2$ \\
+			$\Rightarrow \text{số mol khí giảm} = \text{số mol}\ O_2\ \text{Phản ứng}$.\\
+			Hay $n_Y=n_X-n_{{O_2}_{\text{(phản ứng)}}}$
+		\end{tabular}
+		\\
+		\hline
+		\begin{tabular}{l}
+			\small\indam{\faCheckCircleO} Hỗn hợp X ($N_2$, $H_2$) 
+			$\xrightarrow[$xt$][$t^\circ$][1][0.5]$ Y($NH_3$, $N_2$, $H_2$)\\
+			$N_2 +3H_2 \xrightarrow[$t^\circ$][][1][0.5] 2NH_3$
+		\end{tabular}
+		& 
+		\begin{tabular}{l}
+			$\Delta\ \text{hệ số} =1+3-2=\text{hệ số}\ NH_3$ \\
+			$\Rightarrow \text{số mol khí giảm} = \text{số mol}\ NH_3\ \text{sinh ra}$.\\
+			Hay $n_Y=n_X-n_{NH_3}$
+		\end{tabular}
+		\\
+		\hline
+		\begin{tabular}{l}
+			\small\indam{\faCheckCircleO} Nhiệt phân metan được\\ hỗn hợp Y ($ C_2H_2$, $H_2$, $CH_4$):\\
+			$2CH_4 \xrightarrow[$t^\circ$][][1][0.5] C_2H_2 + 3H_2$
+		\end{tabular}
+		& 
+		\begin{tabular}{l}
+			$\Delta\ \text{hệ số} =1+3-2=2=\text{hệ số}\ CH_4$ \\
+			$\Rightarrow \text{số mol khí tăng} = \text{số mol}\ CH_4 \text{phản ứng}$.\\
+			Hay $n_Y=n_{{CH_4}_{\text{(ban đầu)}}}+n_{{CH_4}_{\text{(phản ứng)}}}$
+		\end{tabular}
+		\\
+		\hline
+		\begin{tabular}{l}
+			\small\indam{\faCheckCircleO} Hỗn hợp X ($Cl_2$, $H_2$) $\xrightarrow[$\text{a.s}$][][0.8][-0.5]$ Y($HCl$, $Cl_2$, $H_2$) \\
+			$H_2 + Cl_2  \xrightarrow[$\text{a.s}$][][0.6][0.5] 2HCl$
+		\end{tabular}
+		& 
+		\begin{tabular}{l}
+			$\Delta\ \text{hệ số} =1+1-2=0$ \\
+			$\Rightarrow \text{số mol khí không đổi}$. $(n_Y=n_X)$
+		\end{tabular}
+		\\
+		\hline
+	\end{longtable}
+\end{tomtat}
+\subsection{Một số ví dụ minh họa}
+%%%%==============Vidu1==============%%%
+\hienthiloigiaivd
+\begin{vd}[Bài tập hỗn hợp chứa Fe và oxit sắt tác dụng với axit có tính oxi hóa mạnh]
+	Hòa tan hoàn toàn 6,0 gam hỗn hợp $X$ gồm $\mathrm{Cu}, \mathrm{Mg}$ và một oxit sắt trong dung dịch $HNO_3$ đặc, nóng dư thu được 2,24 lít $NO_2$ (spk duy nhất, đo ở đktc) và dung dịch $X$ (trong đó nồng độ mol của muối magie gấp 3 lần nồng độ mol của muối đồng). Làm bay hơi nước từ dung dịch $X$ thì thu được 20,84 gam muối khan.
+	Viết các phương trình hóa học và tìm công thức hóa học của oxit sắt.
+	\loigiai{
+		Tính $n_{NO_2}=0,1$ (mol)\\
+		Phương trình hóa học:
+		\[
+		\begin{array}{l}
+			\mathrm{Fe}_x O_y+(6 x-2 y) HNO_3 \xrightarrow \mathrm{xFe}\left(NO_3\right)_3+(3 x-y) H_2 O+(3 x-2 y) NO_2 \uparrow\ (1)\left(n_{NO_2}=3 n_{\mathrm{Fe}}-2 n_O\right) * \\
+			\mathrm{Cu}+4 HNO_3 \xrightarrow \mathrm{Cu}\left(NO_3\right)_2+2 H_2 O+2 NO_2 \uparrow\ (2) \\
+			\mathrm{Mg}+4 HNO_3 \xrightarrow \mathrm{Mg}\left(NO_3\right)_2+2 H_2 O+2 NO_2 \uparrow\ (3)
+		\end{array}
+		\]
+		Theo các ptpu: $n_{NO_2}=3n_{\mathrm{Fe}}+2n_{\mathrm{Cu}}+2n_{\mathrm{Mg}}-2n_O$.\\
+		Gọi số mol nguyên tố $\mathrm{Fe}, \mathrm{Cu}, O$ trong $X$ lần lượt là $a, b, c \Rightarrow n_{\mathrm{Mg}}=3\mathrm{b}(\mathrm{mol})$\\
+		Bảo toàn số mol kim loại $\Rightarrow$ muối gồm: $\mathrm{a}(\mathrm{mol}) \mathrm{Fe}\left(\mathrm{NO}_3\right)_3 ; \mathrm{b}(\mathrm{mol}) \mathrm{Cu}\left(\mathrm{NO}_3\right)_2 ; 3 \mathrm{b}(\mathrm{mol}) \mathrm{Mg}\left(\mathrm{NO}_3\right)_2$\\
+		Theo giả thiết ta có: $\heva{&3 a+8 b-2 c=0,1 \\ &56 a+136 b+16 c=6 \\ &242 a+632 b=20,84}$ $\Rightarrow\heva{&a=0,06 \\ &b=0,01 \\ &c=0,08}$ $\Rightarrow \dfrac{x}{y}=\dfrac{n_{\mathrm{Fe}}}{n_O}=\dfrac{0,06}{0,08}=\dfrac{3}{4}$\\
+		Vậy công thức của oxit sắt là: $\mathrm{Fe}_3 \mathrm{O}_4$
+	}
+\end{vd}
+%%%%==============HetVidu1==============%%%
+%%%==============Vidu2==============%%%
+\begin{vd}[Bài toán hỗn  hợp $\mathrm{CO}_2$, hơi nuớc đi qua than nóng đỏ]
+	Dẫn 0,2 mol hỗn hợp $X$ gồm khí $CO_2$ và hơi nước qua than nung đỏ thu được $0,31\mathrm{mol}$ hỗn hợp khí $Y$ gồm $CO, H_2, CO_2$. Cho toàn bộ $X$ hấp thụ vào trong $200\mathrm{ml}$ dung dịch chứa đồng thời $\mathrm{NaOH} 0,2M$ và $\mathrm{Ba}(OH)_2 0,2M$ thu được $m_1$ (gam) kết tủa. Mặt khác, dẫn toàn bộ $X$ qua $m_2$ (gam) hỗn hợp $Z(\mathrm{dư})$ gồm $\mathrm{CuO}$, $\mathrm{Fe}_2 O_3, \mathrm{MgO}, \mathrm{Fe}_3 O_4$ đến khi phản ứng hoàn toàn thu được 28,08 gam chất rắn $T$. Giả thiết các oxit kim loại chỉ bị khử thành kim loại. Viết các phương trình hóa học của phản ứng xảy ra và tính giá trị $m_1, \mathrm{m}_2$.
+	\loigiai{
+		\begin{itemize}
+			\item Thí nghiệm 1:
+			\[\begin{aligned}
+				&\mathrm{CO}_2+\mathrm{C} \xrightarrow[$\text{t}^\circ$] 2\mathrm{CO}\\
+				&\mathrm{H}_2 \mathrm{O}+\mathrm{C} \xrightarrow[$\text{t}^\circ$] \mathrm{CO}+\mathrm{H}_2\\
+				&2\mathrm{H}_2 \mathrm{O}+\mathrm{C} \xrightarrow[$\text{t}^\circ$] \mathrm{CO}_2+2 \mathrm{H}_2
+			\end{aligned}\]
+			Theo các phương trình phản ứng  ta thấy:\\ $\left\{\begin{aligned}&2n_X-n_Y=n_{CO_2} \\ &2\left(n_Y-n_X\right)=n_{CO}+n_{H_2}\end{aligned}\right.$ $\Rightarrow\left\{\begin{aligned}&n_{CO_2}=0,2.2-0,31=0,09\ \mathrm{mol} \\ &n_{CO}+n_{H_2}=2.(0,31-0,2)=0,22\ \mathrm{mol}\end{aligned}\right.$
+
+			\item Thí nghiệm 2: 
+
+			$n_{\mathrm{NaOH}}=n_{\mathrm{Ba}(OH)_2}=0,2.0,2=0,04\mathrm{mol}$
+
+			Vì $n_{\mathrm{NaOH}+\mathrm{Ba}(OH)_2}=0,08\mathrm{mol} < n_{CO_2}=0,09\mathrm{mol} < n_{OH}=0,12\ \mathrm{mol}$ $\Rightarrow$ kết tủa $\mathrm{BaCO}_3$ tan một phần.\\ $\Rightarrow$  Các muối sau phản ứng gồm $\mathrm{BaCO}_3, \mathrm{Ba}\left(HCO_3\right)_2, \mathrm{NaHCO}_3$
+			\[\begin{aligned}
+				& CO_2+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{BaCO}_3 \downarrow+H_2 O \\
+				& 2CO_2+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{Ba}\left(HCO_3\right)_2 \\
+				& CO_2+\mathrm{NaOH} \xrightarrow \mathrm{NaHCO}_3
+			\end{aligned}\]
+			Phân tích các phương trình phản ứng $\Rightarrow n_{\mathrm{BaCO}_3}=n_{OH}-n_{CO_2}=0,12-0,09=0,03\mathrm{mol}$\\
+			$\Rightarrow m_1=0,03.197=5,91$ (gam)
+			\item Thí nghiệm 2: MgO không bị khử
+			Đặt công thức các oxit kim loại bị khử là $R_x O_y$
+			Các phương trình hóa học:
+			\[\begin{aligned}
+				& \mathrm{yCO}+R_x O_y \xrightarrow[$\text{t}^\circ$] \mathrm{xR}+\mathrm{yCO}_2 \\
+				& \mathrm{yH}_2+R_x O_y \xrightarrow[$\text{t}^\circ$]\mathrm{xR}+\mathrm{yH}_2 O
+			\end{aligned}\]
+			Theo các phương trình phản ứng: $n_O$ (bị khử $)=n_{CO_2}+n_{H_2}=0,22\mathrm{mol}$\\
+			TGKL $\Rightarrow m_Z-m_{O\text{(bị khử)}}=m_T$  $\Rightarrow m_2=28,08 + 0,22.16=31,6$ (gam)
+		\end{itemize}
+	}
+\end{vd}
+%%%%==============HetVidu2==============%%%
+%%%==============Vidu3==============%%%
+\begin{vd}[Đốt cháy hỗn hợp nhiều chất hữu cơ có chung mối liên hệ]
+	Hỗn hợp E gồm $CH_3 COOH, CH_3 CH(OH) COOH$, benzen, $CH_2=CH-CH_2 COOH$ (oxi chiếm $34,25\%$ theo khối lượng). Đốt cháy hoàn toàn $m$ (gam) hỗn hợp $E$ trong khí oxi, dẫn toàn bộ sản phẩm cháy vào dung dịch $\mathrm{NaOH}$ dư thì thấy khối lượng bình tăng 18,22 gam. Viết các phương trình hóa học của phản ứng xảy ra và tính giá trị của m.
+	\loigiai{
+		\Nhanmanh{Phân tích:} Các chất trong $E$ gồm $C_2 H_4 O_2$, $C_3 H_6 O_3$, $C_6 H_6$, $C_4 H_6 O_2$. Từ các CTPT ta thấy mối liên hệ chung về chỉ số nguyên tử là $H-C=O$ ( tức là số mol $H$ $-$ số mol $C$ $=$ số mol $O$ ). Như vậy $E$ có 3 nguyên tố mà đã biết 3 dữ kiện, điều này cho thấy có đủ cơ sở để ta tìm được lượng từng nguyên tố trong $E$. Từ đây bảo toàn khối luợng sẽ tìm đuợc giá trị $m$.
+		Các phương trình hóa học:
+		\[\begin{aligned}
+			& C_2 H_4 O_2+2 O_2 \xrightarrow[$\text{t}^\circ$] 2 CO_2+2 H_2 O \\
+			& C_3 H_6 O_3+3 O_2 \xrightarrow[$\text{t}^\circ$] 3 CO_2+3 H_2 O \\
+			& C_6 H_6+7,5 O_2 \xrightarrow[$\text{t}^\circ$] 6 CO_2+3 H_2 O \\
+			& C_4 H_6 O_2+4,5 O_2 \xrightarrow[$\text{t}^\circ$] 4 CO_2+3 H_2 O \\
+			& CO_2+2 \mathrm{NaOH} \xrightarrow \mathrm{Na}_2 CO_3+H_2 O
+		\end{aligned}\]
+
+		Gọi $a$, $b$ lần lượt là số mol $CO_2$ và $H_2 O$
+
+		Phân tích CTPT trong $E$ $\Rightarrow$ Quy luật chung: $n_O=n_H-n_C$ $\Rightarrow n_O=(2\mathrm{b}-a) \mathrm{mol}$
+
+		Theo đề ta có: $16\cdot(2\mathrm{b}-a)=\dfrac{34,25}{65,75} \cdot(12a+2\mathrm{b})$ (1)
+
+		Mặt khác, bình $\mathrm{NaOH}$ tăng 18,22 gam $\Rightarrow 44a+18\mathrm{b}=18,22$ (2)
+
+		Giải phươn trình $(1,2)$ được: $a=0,32; b=0,23$
+
+		BTKL $\Rightarrow m=0,32 \cdot 12+0,23 \cdot 2+16 \cdot(2 \cdot 0,23-0,32)=6,54$ gam
+	}
+\end{vd}
+%%%%==============HetVidu3==============%%%
+%%%==============Vidu4==============%%%
+\begin{vd}[Phân tích mối liên hệ giữa số mol C, khối luợng hỗn hợp và số mol liên kết pi]
+	Hỗn hợp $X$ gồm các hidrocacbon mạch hở và các ancol mạch hở. Cho $8{,}18$ gam $X$ tác dụng $\mathrm{Na}$ dư thu được $1{,}008$ lít $H_2$ (đktc). Đốt cháy hoàn toàn $8{,}18$ gam hỗn hợp $X$ trong khí oxi, thu được $CO_2$ và $H_2O$. Dẫn toàn bộ sản phẩm cháy qua dung dịch $\mathrm{Ca}(OH)_2$ thu được $30$ gam kết tủa và dung dịch $Y$. Đun nóng $Y$ thì thu được tối đa $10$ gam kết tủa. Mặt khác, dẫn $8{,}18$ gam $X$ qua dung dịch brom dư thì thấy có $38{,}4$ gam $\mathrm{Br}_2$ phản ứng. Tính số mol của $8{,}18$ gam $X$?
+	\loigiai{
+		\Nhanmanh{Phân tích:} Hỗn hợp $X$ chứa hidrocacbon nào và ancol nào không hề biết. Chỉ biết ancol và hidrocacbon đều mạch hở nên toàn bộ liên kết pi nằm ở phần gốc hidrocacbon ($C=C$ hoặc $C\equiv C$).
+
+		Ta thấy cứ $2$ mol $OH$ $\xrightarrow$ $1$ mol $H_2$. (từ đây tính được số mol $O$ $=0,09$ mol)
+
+		Đặt CTPT chung của $X:$ $C_n H_{2n+2-2k}O_m$ và phân tích CT này ta thấy: $M=14n+2-2k+16m$
+
+		Nghĩa là: $m_X=14n_C+2n_X-2n_{{Br}_2}+16n_O$. Từ đây tính đuợc số mol $X$.
+		\begin{itemize}
+			\item Tác dụng với Na:
+			\[\begin{aligned}
+				\mathrm{R(OH)}_x+\mathrm{xNa} \xrightarrow \mathrm{R(ONa)}_x+\dfrac{x}{2} \mathrm{H}_2 \uparrow \quad \left(1\right)
+			\end{aligned}\]
+			$n_O=n_{OH}=2n_{H_2}=\dfrac{1,008}{22,4} \cdot 2=0,09\mathrm{mol}$
+			\item Phản ứng đốt cháy:
+			\[\begin{aligned}
+				& C_n H_{2n+2-2k} O_m+\left(\dfrac{3n+1-k-m}{2}\right) O_2  \xrightarrow[$t^\circ$] \mathrm{nCO}_2+(n+1-k) H_2O &\quad \left(2\right) \\
+				& CO_2+\mathrm{Ca}(OH)_2 \xrightarrow[$t^\circ$] \mathrm{CaCO}_3 \downarrow+H_2O &\quad \left(3\right) \\
+				& 2CO_2+\mathrm{Ca}(OH)_2 \xrightarrow[$t^\circ$] \mathrm{Ca}\left(HCO_3\right)_2 &\quad \left(4\right) \\
+				& \mathrm{Ca}\left(HCO_3\right)_2 \xrightarrow[$t^\circ$] \mathrm{CaCO}_3 \downarrow+H_2 O+CO_2 \uparrow &\quad \left(5\right)
+			\end{aligned}\]
+			\item Phản ứng với dung dịch $\mathrm{Br}_2$:
+			\[\begin{aligned}
+				&C_n H_{2n+2-2k} O_m+\mathrm{kBr}_2 \xrightarrow[$t^\circ$] C_n H_{2n+2-2k} O_m \mathrm{Br}_{2k} &\quad \left(6\right) 
+			\end{aligned}\]
+			Theo $(2,3,4)$ thấy: $n_{CO_2}=n_{KT}(L1)+2n_{KT}(L2)=\dfrac{30}{100}+\dfrac{20}{100}=0,5\mathrm{mol}$
+
+			Theo (6)$\colon$ $n_{\mathrm{Ik} \pi}=n_{\mathrm{Br}_2}=\dfrac{38,4}{160}=0,24\mathrm{mol}$
+
+			Phân tích CT của $X: C_n H_{2n+2-2k} O_m \Rightarrow M=14n+2-2k+16\mathrm{m}$
+
+			Vậy $m_X=14n_C+2n_X-2n_{1k \pi}+16n_O \Rightarrow n_X=(8,18-14.0,5+2.0,24-16.0,09): 2=0,11\mathrm{mol}$
+			\\\\%
+			\Nhanmanh[\faBell]{Lưu ý:} Nếu bài toán trên là trắc nghiệm thì không cần viết phản ứng, ta chỉ cần phân tích CTPT tìm ra mối liên hệ và thay số liệu vào, bấm máy ra kết quả ngay mà không cần phải tìm số mol $H_2O$ rồi dùng công thức liên hệ số mol LK pi: $n_{CO_2}-n_{H_2O}+n_X=n_{{Br}_2}$
+		\end{itemize}
+	}
+\end{vd}
+%%%==============HetVidu4==============%%%
+
+%%%%==============Vidu5==============%%%
+\begin{vd}[Phân tích mối liên hệ giũa số mol $CO_2$, số mol $H_2O$ của sản phẩm đốt cháy]
+	Hỗn hợp E gồm X: $C_nH_{2n+2}O, Y: C_mH_{2m+1}COOH$ và $Z:(COOH)_2$ (trong đó số mol $Z$ gấp đôi số mol $X$). Đốt cháy hoàn toàn a gam $E$ trong khí oxi thu được 5,28 gam $CO_2$ và $1{,}98$ gam $H_2O$. Mặt khác, $a$ gam hỗn hợp $E$ tác dụng vừa đủ với $50\mathrm{ml}$ dung dịch $KOH$ $1{,}2M$ thu được $b$ gam muối. Tìm công thức của $X$, $Y$ và tính giá trị của $a$, $b$.
+	\loigiai{
+		\Nhanmanh{Phân tích:} Các chất $X\ (k=0), Y\ (k=1), Z\ (k=2)$. Phân tích mối liên hệ số mol $CO_2$ và $H_2 O$ ta tìm được mối liên hệ giữa số mol $X, Y, Z$:
+		\begin{itemize}
+			\item mol $X$ cháy cho $n$ (mol) $CO_2$ và $(n+1)$ mol $H_2 O\Rightarrow n_{CO_2}-n_{H_2 O}=-n_X$
+			\item mol Y cháy cho $(m+1)(m o l) CO_2$ và $(m+1)$ mol $H_2 O\Rightarrow n_{CO_2}-n_{H_2 O}=0$
+		\end{itemize}
+		$1$ mol $Z$ cháy cho $2$ (mol) $CO_2$ và $1$ mol $H_2O$ $\Rightarrow$ $n_{CO_2}-n_{H_2 O}=n_Z$
+
+		Như vậy $\sum n_{CO_2}-\sum n_{H_2 O}=n_Z-n_X$
+
+		Số mol $KOH$ $=$ số mol $COOH$ = $n_Y+2n_Z$
+
+		Tính số mol $n_{KOH}=0,06$ mol; $n_{CO_2}=0,12 $ mol; $n_{H_2O}=0,11$ mol
+		\begin{itemize}
+			\item Phản ứng đốt cháy E:
+			\[\begin{aligned}
+				& C_n H_{2 n+2} O+\dfrac{3 n}{2} O_2 \xrightarrow[$t^\circ$] \mathrm{nCO}_2+(n+1) H_2 O \\
+				& C_m H_{2 \mathrm{m}+1} COOH+\dfrac{3 \mathrm{m}+1}{2} O_2 \xrightarrow[$t^\circ$] (\mathrm{m}+1) CO_2+(m+1) H_2 O \\
+				& (COOH)_2+1 / 2 O_2 \xrightarrow[$t^\circ$] 2 CO_2+H_2 O
+			\end{aligned}\]
+			Theo các ptpư cháy: $n_{CO_2}-n_{H_2 O}=n_Z-n_X=n_X \Rightarrow\left\{\begin{array}{l}n_X=0,12-0,11=0,01\mathrm{~mol} \\ n_Z=0,02\mathrm{~mol}\end{array}\right.$
+			\item Tác dụng với $KOH$:
+			\[\begin{aligned}
+				& C_m H_{2 \mathrm{m}+1} COOH+KOH \xrightarrow C_m H_{2 \mathrm{m}+1} COOK+H_2 O \\
+				& (COOH)_2+2 KOH \xrightarrow (COOK)_2+2 H_2 O
+			\end{aligned}\]
+
+			$n_{COOH}=n_{KOH}=0,06$ mol $\Rightarrow$ $n_Y=0,06-2.0,02=0,02$ mol
+			\\
+			BTKL $\Rightarrow a=0,12\cdot 12+0,11\cdot 2+0,06\cdot 32+0,01\cdot 16=3,74$ gam
+			\\
+			Bảo toàn mol $C$ $\Rightarrow$ $0,01n+0,02.(m+1)=0,12-0,02.2$
+			\\
+			$\Rightarrow n+2m=6$
+			$\Rightarrow\left[\begin{array}{l}n=2; m=2\\ n=4; m=1\end{array}\right.$
+			\begin{itemize}
+				\item Trường hợp 1: $n=2; m=3$
+				\\
+				Công thức của $X$: $C_2 H_5 OH$; công thức của $Y$: $C_2 H_5 COOH$.
+				\\
+				Muối: $0,02\mathrm{~mol}(COOK)_2; 0,02\mathrm{~mol} C_2 H_5 COOK$
+				\\
+				$\Rightarrow b=0,02\cdot 166+0,02\cdot 112=5,56$ gam
+				\item Trường hợp 2: $n=4; m=1$
+				\\
+				Công thức của $X$: $C_4 H_9 OH$; công thức của $Y$: $CH_3 COOH$.
+				\\
+				Muối: $0,02\mathrm{~mol}(COOK)_2; 0,02\mathrm{~mol} CH_3 COOK$
+				\\
+				$\Rightarrow b=0,02\cdot 166+0,02.98=5,28$ gam
+			\end{itemize}
+		\end{itemize}
+	}
+\end{vd}
+%%%%==============HetVidu5==============%%%
+%%%==============Vidu6==============%%%
+\begin{vd}(Phân tích các mối liên hệ trong phân tử chất béo)
+	Hỗn hợp E gồm các chất béo và axit béo tự do (trong đó oxi chiếm 10,88\% theo khối lượng). Xà phòng hóa hoàn toàn $m$ gam $E$ bằng dung dịch $\mathrm{NaOH}$ dư đun nóng, sau phản ứng thu được dung dịch chứa 103,3
+	gam hỗn hợp các muối $C_{17} H_{35} \mathrm{COONa}, C_{17} H_{33} \mathrm{COONa}, C_{17} H_{31} \mathrm{COONa}$ và 10,12 gam glixerol. Mặt khác, $m$ gam $E$ phản ứng tối đa với $x$ gam $\mathrm{Br}_2$ trong dung dịch. Tính giá trị của $x$?
+	\loigiai{
+		%		Phân tích: Các muối đều có 18C. Đây là cơ sở để ta đặt công thức trung bình của hỗn hợp muối thu được là $C_{17} H_{35-2k} COONa$.
+		%		Muối $C_{17} H_{35-2k} COONa$ có khối luoơng mol $M=306-2k \Rightarrow m_{\text{muối}}=306n_{\text{muối}}-2n_{C=C}$. Như vậy để tìm số mol $\mathrm{Br}_2$ ta chỉ cần biết số mol muối (bằng số mol nhóm-COO-)
+		%		Tính số $\mathrm{mol}_{C_3 H_5(OH)_3}=\dfrac{10,12}{92}=0,11\mathrm{mol}$
+		%		Phương trình phản ứng:
+		%		
+		%		TGKL $\Rightarrow m_E-0,11\cdot 41-1a+(0,33+a) \cdot 23=103,3\Rightarrow m_E=(100,22+22a)$ gam
+		%		
+		%		Theo \% khối lượng oxi $\Rightarrow \dfrac{(0,33+a) \cdot 32}{100,22+22a}=\dfrac{10,88}{100} \Rightarrow a=0,01\mathrm{mol}$
+		%		
+		%		Đặt công thức muối $C_{17} H_{35-2k} \mathrm{COONa}: 0,34\mathrm{mol}$
+		%		
+		%		Phân tích CT muối ta thấy: $M=306-2k$
+		%		
+		%		$\Rightarrow m_{\text{muối}}=306n_{\text{muối}}-2n_{C=C} \Rightarrow n_{C=C}=\dfrac{306.0,34-103,3}{2}=0,37\mathrm{mol}$
+		%		
+		%		Vì khi cho $E$ tác dụng dung dịch $\mathrm{Br}_2$ thì chỉ xảy ra phản ứng cộng vào liên kết $C=C$ của gốc axit. Vì vậy số $\mathrm{mol} \mathrm{Br}_2$ phản ứng với $E$ bằng số $\mathrm{mol} \mathrm{Br}_2$ phản ứng với muối.
+		%		\[
+		%		\begin{gathered}
+			%			C_{17} H_{35-2 k} \mathrm{COONa}+\mathrm{kBr}_2 \xrightarrow C_{17} H_{35-2 k} \mathrm{Br}_{2 k} \mathrm{COONa} \\
+			%			n_{\mathrm{Br}_2}=n_{C=C}=0,37 \mathrm{mol} \Rightarrow x=0,37.160=59,2 \text{gam.}
+			%		\end{gathered}
+		%		\]
+		%		
+	}
+\end{vd}
+%%%%==============HetVidu6==============%%%
+
+%%%%==============Vidu7==============%%%
+\begin{vd}[Câu hỗn hợp kim loại kiềm,kiềm thổ và oxit của chúng]
+	Hòa tan hoàn toàn 21,9 gam hỗn hợp $X$ gồm $\mathrm{Ba}, \mathrm{BaO}, \mathrm{Na}, \mathrm{Na}_2 O$ trong nước dư thì thu được 1,12 lít khí (đktc) và 200 gam dung dịch $Y$ (nồng độ $\%$ của $\mathrm{Ba}(OH)_2$ là $10,26\%$). Sục từ từ 6,72 lít $CO_2$ (đktc) vào $Y$ đến khi phản ứng hoàn toàn thu được $m$ gam kết tủa. Tính giá trị của $m$.
+	\loigiai{
+		%	Phân tích: Đây là bài toán có nhiều cách giải (BT mol kết hợp BTKL, phuơng pháp quy đổi, phuoơng pháp sư dụng bảo toàn electron\ldots các phuơng pháp này cũng khá hiệu quả. Tuy nhiên, để thấy vẻ đẹp về các mối liên hệ trong phương trình hóa học ta hãy xem xét bài toán qua phuoơng pháp sư dụng công thúc đại diện kết hợp phân tích hệ số.
+		%	
+		%	$\mathrm{Na}$ và $\mathrm{Na}_2 O$ có $CTTB$ là $\mathrm{Na}_2 O_x(0< x < 1)$. Ba và $\mathrm{BaO}$ có $CTTB$ là $\mathrm{BaO}_y(0< y < 1)$. Mỗi chất này đại diện cho kim loại và oxit của nó nên sản phẩm phản ứng với nước là bazơ và $H_2$.
+		%	
+		%	Hỗn hợp $X$ có 3 nguyên tố, đề bài cho 3 dũ kiện nên đủ cơ sở tìm số mol mỗi nguyên tố. Có một mối quan hệ rất đặc biệt nằm trong $PTHH$ giúp ta tìm ra một biểu thúc tương tụ̣ nhu bảo toàn electron:+Nếu BT eletron thì Na, Ba trao đổi e vơi $O$ trong $X$ và $H_2$. Do đó $n_{\mathrm{Na}} \cdot 1+n_{\mathrm{Ba}} \cdot 2=n_{H_2} \cdot 2-n_O \cdot 2\left(^{*}\right)$+Nếu phân tích hệ số ta sẽ thấy gì?
+		%	
+		%	\[
+		%	\mathrm{Na}_2 O_x+(2-x) H_2 O \xrightarrow 2 \mathrm{NaOH}+(1-x) H_2 \uparrow \quad \text{(1)}\left(H \widehat{̣} \text{số} H_2=1-x=1 / 2 \text{chỉ số} \mathrm{Na}-\text{chỉ số} O\right)
+		%	\]
+		%	
+		%	\[
+		%	\mathrm{BaO}_y+(2-y) H_2 O \xrightarrow \mathrm{Ba}(OH)_2+(1-y) H_2 \uparrow \quad \text{(2)}\left(H \widehat{̣} \text{số} H_2=1-y=\text{chỉ số} \mathrm{Ba}-\text{chỉ số} O\right)
+		%	\]
+		%	
+		%	Quan hệ hệ số là quan hệ số mol $\Rightarrow n_{H_2}=\dfrac{1}{2} n_{\mathrm{Na}}+n_{\mathrm{Ba}}-n_O\left(^{(*)}\right)$ (Bieủu thúc này tương đuoơng vói $\left(^{*}\right)$)
+		%	
+		%	$n_{H_2}=\dfrac{1,12}{22,4}=0,05\mathrm{mol}; n_{\mathrm{Ba}(OH)_2}=\dfrac{200\cdot 10,26}{100.171}=0,12\mathrm{mol}; n_{CO_2}=\dfrac{6,72}{22,4}=0,3\mathrm{mol}$
+		%	
+		%	Đặt công thức đại diện của các chất trong $X$ là: $\mathrm{Na}_2 O_x$ và $\mathrm{BaO}_y$-Phản ứng của $X$ với nước:
+		%	\[
+		%	\begin{array}{ll}
+			%		\mathrm{Na}_2 O_x+(2-x) H_2 O \xrightarrow 2 \mathrm{NaOH}+(1-x) H_2 \uparrow & \text{(1)}\left(n_{H_2}=\dfrac{1}{2} n_{\mathrm{Na}}-n_O\right) \\
+			%		\mathrm{BaO}_y+(2-y) H_2 O \xrightarrow \mathrm{Ba}(OH)_2+(1-y) H_2 \uparrow & \text{(2)}\left(n_{H_2}=n_{\mathrm{Ba}}-n_O\right)
+			%	\end{array}
+		%	\]
+		%	
+		%	Phân tích hệ số ta thấy: $\sum n_{H_2}=0,5n_{\mathrm{Na}}+n_{\mathrm{Ba}}-n_O$
+		%	
+		%	Bảo toàn số $\mathrm{mol} \mathrm{Ba} \Rightarrow n_{\mathrm{Ba}}=n_{\mathrm{Ba}(OH)_2}=0,12\mathrm{mol}$
+		%	
+		%	Theo đề ta có: $\left\{\begin{array}{l}23n_{\mathrm{Na}}+16n_O=21,9-0,12.137\\ 0,5n_{\mathrm{Na}}-n_O=0,05-0,12\end{array} \Rightarrow\left\{\begin{array}{l}n_{\mathrm{Na}}=0,14\mathrm{mol} \\ n_O=0,14\mathrm{mol}\end{array}\right.\right.$
+		%	
+		%	Bảo toàn số $\mathrm{mol} \mathrm{Na} \Rightarrow n_{\mathrm{NaOH}}=0,14\mathrm{mol}$
+		%	
+		%	Vì $n_{\text{kiềm}}=0,26\mathrm{mol} < n_{CO_2}=0,3< n_{OH}=0,38\mathrm{mol} \Rightarrow$ kết tủa tan một phần.-Phương trình hóa học của $Y$ với $CO_2$:
+		%	
+		%	\[
+		%	\begin{array}{ll}
+			%		CO_2+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{BaCO}_3 \downarrow+H_2 O & \text{(3)}\left(n_{OH}-n_{CO_2}=n_{\mathrm{BaCO}_3}\right) \\
+			%		2 CO_2+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{Ba}\left(HCO_3\right)_2 & \text{(4)}\left(n_{OH}-n_{CO_2}=0\right) \\
+			%		CO_2+\mathrm{NaOH} \xrightarrow \mathrm{NaHCO}_3 & \text{(5)}\left(n_{OH}-n_{CO_2}=0\right)
+			%	\end{array}
+		%	\]
+		%	
+		%	Theo các ptpư $(3,4,5): n_{\mathrm{BaCO}_3}=\sum n_{OH}-\sum n_{CO_2}=0,38-0,3=0,08\mathrm{mol}$
+		%	
+		%	Khối lượng kết tủa: $m=0,08.197=15,76$ gam.
+		%	
+	}
+\end{vd}
+%%%%==============HetVidu7==============%%%
+
+%%%%==============Vidu8==============%%%
+\begin{vd}
+	(Phân tích tăng giảm số mol trong phản ứng toàn chất khî)
+	Cho 8 gam $CH_4$ vào bình kín có dung tích 7 lít. Nung nóng bình để phản ứng nhiệt phân xảy ra, sau đó đưa nhiệt độ bình về $0^{\circ} C$ thì thu được hỗn hợp khí $X$ gồm $CH_4, C_2 H_2, H_2$, áp suất trong bình là $3\mathrm{atm}$.
+	Tính Hiệu suất phản ứng nhiệt phân metan và tỉ khối của $X$ so với He.
+	\loigiai{
+		%		Phân tích: Đây là một bài tập không khó nhưng khá hay. Dễ thấy hỗn hợp truớc và sau phản ứng đều giũ nguyên các nguyên tố ban đầu nên không lượng không đổi ($\left.m_X=m_{CH_4}=8\mathrm{gam}\right)$.
+		%		Phân tích hệ số phản ứng: $2CH_4 \xrightarrow[$t^\circ$] C_2 H_2+3H_2$ thấy $\Delta$ hệ số $=1+3-2=2=$ hệ số $CH_4$. Nhu vậy trong phản ứng này số mol khi tăng lên đúng bằng số mol khí $CH_4$ phản ứng.
+		%		Tính số mol khí $X$ trong bình kín 7 lít ($0^{\circ} C$, 3amt) thì số mol gấp 3 lần so với $Đ KTC\left(0^{\circ} C\right.$; 1atm) do số mol tỉ lệ thuận với áp suất (khi thể tích và nhiệt độ không đổi) $\Rightarrow n_X=3\cdot(7: 22,4)=0,9375\mathrm{mol}$
+		%		
+		%		\[
+		%		n_{CH_4}=\dfrac{8}{16}=0,5 \mathrm{mol}; n_X=\dfrac{3.7}{22,4}=0,9375 \mathrm{mol}
+		%		\]
+		%		Gọi h là hiệu suất phản ứng nhiệt phân $CH_4\left(\mathrm{h}=\dfrac{H\%}{100}\right)$
+		%		\[
+		%		\begin{gathered}
+			%			\Rightarrow n_{CH_4}(\mathrm{pur})=0,5 \cdot \dfrac{H}{100}=0,5 \mathrm{h}(\mathrm{mol}) \\
+			%			2CH_4 \xrightarrow[$t^\circ$] C_2 H_2+3H_2 \\
+			%			0,5 \mathrm{h} \xrightarrow \quad 0,25 \mathrm{h} \quad 0,75 \mathrm{h}(\mathrm{mol})
+			%		\end{gathered}
+		%		\]
+		%		$\Rightarrow 0,5+0,5\mathrm{h}=0,9375\Rightarrow h=0,875$
+		%		Vậy hiệu suất phản ứng: $H\%=h.100\%=0,875.100\%=87,5\%$
+		%		$BTKL \Rightarrow m_X=m_{CH_4}=8$ gam $\Rightarrow d_{X/ \mathrm{He}}=\dfrac{8: 0,9375}{4}=\dfrac{32}{15}$
+		%		
+	}
+\end{vd}
+%%%%==============HetVidu8==============%%%
+
+%%%%==============Vidu9==============%%%
+\begin{vd}
+	(Phân tich tăng giảm khối lượng trong phản ứng kim loại tác dụng với muối)
+	Ngâm 5,96 gam hỗn hợp $E$ gồm $\mathrm{Fe}$ và $\mathrm{Zn}$ trong $300\mathrm{ml}$ dung dịch $\mathrm{Cu}\left(NO_3\right)_2$, khuấy đều đến khi phản ứng hoàn toàn thu được dung dịch $Y$ và 6,32 gam chất rắn $Z$. Cho $Y$ tác dụng với lượng vừa đủ dung dịch $\mathrm{NaOH}$ thu được kết tủa lớn nhất, nung kết tủa trong không khí đến khối lượng không đổi, thu được 7,24 gam oxit kim loại. Tính nồng độ mol của dung dịch $\mathrm{Cu}\left(NO_3\right)_2$ đã dùng.
+	\loigiai{
+		%	Phân tích: Mấu chốt bài toán ở các đặc điểm sau:-Xem xét TGKL kim loại ta thấy: $\mathrm{Zn} \xrightarrow \mathrm{Cu}$ (khối luợng giảm); Fe $\xrightarrow \mathrm{Cu}$ (khối luợng tăng).
+		%	Nếu Fe chưa phản ứng thì khối lượng KL giảm. Theo đề khối lượng KL lại tăng $\Rightarrow$ chúng tỏ Fe đã phản ứng, Zn đã hết.
+		%	Mặt khác: Nếu chuyển toàn bộ E thành oxit thì $\dfrac{5,96.81}{65}=7,427(\mathrm{g}) < m_{\text{oxit}} < \dfrac{5,96.160}{112}=8,514\mathrm{gam}$. Điều này chúng tỏ kim loại Fe còn dur. Nếu không khai thác đurợc dũ kiện này thì phải biện luận truoòng hợp.
+		%	Kỹ thuật phân tích tăng giảm khối lượng trong toán KL tác dụng muối có lẽ không xa lạ với giáo viên chúng ta. Tuy nhiên, xư lý nó nhu thế nào thì còn tùy thuộc vào phong cách riêng của mỗi người.
+		%	Vì khối lượng kim loại sau phản ứng với $\mathrm{Cu}\left(NO_3\right)_2$ tăng lên nên $\mathrm{Fe}$ đã tham gia phản ứng, $\mathrm{Mg}$ hết.
+		%	
+		%	Nếu toàn bộ E chuyển thành oxit thì $\dfrac{5,96.81}{65}=7,427(\mathrm{g}) < m_{\text{oxit}} < \dfrac{5,96.160}{112}=8,514$ gam
+		%	Theo đề $m_{\text{oxit} KL}=7,24$ gam $< 7,427$ gam $\Rightarrow$ Kim loại còn dư $\left(\mathrm{Fe}\right.$ dư), $\mathrm{Cu}\left(NO_3\right)_2$ hết.
+		%	\[
+		%	\begin{aligned}
+			%		& \mathrm{Zn}+\mathrm{Cu}\left(NO_3\right)_2 \xrightarrow \mathrm{Zn}\left(NO_3\right)_2+\mathrm{Cu} \downarrow \\
+			%		& x \xrightarrow x \\
+			%		& \mathrm{Fe}+\mathrm{Cu}\left(NO_3\right)_2 \xrightarrow \mathrm{Fe}\left(NO_3\right)_2+\mathrm{Cu} \downarrow \\
+			%		& y \xrightarrow y \\
+			%		& \left.\mathrm{Zn}\left(NO_3\right)_2+2 \mathrm{NaOH}\right) \Rightarrow KL \text{giảm} \Delta m=x(g) \\
+			%		& \mathrm{Fe}\left(NO_3\right)_2+2 \mathrm{NaOH}(OH)_2 \downarrow+2 \mathrm{NaNO}_3 \\
+			%		& \mathrm{Zn}(OH)_2 \xrightarrow[$t^\circ$] \mathrm{Kn} \text{tăng} \Delta \mathrm{me}=8 y(g) \\
+			%		& 2 OH)_2 \downarrow+2 \mathrm{NaNO}_3 \\
+			%		& 2 \mathrm{Fe}(OH)_2+1 / 2 O_2 \xrightarrow[$t^\circ$] \mathrm{Fe}_2 O_3+2 H_2 O
+			%	\end{aligned}
+		%	\]
+		%	
+		%	Theo bảo toàn số $\mathrm{mol} \mathrm{Zn}, \mathrm{Fe} \Rightarrow n_{\mathrm{ZnO}}=x(\mathrm{mol}); n_{\mathrm{Fe}_2 O_3}=0,5y(\mathrm{mol})$
+		%	
+		%	Ta có hệ pt $\left\{\begin{array}{l}-x+8y=6,32-5,96\\ 81x+80y=7,24\end{array} \Rightarrow\left\{\begin{array}{l}x=0,04\\ y=0,05\end{array}\right.\right.$
+		%	
+		%	Nồng độ mol của dung dịch $\mathrm{Cu}\left(NO_3\right)_2: C_M \mathrm{Cu}\left(NO_3\right)_2=\dfrac{0,09}{0,3}=0,3M$
+		%	
+	}
+\end{vd}
+%%%%==============HetVidu9==============%%%
+
+%%%%==============Vidu10==============%%%
+\begin{vd}
+	(Hỗn hợp khí có số mol khi không đổi trong phản ứng)
+	Hỗn hợp $X$ gồm $CH_4, H_2, \mathrm{Cl}_2$. Cho $0,35\mathrm{mol} X$ vào bình thạch anh rồi đưa ra ánh sáng sau một thời gian thu được hỗn hợp $Y$ gồm $CH_3 \mathrm{Cl}, \mathrm{HCl}, H_2, \mathrm{Cl}_2$. Hòa tan toàn bộ $Y$ vào nước dư thu được dung dịch $Z$ (bỏ qua phản ứng của $\mathrm{Cl}_2$ trong nước). Để trung hòa axit trong $Z$ thì cần $100\mathrm{ml}$ dung dịch chứa $\mathrm{NaOH} 0,1M$ và $\mathrm{Ba}(OH)_2$ 0,3M. Tính \% thể tích của khí hidroclorua trong Y.
+	\loigiai{
+		%		Phân tích+Mấu chốt bài toán ở sụ̣ bảo toàn số mol khí trong mỗi phản ứng:
+		%		\[
+		%		\begin{array}{ll}
+			%			CH_4+\mathrm{Cl}_2 \xrightarrow{a / s} CH_3 \mathrm{Cl}+\mathrm{HCl} \quad(\Delta \text{hệ số}=1+1-(1+1)=0) \\
+			%			H_2+\mathrm{Cl}_2 \xrightarrow{a / s} 2 \mathrm{HCl} & (\Delta h \text{ệ số}=1+1-2=0)
+			%		\end{array}
+		%		\]+Trong phản ứng giũa axit và bazơ thì chú ý phân tích mối liên hệ: $n_H(\mathrm{axit})=n_{OH}($ bazơ $)$
+		%		Các phương trình phản ứng:
+		%		\[
+		%		\begin{aligned}
+			%			& CH_4+\mathrm{Cl}_2 \xrightarrow{a / s} CH CH_3 \mathrm{Cl}+\mathrm{HCl} \quad\left(1\right)\\
+			%			& H_2+\mathrm{Cl}_2 \xrightarrow{a / s} 2\mathrm{HCl} \quad\left(2\right)
+			%		\end{aligned}
+		%		\]
+		%		Theo ptpư (1,2) thấy số mol không đổi $\Rightarrow n_Y=n_X=0,35\mathrm{mol}$
+		%		Dung dịch $Z$ chứa chất tan là $\mathrm{HCl}$.
+		%		\[
+		%		\begin{equation*}
+			%			2 \mathrm{HCl}+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{BaCl}_2+2 H_2 O \quad\left(3\right)
+			%		\end{equation*}
+		%		\]
+		%		\[
+		%		\begin{equation*}
+			%			\mathrm{HCl}+\mathrm{NaOH} \xrightarrow \mathrm{NaCl}+H_2 O \quad\left(4\right)
+			%		\end{equation*}
+		%		\]
+		%		Theo ptpu (3,4): $n_H($ axit $)=n_{OH}($ bazơ $) \Rightarrow n_{\mathrm{HCl}}=0,7.0,1=0,07\mathrm{mol}$
+		%		Phần trăm thể tích khí $\mathrm{HCl}$ trong $Y: \% \mathrm{V}_{\mathrm{HCl}}=\dfrac{0,07}{0,35} \cdot 100\%=20\%$
+		%		
+	}
+\end{vd}
+%%%%==============HetVidu10==============%%%
+
+%%%%==============Vidu11==============%%%
+\begin{vd}
+	(Hỗn hợp toàn khí, sử dụng phân tích tăng giảm số mol)
+	Trong một bình kín chứa hỗn hợp khí $X$ gồm $N_2$ và $H_2$ (tỉ lệ số mol tương ứng là $2: 7$). Đun nóng bình có xúc tác thích hợp sau một thời gian, thu được hỗn hợp khí Y (khí sản phẩm chiếm 12,5\% thể tích). Tính hiệu suất phản ứng tổng hợp amoniac và $\%$ thể tích mỗi khí trong $Y$.
+	\loigiai{
+		%		Phân tích: Câu cho tất cả các dĩ kiện đều dạng tỉ lệ, đại lượng đề hỏi cũng tỉ lệ. Đây là cơ sở giúp ta khẳng định có thể sử dụng phương pháp tư chọn lương chất. Nếu bài toán mà tất cả đều là chất khí thì phân tích hệ số theo tăng giảm thể tích là phuoơng pháp khuyên dùng vì tiết kiệm đuợc thời gian. Để thấy được tính ưu việt của phroơng pháp phân tích, chúng ta hãy so sánh 2 cách giải sau đây.
+		%		$\checkmark$ Cách 1: Phuoơng pháp thông thưòng.
+		%		Giả sử có 2 mol $N_2,7$ lít $N_2$ trong hỗn hợp $X$
+		%		\[
+		%		N_2+3 H_2 \xrightarrow{t^\circ, \mathrm{xt}} 2 NH_3
+		%		\]
+		%		Bđ: 27
+		%		\[
+		%		0 \text{(mol)}
+		%		\]
+		%		
+		%		Pur: $x \xrightarrow 3x$ $2x$
+		%		
+		%		Spư: (2-x) (7-3x) $2x$
+		%		
+		%		$n_Y=2-x+7-3x+2x=(9-2x) \mathrm{mol}$
+		%		
+		%		Theo đề ta có: $\dfrac{2x}{9-2x}=\dfrac{12,5}{100} \Rightarrow x=0,5\mathrm{mol}$
+		%		
+		%		Vì $\dfrac{n_{H_2}}{n_{N_2}}=\dfrac{7}{2} > \dfrac{3}{1}$ nên $N_2$ lấy thiếu.
+		%		
+		%		Hiệu suất phản ứng: $H\%=\dfrac{0,5}{2} \cdot 100\%=25\%$
+		%		
+		%		Phần trăm thể tích các khí trong $Y$:
+		%		
+		%		\[
+		%		\% \mathrm{V}_{NH_3}=12,5 \% \text{(theo đề);} \% \mathrm{V}_{N_2}=\dfrac{2-0,5}{9-2.0,5} \cdot 100 \%=18,75 \% \Rightarrow \% \mathrm{V}_{H_2}=68,75 \%
+		%		\]
+		%		
+		%		$\checkmark$ Cách 2: Phương pháp phân tích hệ số (tăng giảm thể tích).
+		%		
+		%		Gọi h là hiệu suất phản ứng $\Rightarrow n_{N_2}$ (phản ứng) $=2\mathrm{h}(\mathrm{mol})\left(h=\dfrac{H\%}{100}\right.$)
+		%		
+		%		\[
+		%		\begin{array}{lr}
+			%			N_2+3 H_2 \xrightarrow{t^\circ, \mathrm{xt}} 2 NH_3 \\
+			%			2 \mathrm{h} \xrightarrow 6 \mathrm{h} & 4 \mathrm{h}(\mathrm{mol})
+			%		\end{array}
+		%		\]
+		%		
+		%		Theo ptpư thấy: số mol khí giảm bằng số $\mathrm{mol} NH_3 \Rightarrow n_Y=(9-4\mathrm{h}) \mathrm{mol}$
+		%		
+		%		Theo đề $\Rightarrow \dfrac{4\mathrm{h}}{9-4\mathrm{h}}=\dfrac{12,5}{100} \Rightarrow h=0,25\Rightarrow H\%=0,25.100\%=25\%$
+		%		
+		%		Phần trăm thể tích các khí trong Y:
+		%		
+		%		\[
+		%		\% \mathrm{V}_{NH_3}=12,5 \% \text{(theo đề)}; \% \mathrm{V}_{N_2}=\dfrac{2-2.0,25}{9-4.0,25} \cdot 100 \%=18,75 \% \Rightarrow \% \mathrm{V}_{H_2}=68,75 \%
+		%		\]
+		%		
+	}
+\end{vd}
+%%%%==============HetVidu11==============%%%
+
+%%%%==============Vidu12==============%%%
+\begin{vd}[Hỗn hợp nhiều chất có chung quy luật trong CTPT]
+	Đốt cháy hoàn toàn 3,42 gam hỗn hợp E gồm axit acrylic $CH_2=CH-COOH$, vinyl axetat $CH_3 COO-$ $CH=CH_2$, metyl acrylat $CH_2=CH-COOCH_3$ và axit oleic $C_{17} H_{33} COOH$, rồi hấp thụ hoàn toàn các sản phẩm cháy vào dung dịch $\mathrm{Ca}(OH)_2$ dư, sau phản ứng thu được 18 gam kết tủa và dung dịch $X$ có khối lượng thay đổi $m$ gam so với dung dịch $\mathrm{Ca}(OH)_2$ ban đầu. Dung dịch $X$ tăng hay giảm khối lượng? Tính giá trị $m$.
+	\loigiai{
+		%		Phân tích:+) E gồm các chất đều có phân tưu chúa 2 nguyên tủ O và 2 liên kết pi. Do đó chúng có chung công thức $C_n H_{2n-2} O_2$.+) Phân tích CTPT thấy $M=14n+30\Rightarrow m_E=14n_C+30n_E \Rightarrow n_E=$?; $n_{H_2 O}=n_C-n_E$
+		%		
+		%		Vì các chất trong $E$ đều có 2 nguyên tử $O$ và 2 liên kết pi nên có công thức chung là: $C_n H_{2n-2} O_2$.
+		%		Tính số mol kết tủa: $n_{\mathrm{CaCO}_3}=0,18\mathrm{mol}$
+		%		\[
+		%		\begin{aligned}
+			%			& C_n H_{2n-2} O_2+(1,5n-1,5) O_2 \xrightarrow[$t^\circ$] \mathrm{nCO}_2+(n-1) H_2 O\quad\left(1\right)\\
+			%			& CO_2+\mathrm{Ca}(OH)_2 \xrightarrow \mathrm{CaCO}_3 \downarrow+H_2 O\quad\left(2\right)\\
+			%			& 0,18\end{aligned}
+		%		\]
+		%		Phân tích CTPT của $E\Rightarrow M=14n+30\Rightarrow m_E=14n_C+30n_E \Rightarrow n_E=\dfrac{3,42-14.0,18}{30}=0,03\mathrm{mol}$
+		%		Theo ptpu (1)\colon $n_{H_2 O}=n_{CO_2}-n_E=0,18-0,03=0,15\mathrm{mol}$
+		%		Độ lệch khối lượng dung dịch $X: \Delta m=0,15.18+0,18.44-18=-7,38$ gam $< 0$
+		%		Vậy khối lượng dung dịch $X$ giảm, $m=7,38$ gam.
+	}
+\end{vd}
+%%%%==============HetVidu12==============%%%
+
+%%%==============Vidu13==============%%%
+\begin{vd}[Hỗn hợp nhiều chất có quy luật chung trong CTPT]
+	Hỗn hợp $X$ gồm các chất $C_6 H_6, C_3 H_8 O, C_2 H_4(CHO)_2, HCOOC_3 H_5, C_5 H_6 O$ và glixerol (trong đó số mol glixerol chiếm $25\%$ số mol hỗn hợp $X$). Đốt cháy hoàn toàn 9,82 gam hỗn hợp $X$ trong khí oxi vừa đủ. Hấp thụ hết sản phẩm cháy vào 134 gam dung dịch $KOH 28\%$ đến khi kết thúc thí nghiệm thu được 162,06 gam dung dịch chỉ chứa muối có tổng nồng độ chất tan là $33,6912\%$. Tính phần trăm khối lượng của glixerol trong hỗn hợp X.
+	\loigiai{
+		%		Phân tích: Nhìn hỗn hợp có lẽ các em học sinh phát ón. Tuy nhiên theo kinh nghiệm, hỗn hợp nhiều chất mà chỉ hỏi có một chất thì chắc chắn chất này kiểu nhu "cá biệt". Tách hỗn hợp thành 2 nhóm:+Nhóm A: $C_6 H_6, C_3 H_8 O, C_2 H_4(CHO)_2, HCOOC_3 H_5, C_5 H_6 O$ (tổng chỉ số 12)+Nhóm B: $C_3 H_8 O_3$ (tổng chỉ số 14)
+		%		Nghĩa là nhóm $A: n_C+n_H+n_O=12n_A+14n_B$
+		%		
+		%		Đặt công thức chung của $X: C_x H_y O_z$
+		%		\[
+		%		C_x H_y O_z+(x+0,25 y-0,5 z) O_2 \xrightarrow[$t^\circ$] \mathrm{xCO}_2+0,5 \mathrm{yH}_2 O
+		%		\]
+		%		$\checkmark$ Xử lí phản ứng với $KOH$
+		%		\[
+		%		\begin{aligned}
+			%				& n_{KOH}=0,67 \mathrm{mol}; m_{\text{muб́i}}=54,6(\mathrm{gam}) \\
+			%				& \dfrac{138}{2}=69 < \dfrac{54,6}{0,67}=81,49 < 100 \xrightarrow \text{dung dịch có} 2 \text{muối} KHCO_3 \text{và} K_2 CO_3 \\
+			%				& CO_2+2 KOH \xrightarrow K_2 CO_3+H_2 O \\
+			%				& CO_2+KOH \xrightarrow KHCO_3
+			%			\end{aligned}
+		%		\]
+		%		Gọi $n_1, n_2$ lần lượt là số $\mathrm{mol} CO_2, H_2 O$ của sản phẩm cháy
+		%		Ta có $\left(0,67-n_1\right) \cdot 138+\left(2n_1-0,67\right) \cdot 100=54,6\Rightarrow n_1=0,47\mathrm{mol}$
+		%		$\Rightarrow 0,47.44+18n_2=162,06-134\Rightarrow n_2=0,41\mathrm{mol}$
+		%		$BTKL \Rightarrow n_O=\dfrac{9,82-0,47.12-0,41.2}{16}=0,21\mathrm{mol}$
+		%		Các chất nhóm A: $C_6 H_6, C_3 H_8 O, C_2 H_4(CHO)_2, HCOOC_3 H_5, C_5 H_6 O$ có tổng chỉ số $C+H+O=12$
+		%		Glixerol (B): $C_3 H_8 O_3$ có tổng chỉ số $C+H+O=14$ (**)
+		%		Từ $(*)$ và $(* *) \Rightarrow n_C+n_H+n_O=12n_A+14n_B$
+		%		Gọi a là số $\mathrm{mol}$ glixerol $\Rightarrow n_A=3a(\mathrm{mol})$
+		%		$\Rightarrow 12\cdot 3a+14\cdot a=0,47+0,41\cdot 2+0,21\Rightarrow a=0,03\mathrm{mol}$
+		%		$\% \mathrm{m}_{C_3 H_8 O_3}=\dfrac{0,03.92}{9,82} \cdot 100\%=28,11\%$
+		%		Lưu ý: Ngoài cách giải trên, các em học sinh có thể thục hiện ghép ẩn sô̂́, quy đổi hỗn hợp, bỏ bót chất. Hoặc tách ra 3 nhóm chất:
+		%		$\checkmark$ Nhóm I: $C_6 H_6, C_2 H_4(CHO)_2, HCOOC_3 H_5, C_5 H_6 O(H-C-O=0$ và $6H)$ gọi a mol
+		%		$\checkmark$ Nhóm II: $C_3 H_8 O(H-C-O=4$ và $8H)$ gọi b mol
+		%		$\checkmark$ Nhóm III: $C_3 H_8 O_3(H-C-O=2$ và $8H)$ gọi c mol
+		%		$\Rightarrow a+b-3c=0$
+		%		(1) $4\mathrm{b}+2c=0,41.2-0,47-0,21$
+		%		(2) $6a+8b+8c=0,41.2$
+	}
+\end{vd}
+%%%%==============HetVidu13==============%%%
+
+%%%==============Vidu14==============%%%		
+\begin{vd} (Phân tich theo tăng giảm số mol)
+	Hòa tan hoàn toàn 0,2 mol hỗn hợp $X$ gồm $\mathrm{CaC}_2, \mathrm{Ca}, \mathrm{Al}_4 C_3, \mathrm{FeS}$ vào dung dịch $\mathrm{HCl}$ dư, thu được 6,272 lit (đktc) hỗn hợp khí Y có tỉ khối so với $H_2$ bằng $\dfrac{62}{7}$.
+	\begin{enumerate}
+		\item Viết các phương trình hóa học của phản ứng xảy ra.
+		\item Tính \% theo khối lượng của $CH_4$ trong hỗn hợp Y.
+	\end{enumerate}
+	\loigiai{
+		%		Phân tích: Hỗn hợp Y gồm 4 chất $\left(C_2 H_2, H_2, CH_4, H_2 \mathrm{S}\right)$ mà đề bài chỉ cho 3 dũ kiện thì không thể tìm số mol tùng chất trong Y. Mặt khác, đề bài chỉ hỏi \% của một chất là $CH_4$ thì chắc chắn nó có đặc điểm gì đó khác vó́i 3 khí còn lại. Gặp nhũng bài nhu này cú nhìn "soi mói" vào chỗ cần tìm và chỗ đã cho duu kiện là sẽ tìm ra chìa khóa của bài toán. Chú ý quan hệ giũa số mol Y, số mol $X$ và số $\mathrm{mol} CH_4$.
+		%		\[
+		%		\begin{aligned}
+			%				& \mathrm{CaC}_2+2 \mathrm{HCl} \xrightarrow \mathrm{CaCl}_2+C_2 H_2 \uparrow \\
+			%				& \mathrm{Ca}+2 \mathrm{HCl} \xrightarrow \mathrm{CaCl}_2+H_2 \uparrow
+			%			\end{aligned}
+		%		\]
+		%		\[
+		%		\begin{aligned}
+			%				& \text{(1)} \quad\left(n_{C_2 H_2}-n_{\mathrm{CaC}_2}=0\right) \\
+			%				& \text{(2)}\left(n_{H_2}-n_{\mathrm{Ca}}=0\right)
+			%			\end{aligned}
+		%		\]
+		%		\[
+		%		\begin{aligned}
+			%				& \mathrm{Al}_4 C_3+12\mathrm{HCl} \xrightarrow 4\mathrm{AlCl}_3+3CH_4 \uparrow \quad\left(3\right)\\
+			%				& \mathrm{FeS}+2\mathrm{HCl} \xrightarrow \mathrm{FeCl}_2+H_2 \mathrm{S} \uparrow \\
+			%				& \left(n_{CH_4}-n_{\mathrm{Al}_4 C_3}=\dfrac{2}{3} n_{CH_4}\right) \\
+			%				& \left(n_{H_2 \mathrm{S}}-n_{\mathrm{FeS}}=0\right)
+			%			\end{aligned}
+		%		\]
+		%		Như vậy $n_Y-n_X=\dfrac{2}{3} n_{CH_4}$ (Đây là chìa khóa của bài toán)
+		%		\[
+		%		n_Y=\dfrac{6,272}{22,4}=0,28 \mathrm{mol}; \overline{M}_Y=\dfrac{62}{7} \cdot 2=\dfrac{124}{7}(\mathrm{g} / \mathrm{mol})
+		%		\]
+		%		Các phương trình hóa học:
+		%		\[
+		%		\begin{aligned}
+			%				& \mathrm{CaC}_2+2 \mathrm{HCl} \xrightarrow \mathrm{CaCl}_2+C_2 H_2 \uparrow \\
+			%				& \mathrm{Ca}+2 \mathrm{HCl} \xrightarrow \mathrm{CaCl}_2+H_2 \uparrow
+			%			\end{aligned}
+		%		\]
+	}
+\end{vd}
+%%%==============HetVidu14==============%%%
+
+%%%==============Vidu15==============%%%
+\begin{vd}[Phân tích độ lệch giũa số mol hỗn hợp và số mol nguyên tố]
+	Nung nóng 10,54 gam hỗn hợp $X$ gồm $\mathrm{FeO}, \mathrm{Fe}_3 O_4, \mathrm{Fe}(OH)_2, \mathrm{CuO}, \mathrm{Cu}(OH)_2$ trong không khí đến khối lượng không đổi thì thu được 10,4 gam chất rắn Y. Biết số $\mathrm{mol} X$ bằng $\dfrac{9}{13}$ số mol kim loại trong X. Viết phương trình hóa học của phản ứng xảy ra và tính \% khối lượng của $\mathrm{Fe}_3 O_4$ trong $X$.
+	\loigiai{
+		%		Phân tích: Hỗn hợp $X$ có 5 chất mà đề bài chỉ yêu cầu tính $\%$ của $\mathrm{Fe}_3 O_4$. Điều này cho thấy $\mathrm{Fe}_3 O_4$ có có sụ̣ khác biệt về cấu tạo phân tử. Rất dễ nhìn thấy trong $\mathrm{Fe}_3 O_4$ có số mol kim loại gấp 3 lần số mol hợp chất (hay $n_{KL}-n_{\mathrm{hc}}=2n_{\mathrm{Fe}_3 O_4}$), các chất còn lại có hiệu này bằng 0 Mặt khác: Hỗn hợp rắn $Y$ gồm $\mathrm{CuO}, \mathrm{Fe}_2 O_3$ đều có $M=80$ lần số mol $KL \Rightarrow$ tổng số mol $KL=\dfrac{m_Y}{80}$.
+		%		Các phương trình hóa học:
+		%		\[
+		%		\begin{aligned}
+			%			& 2 \mathrm{FeO}+1 / 2 O_2 \xrightarrow[$t^\circ$] \mathrm{Fe}_2 O_3 \\
+			%			& 2 \mathrm{Fe}_3 O_4+1 / 2 O_2 \xrightarrow[$t^\circ$] 3 \mathrm{Fe}_2 O_3 \\
+			%			& 2 \mathrm{Fe}(OH)_2+1 / 2 O_2 \xrightarrow[$t^\circ$] \mathrm{Fe}_2 O_3+2 H_2 O \\
+			%			& \mathrm{Cu}(OH)_2 \xrightarrow[$t^\circ$] \mathrm{CuO}+H_2 O
+			%		\end{aligned}
+		%		\]
+		%		Rắn $Y$ gồm: $\mathrm{CuO}(M=80)$ và $\mathrm{Fe}_2 O_3(M=160)$
+		%		Vì $m_Y m_Y=80n_{KL} \Rightarrow n_{KL}=\dfrac{10,4}{80}=0,13\mathrm{mol}$
+		%		Phân tích CTHH trong $X$ thấy $n_{KL}-n_X=2n_{\mathrm{Fe}_3 O_4}$
+		%		$\Rightarrow 0,13-\dfrac{0,13.9}{13}=2n_{\mathrm{Fe}_3 O_4} \Rightarrow n_{\mathrm{Fe}_3 O_4}=0,02\mathrm{mol}$
+		%		$\% \mathrm{m}_{\mathrm{Fe}_3 O_4}($ trong $X)=\dfrac{0,02.232}{10,54} \cdot 100\%=44,02\%$
+	}
+\end{vd}
+%%%==============HetVidu15==============%%%
+
+%%%==============Vidu16==============%%%
+\begin{vd}[Phân tích phản ứng giũa hỗn hợp ($\mathrm{NaHCO}_3$ và $\mathrm{Na}_2 CO_3$) tác dụng dung dịch axit]
+	Hòa tan hết $m$ gam hỗn hợp $X$ gồm $\mathrm{Na}, \mathrm{Na}_2 O, \mathrm{Ba}, \mathrm{BaO}$ vào nước thì thu được 3,36 lít khí $H_2$ (đktc) và dung dịch $Y$. Dẫn 14,08 gam $CO_2$ đi chậm vào dung dịch $Y$, thu được kết tủa $Z$ và dung dịch $T$ chỉ chứa hai muối của cùng một kim loại. Chia $T$ làm hai phần bằng nhau.-Cho từ từ đến hết phần 1 vào $200\mathrm{ml}$ dung dịch $\mathrm{HCl} \mathrm{0,6M}$ thì thấy thoát ra 1,68 lít $CO_2$ (đktc).-Cho từ từ đến hết $200\mathrm{ml}$ dung dịch $\mathrm{HCl} 0,6M$ vào phần 2, thấy thoát ra 1,344 lít $CO_2(\mathrm{đktc})$.
+	Viết các phương trình hóa học của phản ứng xảy ra và tính giá trị $m$.
+	\loigiai{
+		%		Phân tích: Thí nghiệm của $X$ với nuoớc thì đã quá quen thuộc. Ở đây chúng ta phân tích thí nghiệm của T (chía $\mathrm{Na}_2 CO_3$ và $\mathrm{NaHCO}_3$) tác dụng vói dung dịch $\mathrm{HCl}$:+Lượng HCl không đổi mà thể tích $CO_2$ khác nhau $\Rightarrow$ chúng tỏ HCl thiếu (muối trong T chưa hết)+Cho từ từ T vào HCl phản ứng song song nên tỉ lệ số mol muối phản ứng bằng tỉ lệ số mol ban đầu.
+		%		\[
+		%		\begin{aligned}
+			%			& \mathrm{Na}_2 CO_3+2 \mathrm{HCl} \xrightarrow 2 \mathrm{NaCl}+H_2 O+CO_2 \uparrow\left(n_{\mathrm{HCl}}: n_{CO_2}=2\right) \\
+			%			& \mathrm{NaHCO}_3+\mathrm{HCl} \xrightarrow \mathrm{NaCl}+H_2 O+CO_2 \uparrow \quad\left(n_{\mathrm{HCl}}: n_{CO_2}=1\right)
+			%		\end{aligned}
+		%		\]
+		%		$\Rightarrow$ Sủ dụng $QTĐ C$ ta tìm được tỉ lệ số mol $\mathrm{NaHCO}_3$ và $\mathrm{Na}_2 CO_3$+Cho từ từ HCl vào T phản ứng nối tiếp, có sinh khí nên $\mathrm{Na}_2 CO_3$ hết.
+		%		\[
+		%		\begin{aligned}
+			%			& \mathrm{Na}_2 CO_3+\mathrm{HCl} \xrightarrow \mathrm{NaCl}+\mathrm{NaHCO}\left(n_{\mathrm{HCl}}-n_{CO_2}=n_{\mathrm{Na}_2 CO_3}\right) \\
+			%			& \mathrm{NaHCO}_3+\mathrm{HCl} \xrightarrow \mathrm{NaCl}+H_2 O+CO_2 \uparrow \quad\left(n_{\mathrm{HCl}}-n_{CO_2}=0\right)
+			%		\end{aligned}
+		%		\]
+		%		$\Rightarrow$ Ở thí nghiệm này: $n_{\mathrm{Na}_2 CO_3}=n_{\mathrm{HCl}}-n_{CO_2}$
+		%		$\checkmark$ Hòa tan $X$ vào nước: $n_{H_2}=0,15\mathrm{mol}$
+		%		\[
+		%		\begin{aligned}
+			%			& \mathrm{Na}_2 O+H_2 O\xrightarrow 2\mathrm{NaOH} \quad\left(1\right)\\
+			%			& \mathrm{BaO}+H_2 O\xrightarrow \mathrm{Ba}(OH)_2 \quad\left(2\right)\\
+			%			& 2\mathrm{Na}+2H_2 O\xrightarrow 2\mathrm{NaOH}+H_2 \uparrow \quad\left(3\right)\\
+			%			& \mathrm{Ba}+2H_2 O\xrightarrow \mathrm{Ba}(OH)_2+H_2 \uparrow \quad\left(4\right)
+			%		\end{aligned}
+		%		\]
+		%		$\checkmark$ Phản ứng của $Y$ với $CO_2: n_{CO_2}=0,32\mathrm{mol}$
+		%		\[
+		%		\begin{aligned}
+			%			& CO_2+\mathrm{Ba}(OH)_2 \xrightarrow \mathrm{BaCO}_3 \downarrow+H_2 O\quad\left(5\right)\\
+			%			& CO_2+2\mathrm{NaOH} \xrightarrow \mathrm{Na}_2 CO_3+H_2 O\quad\left(6\right)\\
+			%			& CO_2+\mathrm{NaOH} \xrightarrow \mathrm{NaHCO}_3 \quad\left(7\right)
+			%		\end{aligned}
+		%		\]
+		%		Dung dịch $T$: $\mathrm{NaHCO}_3, \mathrm{Na}_2 CO_3$; kết tủa $Z: \mathrm{BaCO}_3$
+		%		Vì thể tích $CO_2$ thoát ra ở $2TN$ khác nhau nên chứng tỏ $\mathrm{HCl}$ thiếu.
+		%		$\checkmark$ Phần 1: Phản ứng xảy ra song song
+		%		\[
+		%		\begin{array}{ll}
+			%			\mathrm{Na}_2 CO_3+2 \mathrm{HCl} \xrightarrow 2 \mathrm{NaCl}+H_2 O+CO_2 \uparrow & \text{(8)}\left(n_{\mathrm{HCl}}: n_{CO_2}=2\right) \\
+			%			\mathrm{NaHCO}_3+\mathrm{HCl} \xrightarrow \mathrm{NaCl}+H_2 O+CO_2 \uparrow & \text{(9)}\left(n_{\mathrm{HCl}}: n_{CO_2}=1\right)
+			%		\end{array}
+		%		\]
+		%		Theo đề: $n_{\mathrm{HCl}}: n_{CO_2}=0,12: 0,075=1,6\xrightarrow \dfrac{n_{\mathrm{NaHCO}_3}}{n_{\mathrm{Na}_2 CO_3}}=\dfrac{2-1,6}{1,6-1}=\dfrac{2}{3}$
+		%		Phần 2: Phản ứng xảy ra theo thứ tự
+		%		\[
+		%		\begin{aligned}
+			%			& \mathrm{Na}_2 CO_3+\mathrm{HCl} \xrightarrow \mathrm{NaHCO}_3+\mathrm{NaCl} \quad\left(10\right)\\
+			%			& \mathrm{NaHCO}_3+\mathrm{HCl} \xrightarrow \mathrm{NaCl}+H_2 O+CO_2 \uparrow \quad\left(11\right)
+			%		\end{aligned}
+		%		\]
+		%		Theo pt phản ứng (10,11): $n_{\mathrm{Na}_2 CO_3}=n_{\mathrm{HCl}}-n_{CO_2}=0,12-0,06=0,06\mathrm{mol}$
+		%		\[
+		%		\xrightarrow n_{\mathrm{NaHCO}_3}=\dfrac{0,06.2}{3}=0,04 \mathrm{mol}
+		%		\]
+		%		BT mol cabon $\xrightarrow n_{\mathrm{BaCO}_3}=0,32-0,08-0,12=0,12\mathrm{mol}$
+		%		$\xrightarrow Y: 0,32\mathrm{mol} \mathrm{NaOH}, 0,12\mathrm{mol} \mathrm{Ba}(OH)_2$
+		%		BT mol $H\xrightarrow n_{\left.H_2 O\text{(phản ứng} 1,2,3,4\right)}=(0,32+0,12.2+0,15.2): 2=0,43\mathrm{mol}$
+		%		$BTKL \xrightarrow m_X+m_{H_2 O}=m_{\mathrm{Ba}(OH)_2}+m_{\mathrm{NaOH}}+m_{H_2}$
+		%		$\Rightarrow m=0,32.40+0,12\cdot 171+0,15.2-0,43.18=25,88$ gam.
+	}
+\end{vd}
+%%%==============HetVidu16==============%%%
+
+%%%==============Vidu17==============%%%
+\begin{vd}[Sử dụng tỉ lệ số mol $OH$ $:$ $CO_2$ làm hệ số trong phản ứng $CO_2$ tác dụng hỗn hợp kiềm]
+	Dẫn từ từ 4,48 lít $CO_2$ (đktc) vào $200\mathrm{ml}$ dung dịch $X$ chứa $\mathrm{NaOH} 0,5M$ và $\mathrm{Ba}(OH)_2 0,3M$ đến khi phản ứng hoàn toàn thu được $m$ gam kết tủa và gam dung dịch $Y$. Tính giá trị của $m$ và nồng độ $\%$ chất tan trong Y. Giả sử dung dịch $X$ có khối lượng riêng $\mathrm{D}=1,25\mathrm{g} / \mathrm{ml}$.
+	\loigiai{
+		Tính số $\mathrm{mol} n_{CO_2}=0,2\mathrm{mol}; n_{\mathrm{NaOH}}=0,1\mathrm{mol}; n_{\mathrm{Ba}(OH)_2}=0,06\mathrm{mol}$
+		Đặt $XOH$ là công thức đại diện cho $\mathrm{NaOH}, \mathrm{Ba}(OH)_2$
+		Theo bảo toàn số $\mathrm{mol} OH \Rightarrow n_{XOH}=0,1+0,06.2=0,22\mathrm{mol}$
+		Đặt $T=\dfrac{n_{OH}}{n_{CO_2}}=\dfrac{0,22}{0,2}=\dfrac{11}{10}=1,1\Rightarrow$ phản ứng tạo 2 loại muối.
+		Theo tỉ số $T$, ta có phương trình hóa học chung:
+		\[
+		\begin{aligned}
+			& 10 CO_2+11 XOH \xrightarrow X_2 CO_3+9 XHCO_3+H_2 O \\
+			& 0,2 \xrightarrow \quad 0,02 \quad 0,18(\mathrm{mol})
+		\end{aligned}
+		\]
+		Vì $n_{\mathrm{Ba}(\mathrm{baz})}=0,06\mathrm{mol} > n_{X_2 CO_3}=0,02\mathrm{mol} \Rightarrow n_{\mathrm{BaCO}_3}=n_{X_2 CO_3}=0,02\mathrm{mol} \Rightarrow m=0,02\cdot 197=3,94(\mathrm{g})$.
+		Theo bảo toàn số $\mathrm{mol} \mathrm{Na} \Rightarrow n_{\mathrm{NaHCO}_3}=0,1\mathrm{mol}$
+		Bảo toàn số $\mathrm{mol} \mathrm{Ba} \Rightarrow n_{\mathrm{Ba}\left(HCO_3\right)_2}=0,06-0,02=0,04\mathrm{mol}$
+		Dùng dịch $Y$ có chất tan là: $\mathrm{NaHCO}_3, \mathrm{Ba}\left(HCO_3\right)_2$
+		Khối lượng dung dịch $Y: m_Y=0,2.44+200.1,25-3,94=254,86$ gam.
+		Nồng độ phần trăm các chất tan trong $Y$:
+		\[
+		C_{\mathrm{NaHCO}_3}=\dfrac{0,1.84}{254,86} \cdot 100 \%=3,30 \%; C \%_{\mathrm{Ba}\left(HCO_3\right)_2}=\dfrac{0,04.259}{254,86} \cdot 100 \%=4,06 \%
+		\]
+	}
+\end{vd}
+%%%==============HetVidu17==============%%%
+
+%\Opensolutionfile{ansex}[Ans/LGEX-Hoa10_C01_CTNT]
+%\Opensolutionfile{ans}[Ans/Ans-Hoa10_C01_CTNT]
+%\hienthiloigiaiex
+%%\tatloigiaiex
+%
+%\Closesolutionfile{ans}
+%\Closesolutionfile{ansex}
+%%%%====================%%%
+%\Opensolutionfile{ansex}[Ans/LGTF-Hoa10_C01_CTNT]
+%\Opensolutionfile{ansbook}[Ansbook/AnsTF-Hoa10_C01_CTNT]
+%\Opensolutionfile{ans}[Ans/Tempt-Hoa10_C01_CTNT]
+%%\hienthiloigiaiex
+%
+%\Closesolutionfile{ans}
+%\Closesolutionfile{ansbook}
+%\Closesolutionfile{ansex}
+%
+%
+%\Opensolutionfile{ansbth}[Ans/LGBT-Hoa10_C01_CTNT]
+%\Opensolutionfile{ansbt}[Ans/AnsBT-Hoa10_C01_CTNT]
+%\hienthiloigiaibt
+%%\tatloigiaibt
+%
+%\Closesolutionfile{ansbt}
+%\Closesolutionfile{ansbth}

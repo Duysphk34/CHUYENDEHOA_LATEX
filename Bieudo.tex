@@ -1,0 +1,76 @@
+\documentclass[Main.tex]{subfiles}
+\begin{document}
+
+	\begin{figure}[!htp]
+		\begin{center}
+			\begin{tikzpicture}[line join=round,line cap=round,declare function={d=0.2cm;}]
+				\pgfmathsetmacro{\hsa}{2}
+				\pgfmathsetmacro{\hsb}{18}
+				%%% Vẽ 2 truc tọa độ
+				\draw [thick,-latex,\maunhan] (0,0)coordinate (xw)--(11,0)coordinate (xe) node 	[below]{(m/z)};
+				\draw [thick,-latex,\maunhan] (0,0)coordinate (ys)--(0,5.5)coordinate (yn) 	node[right]{(\%)};
+				
+				%%% Các giá trị truc y
+				\foreach \y[evaluate =\y as \yt using int(\y*20)] in {1,...,5}{
+					\draw[\maunhan!80!black] (0.1,\y)--+(180:0.2) node 		[left,font=\small\bfseries]{\yt};
+				}
+				%%% Các giá trị truc x
+				\foreach \x [evaluate =\x as \xt using int(\x+\hsb)] in {1,...,5}{
+					\draw[\maunhan!80!black] (\hsa*\x,0.1)--+(-90:.2) node 		[below,font=\small\bfseries]{\xt};
+				}
+				%%% Vẽ cột 
+				\foreach \x/\y[evaluate =\y as \yt using \y*20] in {
+					2/4.545,3/0.015,4/0.44
+				}{
+					\path[fill=\maunhan!80] ([xshift=-d]\hsa*\x,0) rectangle +({2*d},\y) node 	[above,xshift=-d,font=\bfseries\color{\maunhan!60!black}] {\pgfmathprintnumber[fixed, precision=2,use comma]{\yt}};
+				}
+				%%% Hiển thị thông tin trục y
+				\path ([xshift=-1.2cm]ys)--([xshift=-1.2cm]yn) node 	[pos=0.5,midway,sloped,font =\scriptsize \color{\maunhan!50!black}\bfseries\sffamily]{Phần trăm số nguyên tử đồng vị};
+				%%% Hiển thị thông tin trục x
+				\path ([yshift=-0.9cm]xw)--([yshift=-0.9cm]xe) node 	[pos=0.5,midway,sloped,font 	=\scriptsize\color{\maunhan!50!black}\bfseries\sffamily]{Tỉ số nguyên tử khối điện tích};
+			\end{tikzpicture}
+			\caption{Phổ khối lượng của neon}\label{fig:phoMS_neonm}
+		\end{center}
+	\end{figure}
+	%%%
+	\begin{center}
+		\begin{tikzpicture}[line join=round,line cap=round,declare function={d=0.2cm;}]
+			\pgfmathsetmacro{\hsa}{2}
+			\pgfmathsetmacro{\hsb}{18}
+			%%% Vẽ 2 truc tọa độ
+			\draw [thick,-latex,\maunhan] (0,0)coordinate (xw)--(11,0)coordinate (xe) node 	[below]{(m/z)};
+			\draw [thick,-latex,\maunhan] (0,0)coordinate (ys)--(0,5.5)coordinate (yn) 	node[right]{(\%)};
+			
+			%%% Các giá trị truc y
+			\foreach \y[evaluate =\y as \yt using int(\y*20)] in {1,...,5}{
+				\draw[\maunhan!80!black] (0.1,\y)--+(180:0.2) node 		[left,font=\small\bfseries]{\yt};
+			}
+			%%% Các giá trị truc x
+			\foreach \x [evaluate =\x as \xt using int(\x+\hsb)] in {1,...,5}{
+				\draw[\maunhan!80!black] (\hsa*\x,0.1)--+(-90:.2) node 		[below,font=\small\bfseries]{\xt};
+			}
+			%%% Vẽ cột 
+			\foreach \x/\y[evaluate =\y as \yt using \y*20] in {
+				2/4.545,3/0.015,4/0.44
+			}{
+				\path[fill=\maunhan!80] ([xshift=-d]\hsa*\x,0) rectangle +({2*d},\y) node 	[above,xshift=-d,font=\bfseries\color{\maunhan!60!black}] {\pgfmathprintnumber[fixed, precision=2,use comma]{\yt}};
+			}
+			%%% Hiển thị thông tin trục y
+			\path ([xshift=-1.2cm]ys)--([xshift=-1.2cm]yn) node 	[pos=0.5,midway,sloped,font =\scriptsize \color{\maunhan!50!black}\bfseries\sffamily]{Phần trăm số nguyên tử đồng vị};
+			%%% Hiển thị thông tin trục x
+			\path ([yshift=-0.9cm]xw)--([yshift=-0.9cm]xe) node 	[pos=0.5,midway,sloped,font 	=\scriptsize\color{\maunhan!50!black}\bfseries\sffamily]{Tỉ số nguyên tử khối điện tích};
+		\end{tikzpicture}
+		\captionof{figure}{Phổ khối lượng của Neon}\label{fig:phoMS_neon}
+	\end{center}
+	
+	\begin{center}
+		\captionof{table}{Nội dung bảng}\label{tab:Name_h}
+		\begin{tabular}{|L{0.48\linewidth}|L{0.48\linewidth}|}
+			\hline&\\
+			\hline&\\
+			\hline&\\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+\end{document}

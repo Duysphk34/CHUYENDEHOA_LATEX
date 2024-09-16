@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,text={18.0cm,26cm},top=2.0cm,left=2.0cm]{geometry}
+
+%\usepackage{gfsartemisia-euler}
+%\usepackage[charter]{mathdesign}
+%\usepackage[scale=0.92]{tgheros}
+
+\usepackage{lipsum}
+
+\usepackage{chemfig}
+\usepackage{chemmacros}
+\DeclareMathAlphabet{\mathsf}{T1}{qhv}{b}{n}    % to make sure the TG Heros font is used as sans serif  
+%\SetMathAlphabet{\mathsf}{bold}{T1}{qhv}{b}{n} % qhv designates TG Heros
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={line width=1pt},atom sep=2.1em, atom style={blue}}
+
+
+%\chemsetup{greek=mathdesign,formula=chemformula}
+%\chemsetup[chemformula]{format=\sffamily}
+
+\begin{document}
+	\fontfamily{artemisiaeuler} \selectfont
+	
+	\lipsum[1][1-3]
+	
+	\textrm{\lipsum[1][1-3]}
+	
+	\textsf{\lipsum[1][1-3]}
+	
+%	\begin{equation*}
+%		\chemmu x \times \chemdelta \alpha = 2 \cdot \Delta \cdot \int_{\alpha}^{\mu} \mathsf{\delta y} \quad {some text} \quad \text{some text} \quad \textrm{some text} \quad \textsf{some text}
+%	\end{equation*}
+	
+	\chemfig{H-C([2]-H)([6]-H)-C([2]-H)([6]-H)-C([1]-OH)([7]=O)} or \ch{C3H5COOH} 
+	
+%	\printchemgreekalphabet
+	
+\end{document}

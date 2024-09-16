@@ -1,0 +1,83 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\setlist[enumerate,1]{itemsep=-1pt,topsep=3pt,label*=\circlenum{\arabic*}}%
+
+\newcommand{\ngoacvuongtron}[2][]{
+	\begin{tikzpicture}[declare function={d=-4pt;},node distance=-d]
+		\node (name) {#2};
+		\node[anchor = west, above right =of name,shift={(2pt,-3pt)}](plus) {\large{#1}};
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north west)--([xshift=d]name.north west)|-($(name.south west) +(0,0)$);
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north east)--([xshift=-d]name.north east)|-($(name.south east) +(0,0)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+\NewDocumentCommand{\SanserifFont}{O{qag}O{12}O{\maunhan}O{\faCoffee}}{
+\color{#3}\bfseries\fontsize{#2pt}{6pt}\fontfamily{#1}\selectfont#4
+}
+%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\begin{center}
+	{\SanserifFont[qag][16]Tính pH trong dung dịch đệm}
+\end{center}
+Để tính pH trong hệ thống đệm, bạn có thể sử dụng phương trình \indam{Henderson-Hasselbalch}. Phương trình này được sử dụng để tính pH của một dung dịch đệm dựa trên nồng độ của acid yếu và bazo liên hợp của nó.\\
+\indam{\faStar\;Phương trình Henderson-Hasselbalch}
+\[ \hopcttoan[\maunhan]{\text{pH} = \text{pKa} + \log \left( \dfrac{[\text{Base}]}{[\text{Acid}]} \right)} \]
+Trong trường hợp của hệ thống đệm bicarbonate, acid yếu là acid carbonic ($H_2CO_3$) và bazo liên hợp là ion bicarbonate ($HCO_3^-$). Do $H_2CO_3$ phân hủy nhanh chóng thành $CO_2$ và $H_2O$, ta thường xem xét nồng độ $CO_2$ hòa tan trong máu thay vì $H_2CO_3$ trực tiếp.\\
+\indam{\faStar\;Cách tính pH}
+\begin{enumerate}
+	\item Xác định các giá trị cần thiết:
+	\begin{itemize}
+		\item $\text{pKa}$ của hệ thống đệm bicarbonate: Khoảng $6.1$
+		\item Nồng độ bicarbonate ($[HCO_3^-]$): Thường khoảng $24$ mM trong máu
+		\item Nồng độ $CO_2$ hòa tan ($[CO_2]$): Liên quan đến áp suất riêng phần của $CO_2$ ($pCO_2$) và có thể được tính bằng cách sử dụng hệ số hòa tan của $CO_2$ trong máu, thường là $0.03$\; $mM/mmHg$.
+	\end{itemize}
+	\item Công thức liên quan đến $CO_2$:
+	\[ [\text{CO}_2] = 0.03 \times \text{pCO}_2 \]
+	\item Áp dụng vào phương trình Henderson-Hasselbalch:**
+	\[ \text{pH} = 6.1 + \log \left( \dfrac{[\text{HCO}_3^-]}{0.03 \times \text{pCO}_2} \right) \]
+\end{enumerate}
+%%%===========BÀI TẬP 1====================%%%
+	\begin{bt}
+		Một bệnh nhân được kiểm tra y tế và các thông số sau được ghi nhận:
+		\begin{itemize}
+			\item Nồng độ bicarbonate trong máu ($\text{HCO}_3^-$) là 18 mM.
+			\item Áp suất riêng phần của $CO_2$ trong máu ($\text{pCO}_2$) là 30 mmHg.
+		\end{itemize}
+		Bạn hãy tính pH của máu bệnh nhân và so sánh kết quả này với giá trị pH máu bình thường (khoảng $7.35-7.45$).
+		\loigiai{%
+			\begin{enumerate}
+				\item \textbf{Xác định các giá trị cần thiết:}
+				\begin{itemize}
+					\item \(\text{pKa}\) của hệ thống đệm bicarbonate: Khoảng 6.1.
+					\item Nồng độ bicarbonate (\([ \text{HCO}_3^- ]\)): 18 mM.
+					\item Áp suất riêng phần của $CO_2$ (\(\text{pCO}_2 \)): 30 mmHg.
+					\item Hệ số hòa tan của $CO_2$ trong máu: $0.03$ mM/mmHg.
+				\end{itemize}
+				\item \textbf{Tính nồng độ $CO_2$ hòa tan:}
+				\begin{equation}
+					[\text{CO}_2] = 0.03 \times \text{pCO}_2
+				\end{equation}
+				Thay giá trị $\text{pCO}_2 = 30$ mmHg:
+				\begin{equation}
+					[\text{CO}_2] = 0.03 \times 30 = 0.9\; \text{mM}
+				\end{equation}
+				\item \textbf{Áp dụng phương trình Henderson-Hasselbalch:}
+				\begin{align*}
+					\text{pH} &= 6.1 + \log \left( \dfrac{[\text{HCO}_3^-]}{[\text{CO}_2]} \right)\\
+					 &= 6.1 + 1.301 = 7.401
+				\end{align*}
+			\end{enumerate}
+			pH của máu bệnh nhân là $7.401$. Kết quả này nằm trong khoảng giá trị pH máu bình thường ($7.35-7.45$), cho thấy rằng máu của bệnh nhân vẫn duy trì được cân bằng acid-base.}
+	\end{bt}
+
+\end{document}
+
+
+
+
+

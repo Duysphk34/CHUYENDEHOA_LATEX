@@ -1,0 +1,630 @@
+%
+%%%%%==================HƯỚNG DẪN SỬ DỤNG GÓI CHEMFIG====================%%%
+%
+%%%% =====CÁC TÙY CHỌN ===============%%%
+%%atom sep=3em, % Độ dài liên kết
+%%bond offset=2pt, % Khoảng cách Giữa nguyên tử và đầu mút liên kết
+%%bond offset=2pt, % Khoảng cách Giữa nguyên tử và đầu mút liên kết
+%%double bond sep= 2pt, % Khoảng cách giữa 2 nét liên kết đôi
+%%angle increment=45,
+%%atom style={font =\Large\color{\maunhan}},
+%%bond style={line width=1pt,red}
+%%node style 〈empty〉
+%%bond style 〈empty〉
+%%debug false
+%%cycle radius coeff 0.75
+%%stack sep 1.5pt
+%%show cntcycle false
+%%autoreset cntcycle true
+%%scheme debug false
+%%compound style 〈empty〉
+%%compound sep 5em
+%%arrow offset 1em
+%%arrow angle 0
+%%arrow coeff 1
+%%arrow style 〈empty〉
+%%arrow double sep 2pt
+%%arrow double coeff 0.6
+%%arrow double harpoon true
+%%arrow label sep 3pt
+%%arrow head -CF
+%%sep left 0.5em
+%%sep right 0.5em
+%%vshift 0pt
+%%fixed length=true/false Thay đổi cách tính khoảng cách, true lấy khoảng cách 2 trung tâm nguyên tử
+%
+%%%% ==== Công thức cấu tạo thu gọn ===========%%%
+%%\chemfig[atom sep=2em,bond offset=1.2pt,]{\circleatom{CH_3}-CH_2-CH_3}
+%
+%%\chemfig{H-[,,,,,cfhbond]O}
+%%%%===================Các kiểu liên kết=================%%%
+%%\chemfig{A-B}\par%đơn
+%%\chemfig{A=B}\par%đôi
+%%\chemfig{A~B}\par%ba
+%%%%==========Công thức phối cảnh===========%%%
+%%\chemfig{A>B}\par
+%%\chemfig{A<B}\par
+%%\chemfig{A>:B}\par
+%%\chemfig{A<:B}\par
+%%\chemfig{A<|B}\par
+%%%%====Tùy chọn cho công thức phối cảnh dạng nét đứt===%%%
+%%\chemfig[
+%%cram width=10pt,
+%%cram dash width=0.4pt,
+%%cram dash sep=1pt]{A>B>:C>|D}\par
+%
+%%Có 5 tùy chọn cho liên kết hóa học trong đó tùy chọn 1 là góc liên kết [⟨angle⟩,⟨coeff⟩,⟨n1⟩,⟨n2⟩,⟨code tikz⟩]
+%
+%%%%=========GÓC LIÊN KẾT===================%%%
+%%%========== Các góc định sẵn ======= %%% 
+%%Mỗi liên kết có một đối số tùy chọn trong ngoặc vuông. Đối số tùy chọn này có thể điều chỉnh mọi khía cạnh của một liên kết, và bao gồm năm trường tùy chọn được phân tách bởi dấu phẩy. Trường đầu tiên trong số này xác định góc liên kết. Các góc tăng theo chiều ngược chiều kim đồng hồ, và tương đối so với phương nằm ngang. Nếu trường góc để trống, góc sẽ nhận giá trị mặc định là 0°. Chúng ta sẽ thấy sau này cách thay đổi giá trị mặc định này. Có một số cách để chỉ định góc liên kết.
+%
+%%Khi trường góc chứa một số nguyên, điều này biểu thị góc mà liên kết tạo với phương nằm ngang, theo bội số của 45°. Ví dụ, [0] chỉ định một góc 0°, [1] là 45°, và cứ thế.
+%
+%%\chemfig{A-B-[1]C-[3]-D-[7]E-[6]F}
+%%\chemfig{A-B-C}\par
+%%\chemfig{A-B-[1]C}\par
+%%\chemfig{A-B(-[7]D)-[1]C}\par
+%%%% Khi muốn vẽ mạch C ta chỉ cần bỏ các kí hiệu hóa học đi =======%%%
+%%\chemfig[bond style={line width =1pt},% thay đổi độ dày liên kết
+%%bond join=true % nối liền các đầu mút liên kết, để bỏ chọn false
+%%]{-[1]-[7]-[1]-[7]}\par
+%
+%%%% angle increment = <angle> đặt góc mặc định được sử dụng để tính góc của một liên kết
+%%\chemfig{-[1]-[-1]-[1]-[-1]}\par
+%%\chemfig[angle increment=30]{-[1]-[-1]-[1]-[-1]}
+%
+%%%============ Các góc tuyệt đối <cú pháp> [:⟨absolute angle⟩]======= %%%
+%%Các góc tuyệt đối được chỉ định bằng độ, với 0° là phương nằm ngang, và các góc tăng theo chiều ngược chiều kim đồng hồ. 
+%
+%%\chemfig{A-B=C}\par
+%%\chemfig{A-[:30]B=[:-90]C}\par
+%
+%%%============= Các góc tương đối <cú pháp> [::⟨relative angle⟩] ========================%%
+%%Các góc tương đối được chỉ định bằng cách đơn giản là viết góc đó. Các góc này là tương đối so với liên kết trước đó:
+%
+%%\chemfig{A-B-[:-90]C-D-E-F-G}\par
+%%
+%%\chemfig{A-B-[:-90]C-[::90]D-[::30]E-[::30]F-[::60]G}\par
+%
+%%\chemfig{CH_3-C(-[:90]CH_3)(-[:-90]CH_3)-CH_3}
+%%
+%%
+%%\chemfig[atom sep=2.5em]{CH_3-CH_2-C(=#(,3pt)[:60]O)-[:-60]OH}
+%%
+%%
+%%\chemfig[
+%%atom style={\mycolor},
+%%bond style={\mycolor},
+%%cram width=9pt,
+%%cram dash width=0.4pt,
+%%cram dash sep=1pt]{CH_3-[-2]C(<[::+25]CH_3)(<:[::-55,1.1]CH_3)-[::+65]CH_3}
+%%
+%%
+%%\chemfig[
+%%atom style={\maudam},
+%%bond style={\maudam},
+%%cram width=9pt,
+%%cram dash width=0.4pt,
+%%cram dash sep=1pt]{CH_3-[-2]C(<[::-25]CH_3)(<:[::+55,1.1]CH_3)-[::-65]CH_3}
+%
+%%%% ========= Độ dài liên kết <cú pháp> <[,hệ số]> ========================%%%
+%%% \chemfig{A-[,2]B} %tùy chọn đầu bỏ trông là góc liên kết =0, tỳ chọn hai là hệ số khoảng cách được tính bằng hệ số X denta
+%%Để tránh các liên kết quá ngắn, đôi khi cần tăng (hoặc có thể là giảm) khoảng cách nguyên tử. Để làm điều này, đối số tùy chọn cho các liên kết thực sự bao gồm một số trường phân cách bởi dấu phẩy. Như chúng ta đã thấy, trường đầu tiên xác định góc. Trường thứ hai, nếu không để trống, là một hệ số nhân khoảng cách nguyên tử mặc định ∆. Vì vậy, viết -[,2] yêu cầu rằng liên kết này có góc mặc định (trường đầu tiên để trống) và các nguyên tử nó kết nối cách nhau gấp đôi khoảng cách mặc định.
+%
+%%%%% ==============Thay đổi kích thước phân tử================ %%%
+%
+%%\normalsize \chemfig{H-[:30]O-[:-30]H}\par
+%%\setchemfig{atom sep=2.5em}
+%%\chemfig{H-[:30]O-[:-30]H}\par
+%%\small \chemfig{H-[:30]O-[:-30]H}\par
+%%\footnotesize \chemfig{H-[:30]O-[:-30]H}\par
+%%\scriptsize \chemfig{H-[:30]O-[:-30]H}\par
+%%\tiny \chemfig{H-[:30]O-[:-30]H}
+%
+%%%% ========= Nguyên tử khởi đầu và kết thúc============%%%
+%%% +Nếu góc nằm trong khoảng (-90° và 90°) thì liên kết được tạo giữa nguyên tử cuối cùng của nhóm thứ nhất và nguyên tử đầu tiên của nhóm thứ hai.
+%%% + Trong tất cả các trường hợp khác, liên kết được tạo giữa nguyên tử đầu tiên của nhóm thứ nhất và nguyên tử cuối cùng của nhóm thứ hai. 
+%%%% Xem ví dụ sau đây để thấy rõ sự khác biệt
+%%\chemfig{ABCD-[:60]EFGH}\par
+%%
+%%\chemfig{ABCD-[:120]EFGH}\par
+%
+%%Đôi khi người dùng muốn các nguyên tử liên kết là các nguyên tử khác với những gì xác định bởi chemfig. Các nguyên tử khởi đầu và kết thúc có thể được đặt với đối số liên kết tùy chọn bằng cách viết: [,,⟨số nguyên 1⟩,⟨số nguyên 2⟩] trong đó ⟨số nguyên 1⟩ và ⟨số nguyên 2⟩ là số thứ tự của các nguyên tử khởi đầu và kết thúc mong muốn. Các nguyên tử này phải tồn tại, nếu không sẽ có thông báo lỗi.
+%
+%%\chemfig{ABCD-[:75,,2,3]EFG}\qquad
+%%\chemfig{ABCD-[:75,,,2]EFG}\qquad
+%%\chemfig{ABCD-[:75,,3,2]EFG}\qquad
+%
+%%Có một đối số tùy chọn thứ 5 và cuối cùng cho các liên kết, được tìm thấy sau dấu phẩy thứ 4: [,,,,⟨tikz code⟩] ⟨tikz code⟩ này được chuyển trực tiếp tới tikz khi liên kết được vẽ. Ở đó người dùng có thể đặt các đặc tính như màu sắc (red), kiểu đường (dash pattern=on 2pt off 2pt), độ dày (line width=2pt), hoặc thậm chí trang trí nếu thư viện decoration của tikz được tải. Một liên kết có thể được làm vô hình bằng cách viết “draw=none”. Để đặt nhiều thuộc tính, cú pháp của tikz được sử dụng, phân tách chúng bởi dấu phẩy:
+%
+%%\chemfig{A-[,,,,red]B}\par
+%%\chemfig{A-[,,,,dash pattern=on 2pt off 2pt]B}\par
+%%\chemfig{A-[,,,,line width=2pt]B}\par
+%%\chemfig{A-[,,,,red,line width=2pt]B}
+%%
+%%\chemfig{A-[,,,,->,-latex]B}
+%
+%
+%%\chemfig{CH_3-CH_2-[,.65]} 
+%%
+%%\setchemfig{atom sep=2.5em}
+%%
+%%\chemfig{CH_3-CH_2-[,.65]} 
+%
+%
+%%%% ============ Nhánh =========================%%%
+%%% <cú pháp> <(-[<góc liê kết>nguyên tử của nhánh])>
+%%% Ví dụ muốn gắn nhánh -CH3 vào vị trí C2 trong mach C sau : CH3CH2CH3
+%%\setchemfig{bond style={line width =1pt}}
+%%\chemfig{CH_3-CH(-#(-.2pt)[:-90,.9]CH_3)-CH_3}
+%
+%%%% Xoay phân tử một góc|| <cú pháp> <\chemfig{[:<góc xoay>]A-B-C-D} %%%
+%%%Chú ý đối với nhánh có góc tuyệt đối sẽ giữ nguyên, chỉ nhánh có góc tướng đối mới bị thay đổi nên việc chọn loại góc cần phải linh hoạt
+%%\newpage
+%%\chemfig{A-B([:60]-D-E)([::-30,1.5]-X-Y)-C}\par
+%%\chemfig{[:-45]A-B([:60]-D-E)([::-30,1.5]-X-Y)-C}
+%
+%%%% Nhánh lồng nhánh %%%
+%%% Ta chỉ cần đặt ngoặc đơn lồng vào nhau
+%
+%%\chemfig{CH_3-[:30]C(=[::+60,.8]O)-[:-30]O-[:30]C(=[::+60,0.8]O)-[:-30]CH_3}
+%
+%%%% Kết nối các nguyên tử xa nhau %%%
+%%Và giả sử muốn kết nối các nguyên tử X và C. Trong trường hợp này, chemfig cho phép đặt một "móc" ngay sau nguyên tử cần kết nối. Ký tự dùng cho móc là "?" vì tương tự như một cái móc. Vậy nếu viết X? thì nguyên tử X sẽ có móc. Sau đó trong mã lệnh, tất cả các nguyên tử theo sau dấu ? sẽ được kết nối với X:
+%
+%%\chemfig{
+%%	X-A-[:90]B-[::+90]C
+%%}\qquad
+%%so với
+%%\qquad
+%%\chemfig{
+%%	X?-A-[:90]B-[::+90]C?
+%%}
+%%%% Để tạo thêm liên kết giứa C và A ta dùng cú pháp?[⟨name⟩,⟨bond⟩,⟨tikz⟩]
+%%% Để thuận tiện ta có thể thêm <?[<name>]> cho nguyên tử có nhiều liên kết
+%%\chemfig{
+%%	X-A-[:90]B-[::+90]C
+%%}\qquad
+%%so với
+%%\qquad
+%%\chemfig{
+%%	X?[cx]?[bx]?[dx]-A?[ac]-[:90]B?[bx]-[::+90]C?[cx]?[ac]-[::30]D?[dx]
+%%}
+%%\newpage
+%%%% ============Công thức mạch vòng=================%%%
+%%%========Cú pháp:⟨atom⟩*⟨n⟩(⟨code⟩)=========%%
+%%chemfig có thể dễ dàng vẽ các đa giác đều. Ý tưởng là gắn một vòng vào một <nguyên tử> bên ngoài vòng với cú pháp:
+%%<nguyên tử>*<n>(<mã>)
+%%Trong đó:
+%%<n> là số cạnh của đa giác
+%%<mã> mô tả các liên kết và nhóm nguyên tử tạo thành các cạnh và đỉnh của nó. Mã này phải bắt đầu bằng một liên kết vì nguyên tử ở bên ngoài vòng.
+%%Ví dụ một vòng 5 cạnh, gắn vào nguyên tử "A":
+%\chemfig{C*5(-C-C-C-C-)}
+%
+%\chemfig{[:30]C*5(-C-C-C-C-)}
+%
+%\chemfig{C*6(-D=A-A=A-C=)}
+%
+%\chemfig{*6(-=-=-=)}
+%
+%%%%============Vẽ vòng tròn  trong vòng ==========%%%
+%%% cú pháp: <nguyên tử>**[<góc 1>,<góc 2>,<tikz>]⟨n⟩(<mã>)
+%%Trong đó các trường của đối số tùy chọn nhận giá trị mặc định nếu để trống:
+%%
+%%<góc 1> và <góc 2>: góc tuyệt đối của điểm bắt đầu và kết thúc cung tròn. Mặc định lần lượt là 0° và 360° để vẽ một đường tròn.
+%%<tikz>: mã sẽ được truyền cho tikz để vẽ cung tròn.
+%
+%\chemfig[double bond sep=3pt]{*6(-=-=-=)}\quad
+%
+%\chemfig{**6(------)}\quad
+%\chemfig{**[30,330]5(-----)}\quad
+%\chemfig{**[0,270,dash pattern=on 2pt off 2pt]4(----)}
+%%%% ========= Vị trí góc============= %%
+%%Quy tắc: nguyên tử gắn kết "A" luôn nằm ở phía tây nam của vòng. Hơn nữa, vòng luôn được xây dựng theo chiều kim đồng hồ, và liên kết cuối cùng hạ xuống dọc trục đến nguyên tử gắn kết:
+%%Nguyên tử gắn kết "A" luôn ở phía tây nam của vòng.
+%%Vòng luôn được xây dựng ngược chiều kim đồng hồ.
+%%Liên kết cuối cùng luôn hạ xuống thẳng đứng tới nguyên tử gắn kết.
+%%Nếu vị trí góc mặc định của vòng không thuận tiện, có thể chỉ định góc khác.
+%%
+%%Sử dụng đối số tùy chọn ở đầu phân tử để xoay vòng:
+%%
+%%[<góc>]
+%
+%\chemfig{[:30]A*6(------)}\qquad
+%\chemfig{[:-30]A*6(------)}\qquad
+%\chemfig{[:60]A*6(------)} 
+%
+%%%%===Vòng được gắn kết trên một một liên kết được vẽ trước đó
+%%Khi một vòng không bắt đầu phân tử và một hoặc nhiều liên kết đã được vẽ trước đó, vị trí góc mặc định thay đổi: vòng được vẽ sao cho liên kết kết thúc trên nguyên tử gắn kết phân đôi góc được tạo bởi cạnh đầu tiên và cạnh cuối cùng của vòng. 
+%%\chemfig{A-[:25]B*4(----)}\vskip5pt
+%%\chemfig{A=[:-30]*6(=-=-=-)}
+%
+%
+%\chemfig{CH_3-[:-90,.8]**6(------)}
+%\chemfig{CH_2=[:180,.65]CH-[:-90,.8]**6(------)}
+%
+%
+%
+%
+%%%%================Mạch vòng có nhánh===================%%%
+%%Để gắn các nhánh vào các đỉnh của một vòng, chúng ta sử dụng cú pháp đã thấy:
+%%
+%%<nguyên tử>(<mã>)
+%%
+%%Trong đó:
+%%
+%%<mã> là mã của phân tử con
+%%<nguyên tử> ở đỉnh.
+%%Đặc biệt với vòng, góc mặc định của phân tử con không phải là 0° mà được tính toán sao cho nó phân đôi các cạnh rời khỏi đỉnh:
+%
+%\chemfig{X*6(-=-=(-A-B=C)-=-)}
+%\newpage
+%%%% Vòng chung cạnh %%%
+%
+%%\chemfig{A*6(=-(*6(-=(*6(-=-=--))-=--))=-=-)}
+%%
+%%\chemfig{CH_3-[:30]CH=[:-30]CH-[:30]C(=[::+60,.65]O)-[:-30]CH_2-[:30]C(=[::+60,.65]O)-[:-30]CH=[:30]CH-[:-30]CH_3}
+%
+%
+%%\small\chemfig{^{-}O(-[:-30,.5,,,draw=none]Na^{+})-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-O^{-}-[::30,.65,,,draw=none]Na^{+})=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}
+%%
+%%
+%%
+%%\small\chemfig{HO-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-OH)=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}
+%
+%
+%
+%%\begin{tikzpicture}[declare function={d=4cm;},node distance=d and d]
+%%	\node[draw=none] (Cur) {\small\chemfig{HO-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-OH)=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}};
+%%	
+%%	\node [below = of Cur](muoi){\small\chemfig{^{-}O(-[:-30,.5,,,draw=none]Na^{+})-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-O^{-}-[::30,.65,,,draw=none]Na^{+})=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}};
+%%	
+%%	\begin{scope}[transform canvas={xshift=3pt}]
+%%		\path[draw,arrows = {-Stealth[harpoon]},line width =2pt] (Cur)--(muoi) node[right,pos=.5] {(1) + NaOH};
+%%	\end{scope}
+%%	
+%%	\begin{scope}[transform canvas={xshift=-3pt}]
+%%		\path[draw,arrows = {-Stealth[harpoon]},line width =2pt] (muoi)--(Cur) node[left,pos=.5] {(2) + $H_2SO_4$};
+%%	\end{scope}
+%%	
+%%\end{tikzpicture}
+%%%%================ node của vòng============= %%%
+%%\setchemfig{show cntcycle=true}
+%%\chemfig{*5(---(-*3(---))--)}
+%%
+%%\chemmove{\draw[red](cyclecenter1)to[out=120,in=-160](cyclecenter2);
+%%\node[at=(cyclecenter1),shift={(30:2cm)}] (end) {\printatom{CH_3}};
+%%\draw[-,shorten <=.5cm,shorten >=-.2cm] (cyclecenter1)--(end);
+%%}
+%
+%%%% ========= Hiệu ứng electron ===================%%%
+%%% Sử dụng chemmove %%
+%%\chemmove[⟨opt⟩]{\draw[⟨tikz opt⟩](⟨name1⟩)⟨tikz link⟩(⟨name2⟩);
+%%Với node được tạo theo cú pháp : “@{⟨name⟩,⟨coeff⟩}”
+%% Node cho nguyen tu <@{name}> trước nguyên tử
+%% Node cho lien ket <lien kết % Node cho lien ket>[@{db}::góc] %chú ý không có dấu phảy
+%%\schemestart
+%%\chemfig{@{a1}=_[@{db}::30]-[::-60]\charge{90=\|}{X}}
+%%\arrow{<->}
+%%\chemfig{\chemabove{\vphantom{X}}{\ominus}-[::30]=_[::-60]
+%%	\chemabove{X}{\scriptstyle\oplus}}
+%%\schemestop
+%
+%%\schemestart
+%%\chemfig{@{a1}=_[@{db}::30]-[@{sb}::-60]@{duy}\charge{90=\|}{X}}
+%%\arrow {<->}
+%%\chemfig{\chemabove{\vphantom{X}}{\ominus}-[::30]=_[::-60]\chemabove{X}{\oplus}}
+%%\schemestop
+%%\chemmove {%
+%%	\draw[-latex,shorten <= 1pt,shorten >= 1pt,dash pattern= on 1pt off 1pt,red] (db)..controls +(120:5mm) and +(120:5mm)..(a1) node[sloped,midway,above]{$\pi$};
+%%	\draw[shorten <= 1pt,shorten >= 1pt,] (duy)..controls +(90:5mm) and +(45:5mm)..(sb);
+%%}
+%
+%%Lưu ý rằng đuôi mũi tên không khởi đầu đúng từ các electron của chúng ta; nó khởi đầu từ giữa cạnh trên của node. Điều này là do chúng ta chọn góc khởi đầu là 90 độ nên tikz làm mũi tên khởi đầu từ anchor "x1.90" tương ứng với giao điểm của đường thẳng đi từ tâm node "x1" với góc 90 độ so với phương nằm ngang và cạnh của node hình chữ nhật. Để có góc khởi đầu mũi tên mong muốn, chúng ta phải chỉ định vị trí của nó. Sau một số thử nghiệm, đó là "x1.57":
+%
+%%\chemfig{@{x1}\charge{45=\:}{X}}
+%%\hspace{2cm}
+%%\chemfig{@{x2}\charge{90=\|}{X}}
+%%\chemmove{
+%%	\draw[shorten >=4pt,shorten <=4pt](x1.57).. controls +(60:1cm) and +(120:1cm).. (x2.90);}
+%%
+%%\chemfig{@{x1}\charge{45=\:}{X}}
+%%\hspace{2cm}
+%%\chemfig{@{x2}\charge{90=\|}{X}}
+%%\chemmove[shorten <=4pt,shorten >=4pt]{
+%%	\draw(x1.57).. controls +(1cm,.8cm).. (x2.90);}
+%
+%
+%%\setchemfig{atom sep=7mm}
+%%\chemfig{R-O-C(-[2]R)(-[6]OH)-@{dnl}\charge{90=\|,-90=\|}{O}H}\hspace{1cm}
+%%\chemfig{@{atoh}\chemabove{H}{\scriptstyle\oplus}}
+%%\chemmove{
+%%	\draw[shorten <=2pt, shorten >=7pt]
+%%	(dnl).. controls +(south:1cm) and +(north:1.5cm).. (atoh);}
+%
+%
+%%%% ===========Viết tên dưới công thức ===================== %%%
+%%cú pháp \chemname[⟨dim⟩]{\chemfig{⟨code of the molecule⟩}}{⟨name⟩}
+%
+%%\chemfig{**6(------)}
+%
+%%\chemname[4pt]{\chemfig{**6(------)}}{benzen}
+%%
+%%\schemestart
+%%\chemname{\chemfig{R-C(-[:-30]OH)=[:30]O}}{Acide carboxylique}
+%%\+
+%%\chemname{\chemfig{R’OH}}{Alcool}
+%%\arrow(.mid east--.mid west)
+%%\chemname{\chemfig{R-C(-[:-30]OR’)=[:30]O}}{Ester}
+%%\+
+%%\chemname{\chemfig{H_2O}}{Water}
+%%\schemestop
+%%\chemnameinit{}
+%
+%%%% Chú ý để tên gọi nằm thẳng hàng với tên sâu nhất %%%
+%%\chemnameinit{<phân tử sâu nhất>}
+%%<Các lệnh vẽ phản ứng>
+%%\chemnameinit{}
+%%%%Viết tên nhiều dòng ta dùng \\ %%%
+%
+%\chemnameinit{\chemfig{R-C(-[:-30]OH)=[:30]O}}
+%\schemestart
+%\chemname{\chemfig{R’OH}}{Alcohol}
+%\+
+%\chemname{\chemfig{R-C(-[:-30]OH)=[:30]O}}{Carboxylic acid}
+%\arrow(.mid east--.mid west)
+%\chemname{\chemfig{R-C(-[:-30]OR’)=[:30]O}}{Ester}
+%\+
+%\chemname{\chemfig{H_2O}}{Water}
+%\schemestop
+%\chemnameinit{}
+%
+%
+%
+%%%%%%========Tách các nguyên tử=========%%%
+%%Bọc các nguyên tử muốn giữ nguyên trong dấu ngoặc nhọn { }.
+%%Hoặc chèn ký tự | để ngắt việc mở rộng:
+%
+%
+%\chemfig{CH_3CH_2-[:-60,,3]C(-[:-120]H_3C)=C(-[:-60]H)-[:60]C|{(CH_3)_3}}
+%
+%%%%=========Hiển thị nguyên tử =====================%%%
+%%\newcommand*\printatom[1]{\ensuremath{\mathrm{#1}}} when compiling with LATEX
+%%\definesubmol\printatom#1{\ifmmode\rm#1\else$\rm#1$\fi} when compiling with εTEX ou ConTEXtX
+%\renewcommand*\printatom[1]{\ensuremath{\mathbf{#1}}} % in không chân
+%\chemfig{H_3C-C(=[:30]O)(-[:-30]OH)}
+%
+%%%% Lưu phân tử con %%%%%
+%%\definesubmolinesubmol{⟨name⟩}{⟨code⟩}
+%%\definesubmolinesubmol{xy}{CH_2}
+%%\chemfig{H_3C-!{xy}-!{xy}-!{xy}-CH_3}
+%%
+%%\definesubmolinesubmol\xx{C(-[::+90]H)(-[::-90]H)}
+%%\chemfig{[:15]H-!\xx-!\xx-!\xx-!\xx-H}
+%%
+%%\definesubmolinesubmol\Me[H_3C]{CH_3}
+%%\chemfig{*6((-!\Me)=(-!\Me)-(-!\Me)=(-!\Me)-(-!\Me)=(-!\Me)-)}
+%%
+%%%%% Lưu tên có đối số \definesubmolinesubmol{⟨name⟩}⟨number⟩[⟨code1⟩]{⟨code2⟩}
+%%\definesubmolinesubmol\X1{-[,-0.2,,,draw=none]{\scriptstyle#1}}
+%%\chemfig{*6((!\X A)-(!\X B)-(!\X C)-(!\X D)-(!\X E)-(!\X F)-)}
+%
+%%%% Nhiều đối số
+%%\definesubmolinesubmol\X1{-[,-0.2,,,draw=none]{\scriptstyle#1}}
+%%\chemfig{*6((!\X A)-(!\X B)-(!\X C)-(!\X D)-(!\X E)-(!\X F)-)}
+%%\definesubmolinesubmol{foo}3[#3|\textcolor{#1}{#2}]{\textcolor{#1}{#2}|#3}
+%%\chemfig{A(-[:135]!{foo}{red}XY)-B(-[:45]!{foo}{green}{W}{zoo})}
+%
+%\NewDocumentCommand{\ringhexside}{O{}O{}O{}O{}O{}O{}}{%
+%	\ifblank{#1}{\definesubmol\nhanhmot{}}{\definesubmol\nhanhmot{#1}}
+%	\ifblank{#2}{\definesubmol\nhanhhai{}}{\definesubmol\nhanhhai{#2}}
+%	\ifblank{#3}{\definesubmol\nhanhba{}}{\definesubmol\nhanhba{#3}}
+%	\ifblank{#4}{\definesubmol\nhanhbon{}}{\definesubmol\nhanhbon{#4}}
+%	\ifblank{#5}{\definesubmol\nhanhnam{}}{\definesubmol\nhanhnam{#5}}
+%	\ifblank{#6}{\definesubmol\nhanhsau{}}{\definesubmol\nhanhsau{#6}}
+%	{\chemfig{**6((!\nhanhnam)-(!\nhanhbon)-(!\nhanhba)-(!\nhanhhai)-(!\nhanhmot)-(!\nhanhsau)-)}}
+%}
+%\ringhexside[-[,.7]CH=[::90]CH_2]
+%
+%\definesubmol{vinyl}1{-[,.7]CH=[::#1,,,,]CH_2}
+%\chemfig{**6((!{vinyl}{-30})-(!{vinyl}{90})-(!{vinyl}{30})-(!{vinyl}{-30})-(!{vinyl}{90})-(!{vinyl}{30})-)}
+%
+%
+%
+%
+%
+%
+%%\begin{tikzpicture}[declare function ={d=.20cm;r=1cm},node distance=d and d]
+%%	\node (CuO) {$CuO$};
+%%	\node [right=of CuO,] (plus1) {$+$};
+%%	\node [right=of plus1] (H2) {$H_2$};
+%%	\node [right=of H2,xshift=r](Cu) {$Cu$};
+%%	\node [right=of Cu] (plus) {$+$};
+%%	\node [right=of plus] (H2O) {$H_2O$};
+%%%	\node [below=of CuO] (nCuO){$0,1\mathrm{~mol}$};
+%%	\draw [>=stealth,->] (H2)--(Cu) node [above,pos =0.5]{$t^\circ$};
+%%\end{tikzpicture}
+%
+%
+%
+%
+%
+%%%% =============phương trình phản ứng============= %%%
+%
+%%% Kiểu mũi tên %%
+%%\schemestart A\arrow{->}B\schemestop\par % by default
+%%\schemestart A\arrow{-/>}B \schemestop\par
+%%\schemestart A\arrow{<-}B \schemestop\par
+%%\schemestart A\arrow{<->}B \schemestop\par
+%%\schemestart A\arrow{<=>}B \schemestop\par
+%%\schemestart A\arrow{<->>}B \schemestop\par
+%%\schemestart A\arrow{<<->}B \schemestop\par
+%%\schemestart A\arrow{0}B \schemestop\par
+%%\schemestart A\arrow{-U>}B \schemestop
+%
+%%% Tùy chọn mũi tên %%
+%
+%%• arrow angle = 〈góc〉, which default value is 0;
+%%• arrow coeff = 〈độ dài〉, which default value is 1;
+%%• arrow style = 〈tùy chọn tikz〉, empty by default.
+%%%khai báo toàn Cục cho tùy chọn mũi tên
+%%\setchemfig{arrow angle=15,arrow coeff=1.5,
+%%	arrow style={red, thick}}
+%%% nhãn mũi tên %%
+%%Để rõ ràng hơn, người dùng có thể muốn các nhãn "above" và "below" được viết nằm ngang. Có thể chỉ định góc của nhãn, mặc định cùng góc với mũi tên. Để chọn một góc cụ thể, có thể viết *{<góc>} ở đầu đối số tùy chọn:
+%
+%%\setchemfig{arrow double sep=6pt,arrow label sep=6pt}
+%%\schemestart
+%%\small\chemfig{HO-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-OH)=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}
+%%\arrow{<=>[*{0}up][*{0}right][]}[-90,3,,,arrows={-Stealth[length=4mm]},line width=2pt]
+%%\small\chemfig{^{-}O(-[:-30,.5,,,draw=none]Na^{+})-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-O^{-}-[::30,.65,,,draw=none]Na^{+})=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}
+%%\schemestop
+%\newpage
+%
+%%\normalsize\cyclohexan[NH_2][NH_2][CH_3][HO][HO]{CH_3}
+%%\small\cyclohexan[NH_2][NH_2][CH_3][HO][HO]{CH_3}
+%%\scriptsize\cyclohexan[NH_2][NH_2][CH_3][HO][HO]{CH_3}
+%%\tiny\cyclohexan[NH_2][NH_2][CH_3][HO][HO]{CH_3}
+%
+%
+
+%%% Tùy chỉnh mũi tên %%%
+%Đây là đoạn mã kỹ thuật và đòi hỏi một số kiến thức về tikz. Nó nhắm vào những người dùng nâng cao, những người cần định nghĩa các mũi tên tùy chỉnh. 
+%
+%Lệnh \\definearrow cho phép xây dựng các mũi tên tùy chỉnh. Cú pháp của nó là:
+%
+%\\definearrow{⟨số⟩}{⟨tên mũi tên⟩}{⟨mã⟩}
+%
+%Trong đó ⟨số⟩ là số lượng đối số tùy chọn sẽ được sử dụng trong ⟨mã⟩, với cú pháp thông thường #1, #2, v.v. Những đối số tùy chọn này không thể chấp nhận giá trị mặc định; nếu không có giá trị nào được chỉ định khi sử dụng macro \\arrow, các đối số sẽ vẫn để trống. 
+%
+%Trước khi đi xa hơn, hãy xem xét các macro nội bộ có sẵn khi vẽ mũi tên. Vì các macro này bao gồm ký tự "@" trong tên của chúng, chúng chỉ có thể được truy cập giữa các lệnh \\catcode‘\\\_=11 và \\catcode‘\\\_=8.
+%
+%• \\CF_arrowstartname và \\CF_arrowendname bao gồm tên của các hợp chất (được coi là các nút bởi tikz) mà mũi tên được vẽ giữa chúng;
+%
+%• \\CF_arrowstartnode và \\CF_arrowendnode bao gồm tên của các nút nơi các đầu mũi tên sẽ được đặt. Sau các tên này, người dùng có thể chỉ định neo do người dùng định nghĩa trong đối số giữa các dấu ngoặc vuông của lệnh \\arrow, trừ khi trường để trống;
+%
+%• \\CF_arrowcurrentstyle và \\CF_arrowcurrentangle chứa kiểu và góc của mũi tên sẽ được vẽ; 
+%
+%• \\CF_arrowshiftnodes{⟨dim⟩} dịch chuyển các nút "\\CF_arrowstartnode" và "\\CF_arrowendnode" vuông góc với mũi tên theo một khoảng cách được chỉ định trong đối số;
+%
+%• \\CF_arrowdisplaylabel{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8} là phức tạp nhất. Nó cho vị trí nhãn với các đối số sau:
+%
+%- #1 và #5 là các nhãn sẽ được viết;
+%
+%- #2 và #6 là các số thực từ 0 đến 1. Chúng xác định vị trí của các nhãn trên mũi tên. 0 là đầu mũi tên và 1 là cuối mũi tên, giả sử mũi tên thẳng; 
+%
+%- #3 và #7 là các ký tự "+" hoặc "-". "+" hiển thị nhãn phía trên mũi tên, trong khi "-" hiển thị dưới nó;
+%
+%- #4 và #8 là tên của các nút tương ứng với đầu và cuối của mũi tên.
+%
+%• Đầu mũi tên dựa trên "CF" cho mũi tên đầy đủ và có tùy chọn "harpoon" cho mũi tên nửa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%% Công thức Polime %%%
+%
+%\chemfig{\vphantom{CH_2}-[@{op,.75}]CH_2-CH_2-[@{cl,0.25}]}
+%\polymerdelim[height = 5pt, indice = \!\!n]{op}{cl}
+%\bigskip
+%\chemfig{\vphantom{CH_2}-[@{op,1}]CH_2-CH(-[6]Cl)-[@{cl,0}]}
+%\polymerdelim[height = 5pt, depth = 25pt, open xshift = -10pt, indice = \!\!n]{op}{cl}
+%
+%
+%\chemfig{\vphantom{CH_2}-[@{op,1}]CH_2-CH(-[6]Cl)-[@{cl,0}]}
+%\polymerdelim[height = 5pt, depth = 25pt, open xshift = -20pt, indice = \!\!n]{op}{cl}
+%
+%
+%\tiny\chemfig{\vphantom{CH_2}-[@{op,1}]CH(-[:-90]**6(------))-CH_2-[@{cl,.5}]}
+%\polymerdelim[height = 5pt, depth = 15pt, open xshift = -5pt, indice = \!\!n]{op}{cl}
+%
+%%%% ============= Phân tử đối xứng
+%
+%\chemfig{H_3C-C(=[:30]O)-[:-30]OH}% original
+%\vflipnext
+%\chemfig{H_3C-C(=[:30]O)-[:-30]OH}\medskip
+%\chemfig{H_3C-C(=[:30]O)-[:-30]OH}% original
+%\hflipnext
+%\chemfig{H_3C-C(=[:30]O)-[:-30]OH}
+%
+%
+%%%% ================Tạo lệnh đặt node trên lên kết và vẽ góc liên kết ===================%%%
+%\newcommand\angstrom{\mbox{\normalfont\AA}}
+%\newcommand\namebond[4][5pt]{\chemmove{\path(#2)--(#3)node[midway,sloped,yshift=#1]{#4};}}
+%\newcommand\arcbetweennodes[3]{%
+%	\pgfmathanglebetweenpoints{\pgfpointanchor{#1}{center}}{\pgfpointanchor{#2}{center}}%
+%	\let#3\pgfmathresult}
+%\newcommand\arclabel[6][stealth-stealth,shorten <=1pt,shorten >=1pt]{%
+%	\chemmove{%
+%		\arcbetweennodes{#4}{#3}\anglestart \arcbetweennodes{#4}{#5}\angleend
+%		\draw[#1]([shift=(\anglestart:#2)]#4)arc(\anglestart:\angleend:#2);
+%		\pgfmathparse{(\anglestart+\angleend)/2}\let\anglestart\pgfmathresult
+%		\node[shift=(\anglestart:#2+1pt)#4,anchor=\anglestart+180,rotate=\anglestart+90,inner sep=0pt,
+%		outer sep=0pt]at(#4){#6};}}
+%
+%\chemfig{@{1}H-[::37.775,2]@{2}O-[::-75.55,2]@{3}H}.
+%\namebond{1}{2}{\footnotesize0.9584 \angstrom}
+%\namebond{2}{3}{\footnotesize0.9584 \angstrom}
+%\arclabel{0.5cm}{1}{2}{3}{\footnotesize104.45\textdegree}
+%
+%\newpage
+%\chemfig[
+%atom style={\mycolor},
+%bond style={\mycolor},
+%cram width=5pt,
+%cram dash width=0.5pt,
+%cram dash sep=1pt
+%]{CH_3-[-90]C(<[::30]CH_3)(<:[::-60]CH_3)-[::60]CH_3}
+%\hflipnext
+%\chemfig[
+%atom style={\mycolor},
+%bond style={\mycolor},
+%cram width=5pt,
+%cram dash width=0.5pt,
+%cram dash sep=1pt
+%]{CH_3-[-90]C(<[::30]CH_3)(<:[::-60]H_3C)-[::60]CH_3}
+
+
+
+
+
+
+
+%\begin{tikzpicture}[declare function={d=4cm;},node distance=d and d]
+%	\node[draw=none] (Cur) {\small\chemfig[atom style={\mycolor,line width =1pt},bond style={\mycolor,line width =1pt},double bond sep= 3pt]{HO-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-OH)=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}};
+%	
+%	\node [below = of Cur](muoi){\small\chemfig[atom style={\mycolor,line width =1pt},bond style={\mycolor,line width =1pt},double bond sep= 3pt]{^{-}O(-[:-30,.5,,,draw=none]Na^{+})-[:30]*6(-=-(-[:30]=[:-30]-[:30](=[::+60,.65]O)-[:-30]-[:30](=[::+60,.65]O)-[:-30]=[:30]-[:-30]*6(-=-(-O^{-}-[::30,.65,,,draw=none]Na^{+})=(-O-[::-60]CH_3)-=))=-(-O-[::+60]CH_3)=-)}};
+%	
+%	\begin{scope}[transform canvas={xshift=3pt}]
+%		\path[draw=\mycolor,arrows = {-Stealth[harpoon]},line width =2pt] (Cur)--(muoi) node[right,pos=.5,font=\color{\mycolor}] {(1) + NaOH};
+%	\end{scope}
+%	
+%	\begin{scope}[transform canvas={xshift=-3pt}]
+%		\path[draw=\mycolor,arrows = {-Stealth[harpoon]},line width =2pt] (muoi)--(Cur) node[left,pos=.5,font=\color{\mycolor}] {(2) + $H_2SO_4$};
+%	\end{scope}
+%	
+%\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

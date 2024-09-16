@@ -1,0 +1,96 @@
+\begin{tcolorbox}
+	\begin{center}
+		{\GSND[\fontsize{30pt}{24pt}\selectfont\bfseries][][\maudam]{Phương pháp \lq\lq tam suất \rq \rq\\trong các bài toán hiệu suất}}
+	\end{center}
+\end{tcolorbox}
+\subsubsection{Các bước giải toán}
+\begin{tcolorbox}[
+	colframe=white
+	]
+	\taodongke[gray][]{25}
+\end{tcolorbox}
+\subsubsection{Một số công thức cần nhớ}
+\begin{tcolorbox}[
+	colframe=white
+	]
+	\taodongke[gray][]{20}
+\end{tcolorbox}
+\subsubsection{Một số ví dụ minh họa}
+\begin{bt}[2][Hiệu suất phản ứng]
+	Người ta dùng quặng boxit để sản xuất $Al$. Hàm lượng $Al_2O_3$ trong quặng là $50\%$. Để có được $2$ tấn nhôm nguyên chất cần bao nhiêu tấn quặng? Biết rằng hiệu suất của quá trình sản xuất là $90 \%$.
+	\loigiai{
+		\begin{tikzpicture}[declare function={d=1.75cm;},node distance=.75*d and 0.25*d]
+			\node (a) {$2Al_2O_3$};
+			\node (b)[right of=a,node distance=1.75*d]{4Al};
+			\node (plus)[right of=b]{$+$};
+			\node (c)[right of=plus]{$3O_2$};
+			\draw[->,>=stealth,line width=1.2pt] (a)--(b)node [pos =.5,above,font=\scriptsize]{$t^\circ$} node [pos =.5,below,font=\scriptsize]{crioit};
+			\node (aa)[below of=a,node distance=0.5*d]{$2 \cdot 102$};
+			\node (bb)[below of=b,node distance=0.5*d]{$4 \cdot 27 \cdot H$};
+			\node (bbb)[below of=bb,node distance=0.5*d]{$2$};
+			\node (cc)[below of=c,node distance=0.5*d]{\vphantom{x}};
+			\node (rcc)[right of=cc]{(tấn)};
+			\node (brcc)[below of=rcc,node distance=0.5*d]{(tấn)};
+			\node (aaa)[below of=aa,node distance=0.5*d]{$?$};
+			\node (laa)[left of=aa,anchor=east]{Phương trình:};
+			\node (laaa)[left of=aaa,anchor=east]{Đề bài:};
+		\end{tikzpicture}\\
+		Áp dụng quy tắc tam suất ta có: $m_{Al_2O_3} = \dfrac{2 \cdot 102\cdot 2 }{4 \cdot 27 \cdot 0.9 } = \dfrac{340}{81 } \mathrm{~\text{tấn}}  $\\
+		$\Rightarrow m_{\text{quặng}} =m_{Al_2O_3} \cdot \dfrac{100}{50}=\dfrac{340}{81} \cdot \dfrac{100}{50} \approx 8,395\mathrm{~\text{tấn}} $
+	}
+\end{bt}
+
+\begin{bt}[2][Hiệu suất phản ứng]
+	Để điều chế ra 1 tấn gang với hàm lượng $Fe$ là $95 \%$ người ta cần dùng bao nhiêu tấn quặng manhetit có lẫn $40\%$ tạp chất. Biết hiệu suất phản ứng là $80\%$.
+	\loigiai{
+		\begin{tikzpicture}[declare function={d=1.5cm;},node distance=.75*d and 0.25*d]
+			\node (a) {$Fe_3O_4$};
+			\node (plusM)[right of=a]{+};
+			\node (b)[right of=plusM]{4CO};
+			\node (c)[right of=b,node distance=1.75*d]{3Fe};
+			\node (plusH)[right of=c]{+};
+			\node (d)[right of=plusH]{$4CO_2$};
+			\node (aa)[below of=a,node distance=0.5*d]{232};
+			\node (cc)[below of=c,node distance=0.5*d]{$3\cdot56 \cdot H$};
+			\node (laa)[left of=aa,anchor=east]{Phương trình:};
+			\node (e)[right of=d]{\vphantom{x}};
+			\node (ee)[below of=e,node distance=0.5*d]{(tấn)};
+			\node (aaa)[below of=aa,node distance=0.5*d]{?};
+			\node (db)[left of=aaa,anchor=east]{Đề bài:};
+			\node (ccc)[below of=cc,node distance=0.5*d]{0,95};
+			\node (eee)[below of=ee,node distance=0.5*d]{(tấn)};
+			\draw[->,>=stealth,line width=1.2pt] (b)--(c)node [pos =.5,above]{$t^\circ$};
+		\end{tikzpicture}\\
+		Ta có khối lượng sắt có trong 1 tấn gang là: $m_{Fe} = m_{\text{gang}}\cdot 0{,}95 =0,95\mathrm{~\text{tấn}}$\\
+		Áp dụng quy tắc tam suất ta có: $m_{Fe_3O_4} = \dfrac{232 \cdot 0,95 }{3\cdot 56\cdot 0.8 } = \dfrac{551}{336 } \mathrm{~\text{tấn}}  $\\
+		$\Rightarrow m_{\text{quặng}} =m_{Fe_3O_4} \cdot \dfrac{100}{60} \approx 2,733\mathrm{~\text{tấn}} $
+	}
+\end{bt}
+
+
+\begin{bt}[2][Tính hiệu suất phản ứng]
+	Dùng $100$ tấn quặng $Fe_3O_4$ để luyện gang ($95\% Fe$). Tính khối lượng gang thu được. Cho biết hàm lượng $Fe_3O_4$ trong quặng là $80\%$ và hiệu suất quá trình phản ứng là $93\%$.
+	\loigiai{
+		\begin{tikzpicture}[declare function={d=1.5cm;},node distance=.75*d and 0.25*d]
+			\node (a) {$Fe_3O_4$};
+			\node (plusM)[right of=a]{+};
+			\node (b)[right of=plusM]{4CO};
+			\node (c)[right of=b,node distance=1.75*d]{3Fe};
+			\node (plusH)[right of=c]{+};
+			\node (d)[right of=plusH]{$4CO_2$};
+			\node (aa)[below of=a,node distance=0.5*d]{232};
+			\node (cc)[below of=c,node distance=0.5*d]{$3\cdot56 \cdot H$};
+			\node (laa)[left of=aa,anchor=east]{Phương trình:};
+			\node (e)[right of=d]{\vphantom{x}};
+			\node (ee)[below of=e,node distance=0.5*d]{(tấn)};
+			\node (aaa)[below of=aa,node distance=0.5*d]{$80$};
+			\node (db)[left of=aaa,anchor=east]{Đề bài:};
+			\node (ccc)[below of=cc,node distance=0.5*d]{?};
+			\node (eee)[below of=ee,node distance=0.5*d]{(tấn)};
+			\draw[->,>=stealth,line width=1.2pt] (b)--(c)node [pos =.5,above]{$t^\circ$};
+		\end{tikzpicture}\\
+		Ta có khối lượng $Fe_3O_4$ có trong 100 tấn quặng là: $m_{Fe_3O_4} = m_{\text{quặng}}\cdot 0{,}8 =100\cdot 0,8 =80\mathrm{~\text{tấn}}$\\
+		Áp dụng quy tắc tam suất ta có: $m_{Fe} = \dfrac{80 \cdot 3\cdot 56\cdot0,93 }{232 } \approx 53,876 \mathrm{~\text{tấn}}  $\\
+		$\Rightarrow m_{\text{gang}} =m_{Fe} \cdot \dfrac{100}{95} \approx 56,71\mathrm{~\text{tấn}} $
+	}
+\end{bt}

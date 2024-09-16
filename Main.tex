@@ -1,13 +1,31 @@
 \documentclass[12pt,twoside,openany]{book}%twoside, oneside,openany
 \usepackage[table]{xcolor} %,dvipsnames,svgnames
-\definecolor{dnvang}{HTML}{994D1C}%994D1C%E5890A%994D1C
-\definecolor{dnxanh}{HTML}{0766AD}%0B60B0 %3A98B9 %3081D0 %0766AD
+%\definecolor{dnvang}{HTML}{994D1C}%994D1C%E5890A%994D1C
+%\definecolor{dnxanh}{HTML}{0766AD}%0B60B0 %3A98B9 %3081D0 %0766AD
+%\definecolor{dnxanhdam}{HTML}{19376D}
+%\definecolor{dndo}{HTML}{BB2649}
+%\definecolor{xanhngoc}{HTML}{116D6E}
+%\definecolor{dntrang}{HTML}{FFFFFF}
+%\def\mycolor{dnvang}
+%\def\mauphu{dnxanh}
+%\def\maudam{dnxanhdam}
+%\def\maunhan{dndo}
+%\def\maunen{dntrang}
+%\def\mautuongdong{xanhngoc}
+\definecolor{darkblue}{HTML}{03346E}
+\definecolor{dnvang}{HTML}{BB671B}%994D1C
+\definecolor{dnxanh}{HTML}{0766AD}
 \definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{xanhngoc}{HTML}{116D6E}
 \definecolor{dndo}{HTML}{BB2649}
+\definecolor{dntrang}{HTML}{FFFFFF}
 \def\mycolor{dnvang}
 \def\mauphu{dnxanh}
 \def\maudam{dnxanhdam}
 \def\maunhan{dndo}
+\def\mauchinh{darkblue}
+\def\mautuongdong{xanhngoc}
+\def\maunen{dntrang}
 \usepackage{amsmath}
 \allowdisplaybreaks[4]
 \usepackage{graphicx}
@@ -40,7 +58,7 @@
 \tikzfading[name=fade in, inner color=transparent!40,outer color=transparent!0]
 \tikzfading[name=fade left, top color=transparent!0,bottom color=transparent!0,middle color=transparent!100]
 \tikzfading[name=fade right,left color=transparent!0,right color=transparent!100]
-\usepackage[a4paper,top=1.75cm,bottom=1.75cm,left=2cm,right=1.0cm]{geometry}%,includefoot=true,includehead=true 
+\usepackage[a4paper,top=1.75cm,bottom=1.75cm,left=2cm,right=1.0cm]{geometry}%,includefoot=true,includehead=true
 \usepackage{multicol,environ,etoolbox}
 \usepackage{xparse}
 \setlength\multicolsep{2pt plus 2pt minus 1.5pt}
@@ -50,8 +68,8 @@
 \setstretch{1.25}% dãn dòng 1,5 = 1.25x1.2 line
 \setlength{\parskip}{6pt}%6pt co dãn khoảng cách các dòng
 \setlength{\parindent}{0.65cm}
-\setlength{\topskip}{0pt}%6pt
-\setlength{\footskip}{0pt}%6pt
+%\setlength{\topskip}{0pt}%6pt
+%\setlength{\footskip}{0pt}%6pt
 %\setlength{\topmargin}{1pt}
 %%%%Hoặc có thể thay đổi khoảng cách dọc theo cách khác
 %\linespread{1.5}
@@ -90,21 +108,18 @@
 \input{Khaibao/Caption/caption.tex}
 \input{Khaibao/Tikz/tikz.tex}
 \input{Khaibao/Chemistry/chemmistry}
-\input{Khaibao/Headerfooter/HeaderFooter.tex}
+\input{Khaibao/Headerfooter/HeaderFooterVer1.tex}
 \input{Khaibao/Tcolorbox/Tcolorbox.tex}
 \input{Khaibao/Table/table.tex}
-\input{Khaibao/BOXBTVDCH/BOXEX_TEST_Ver3.tex}
-\input{Khaibao/BOXBTVDCH/BOXEX_TEST_DONGIAN.tex}
-%\input{Khaibao/Chuongmuc/ChuongMuc_ver3.tex}
-\input{Khaibao/Chuongmuc/ChuongMuc_ver2.tex}
-%\input{Khaibao/Mucluc/Mucluc_CD.tex}
-\input{Khaibao/Mucluc/Mucluc.tex}
-\input{Khaibao/CACHOP/NTDBOX_T5_2024.tex} 
-\input{Khaibao/Taolenh/viettat.tex}
-\input{Khaibao/Taolenh/Bangdapan.tex}
-\input{Khaibao/Enumerate/Enume_ver2.tex}
-\input{Khaibao/Taolenh/newcommand}
-\input{Khaibao/Taolenh/lenhbosung}
+\input{Khaibao/EXAM_BOX/BOX_EX_TEST_VER1.tex}
+\input{Khaibao/Chuongmuc/ChuongMuc_Ver1.tex}
+\input{Khaibao/Mucluc/Mucluc_ver1.tex}
+\input{Khaibao/ENV_BOX/ENV_BOX_VER1.tex} 
+\input{Khaibao/Enumerate/EnumeVer1.tex}
+\input{Khaibao/NEWCOMMAND/viettat.tex}
+\input{Khaibao/NEWCOMMAND/newcommand.tex}
+\input{Khaibao/NEWCOMMAND/lenhbosung.tex}
+\input{Khaibao/NEWCOMMAND/Bangdapan.tex}
 %%%%===========================%%%%
 \begin{document}
 %Mục lục nên bậc biên dịch khi hoàn thành tài liệu thay cho lệnh \tableofcontents

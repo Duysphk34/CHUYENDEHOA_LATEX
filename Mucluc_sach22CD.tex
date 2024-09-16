@@ -1,0 +1,82 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\NewDocumentCommand{\nodefill}{O{\mycolor}mm}{
+ \path[
+	fill=#1,
+	rounded corners=2pt,
+	fill opacity=0.5,
+	text opacity=1
+	]
+	([shift={(135:3pt)}]#2.north west)
+	rectangle
+	([shift={(-45:3pt)}]#3.south east) ;
+}
+\setlist[itemize,1]{itemsep=-3pt,topsep=0pt,label=\protect{\small\color{\mycolor}\rhombusdot},wide=1cm,leftmargin=1cm}
+%%%%MỤc lục phần%%%
+\makeatletter
+\newif\ifnotstarredversion
+\renewcommand{\numberline}[1]{#1.~}
+\renewcommand{\thechapter}{\Roman{chapter}}%\arabic{chapter}
+\renewcommand*\l@chapter[2]{%
+	\ifnum \c@tocdepth >-2\relax
+	\addpenalty{-\@highpenalty}%
+	\addvspace{10pt \@plus\p@}%
+	\setlength\@tempdima{3em}%
+	\begingroup
+	\tikz[remember picture]{
+		\path (0,0) coordinate (A)--(\linewidth,0) coordinate (B);%
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large,align=center,text width=\linewidth] (TEXT)
+		%{{Chủ đề~#1 - Trang~#2}};
+		{{#1}};
+		\fill[dnvang!65!black,rounded corners=3.5pt] ([xshift=-2pt]TEXT.north west) rectangle ([xshift=2pt]TEXT.south east);
+		\fill[dnvang!15,rounded corners=3pt] ([yshift=0.15pt]TEXT.north west) rectangle ([yshift=-0.15pt]TEXT.south east);
+		\hypersetup{linkcolor=dnvang!85!black}
+		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large\color{\mycolor!85!black},align=center,text width=\linewidth] (TEXT)
+		{{#1}};
+		%		{{Chủ đề~#1 - Trang~#2}};
+	}
+	\par\bigskip
+	\penalty\@highpenalty
+	\setcounter{section}{0}
+	\endgroup
+	\fi
+}
+\makeatother
+
+\begin{document}
+\renewcommand{\thesection}{Chuyên đề \arabic{section}.\,}
+%%%Nhớ tắt 3 lệnh này khi chạy filemain
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+%\part{Hóa hữu cơ}
+%\chapter{Tập một (10 chuyên đề)}
+%\section{Sử dụng quy tắc hóa trị để lập phương trình hóa học\quad}
+%\section{Sơ đồ phản ứng - Xác định chất dựa theo kết quả định tính}
+%\section{Phương pháp  giải bài tập độ tan tinh thể hidrat (muối ngậm nước)}
+%\section{Bài toán có chất dư - Chứng minh hỗn hợp phản ứng hết}
+%\section{Sử dụng phương pháp hợp thức}
+%\section{Phân dạng và phương pháp giải bài tập về $\mathsf{CO_2}$ hoặc $\mathsf{SO_2}$ tác dụng với kiềm}
+%\section{Kĩ thuật tự chọn lượng chất}
+%\section{Bài tập nhận biết - Dự đoán và giải thích hiện tượng hóa học}
+%\section{Phương pháp xác định CTHH qua phép tính theo phương trình hóa học}
+%\section{Phương pháp bảo toàn khối lượng và bảo toàn số mol nguyên tố}
+\setcounter{chapter}{1}
+\chapter{Tập hai (12 chuyên đề)}
+\setcounter{section}{10}
+\section{Toán kim loại tác dụng với dung dịch muối}
+\section{Bài tập về cấu tạo nguyên tử, Bảng tuần hoàn các nguyên tố hóa học}
+\section{Biện luận tìm CTPT và viết CTCT dựa vào một số đặc điểm của hợp chất hữu cơ}
+\section{Tìm CTPT hợp chất hữu cơ qua phép tính theo PTHH}
+\section{Xác định lượng chất trong hỗn hợp bằng cách tính theo phương trình hóa học}
+\section{Phương pháp giải toán cộng $\mathsf{H_2}$, $\mathsf{Br_2}$ vào hợp chất HC không no}
+\section{Xác định khoảng biến thiên của lượng chất}
+\section{Bài toán về hiệu suất phản ứng}
+\section{Chuỗi phản ứng và phương trình hóa học hữu cơ}
+\section{Bài toán nhận biết- dự đoán, giải thích hiện tượng hóa học (Phần hữu cơ)}
+\section{Điều chế - tinh chế, tách chất ra khỏi hỗn hợp}
+\section{Vận dụng một số kĩ thuật giải nhanh các bài tập trắc nghiệm định lượng}
+\end{document}
+

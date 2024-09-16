@@ -1,0 +1,113 @@
+\documentclass[12pt,twoside,openany]{book}%twoside, oneside,openany
+\usepackage[table]{xcolor} %,dvipsnames,svgnames
+\definecolor{dnvang}{HTML}{994D1C}%994D1C%E5890A%994D1C
+\definecolor{dnxanh}{HTML}{0766AD}%0B60B0 %3A98B9 %3081D0 %0766AD
+\definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{amsmath}
+\allowdisplaybreaks[4]
+\usepackage{graphicx}
+\usepackage{savesym}
+\savesymbol{Cross}
+\usepackage{bbding}
+\restoresymbol{bb}{Cross}
+\usepackage{textcmds}
+\usepackage[linkcolor=\mycolor!70!black,colorlinks]{hyperref}
+\usepackage[utf8]{vietnam}
+\usepackage{pifont,oplotsymbl,marvosym,fontawesome}
+\usepackage{miama}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\usepgfplotslibrary{fillbetween}
+\usepackage{yhmath,tkz-euclide}
+\usepackage{soulutf8}
+\usepackage{csquotes}
+\setul{1pt}{0.65pt}
+\setulcolor{violet}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\tikzfading[name=fade out, inner color=transparent!0,outer color=transparent!100]
+\tikzfading[name=fade left, top color=transparent!0,bottom color=transparent!0,middle color=transparent!100]
+\tikzfading[name=fade right,left color=transparent!0,right color=transparent!100]
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=2cm,right=1.0cm,includefoot=true,includehead=true]{geometry}%,includemp=true
+\usepackage{multicol,environ,etoolbox}
+\usepackage{xparse}
+\setlength\multicolsep{2pt plus 2pt minus 1.5pt}
+\usepackage{intcalc}%Tính mod
+%%%%%Các lệnh thay đổi khoảng câchdọc
+\usepackage{setspace}
+\setstretch{1.25}% dãn dòng 1,5 = 1.25x1.2 line
+\setlength{\parskip}{6pt}% co dãn khoảng cách các dòng
+\setlength{\topskip}{6pt}% giống tab trong word
+\setlength{\headheight}{25pt}
+\setlength{\footskip}{20pt}
+\setlength{\parindent}{0.65cm}
+%%%%Hoặc có thể thay đổi khoảng cách dọc theo cách khác
+%\linespread{1.5}
+\usepackage{dsfont}
+\usepackage{amsmath,amssymb,mathrsfs,maybemath,xlop,polynom,slashbox,graphics,graphicx,systeme}
+%% Căn đều tài liệu
+\usepackage{ragged2e}
+\usepackage{microtype}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{booktabs} 
+\usepackage{diagbox}
+\usepackage[labelfont=bf,font=small]{caption}
+\graphicspath{{./Images/}}
+\usepackage{wrapfig} %chèn hình 1 bên
+%\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thefigure}{\arabic{figure}}
+%%%======Chèn nhiều ảnh trên một dòng=========%%%
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{\alph{subfigure})}
+\usepackage{mathptm}
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\varparallel}{\mathrel}{symbolsC}{9}
+\renewcommand{\parallel}{\mathbin{\!\raisebox{0.25pt}/\mkern-2mu\raisebox{0.25pt}/\!}}
+\renewcommand{\backsim}{\ \mathord{\raisebox{0.025\baselineskip}{\rotatebox{90}{\fontfamily{qag}\selectfont S}}}\ }
+\setlength\arraycolsep{2pt}
+\newcommand{\hoac}[1]{\renewcommand{\arraystretch}{0.85}\left[\begin{aligned}#1\end{aligned}\right.}
+\newcommand{\heva}[1]{\renewcommand{\arraystretch}{0.85}\left\{\begin{aligned}#1\end{aligned}\right.}
+\DeclareSymbolFont{AMSb}{U}{msb}{m}{n}
+\makeatletter
+\DeclareSymbolFontAlphabet{\math@bb}{AMSb}
+\AtBeginDocument{\protected\def\mathbb{\math@bb}} 
+\g@addto@macro\normalsize{
+ \setlength{\abovedisplayskip}{4pt}%
+ \setlength{\belowdisplayskip}{2pt}%
+ \setlength{\abovedisplayshortskip}{4pt}%
+ \setlength{\belowdisplayshortskip}{1pt}%
+ }
+\makeatother
+\input{Khaibao/Tikz/tikz.tex}
+\input{Khaibao/Chemistry/chemmistry}
+\input{Khaibao/Headerfooter/HeaderFooter.tex}
+\input{Khaibao/Tcolorbox/Tcolorbox.tex}
+\input{Khaibao/Taolenh/LenhThongtin.tex}
+\input{Khaibao/Table/table.tex}
+%\input{Khaibao/BOXBTVDCH/BOXEX_TEST.tex}
+\input{Khaibao/BOXBTVDCH/BOXEX_TEST_Ver2.tex}
+\input{Khaibao/BOXBTVDCH/BOXEX_TEST_DONGIAN.tex}
+\input{Khaibao/Chuongmuc/ChuongMuc.tex}
+\input{Khaibao/CACHOP/NTDBOX.tex} 
+%\input{Khaibao/CACHOP/Hopmoitruong.tex} 
+\input{Khaibao/Taolenh/viettat.tex}
+\input{Khaibao/CACHOP/MYBOX.tex}
+\input{Khaibao/CACHOP/NOTE.tex}
+\input{Khaibao/Taolenh/Bangdapan.tex}
+\input{Khaibao/Enumerate/Enume_ver2.tex}
+\input{Khaibao/Taolenh/newcommand}
+%%%=============================================%%%
+\counterwithout*{section}{chapter}
+%\everymath{\displaystyle\color{dnvang!70!black}}
+%\everymath{\displaystyle}
+\everymath{\rm}
+\begin{document}

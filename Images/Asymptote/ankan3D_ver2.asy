@@ -1,0 +1,92 @@
+settings.outformat="pdf";
+settings.prc=false;
+settings.render=12;
+import three;
+import solids;
+
+size(200);
+
+currentprojection = orthographic(
+  camera=(15,4,5),
+  up=(0,1,0),
+  target=(0,0,0),
+  zoom=1.0
+);
+
+// Định nghĩa góc và độ dài liên kết
+real bondAngle = acos(-1/3);
+real bondLength = 1.4;
+real CHbondLength = 0.8;
+real rotationAngle = 60 * pi/180;
+
+// Hàm tạo vector cho liên kết từ tâm với phép xoay
+triple bondVector(real theta, real phi, real rotation) {
+    real x = sin(theta)*cos(phi);
+    real y = sin(theta)*sin(phi);
+    real z = cos(theta);
+    real newX = x*cos(rotation) - y*sin(rotation);
+    real newY = x*sin(rotation) + y*cos(rotation);
+    return unit((newX, newY, z));
+}
+
+// Tính toán vị trí các nguyên tử
+triple C1 = (0,0,0);
+triple C2 = C1 + bondLength * bondVector(0, 0, 0);
+triple H1 = C1 + CHbondLength * bondVector(bondAngle, 0, 0);
+triple H2 = C1 + CHbondLength * bondVector(bondAngle, 2pi/3, 0);
+triple C3 = C1 + bondLength * bondVector(bondAngle, 4pi/3, 0);
+
+triple H3 = C2 + CHbondLength * bondVector(pi - bondAngle, 0, rotationAngle);
+triple H4 = C2 + CHbondLength * bondVector(pi - bondAngle, 2pi/3, rotationAngle);
+triple H5 = C2 + CHbondLength * bondVector(pi - bondAngle, 4pi/3, rotationAngle);
+
+// Tính toán vị trí các nguyên tử H cho C3
+triple H6 = C3 + CHbondLength * bondVector(pi, 0, rotationAngle);
+triple H7 = C3 + CHbondLength * bondVector(pi - bondAngle, 2pi/3, rotationAngle);
+
+
+triple C4 = C3 + bondLength * bondVector(pi - bondAngle, 0, rotationAngle);
+// Tính toán vị trí các nguyên tử H cho C4
+triple H8 = C4 + CHbondLength * bondVector(pi, 0, rotationAngle);
+triple H9 = C4 + CHbondLength * bondVector(pi - bondAngle, 2pi/3, rotationAngle);
+triple H10 = C4 + CHbondLength * bondVector(pi - bondAngle, 4pi/3, rotationAngle);
+
+// Hàm vẽ hình cầu
+void drawAtom(triple center, real radius, pen p) {
+  draw(sphere(center, radius).surface(new pen(int i, real j) {return p;}));
+}
+
+// Hàm vẽ liên kết
+void drawBond(triple start, triple end, real radius, pen p) {
+  draw(cylinder(start, radius, abs(end-start), end-start).surface(new pen(int i, real j) {return p;}));
+}
+
+// Vẽ các nguyên tử
+drawAtom(C1, 0.3, 0.5*black+0.3*gray);
+drawAtom(C2, 0.3, 0.5*black+0.3*gray);
+drawAtom(C3, 0.3, 0.5*black+0.3*gray);
+drawAtom(C4, 0.3, 0.5*black+0.3*gray);
+drawAtom(H1, 0.15, white);
+drawAtom(H2, 0.15, white);
+drawAtom(H3, 0.15, white);
+drawAtom(H4, 0.15, white);
+drawAtom(H5, 0.15, white);
+drawAtom(H6, 0.15, white);
+drawAtom(H7, 0.15, white);
+drawAtom(H8, 0.15, white);
+drawAtom(H9, 0.15, white);
+drawAtom(H10, 0.15, white);
+// Vẽ các liên kết
+drawBond(C1, C2, 0.09, gray(0.7));
+drawBond(C1, C3, 0.09, gray(0.7));
+drawBond(C4, C3, 0.09, gray(0.7));
+drawBond(C1, H1, 0.06, gray(0.7));
+drawBond(C1, H2, 0.06, gray(0.7));
+drawBond(C2, H3, 0.06, gray(0.7));
+drawBond(C2, H4, 0.06, gray(0.7));
+drawBond(C2, H5, 0.06, gray(0.7));
+drawBond(C3, H6, 0.06, gray(0.7));
+drawBond(C3, H7, 0.06, gray(0.7));
+drawBond(C4, H8, 0.06, gray(0.7));
+drawBond(C4, H9, 0.06, gray(0.7));
+drawBond(C4, H10, 0.06, gray(0.7));
