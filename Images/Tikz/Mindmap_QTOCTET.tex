@@ -1,0 +1,118 @@
+\documentclass[border=0.65cm,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\definecolor{dnvang}{HTML}{D8A25E}
+\definecolor{dnxanh}{HTML}{229799}
+\definecolor{dnxanhdam}{HTML}{0D7C66}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+	\begin{document}
+		\begin{tikzpicture}[
+		line join=round,
+		line cap=round,
+		level1/.style={shape =circle,inner sep =3pt, outer sep=0pt, text width =3cm,fill=\mycolor!30,draw=\mycolor!30!black,font=\LARGE\bfseries\sffamily,align=center,text =\mycolor!40!black},
+		level2/.style={shape=circle,inner sep =0pt, outer sep=0pt, text width =2.65cm,fill=\mauphu!30,draw=\mauphu!30!black,font=\Large\bfseries\sffamily,align=center,text =\mauphu!40!black},
+		level3/.style={shape =rectangle,inner sep =5pt, outer sep=3pt, text width =3cm,rounded corners=4pt,fill=\maudam!20},
+		level4/.style={shape =rectangle,inner sep =5pt, outer sep=3pt, text width =3cm,rounded corners=4pt,fill=\mycolor!20},
+		line_lv1_style/.style={line width=5pt,line cap=round,line join =round,\mycolor!50!black},
+		line_lv2_style/.style={line width=3pt,line cap=round,line join =round,\mauphu!50!black},
+		line_lv3_style/.style={line width=1pt,line cap=round,line join =round,\mauphu!50!black}
+		]
+		%%%Vẽ node chính
+		\path(0,0) coordinate (A) node[level1] (LV1) {Quy tắc octet};
+		%%Vẽ node phụ cấp 1
+		\foreach \goc/\r/\c/\mau[count=\i from 1]  in{
+			130/5/{Khái niệm}/\mauphu!50!black,%%1
+			30/5/{Cách đạt}/pink!50!black,%%2
+			-35/5.5/{Công thức}/blue!50!black,%%%3
+			-125/5/{Ứng dụng}/cyan!50!black,%%%4
+			175/5.5/{Ngoại lệ}/\maunhan%%%5
+		}{
+			\path (LV1)--++(\goc:\r) node[level2] (lv2-\i) {\c};
+			\draw[line_lv1_style,\mau] (LV1)--(lv2-\i);
+		}
+		%%Vẽ node phụ cấp 2
+		%%%nhánh 1
+		\foreach \goc/\r/\c[count=\i from 1]  in{
+			145/5/{Nguyên tử có xu hướng đạt cấu hình e bền vững},
+			110/5/{Đạt 8 e ở lớp ngoài cùng},
+			50/5/{Giống khí hiếm}
+		}{
+			\path (lv2-1)--++(\goc:\r) node[level3] (lv3-1-\i) {\c};
+			\draw[line_lv2_style] (lv2-1)--(lv3-1-\i);
+		}
+		%%%nhánh 2
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			120/4/{Nhận e},
+			55/4/{Cho e},
+			-30/4/{dùng chung e}
+		}{
+			\path (lv2-2)--++(\goc:\r) node[level3] (lv3-2-\j) {\c};
+			\draw[line_lv2_style,pink!50!black] (lv2-2)--(lv3-2-\j);
+		}
+		%%%nhánh 3
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			10/4/{Công thức e},
+			-50/4/{Công thức Lewis},
+			-110/4/{Công thức cấu tạo}
+		}{
+			\path (lv2-3)--++(\goc:\r) node[level3] (lv3-3-\j) {\c};
+			\draw[line_lv2_style,blue!50!black] (lv2-3)--(lv3-3-\j);
+		}
+		%%%nhánh 4
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			-10/4/{Dự đoán sự hình thành phân tử},
+			-85/4/{Xác định công thức hóa học},
+			-160/4/{Giải thích liên kết hóa học}
+		}{
+			\path (lv2-4)--++(\goc:\r) node[level3] (lv3-4-\j) {\c};
+			\draw[line_lv2_style,cyan!50!black] (lv2-4)--(lv3-4-\j);
+		}
+		%%%nhánh 5
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			120/3/{B chỉ cần 6 e},
+			180/4/{H chỉ cần 2 e},
+			230/3/{Be chỉ cần 4 e}
+		}{
+			\path (lv2-5)--++(\goc:\r) node[level3] (lv3-5-\j) {\c};
+			\draw[line_lv2_style,\maunhan] (lv2-5)--(lv3-5-\j);
+		}
+		%%%Node phụ cấp 3
+		%%%nhánh 2-1
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			85/4/{Tạo ion âm},
+			45/4/{Tạo liên kết ion},
+			20/4/{Ví dụ}
+		}{
+			\path (lv3-2-1)--++(\goc:\r) node[level4] (lv4-2-1-\j) {\c};
+			\draw[line_lv3_style,\mycolor!50!black] (lv3-2-1)--(lv4-2-1-\j);
+		}
+		%%%nhánh 2-2
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			35/3.65/{Tạo ion dương},
+			15/4/{Tạo liên kết ion},
+			-30/3/{Ví dụ}
+		}{
+			\path (lv3-2-2)--++(\goc:\r) node[level4] (lv4-2-2-\j) {\c};
+			\draw[line_lv3_style,\mycolor!50!black] (lv3-2-2)--(lv4-2-2-\j);
+		}
+		%%%nhánh 2-3
+		\foreach \goc/\r/\c[count=\j from 1]  in{
+			35/3.65/{Tạo liên kết CHT},
+			-30/3/{Ví dụ}
+		}{
+			\path (lv3-2-3)--++(\goc:\r) node[level4] (lv4-2-3-\j) {\c};
+			\draw[line_lv3_style,\mycolor!50!black] (lv3-2-3)--(lv4-2-3-\j);
+		}
+	\end{tikzpicture}
+\end{document}

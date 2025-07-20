@@ -1,0 +1,137 @@
+\documentclass[border=0.65cm,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\definecolor{dnvang}{HTML}{D8A25E}
+\definecolor{dnxanh}{HTML}{229799}
+\definecolor{dnxanhdam}{HTML}{0D7C66}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+\begin{document}
+	%%%Khung bao ion
+	\newcommand{\khungion}[2][+]{%
+			\draw[rounded corners=0.5pt,line cap=round,line join=round,line width =1pt] ($(#2.north west)+(3pt,0)$)--($(#2.north west)+(-4pt,0)$)--($(#2.south west)+(-4pt,0)$)--($(#2.south west)+(3pt,0)$);
+			\draw[rounded corners=0.5pt,line cap=round,line join=round,line width =1pt] ($(#2.north east)+(-3pt,0)$)--($(#2.north east)+(4pt,0)$)coordinate (D)--($(#2.south east)+(4pt,0)$)--($(#2.south east)+(-3pt,0)$);
+			\path (D) node[shift={(45:8pt)}]{\Large\textbf{#1}};}
+	%%%Lệnh mũi tên
+	\newcommand{\muiten}[1][\mycolor]{%
+		\tikz{
+			\fill[#1](0,0)--++(-90:6pt) coordinate (A)
+			--++(-1.8cm,0)--++(-90:12pt)--++(0:1.8cm)coordinate (B)
+			--++(-90:6pt)--($(A)!0.5!(B)+(0.5cm,0)$)--cycle;
+		}
+	}
+	%%%
+	\tikzset{
+		pics/.cd,
+		atom/.style args={#1/#2/#3/#4/#5/#6/#7}{%
+			code={%
+				\path[fill=#7!35,opacity =0.2,pic actions] (0,0) circle (#4);
+				\path[fill=#7!55,opacity =0.3,pic actions] (0,0) circle (#3);
+				\path[fill=#7!65,opacity =0.4,pic actions] (0,0) circle (#2);
+				\path[ball color=#7!80,opacity =0.9,pic actions] (0,0) circle (#1) node[font=\large\fontfamily{qag}\selectfont,text=#7!25!black] {$\textbf{#5}$};
+				%%%LớpK
+				\foreach \g/\r in{0/#2,180/#2}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+				%%%LớpL
+				\foreach \g/\r in{-45/#3,-55/#3,-135/#3,-145/#3,45/#3,55/#3,135/#3,145/#3}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+			    % Lớp M (thay đổi theo tham số #7)
+				\ifnum#6=1  % Na (1 electron ở lớp M)
+					\foreach \g/\r\re [count=\i] in{90/#4/4}{%
+						\fill (\g:\r) [\maunhan!35!\mycolor] circle (\re pt) coordinate (ehtNa-\i);
+					}
+				\else\ifnum#6=7  % Cl (7 electron ở lớp M)
+					\foreach \g/\r/\re [count=\i] in{-5/#4/4,5/#4/4,85/#4/4,95/#4/4,175/#4/0,185/#4/4,265/#4/4,275/#4/4}{%
+						\fill (\g:\r) [\maunhan!35!\mycolor] circle (\re pt)coordinate (ehtCl-\i);
+					}
+				\fi\fi
+				%%%
+				
+			}
+		},
+		%%%%%
+		ion/.style args={#1/#2/#3/#4/#5/#6/#7}{%
+			code={%
+				\path[fill=#7!35,opacity =0.2,pic actions] (0,0) circle (#4);
+				\path[fill=#7!55,opacity =0.3,pic actions] (0,0) circle (#3);
+				\path[fill=#7!65,opacity =0.4,pic actions] (0,0) circle (#2);
+				\path[ball color=#7!80,opacity =0.9,pic actions] (0,0) circle (#1) node[font=\large\fontfamily{qag}\selectfont,text=#7!25!black] {$\textbf{#5}$};
+				%%%LớpK
+				\foreach \g/\r in{0/#2,180/#2}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+				%%%LớpL
+				\foreach \g/\r in{-45/#3,-55/#3,-135/#3,-145/#3,45/#3,55/#3,135/#3,145/#3}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+				% Lớp M (thay đổi theo tham số #7)
+				\ifnum#6=1  % Na (1 electron ở lớp M)
+				\foreach \g/\r\re [count=\i] in{90/#4/0}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (\re pt) coordinate (ehtNa-\i);
+				}
+				\else\ifnum#6=7  % Cl (7 electron ở lớp M)
+				\foreach \g/\r/\re [count=\i] in{-5/#4/4,5/#4/4,85/#4/4,95/#4/4,175/#4/4,185/#4/4,265/#4/4,275/#4/4}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (\re pt)coordinate (ehtCl-\i);
+				}
+				\fi\fi
+				%%%
+			}
+		}
+	}
+	\begin{tikzpicture}[declare function={%
+			r1=0.5cm;
+			r2=1.0cm;%%thay đổi
+			r2h=r2+4pt;
+			r3=r2+1.0cm;r3h=r3+6pt;
+			r4=r3+1.3cm;r4h=r4+6pt;
+			d=2*r4+1cm;
+		},>=stealth,
+		stylefont/.style={font=\bfseries\large\fontfamily{qag}\selectfont,text=\mycolor!25!black}
+		]%
+		%%%Vẽ Nguyên tử Na
+		\path (0,0) pic[local bounding box =atom] {atom={r1}/{r2}/{r3}/{r4}/{+11}/{1}/{\mycolor}};
+		%%%Hiển thị thông tin
+		\path ($(0,0)+(-90:r4+0.5cm)$) node[text width =4cm,align=center,anchor=north,stylefont] {Na\\Nguyên tử Sodium};
+		%%%Vẽ Nguyên tử Cl
+		\path (d,0) pic[local bounding box =atom] {atom={r1}/{r2-3pt}/{r3-8pt}/{r4-9pt}/{+17}/{7}/{\mycolor}};
+		%%%Hiển thị thông tin
+		\path ($(d,0)+(-90:r4+0.5cm)$) node[text width =5cm,align=center,anchor=north,stylefont] {Cl\\Nguyên tử Chlorine};
+		\draw[->,\maunhan,line width=1.2pt] ($(ehtNa-1)+(90:5pt)$)..controls ++(45:4cm) and ++(120:1cm)..($(ehtCl-5)+(120:5pt)$);
+		;
+		%%%Hiển thị mũi tên
+		\path (1.7*d,0) node {\muiten};
+		%%%Hiển thị ion Na+
+		\path (2.3*d,0) pic[local bounding box =ion] {ion={r1}/{r2+4pt}/{r3+6pt}/{0}/{+11}/{1}/{\mycolor}};
+		%%%Vẽ khung
+		\khungion[+]{ion}
+		%%%Hiển thị thông tin
+		\path ($(2.3*d,0)+(-90:r4+0.5cm)$) node[text width =5cm,align=center,anchor=north,stylefont] (n1) {Na$^+$\\Ion Sodium\\Cation};
+		%%%Hiển thị ion Cl-
+		\path (3.2*d,0) pic[local bounding box =ionh] {ion={r1}/{r2+2pt}/{r3+3pt}/{r4+5pt}/{+17}/{7}/{\mycolor}};
+		%%%Vẽ khung
+		\khungion[--]{ionh}
+		%%%Hiển thị thông tin
+		\path ($(3.2*d,0)+(-90:r4+0.5cm)$) node[text width =5cm,align=center,anchor=north,stylefont](n2) {Cl$^-$\\Ion Chlorine\\Anion};
+		%%%%Hiển thị
+		\path ($(n1.south west)+(-2pt,-3pt)$) coordinate(A)
+			  ($(n2.south east)+(2pt,-3pt)$) coordinate(B)
+			  ([xshift=-6pt]$(A)!0.5!(B)$) coordinate(C)
+			  ([yshift=-12pt]$(A)!0.5!(B)$) coordinate(Ct)
+			  ([xshift=6pt]$(A)!0.5!(B)$) coordinate(D)
+			  ;
+		\draw[line cap=round,line join=round] ($(A)+(135:12pt)$)--(A)--(C)--(Ct)--(D)--(B)--($(B)+(45:12pt)$);
+		\path ($(Ct)+(-90:5pt)$) node[text width =6cm,anchor=north,align=center, font=\bfseries] {Hai ion hút nhau\\ bằng lực hút tĩnh điện };
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[Main_ver2.tex]{subfiles}
+\renewcommand{\thetable}{\arabic{table}}
+\begin{document}
+	%%%%Cách viết công thức lewis
+	%\charge{[⟨general parameters⟩]⟨position⟩[⟨tikz code⟩]=⟨charge⟩}{⟨atom⟩}
+	\begin{table}[!htp]
+		\centering
+		\caption{Các tham số (khóa/giá trị) có sẵn trong \texttt{general parameters}.}
+		\begin{longtable}{|R{0.15\linewidth}|m{0.3\linewidth}|m{0.4\linewidth}|}
+			\hline
+			\rowcolor{\mycolor!60}\makecell[c]{\textbf{Keys}} & \makecell[c]{\textbf{Default values}} & \makecell[c]{\textbf{Mô tả}} \\ \hline
+			debug & false & Kiểu boolean, khi \texttt{true}, vẽ đường viền của các nút nhận \texttt{atoms} (màu xanh lá cây), \texttt{loads} (màu xanh dương) và \texttt{charge} (màu đỏ). \\ \hline
+			macro atom & \textbackslash printatom & Macro nhận \texttt{atom} làm đối số. \\ \hline
+			circle & false & Kiểu boolean, khi \texttt{true}, đặt \texttt{atom} trong một nút hình tròn; ngược lại, nút là hình chữ nhật. \\ \hline
+			macro charge & (rỗng) & Macro (ví dụ: \textbackslash printatom hoặc \textbackslash ensuremath) nhận mỗi điện tích làm đối số. \\ \hline
+			extra sep & 1.5pt & Tăng kích thước nút của \texttt{atom} để đặt \texttt{charges}: đó là giá trị được truyền cho \texttt{inner sep} của tikz. \\ \hline
+			overlay & true & Kiểu boolean, khi \texttt{true}, vẽ \texttt{charges} \lq\lq chồng lên\rq\rq, tức là bên ngoài bounding box cuối cùng. \\ \hline
+			shortcuts & true & Kiểu boolean, khi \texttt{true}, kích hoạt các phím tắt \lq\lq\texttt{\textbackslash .}\rq\rq, \lq\lq\texttt{\textbackslash :}\rq\rq, \lq\lq\texttt{\textbackslash |}\rq\rq, và \lq\lq\texttt{\textbackslash "}\rq\rq. \\ \hline 
+			lewisautoorient & true & Kiểu boolean, khi \texttt{true}, tự động xoay \lq\lq\texttt{\textbackslash :}\rq\rq, \lq\lq\texttt{\textbackslash |}\rq\rq, và \lq\lq\texttt{\textbackslash "}\rq\rq. \\ \hline
+			.radius & 0.15ex & Bán kính của điểm được sử dụng để vẽ \lq\lq\texttt{\textbackslash .}\rq\rq và \lq\lq\texttt{\textbackslash :}\rq\rq. \\ \hline
+			:sep & 0.3em & Khoảng cách giữa hai chấm của \lq\lq\texttt{\textbackslash :}\rq\rq. \\ \hline
+			.style & fill=black & Kiểu tikz được sử dụng để vẽ các chấm \lq\lq\texttt{\textbackslash .}\rq\rq và \lq\lq\texttt{\textbackslash :}\rq\rq. \\ \hline
+			"length & 1.5ex & Chiều dài của hình chữ nhật \lq\lq\texttt{\textbackslash "}\rq\rq và đường thẳng \lq\lq\texttt{\textbackslash |}\rq\rq. \\ \hline
+			"width & .3ex & Chiều rộng của hình chữ nhật \lq\lq\texttt{\textbackslash "}\rq\rq. \\ \hline
+			"style & black, line width=0.4pt & Kiểu tikz được sử dụng để vẽ hình chữ nhật \lq\lq\texttt{\textbackslash "}\rq\rq. \\ \hline
+			| style & black, line width=0.4pt & Kiểu tikz được sử dụng để vẽ đường thẳng \lq\lq\texttt{\textbackslash |}\rq\rq. \\ \hline
+		\end{longtable}
+	\end{table}
+
+\begin{table}
+\centering
+\caption{Các tham số (khóa/giá trị)  trong \texttt{chemfig}.}
+	\begin{longtable}{|R{0.25\linewidth}|m{0.15\linewidth}|R{0.25\linewidth}|m{0.15\linewidth}|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{(keys)}} & \multicolumn{2}{c|}{\textbf{default (values)}} \\ \hline
+		chemfig style & <empty> & gchemname & true \\ \hline
+		atom style & <empty> & schemestart code & <empty> \\ \hline
+		bond join & false & schemestop code & <empty> \\ \hline
+		fixed length & false & scheme debug & false \\ \hline
+		cram rectangle & false & compound style & <empty> \\ \hline
+		cram width & 1.5ex & compound sep & 5em \\ \hline
+		cram dash width & 1pt & arrow offset & 1em \\ \hline
+		cram dash sep & 2pt & arrow angle & 0 \\ \hline
+		atom sep & 3em & arrow coeff & 1 \\ \hline
+		bond offset & 2pt & arrow style & <empty> \\ \hline
+		double bond sep & 2pt & arrow double sep & 2pt \\ \hline
+		angle increment & 45 & arrow double coeff & 0.6 \\ \hline
+		node style & <empty> & arrow double harpoon & true \\ \hline
+		bond style & <empty> & arrow label sep & 3pt \\ \hline
+		debug & false & arrow head & -CF \\ \hline
+		cycle radius coeff & 0.75 & + sep left & 0.5em \\ \hline
+		stack sep & 1.5pt & + sep right & 0.5em \\ \hline
+		show cntcycle & false & + vshift Opt & 0pt \\ \hline
+		autoreset cntcycle & true &  &  \\ \hline
+	\end{longtable}
+\end{table}
+
+
+\begin{tabular}{|c|l|c|l|}
+	\hline
+	\textbf{Bond \#} & \textbf{Code} & \textbf{Result} & \textbf{Bond type} \\ \hline
+	1 & \textbackslash{}chemfig\{A-B\} & \chemfig{A-B} & Single \\ \hline
+	2 & \textbackslash{}chemfig\{A=B\} & \chemfig{A=B} & Double \\ \hline
+	3 & \textbackslash{}chemfig\{A $\sim$ B\} & \chemfig{A~B} & Triple \\ \hline
+	4 & \textbackslash{}chemfig\{A>B\} & \chemfig{A>B} & right Cram, plain \\ \hline
+	5 & \textbackslash{}chemfig\{A<B\} & \chemfig{A<B} & left Cram, plain \\ \hline
+	6 & \textbackslash{}chemfig\{A>:B\} & \chemfig{A>:B} & right Cram, dashed \\ \hline
+	7 & \textbackslash{}chemfig\{A<:B\} & \chemfig{A<:B} & left Cram, dashed \\ \hline
+	8 & \textbackslash{}chemfig\{A>|B\} & \chemfig{A>|B} & right Cram, hollow \\ \hline
+	9 & \textbackslash{}chemfig\{A<|B\} & \chemfig{A<|B} & left Cram, hollow \\ \hline
+\end{tabular}
+
+\chemfig{CH_3-[,,2,1]C(-[:90]CH_3)(-[:-90]CH_3)-CH(-[6,,1,1,\mauphu]CH_3)-[,,2,1]CH_3}
+
+%% 1,2-dimethylbenzen (o-xylen) 
+%\chemname{
+%	\chemfig{*6(-(-[2]CH_3)-=-=-(-CH_3))}
+%}{1,2-dimethylbenzen \\ (o-xylen)}
+%\quad
+%
+%% 1,3-dimethylbenzen (m-xylen)
+%\chemname{
+%	\chemfig{*6(-=-=-(-[2]CH_3)-(-[6]CH_3))}
+%}{1,3-dimethylbenzen \\ (m-xylen)}
+%\quad
+%
+%% 1,4-dimethylbenzen (p-xylen)
+%\chemname{
+%	\chemfig{*6(-(-CH_3)=-=-(-[2]CH_3)=-)}
+%}{1,4-dimethylbenzen \\ (p-xylen)}
+\end{document}

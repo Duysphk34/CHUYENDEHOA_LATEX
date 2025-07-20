@@ -1,0 +1,134 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\setlist[enumerate,1]{itemsep=-1pt,topsep=3pt,label*=\circlenum{\arabic*}}%
+
+\newcommand{\ngoacvuongtron}[2][]{
+	\begin{tikzpicture}[declare function={d=-4pt;},node distance=-d]
+		\node (name) {#2};
+		\node[anchor = west, above right =of name,shift={(2pt,-3pt)}](plus) {\large{#1}};
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north west)--([xshift=d]name.north west)|-($(name.south west) +(0,0)$);
+		\draw[rounded corners=-d-1pt,\mycolor,ultra thick] (name.north east)--([xshift=-d]name.north east)|-($(name.south east) +(0,0)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+\NewDocumentCommand{\SanserifFont}{O{qag}O{12}}{
+\bfseries\fontsize{#2pt}{6pt}\fontfamily{#1}\selectfont
+}
+%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+
+	\begin{tomtat}
+		\Noibat[\maunhan][\SanserifFont[qag][18]][\faApple][0]{Hằng số cân bằng và ứng dụng}
+		\begin{enumerate}
+			\item  \indam{Hằng số cân bằng (Kc)}
+				\begin{itemize}
+					\item  Cân bằng động: Tại trạng thái cân bằng, tốc độ phản ứng thuận bằng tốc độ phản ứng nghịch.
+					\item  Ví dụ với phản ứng: $N_2 + 3H_2 \xharpoonarrow[][][0.8] 2NH_3$
+					\item  Tốc độ phản ứng:
+					Thuận: $v_t = k_t\cdot[N_2]\cdot[H_2]^3$\\
+					Nghịch: $v_n = k_n\cdot[NH_3]^2$
+					\item  Tại cân bằng: $v_t = v_n$
+					$\Leftrightarrow k_t\cdot[N_2]\cdot[H_2]^3 = kn\cdot[NH_3]^2$
+				\end{itemize}
+				\begin{itemize}
+					\item  Sắp xếp: $\dfrac{[NH_3]^2}{[N_2]\cdot[H_2]^3} = \dfrac{k_t}{k_n}$
+					\item  Định nghĩa: $K_c = \dfrac{k_1}{k_2}$
+					\item  Kết luận: $K_c = \dfrac{[NH3]^2}{[N_2]\cdot[H_2]^3}$
+				\end{itemize}
+			\item  \indam{Mở rộng}
+			\begin{itemize}
+				\item  Hằng số axit $(K_a)$:
+				\begin{itemize}
+					\item  Áp dụng cho phản ứng phân ly axit: $HA + H_2O \xharpoonarrow[][][0.8] H_3O^+ + A^-$
+					\item  $K_a = \dfrac{[H_3O^+]\cdot[A^-]}{[HA]} $
+				\end{itemize}
+				\item  Hằng số bazơ (Kb):
+				\begin{itemize}
+					\item  Áp dụng cho phản ứng phân ly bazơ: $B + H_2O \xharpoonarrow[][][0.8] BH^+ + OH^-$
+					\item  $K_b = \dfrac{[BH^+][OH^-]}{[B]}$
+				\end{itemize}
+				\item  Tích số tan (Ksp):
+				\begin{itemize}
+					\item  Áp dụng cho phản ứng phân ly hợp chất ít tan: $A_mB_n\xharpoonarrow[][][0.8] mA^{n+} + nB^{m-}$
+					\item  $K_{sb} = [A^{n+}]^m\cdot[B^{m-}]^{n}$
+				\end{itemize}
+			\end{itemize}
+			\item  \indam{Ý nghĩa:}
+			\begin{itemize}
+				\item  $K_c$,$ K_a$, ,$K_{sb}$ đều là dạng của hằng số cân bằng.
+				\item  Giá trị lớn chỉ phản ứng thuận mạnh, giá trị nhỏ chỉ phản ứng nghịch mạnh.
+				\item  $K_a$ và $K_b$ giúp đánh giá độ mạnh của axit,$K_{sb}$ đánh giá khả năng tan của một hợp chất.
+			\end{itemize}
+			\item  \indam{Ứng dụng:}
+			\begin{itemize}
+				\item  Dự đoán chiều của phản ứng
+				\item  Tính toán nồng độ các chất tại cân bằng
+				\item  So sánh độ mạnh của axit và bazơ, tính được độ tan
+			\end{itemize}
+		\end{enumerate}
+	\end{tomtat}
+	\newpage
+	\Noibat[\maunhan][\SanserifFont[qag][18]][\faApple][0]{Bài tập về cân bằng hóa học}
+	\begin{dang}{Viết biểu thức tính $K_C$}
+	\end{dang}
+	\taoNdongke[3]{vd}
+	\taoNdongke[10]{bt}
+	%%%%=============EX_1=============%%%
+	\begin{vd}
+		Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng \[\mathrm{N}_2\;(\mathrm{g}) + 3\mathrm{H}_2\;(\mathrm{g}) \xleftrightarrow 2\mathrm{NH}_3\;(\mathrm{g})\]
+		\choice
+		{\True $K_C = \dfrac{\left[NH_3\right]^2}{\left[N_2\right]\left[H_2\right]^3}$}
+		{$K_C = \dfrac{\left[NH_3\right]}{\left[N_2\right]\left[H_2\right]}$}
+		{$K_C = \dfrac{\left[NH_3\right]}{\left[H_2\right]^2}$}
+		{$K_C = \dfrac{\left[N_2\right]\left[H_2\right]}{\left[NH_3\right]}$}
+		\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, biểu thức hằng số cân bằng $K_C$ cho phản ứng $N_2\;(\mathrm{g}) + 3H_2\;(\mathrm{g}) \xleftrightarrow 2NH_3\;(\mathrm{g})$ là $K_C = \dfrac{\left[NH_3\right]^2}{\left[N_2\right]\left[H_2\right]^3}$.}
+	\end{vd}
+	%%%=================VD2=========================%%%
+	\begin{vd}
+		Biểu thức nào sau đây là biểu thức hằng số cân bằng ($K_C$) của phản ứng $C(s) + 2H_2\;(\mathrm{g}) \rightarrow CH_4\;(\mathrm{g})$?
+		\choice
+		{$K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]}$}
+		{$K_C = \dfrac{\left[CH_4\right]}{[C]\left[H_2\right]^2}$}
+		{$K_C = \dfrac{\left[CH_4\right]}{[C]\left[H_2\right]}$}
+		{\True $K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]^2}$}
+		\loigiai{Phản ứng xảy ra ở trạng thái cân bằng, nồng độ của chất rắn không được tính vào hằng số cân bằng. Do đó, biểu thức hằng số cân bằng $K_C$ cho phản ứng $C(s) + 2H_2\;(\mathrm{g}) \rightarrow CH_4\;(\mathrm{g})$ là $K_C = \dfrac{\left[CH_4\right]}{\left[H_2\right]^2}$.}
+	\end{vd}
+	\newpage
+	\taoNdongke[7]{vd}
+	%%%==============Bai_BT13==============%%%
+	\begin{vd}
+		Viết biểu thức tính hằng số cân bằng của các phản ứng sau:
+		\begin{enumerate}[label=\alph*)]
+			\item $N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$
+			\item $PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$
+			\item $H_2(g) + F_2(g) \rightleftharpoons 2HF(g)$
+			\item $COCl_2(g) \rightleftharpoons CO(g) + Cl_2(g)$
+			\item $CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)$
+		\end{enumerate}
+		\loigiai{
+			\begin{enumerate}[label=\alph*)]
+				\item $N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$:
+				\\Khi thể tích bình phản ứng được tăng lên, áp suất tổng giảm. Theo nguyên lý Le Chatelier, cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn để tăng áp suất, tức là về phía các chất phản ứng.
+				\item $PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$:
+				\\Tăng thể tích làm giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía các sản phẩm, vì có 2 phân tử khí ở phía sản phẩm và 1 phân tử khí ở phía phản ứng.
+				\item $H_2(g) + F_2(g) \rightleftharpoons 2HF(g)$:
+				\\Khi thể tích tăng, áp suất giảm. Ở cả hai bên phản ứng, số lượng phân tử khí là như nhau (2 phân tử khí ở bên trái và 2 phân tử khí ở bên phải). Vì vậy, sự thay đổi thể tích không ảnh hưởng đến cân bằng.
+				\item $COCl_2(g) \rightleftharpoons CO(g) + Cl_2(g)$:
+				\\Tăng thể tích giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía sản phẩm vì có 2 phân tử khí ở phía sản phẩm và 1 phân tử khí ở phía phản ứng.
+				\item $CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)$:
+				\\Tăng thể tích giảm áp suất tổng. Cân bằng sẽ chuyển dịch theo hướng tạo thêm nhiều phân tử khí hơn, tức là về phía sản phẩm vì có 1 phân tử khí ở phía sản phẩm , 0 phân tử khí phía tham gia.
+			\end{enumerate}
+		}
+	\end{vd}
+	%%%==============Bai_BT14==============%%%
+\end{document}
+
+
+
+
+

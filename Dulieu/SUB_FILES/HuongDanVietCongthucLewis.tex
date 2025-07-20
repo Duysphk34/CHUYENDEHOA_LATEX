@@ -1,0 +1,77 @@
+\documentclass[Main_ver2.tex]{subfiles}
+\gdef\key{}
+\renewcommand{\Pointilles}[2][1.1]{%
+	\par\nobreak
+	\noindent\rule{0pt}{1.1\baselineskip}%
+	\foreach \i in {1,...,#2}{%
+		\ifnum\i=1
+		\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\reflectbox{\color{\maunhan}\Large\WritingHand}\ {\color{\maunhan} \fmmfamily\LARGE \key}\dotfill}\endgraf
+		\else
+		\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf
+		\fi
+	}
+}
+\begin{document}
+	\Tieudegiua{Tìm hiểu cách viết công thức lewis}
+	\Noibat[\maunhan][][\faCoffee][]{Định nghĩa}
+		\begin{hopdongian}
+			\indam[\maunhan]{Công thức Lewis} của một phân tử được xây dựng từ công thức electron của phân tử, trong đó mỗi cặp electron chung giữa hai nguyên tử tham gia liên kết được thay bằng một gạch nối "-".
+			\taodongke[][\hfill][red]{5}
+		\end{hopdongian}
+	\Noibat[\maunhan][][\faCoffee][]{Các bước viết công thức Lewis}
+	\begin{phuongphap}
+		\DoiThanhDongKe{\begin{itemize}
+				\item  \indam{Bước 1.} Xác định tổng số electron hóa trị bằng cách cộng số nhóm của tất cả các nguyên tử trong phân tử.
+				\item  \indam{Bước 2.} Xác định nguyên tử trung tâm. Đây thường là nguyên tử có độ âm điện nhỏ nhất.
+				\item  \indam{Bước 3.} Nối các nguyên tử bằng liên kết đơn.
+				\item  \indam{Bước 4.} Hoàn thành octet cho các nguyên tử liên kết với nguyên tử trung tâm. Lưu ý rằng hydro chỉ cần 2 electron để hoàn thành octet.
+				\item  \indam{Bước 5.} Đặt bất kỳ electron còn lại nào lên nguyên tử trung tâm.
+				\item  \indam{Bước 6.} Nếu nguyên tử trung tâm không có octet, hãy thử tạo liên kết đôi hoặc liên kết ba.
+				\item  \indam{Bước 7.} Tính điện tích hình thức trên mỗi nguyên tử.Điện tích hình thức là hiệu số giữa số electron hóa trị mà một nguyên tử có ở trạng thái tự do và số electron mà nó "sở hữu" trong cấu trúc Lewis. Mục tiêu là có điện tích hình thức bằng 0 trên mỗi nguyên tử, hoặc càng gần 0 càng tốt.
+		\end{itemize}}
+	\end{phuongphap}
+	\Noibat[\maunhan][][\faCoffee][]{Một số ví dụ minh họa}
+	\gdef\key{Lời giải:}
+	\sodongkeH[10]{vd}
+	%%%==============Vidu1==============%%%
+	\begin{vd}[Công thức lewis một số đơn chất ]
+		Viết công thức Lewis của các đon chất sau $Cl_2$, $O_2$, $N_2$, $O_3$.
+		\loigiai{}
+	\end{vd}
+	%%%==============HetVidu1==============%%%
+	%%%==============Vidu2==============%%%
+	\hienthiloigiai
+	\begin{vd}[Công thức lewis một số hợp chất đơn giản]
+		Viết công thức Lewis của các hợp chất sau:
+		\begin{enumerate}[a)]
+			\item $CO_2$, $NH_3$, $CO$, $SO_2$, $SO_3$, $NO_2$
+			\item $H_2S$, $HCl$, $CH_4$, $C_2H_4$, $C_2H_2$
+		\end{enumerate}
+		\loigiai{
+		\begin{enumerate}[a)]
+			\item $CO_2$, $NH_3$, $CO$, $SO_2$, $SO_3$, $NO_2$,$CS_2$
+			\taodongke[1.05][][\mycolor]{10}
+			\item $H_2S$, $HCl$, $CH_4$, $C_2H_4$, $C_2H_2$
+			\taodongke[1.05][][\mycolor]{10}
+		\end{enumerate}
+		}
+	\end{vd}
+	%%%%
+	\sodongkeH[15]{vd}
+	\begin{vd}[Công thức lewis một số hợp chất phức tạp]
+		Viết công thức Lewis của các hợp chất sau: $HNO_3$, $H_2SO_4$, $H_2CO_3$, $H_2SO_4$, $H_2CO$, $H_3PO_4$, $COCl_2$
+		\loigiai{}
+	\end{vd}
+	%%%
+	\sodongkeH[10]{vd}
+	\begin{vd}[Một số hợp chất không tuân theo quy tắc octet]
+		Viết công thức Lewis của các hợp chất sau: $AlCl_3$, $PCl5$, $BeCl_2$,  $SF6$, $BF_3$
+		\loigiai{}
+	\end{vd}
+	%%%
+	\sodongkeH[20]{vd}
+	\begin{vd}[Công thức lewis một số ion đa nguyên tử]
+		Viết công thức Lewis của các hợp chất sau: ${H_3O}^+$, ${NH_4}^{+}$, ${NO_3}^-$, ${CO_3}^{2-}$, ${HCO_3}^{-}$, ${SO_4}^{2-}$, ${PO_4}^{3-}$, ${HPO_4}^{2-}$, ${H_2PO_4}^{-}$
+		\loigiai{}
+	\end{vd}
+\end{document}

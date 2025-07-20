@@ -67,7 +67,7 @@
 	\noindent%
 	\pgfmathparse{int(#4-1)}
 	\ifnum\pgfmathresult>1
-	\multido{}{\pgfmathresult}{\noindent\rule{0pt}{\tuychonone\baselineskip}%
+	\par\multido{}{\pgfmathresult}{\noindent\rule{0pt}{\tuychonone\baselineskip}%
 		{\color{#3}\mbox{}\tuychontwo\endgraf}}%
 	\fi%
 	{\noindent\rule{0pt}{\tuychonone\baselineskip}\color{#3}\mbox{}\tuychontwo\endgraf}}%

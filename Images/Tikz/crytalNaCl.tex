@@ -1,0 +1,46 @@
+\documentclass{standalone}
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{calc,fadings,decorations.pathreplacing}
+\begin{document}
+	\tdplotsetmaincoords{70}{120}
+	\begin{tikzpicture}[%
+		% điều chỉnh góc nhìn
+		tdplot_main_coords,
+		% vẽ đường nét tròn ở đầu mút
+		line cap=round,
+		line join=round,
+		% gán giá trị cho biến r <bán kính>, w <độ dày liên kết>
+		declare function={
+			r=8mm;
+			w=6pt;
+		}] 
+		%vòng lặp vẽ các nguyên tử
+		\foreach \x in {0,5,10}{
+			\foreach \y in {0,5,10}{
+				\foreach \z in {0,6,12}{		
+					% Sử dụng điều kiện để kiểm tra tính chẵn lẻ của tổng các chỉ số
+					\pgfmathparse{int((\x/5) + (\y/5) + (\z/6))}
+					\ifodd\pgfmathresult
+						\shade[ball color=cyan!50!violet] (\x,\y,\z) circle (1.2*r);
+					\else
+						\shade[ball color=red!50!pink] (\x,\y,\z) circle (r);
+					\fi
+					%Sử dụng điều kiện để nối các hình cầu
+					\ifnum\x<10
+						\path[line width=w,shorten <={r/2},draw=purple!30!black!30,fill=purple!60!black!30,rounded corners=1.2pt] (\x,\y,\z) -- ++(5,0,0);
+					\fi
+					\ifnum\y<10
+						\path[line width=w,shorten <={r/2},draw=purple!50!black!50,fill=purple!60!black!30] (\x,\y,\z) -- ++(0,5,0);
+					\fi
+					\ifnum\z<12
+						\path[line width=w,shorten <={r/2},draw=purple!70!black!70,fill=purple!60!black!30] (\x,\y,\z) -- ++(0,0,6);
+					\fi
+				}
+			}
+		}
+		\shade[ball color=cyan!50!violet] (0,14,12) circle (1.2*r);
+		\path (0,16,12.3) node[font=\bfseries\sffamily] {\LARGE Cl$\mathsf{^-}$};
+		\shade[ball color=red!50!pink] (0,14,9) circle (r);
+		\path (0,16,9.3) node[font=\bfseries\sffamily] {\LARGE Na$\mathsf{^+}$};
+	\end{tikzpicture}
+\end{document}

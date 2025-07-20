@@ -1,0 +1,87 @@
+\documentclass[border=0.65cm,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\definecolor{dnvang}{HTML}{D8A25E}
+\definecolor{dnxanh}{HTML}{229799}
+\definecolor{dnxanhdam}{HTML}{0D7C66}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+\begin{document}
+	 \begin{tikzpicture}[declare function={r=10mm;hs= 0.8;},node distance= 1mm and 1mm]
+  	% Hiển thị số hàng
+  	\foreach \t [count=\i from 1] in {10,9,8,...,1}{
+  		 % Hiển thị số thứ tự bên trái
+		 %\node[anchor=east,font=\small\sffamily] at (0,\t*hs) {\i};
+  		\foreach \j in {1,2,...,18}{
+  			\path (\j*hs,\t*hs) node [
+  			font=\fontsize{4pt}{0pt}\selectfont,
+  			inner sep=0pt, 
+  			outer sep=0pt,
+  			minimum size =r*hs,
+  			%fill=\mycolor!20,
+  			anchor=center
+  			](square-\i-\j){};
+  		}
+  	}
+  	%%%Nhóm nguyên tố s
+  	\path [fill=\mauphu!80] (square-1-1.north west)--(square-7-1.south west)--(square-7-2.south east)--(square-2-2.north east)--(square-2-2.north west)--(square-1-1.north east)--cycle
+  	(square-1-18.north east)--(square-1-18.north west)--(square-1-18.south west)--(square-1-18.south east);
+  	
+  	\foreach \x in {1,18}{
+  		\path (square-1-\x.west)--(square-1-\x.east) node [pos=0.5,midway,font=\sffamily\fontsize{6pt}{0pt}\selectfont](\x-1s){1s};
+  		\draw[->,-stealth](\x-1s) edge (square-1-\x.west) edge (square-1-\x.east);
+  	}
+  	
+  	\foreach \x in {2,3,4,5,6,7}{
+  		\path (square-\x-1.west)--(square-\x-2.east) node [pos=0.5,midway,font=\sffamily\fontsize{6pt}{0pt}\selectfont](\x-s){\x s};
+  		\draw[->,-stealth](\x-s) edge (square-\x-1.west) edge (square-\x-2.east);
+  	}
+  	\path ([yshift=0.65cm]square-1-1.north)--([yshift=0.65cm]square-1-2.north) node [pos=0.5,midway,font=\bfseries\sffamily\scriptsize]{Khối nguyên tố s};
+  	%%%Nhóm nguyên tố d
+  	\path [fill=\mycolor] (square-4-3.north west)--(square-4-12.north east)--(square-7-12.south east)--(square-7-3.south west)--cycle;
+  	\foreach \x [count=\t from 3] in {4,5,6,7}{
+  		\path (square-\x-3.west)--(square-\x-12.east) node [pos=0.5,midway,font=\sffamily\fontsize{6pt}{0pt}\selectfont](\t-d){\t d};
+  		\draw[->,-stealth](\t-d) edge (square-\x-3.west) edge (square-\x-12.east);
+  	}
+  	\path ([yshift=0.65cm]square-4-3.north)--([yshift=0.65cm]square-4-12.north) node [pos=0.5,midway,font=\bfseries\sffamily\scriptsize]{Khối nguyên tố d};
+  	%%%Nhóm nguyên tố p
+  	\path [fill=\maudam] (square-2-13.north west)--(square-2-18.north east)--(square-7-18.south east)--(square-7-13.south west)--cycle;
+  	\foreach \x  in {2,3,...,7}{
+  		\path (square-\x-13.west)--(square-\x-18.east) node [pos=0.5,midway,font=\sffamily\fontsize{6pt}{0pt}\selectfont](\x-p){\x p};
+  		\draw[->,-stealth](\x-p) edge (square-\x-13.west) edge (square-\x-18.east);
+  	}
+  	\path ([yshift=0.65cm]square-2-13.north)--([yshift=0.65cm]square-2-17.north) node [pos=0.5,midway,font=\bfseries\sffamily\scriptsize]{Khối nguyên tố p};
+  	%%%Nhóm nguyên tố f
+  	\begin{scope}[transform canvas={yshift=0.2cm}]
+  		\path [fill=\maunhan!50] (square-9-3.north west)--(square-9-18.north east)--(square-10-18.south east)--(square-10-3.south west)--cycle;
+  		\foreach \x [count=\t from 4] in {9,10}{
+  			\path (square-\x-3.west)--(square-\x-18.east) node [pos=0.5,midway,font=\sffamily\fontsize{6pt}{0pt}\selectfont](\t-f){\t f};
+  			\draw[->,-stealth](\t-f) edge (square-\x-3.west) edge (square-\x-18.east);
+  		}
+  		\path ([yshift=0.25cm]square-9-3.north)--([yshift=0.25cm]square-9-18.north) node [pos=0.5,midway,font=\bfseries\sffamily\scriptsize]{Khối nguyên tố f};
+  	\end{scope}
+  	%%% Hiển thị tên nhómA
+  	\foreach \x/\y in {1/1,2/2,2/13,2/14,2/15,2/16,2/17,1/18}{
+  	\pgfmathsetmacro{\sttA}{int(\y>10 ? \y-10 : \y)} % Giảm 10 đơn vị
+  	\path (square-\x-\y.north) node [anchor=south,font=\sffamily\fontsize{6pt}{0pt}\selectfont] {\MakeUppercase{\romannumeral\sttA}A};
+  	}
+  	%%% Hiển thị tên nhóm B
+  	\foreach \x/\y in {4/3,4/4,4/5,4/6,4/7,4/8,4/9,4/10,4/11,4/12}{
+  		\pgfmathsetmacro{\sttB}{
+  			int(\y == 9 || \y == 10) ? 8 : % Giảm 9 và 10 thành 8
+  			int(\y > 10 ? \y - 10 : \y)  % Giảm 11 và 12 thành 1 và 2
+  		}
+  		\path (square-\x-\y.north) node [anchor=south,font=\sffamily\fontsize{6pt}{0pt}\selectfont] {\MakeUppercase{\romannumeral\sttB}B};
+  	}
+  \end{tikzpicture}
+\end{document}

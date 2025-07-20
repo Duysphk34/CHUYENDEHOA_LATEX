@@ -1,0 +1,95 @@
+\documentclass[border=0.65cm,tikz]{standalone}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\definecolor{dnvang}{HTML}{D8A25E}
+\definecolor{dnxanh}{HTML}{229799}
+\definecolor{dnxanhdam}{HTML}{0D7C66}
+\definecolor{dndo}{HTML}{BB2649}
+\def\mycolor{dnvang}
+\def\mauphu{dnxanh}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles,quotes,intersections,fit}
+\usetikzlibrary{calc,fadings,shadows,shadows.blur,shapes,shapes.geometric,positioning,backgrounds,decorations.pathmorphing,decorations,matrix}
+\usetikzlibrary{decorations.pathmorphing}
+\begin{document}
+	\newcommand{\khungion}[2][+]{%
+			\tikz[baseline=(ND).base]{
+			\node[inner sep=0pt,outer sep=3pt,align=center](ND){#2};
+			\draw[rounded corners=0.5pt,line cap=round,line join=round] ($(ND.north west)+(3pt,0)$)--(ND.north west)--(ND.south west)--($(ND.south west)+(3pt,0)$);
+			\draw[rounded corners=0.5pt,line cap=round,line join=round] ($(ND.north east)+(-3pt,0)$)--(ND.north east)coordinate (D)--(ND.south east)--($(ND.south east)+(-3pt,0)$);
+			\path(D) node[shift={(45:5pt)}]{\scriptsize\textbf{#1}};
+		}
+	}
+	%%%Sự tạo thành ion F-
+	\newcommand{\muiten}[1][\mycolor]{%
+		\tikz{
+		\fill[#1](0,0)--++(-90:6pt) coordinate (A)
+		--++(-1.8cm,0)--++(-90:12pt)--++(0:1.8cm)coordinate (B)
+		--++(-90:6pt)--($(A)!0.5!(B)+(0.5cm,0)$)--cycle;
+		}
+	}
+	\begin{tikzpicture}[declare function={%
+			r1=0.75cm;
+			r2=1.5cm;r2h=r2+6pt;
+			r3=2.7cm;r3h=r3+8pt;
+			r4=4.2cm;r4h=r4+10pt;
+			r5=5.9cm;
+			d=8cm;
+		}
+		]%
+		\tikzset{
+			Flourine/.pic={%
+				\path[fill=\mycolor!55,opacity =0.3,pic actions] (0,0) circle (r3);
+				\path[fill=\mycolor!65,opacity =0.4,pic actions] (0,0) circle (r2);
+				\path[ball color=\mycolor!80,opacity =0.9,pic actions] (0,0) circle (r1) node[font=\large\fontfamily{qag}\selectfont,text=\mycolor!25!black] {$\textbf{+9}$};
+				\foreach \g/\r in{90/r2,-90/r2}{%
+				\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+				%%
+				\foreach \i in {1,2,...,7}{
+					\foreach \g/\r in{{45+\i*360/7}/r3}{%
+						\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+					}
+				}
+			},
+			FlourineH/.pic={
+				\path[fill=\mycolor!55,opacity =0.3,pic actions] (0,0) circle (r3h);
+				\path[fill=\mycolor!65,opacity =0.4,pic actions] (0,0) circle (r2h);
+				\path[ball color=\mycolor!80,opacity =0.9,pic actions] (0,0) circle (r1) node[font=\large\fontfamily{qag}\selectfont,text=\mycolor!25!black] {$\textbf{+9}$};
+				\foreach \g/\r in{90/r2h,-90/r2h}{%
+					\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+				}
+				%%
+				\foreach \i in {1,2,3,4,5,6}{
+					\foreach \g/\r in{{\i*360/7}/r3h}{%
+						\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+					}
+				}
+				%%%e ghép dôi
+				\foreach \i in {7}{
+					\foreach \g/\r in{{\i*360/7+5}/r3h-10.75pt}{%
+						\fill (\g:\r) [\maunhan!35!\mycolor] circle (4pt);
+					}
+				}
+			},
+			stylefont/.style={font=\bfseries\LARGE\fontfamily{qag}\selectfont,text=\mycolor!25!black}
+		}
+		%%%Vẽ nguyen tu Fa
+		\path (0,0) pic[local bounding box =Fa] {Flourine};
+		%%%Vẽ dấu cộng
+		\path (0.5*d,0) node[stylefont] {+};
+		%%%Vẽ nguyen tu Fb
+		\path (d,0) pic[local bounding box =Fb,rotate=180] {Flourine};
+		%%%Vẽ nguyen tu Fc
+		\path (2.5*d,0) pic[local bounding box =Fc] {FlourineH};
+		%%%Vẽ nguyen tu Fd
+		\path (3.15*d,0) pic[local bounding box =Fd,rotate=180] {FlourineH};
+		%Vẽ mũi tên nhường nhận e 
+		\path[draw=\mycolor, line width=6pt,-stealth,line cap=round,line join=round] ($(Fb.east)+(5pt,0)$)--($(Fc.west)+(-5pt,0)$) node [pos=0.5,above,font=\Large\bfseries\sffamily,text=\maunhan]{góp chung e};
+	\end{tikzpicture}
+\end{document}

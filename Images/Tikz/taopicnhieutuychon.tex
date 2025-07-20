@@ -1,0 +1,116 @@
+\documentclass[border=3mm]{standalone}
+\usepackage[table]{xcolor}
+\definecolor{dnvang}{HTML}{E5890A}
+\definecolor{dnxanh}{HTML}{3A98B9}
+\definecolor{dnxanhdam}{HTML}{19376D}
+\definecolor{dndo}{HTML}{BB2649}
+\definecolor{dntim}{HTML}{5B0888}
+\def\mycolor{dnvang}
+\def\mauphu{dntim!80!black}
+\def\maudam{dnxanhdam}
+\def\maunhan{dndo}
+\pagestyle{empty}
+\usepackage[utf8]{vietnam}
+\usepackage{tikz}
+\usetikzlibrary{shapes,calc}
+\tikzset{
+	% Định nghĩa cấu hình electron cho từng nguyên tố
+	electron configs/.cd,
+	H/.style={angles={0}, layer=1},  % Hydrogen: 1 electron lớp K
+	He/.style={angles={0,180}, layer=1},  % Helium: 2 electron lớp K
+	Li/.style={angles={0,180/0}, layer=2},  % Lithium: 2,1
+	Na/.style={angles={0,180/0,45,90,135,180,225,270,315/90}, layer=3},  % Sodium
+	Cl/.style={angles={0,180/0,45,90,135,180,225,270,315/45,90,135,180,225,270,315}, layer=3},  % Chlorine
+	% Thêm các nguyên tố khác tương tự...
+	
+	% Định nghĩa pic chính
+	pics/.cd,
+	atom/.style args={#1/#2/#3/#4/#5/#6/#7}{%
+		code={%
+			% Vẽ các vòng electron
+			\path[fill=#6!35,opacity=0.2,pic actions] (0,0) circle (#4);
+			\path[fill=#6!55,opacity=0.3,pic actions] (0,0) circle (#3);
+			\path[fill=#6!65,opacity=0.4,pic actions] (0,0) circle (#2);
+			\path[ball color=#6!80,opacity=0.9,pic actions] (0,0) circle (#1) 
+			node[font=\large\fontfamily{qag}\selectfont,text=#6!25!black] {$\textbf{#5}$};
+			
+			% Lấy cấu hình electron từ tham số #7
+			\pgfkeys{/tikz/electron configs/#7}
+			\foreach \angles [count=\i] in \angles {
+				\foreach \angle in \angles {
+					\ifnum\i=1
+					\fill (\angle:#2) [\maunhan!35!#6] circle (4pt);
+					\else\ifnum\i=2
+					\fill (\angle:#3) [\maunhan!35!#6] circle (4pt);
+					\else\ifnum\i=3
+					\fill (\angle:#4) [\maunhan!35!#6] circle (4pt);
+					\fi\fi\fi
+				}
+			}
+		}
+	}
+}
+
+% Macro để vẽ nhiều nguyên tử
+\newcommand{\drawarrangement}[2][]{% #1: options, #2: list of atoms
+	\begin{tikzpicture}[
+		declare function={
+			r1=0.5cm;
+			r2=1.0cm;
+			r2h=r2+4pt;
+			r3=r2+1.0cm;
+			r3h=r3+6pt;
+			r4=r3+1.3cm;
+			r4h=r4+6pt;
+			d=4cm;  % Khoảng cách giữa các nguyên tử
+		},
+		stylefont/.style={font=\bfseries\large\fontfamily{qag}\selectfont,text=\mycolor!25!black},
+		#1
+		]
+		\foreach \element [count=\i] in {#2} {
+			\path (\i*d-d,0) pic[local bounding box=atom\i] {atom={r1/r2/r3/r4/\element/\mycolor/\element}};
+			\path ($(atom\i.center)+(-90:r4+0.5cm)$) 
+			node[text width=3cm,align=center,anchor=north,stylefont] 
+			{\element\\Nguyên tử \element};
+		}
+	\end{tikzpicture}
+}
+
+
+% Hoặc sắp xếp thành lưới:
+\newcommand{\drawatomgrid}[3]{% #1: rows, #2: cols, #3: list of atoms
+	\begin{tikzpicture}[
+		declare function={
+			r1=0.5cm;
+			r2=1.0cm;
+			r2h=r2+4pt;
+			r3=r2+1.0cm;
+			r3h=r3+6pt;
+			r4=r3+1.3cm;
+			r4h=r4+6pt;
+			d=4cm;  % Khoảng cách ngang
+			v=5cm;  % Khoảng cách dọc
+		},
+		stylefont/.style={font=\bfseries\large\fontfamily{qag}\selectfont,text=\mycolor!25!black}
+		]
+		\foreach \element [count=\i] in {#3} {
+			\pgfmathsetmacro{\row}{int((\i-1)/#2)}
+			\pgfmathsetmacro{\col}{int(mod(\i-1,#2))}
+			\path (\col*d,-\row*v) pic[local bounding box=atom\i] {atom={r1/r2/r3/r4/\element/\mycolor/\element}};
+			\path ($(atom\i.center)+(-90:r4+0.5cm)$) 
+			node[text width=3cm,align=center,anchor=north,stylefont] 
+			{\element\\Nguyên tử \element};
+		}
+	\end{tikzpicture}
+}
+
+\begin{document}
+	% Sử dụng:
+	\drawarrangement{H,He}  % Vẽ 5 nguyên tử trên một hàng
+
+	% Hoặc với tùy chọn:
+	\drawarrangement[scale=0.8, transform shape]{Na,Cl}  % Vẽ nhỏ hơn
+
+	% Sử dụng lưới:
+	\drawatomgrid{2}{5}{H,He,Li,Be,B,C,N,O,F,Ne}  % 2 hàng, 5 cột
+\end{document}

@@ -1,0 +1,161 @@
+\subsubsection{Liên kết hydrogen}
+	\Noibat[\maunhan][][\faStar][]{Tìm hiểu về liên kết hydrogen}
+	%%%Liên kết H giữa các phân tử H20
+	\begin{center}
+		\resizebox{!}{3cm}{
+			\begin{tikzpicture}[%
+			line cap=round,line join=round,declare function={r=1.5cm;}
+			]
+			\tikzstyle{element_style} = [inner sep=2pt,font=\large\bfseries\fontfamily{qag}\selectfont]
+			\tikzset{
+				water/.pic={
+					\path (0,0) coordinate (A) 
+					($(A)+(-135:r)$) coordinate (B)
+					($(A)+(-45:r)$) coordinate (C)
+					;
+					\path (A) node[element_style] (O) {O}
+					(B) node[element_style] (Ha) {H}
+					(C) node[element_style] (Hb) {H}
+					;
+					\draw (Ha)--(O)--(Hb);
+					\path ($(A)+(3pt,0)$) node [above=3pt,text=\maunhan,font=\scriptsize] {$\sigma^-$};
+					\path ($(B)+(135:11pt)$) node [text=\maunhan,font=\scriptsize] {$\sigma^+$};
+					\path ($(C)+(45:15pt)$) node [text=\maunhan,font=\scriptsize] {$\sigma^+$};
+				}
+			}
+			\path (0,0) pic[local bounding box=a] {water};
+			\path (5,0) pic[local bounding box=b] {water};
+			\path (2.5,-2.5) pic[local bounding box=c] {water};
+			\path ($(a.south east)+(-0.4cm,-1.2pt)$)--($(c.north)+(-135:14pt)$) node[pos=0.5,sloped,midway] (lkHa) {
+				\tikz{\fill[\maunhan] (0,0)circle(2pt)(8pt,0)circle(2pt)(16pt,0)circle(2pt);}
+			};
+			\path ($(b.south west)+(0.3cm,-1.3pt)$)--($(c.north)+(-45:12pt)$) node[pos=0.5,sloped,midway] (lkHb) {
+				\tikz{\fill[\maunhan] (0,0)circle(2pt)(8pt,0)circle(2pt)(16pt,0)circle(2pt);}
+			};
+			\path ($(lkHb)+(1,-0.3)$) node[right] (n) {liên kết hydrogen};
+			\draw[-latex] (n.west)--(lkHb);
+		\end{tikzpicture}
+		}
+		\captionof{figure}{Liên kết hydrogen giữa các phân tử nước}
+	\end{center}
+	%%%Liên kết H giữa các phân tử NH3
+	\begin{center}
+		\resizebox{!}{3cm}{
+			\begin{tikzpicture}[%
+			line cap=round,line join=round,declare function={r=1.7cm;d=3.25cm;}
+			]
+			\tikzstyle{element_style} = [inner sep=2pt,font=\large\bfseries\fontfamily{qag}\selectfont]
+			\tikzset{
+				ammonia/.pic={
+					\path [pic actions](0,0) coordinate (A) node[element_style](Nitrogen) {N};
+					\path [pic actions]($(Nitrogen.north)+(4pt,7pt)$) node[text=\maunhan] {$\sigma^-$};
+					\foreach \g/\n/\j/\gh in{120/a/a/120,180/b/b/90,-120/c/c/-120}{
+						\path ($(A)+(\g:r)$) coordinate (\n) node[element_style](H\j){H};
+						\draw (Nitrogen)--(H\j) node [font=\scriptsize,text=\maunhan,shift={(\gh:12pt)}] {$\sigma^+$};
+					}
+					
+				}
+			}
+			\path (-0.20*d,0) node[text width=2cm,inner sep =6pt] (BD) {\phantom{A}};
+			\path (1*d,0) pic[local bounding box=AmoniacM] {ammonia};
+			\path (2*d,0) pic[local bounding box=AmoniacH] {ammonia};
+			\path (3*d,0) pic[local bounding box=AmoniacB] {ammonia};
+			\path (3.7*d,0) node[text width=2cm,inner sep =6pt](KT) {\phantom{A}};
+			\foreach \x/\y in{BD/AmoniacM,AmoniacM/AmoniacH,AmoniacH/AmoniacB,AmoniacB/KT}{
+				\path (\x.east)--(\y.west) node[pos=0.5,sloped,midway,xshift=-3pt] {
+					\tikz{\fill[\maunhan] (0,0)circle(2pt)  (8pt,0)circle(2pt) (16pt,0)circle(2pt);}
+				};
+			}
+		\end{tikzpicture}
+		}
+		\captionof{figure}{Liên kết hydrogen giữa các phân tử ammonia}
+	\end{center}
+	\begin{tomtat}
+		\indam[\maunhan]{Liên kết hydrogen} là một loại liên kết yếu được hình thành giữa nguyên tử H (đã liên kết với một nguyên tử có độ âm điện lớn) với một nguyên tử khác (có độ âm điện lớn) còn cặp electron riêng. Các nguyên tư có độ âm điện lớn thường găp trong liên kết hydrogen là $N, O, F$.
+	\end{tomtat}
+	\begin{ghinho}
+		Điều kiện cần và đủ để tạo thành liên kết hydrogen:
+		\begin{itemize}
+			\item Nguyên tử hydrogen liên kết với các nguyên tử có độ âm điện lớn như F, $\mathrm{O}, \mathrm{N}, \ldots$
+			\item Nguyên tử $F, O, N, \ldots$ liên kết với hydrogen phải có ít nhất một cặp electron hoá trị chưa liên kết.
+		\end{itemize}
+	\end{ghinho}
+	\Noibat[\maunhan][][\faStar][]{Tìm hiểu vai trò, ảnh hưởng của liên kết hydrogen tới tính chất vật lí của nước}
+	\begin{tomtat}
+		\begin{itemize}
+			\item Nhờ có liên kết hydrogen mà ở điểu kiện thường nước ở thể lỏng, có nhiệt độ sôi cao $\left(100^{\circ} \mathrm{C}\right)$.
+			\item Nước còn là một dung môi tốt, không chỉ hòa tan được nhiều hợp chất ion, mà còn hòa tan được nhiều hợp chất có liên kết cộng hóa trị phân cực. Đặc biệt, các hợp chất có thể tạo liên kết hydrogen với nước thường tan tốt trong nước.
+		\end{itemize}
+	\end{tomtat}
+	\vspace{0.5cm}
+	\begin{center}
+		\resizebox{!}{3.0cm}{
+			\begin{tikzpicture}[line cap=round,line join=round,declare function={r=1.7cm;d=3.5cm;}
+			]
+			\def\hydrogenbond{\tikz{\fill[\maunhan] (0,0)circle(2pt)  (8pt,0)circle(2pt) (16pt,0)circle(2pt);}}
+			%%%
+			\tikzset{
+				element_style/.style={inner sep=2pt,font=\large\bfseries\fontfamily{qag}\selectfont},
+				pics/Compound/.style args={#1/#2/#3}{
+					code={
+						%\begin{scope}[transform canvas={rotate around x=90}]
+						\path [pic actions] (0,0) coordinate (A) node[element_style] (Oxigen) {O};
+						\path [pic actions] ($(Oxigen)+(-4pt,12pt)$) node[text=\maunhan] {$\sigma^-$};
+						\path [pic actions] ($(A)+(180:r)$) coordinate (B) node[element_style] (atomM) {H};
+						\path [pic actions] ($(atomM)+(0pt,12pt)$) node[text=\maunhan] {$\sigma^+$};
+						\path [pic actions] ($(A)+(#3:r)$) coordinate (C) node[element_style] (atomH) {#1};
+						\path [pic actions] ($(atomH)+(5pt,12pt)$) node[text=\maunhan] {#2};
+						\draw (atomM)--(Oxigen)--(atomH);
+						%\end{scope}
+					}
+				}
+			}
+			% Draw the compound
+			\path (-0.25*d,0) node[text width=2cm,inner sep =6pt] (BD) {\phantom{A}};
+			\path (d,0) pic[local bounding box=compoundM] {Compound=R/\phantom{X}/-60}
+			(2*d,0) pic[local bounding box=compoundT]{Compound=H/$\sigma^+$/-60}
+			(3*d-0.85cm,-1.45cm) pic[local bounding box=compoundB,rotate=180]{Compound=R/\phantom{X}/60}
+			(4*d-0.75cm,-1.45cm) pic[local bounding box=compoundF,rotate=180]{Compound=H/$\sigma^+$/60}
+			;
+			\path (5.2*d,0) node[text width=2cm,inner sep =6pt] (KT) {\phantom{A}};
+			%%%Vẽ Lien Ket H
+				\path (BD.east)--($(compoundM.west)+(0,0.5cm)$) node[pos=0.5,sloped,midway,xshift=1pt] {\hydrogenbond};
+				\path ($(compoundM.east)+(0,0.5cm)$)--($(compoundT.west)+(0,0.5cm)$) node[pos=0.5,sloped,midway,xshift=-12pt] {\hydrogenbond};
+				\path ($(compoundT.south east)+(0,8pt)$)--($(compoundB.north west)+(8pt,-7.65pt)$) node[pos=0.5,sloped,midway,xshift=5pt] {\hydrogenbond};
+				\path ($(compoundB.north east)+(8pt,-7.65pt)$)--($(compoundF.north west)+(8pt,-7.65pt)$) node[pos=0.5,sloped,midway,xshift=5pt] {\hydrogenbond};
+				\path ($(compoundF.north east)+(-1cm,-7.65pt)$)--($(KT.west)+(0pt,-1.46cm)$) node[pos=0.5,sloped,midway,xshift=5pt] {\hydrogenbond};
+		\end{tikzpicture}
+	}
+	\captionof{figure}{Liên kết hydrogen giữa  nước và rượu}
+	\end{center}
+	%%%
+	\begin{center}
+		\includegraphics[width=12cm]{Images/anhhoahoc10/LienketHydrogen/NH3_Hydrogen_bond.png}
+		\captionof{figure}{Liên kết hydrogen giữa  nước và Ammonia}
+	\end{center}
+	\begin{Bancobiet}
+		Nước ở trạng thái rắn có thể tích lớn hơn khi ở trạng thái lỏng. Đó là do nước đá có cấu trúc tinh thể phân tử với bốn phân tử $\mathrm{H}_2 \mathrm{O}$ phân bố ở bốn đỉnh của một tứ diện đều, bên trong là cấu trúc rỗng (Hình \ref{fig:nuocda} ). Điều này lí giải tại sao nước đá nổi được trên mặt nước lỏng.
+		\begin{center}
+			\includegraphics[width=8cm]{Images/anhhoahoc10/LienketHydrogen/nuocda.png}
+			\captionof{figure}{Cấu trúc tinh thể phân tử nước đá\label{fig:nuocda}}
+		\end{center}
+	\end{Bancobiet}
+\subsubsection{Tương tác van der waals}
+	\Noibat[\maunhan][][\faStar][]{Giới thiệu về tương tác van der Waals (van đơ Van)}
+	\begin{center}
+		\includegraphics[width=6cm]{Images/anhhoahoc10/LienketHydrogen/luongcuctamthoi.png}
+		\captionof{figure}{Lưỡng cực tạm thời được hình thành do sự phân bố không đống đếu của các electron trong phân tử}
+	\end{center}
+	\begin{center}
+		\includegraphics[width=6cm]{Images/anhhoahoc10/LienketHydrogen/luong_cuc_cam_ung.png}
+		\captionof{figure}{Mạng lưới tương tác lưỡng cực cảm ứng được tạo thành bởi lưởng cực tạm thời}
+	\end{center}
+	\vspace{0.25cm}
+	\begin{tomtat}
+		\indam[\maunhan]{Tương tác van der Waals} là lực tương tác yếu giửa các phân tử, được hình thành do sự xuất hiện của các lưỡng cực tạm thời và lưỡng cực cảm ứng.
+	\end{tomtat}
+	\Noibat[\maunhan][][\faStar][]{Tìm hiểu ảnh hưởng của tương tác van der Waals đến nhiệt độ nóng chảy và nhiệt độ sôi các chất}
+	\begin{tomtat}
+		\indam[\maunhan]{Tương tác van der Waals} làm tăng nhiệt độ nóng chảy và nhiệt độ sôi của các chất. Khi khối lượng phân tử tăng, kích thước phân tử tăng thì tương tác van der Waals tăng.
+	\end{tomtat}
+	

@@ -1,4 +1,6 @@
 %%%%===============UPDATE 13/09/2024=====================%%%
+%%%%===============HỘP EX, VDEX, BT 3 tùy chọn===============%%%%%
+%%%%%%%%%%%%Môi trường VD tùy biến 1 tùy chọn sao=================%%%
 \newcommand\circl[2][\mycolor]{\tikz[baseline=(char.base)]{\node[shape=circle,inner sep=1pt,draw=#1,fill=#1!20,text=#1!80!black,font=\bfseries\fontfamily{qag}\selectfont,minimum size=15pt] (char) {#2};
 	}
 }
@@ -126,64 +128,65 @@
 	}
 }
 \def\ansexhead{\begin{ansex}}
-	\def\ansexend{\end{ansex}}
+\def\ansexend{\end{ansex}}
 \renewenvironment{loigiaibth}[1]{\begin{ansbt}{#1}}{\end{ansbt}}
 \renewenvironment{loigiaiex}[1]{\ansexhead{#1}}{\ansexend}
-\def\luuloigiaibt{
-	\AtBeginEnvironment{bt}{
-		\renewcommand{\loigiai}[1]{%
-		\end{btbox}
-		\def\btend{}
-		\scantokens{%
-			\begin{giaibth}
-				##1
-		\end{giaibth}}
-	}
-}
-}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HỘP CÂU CÓ 3 TÙY CHỌN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%==================Hộp vdex 3 tùy chọn==================%%%
 \NewTColorBox{exbox}{+!O{}O{}O{}}{%
 	enhanced,
 	breakable,
+	left=6pt,
 	toprule at break=-\tcboxedtitleheight,
 	fonttitle=\bfseries\sffamily\color{white},
 	title={\faClockO\ Câu~\theex},
-	code={\refstepcounter{ex}}, 
 	empty,opacityback=0,
 	colback=white,
 	colbacktitle=white,
 	fonttitle=\bfseries,
 	coltitle=black,
+	code={\refstepcounter{ex}},
 	attach boxed title to top left=
 	{yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
 	boxed title style={
 		frame hidden,
 		outer arc=0pt,
 		arc=0pt,
+		top=3pt,
 		bottom=3pt,
 		left=0pt,
 		right=0pt
 	},
+	%%==Hộp không ngắt==%%
 	overlay unbroken ={
-		\path[draw=\mycolor,rounded corners=5pt,thick] (frame.north west) rectangle (frame.south east);
+		\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) rectangle (frame.south east);
 		\path
 		($ (title.north west) +(-2pt,0pt)$) coordinate (A)
 		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
 		($ (title.south east)+(3pt,3pt) $) coordinate (C)
 		($ (title.north east)+(3pt,0) $) coordinate (D)
-		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+		(intersection of B--C and frame.north east--frame.south east) coordinate (F)
 		;
+		%%==Phần thanh tiêu đề kéo dài==%%
 		\path[fill=\mycolor!15,rounded corners=3pt]
-		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+		%%==Phần bóng đổ bên phải tiêu đề ==%%
 		\path[fill=\mycolor!70!black,rounded corners=2pt]
 		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		%%==Nền tiêu đề ==%%
+		\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
 		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		%%==Chữ Câu ==%%
 		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theex}};
+		%%==Hiển thị sao==%%
 		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+		%%==Hiển thị điểm/ nguồn==%%
 		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
+		%%==Hiển thị điểm/ nguồn==%%
 		\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
 	},
+	%%==Phần đầu của hộp khi ngắt trang==%%
 	overlay first={
 		\path[draw=\mycolor,rounded corners=5pt, thick] (frame.south west) coordinate (FSW)
 		--(frame.north west) coordinate (FNW)
@@ -196,22 +199,33 @@
 		($ (title.south west) +(-2pt,3pt)$) coordinate (B)
 		($ (title.south east)+(3pt,3pt) $) coordinate (C)
 		($ (title.north east)+(3pt,0) $) coordinate (D)
-		($ (A)+(0.99*\linewidth,0) $) coordinate (E)
+		(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+		(intersection of B--C and frame.north east--frame.south east) coordinate (F)
 		;
+		%%==Phần thanh tiêu đề kéo dài==%%
 		\path[fill=\mycolor!15,rounded corners=3pt]
-		(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
+		(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+		%%==Phần bóng đổ bên phải tiêu đề ==%%
 		\path[fill=\mycolor!70!black,rounded corners=2pt]
 		(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-		\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
+		%%==Nền tiêu đề ==%%
+		\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
 		([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+		%%==Chữ Câu ==%%
 		\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Câu~\theex}};
+		%%==Hiển thị sao==%%
 		\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+		%%==Hiển thị điểm/ nguồn==%%
 		\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
 	},
+	%%==Phần giữa của hộp khi ngắt trang==%%
 	overlay middle ={
-		\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
+		frame code={yshifttext=\tcboxedtitleheight,
+			\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
+		}
 	},
-	overlay  last ={
+	%%==Phần cuối của hộp khi ngắt trang==%%
+	overlay last ={
 		\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) coordinate (FNW)-- (frame.south west) coordinate (FSW)
 		--(frame.south east) coordinate (FSE)--(frame.north east) coordinate (FNE)
 		(FNW)--(FNE)
@@ -221,7 +235,7 @@
 	top=\tcboxedtitleheight
 }
 \def\exhead#1#2#3{\begin{exbox}[#1][#2][#3]}
-	\def\exend{\end{exbox}}
+\def\exend{\end{exbox}}
 \RenewDocumentEnvironment{ex}{+!O{}O{}O{}}{
 	\global\setbool{TNdungsai}{false}
 	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{#1}}
@@ -229,98 +243,150 @@
 	\ifblank{#3}{\def\tuychonthree{}}{\def\tuychonthree{#3}}
 	\exhead{\tuychonone}{\tuychontwo}{\tuychonthree}
 }{\gdef\tieudehinh{}\ignorespacesafterend \exend}
+
+
 \AtBeginEnvironment{ex}{%
-	\setcounter{numTrue}{0}%
-	\setcounter{numTrueSol}{0}%
 	\global\setbool{TNdungsai}{false}%
-	\def\dotEX{.}%
-	\setcounter{numChoice}{0}%
-	\renewcommand{\loigiai}[1]{	%
-	\end{exbox}\def\exend{}\gdef\tieudehinh{}\par\noindent%
-	{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1
-	\ifthenelse{\value{numTrueSol}>0}{
-		\hfill \textcolor{\maunhan}{\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}
-	}{}
-}%}
-} 
+	\xdef\maudapanT{\mauphu!50!green}%
+	\xdef\maudapanF{\maunhan}%
+	\renewcommand{\loigiaiTF}{%
+		\renewcommand{\loigiai}[1]{%
+			\end{exbox}
+			\def\exend{}
+			\par\noindent%
+			{\xdef\tieudehinh{}\par\noindent%
+				{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+				\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+				\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+				\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+				\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+		}%				
+	}
+	\ifbool{TNdungsai}{%
+		\renewcommand{\loigiai}[1]{%
+			\end{exbox}
+			\def\exend{}
+			\par\noindent%
+			{\xdef\tieudehinh{}\par\noindent%
+				{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+				\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+				\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+				\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+				\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+		}%
+	}{%
+		\renewcommand{\loigiai}[1]{
+			\end{exbox}
+			\def\exend{}
+			\xdef\tieudehinh{}\par\noindent%
+			{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}\par\noindent\ignorespaces%
+			#1
+			\ifthenelse{\value{numTrueSol}>0}{%
+				\hfill {\color{\maunhan}\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}%
+			}{}}%
+	}%					
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HỘP Bai Tap CÓ 3 TÙY CHỌN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcounter{bt}
 \NewTColorBox{btbox}{+!O{}O{}O{}}{%
 enhanced,
 breakable,
+left=6pt,
 toprule at break=-\tcboxedtitleheight,
 fonttitle=\bfseries\sffamily\color{white},
 title={\faClockO\ Bài~\thebt},
-code={\refstepcounter{bt}},
 empty,opacityback=0,
 colback=white,
 colbacktitle=white,
 fonttitle=\bfseries,
 coltitle=black,
+code={\refstepcounter{bt}},
 attach boxed title to top left=
 {yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
 boxed title style={
-frame hidden,
-outer arc=0pt,
-arc=0pt,
-top=3pt,
-bottom=3pt,
-left=0pt,
-right=0pt
+	frame hidden,
+	outer arc=0pt,
+	arc=0pt,
+	top=3pt,
+	bottom=3pt,
+	left=0pt,
+	right=0pt
 },
+%%==Hộp không ngắt==%%
 overlay unbroken ={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) rectangle (frame.south east);
-\path
-($ (title.north west) +(-2pt,0pt)$) coordinate (A)
-($ (title.south west) +(-2pt,3pt)$) coordinate (B)
-($ (title.south east)+(3pt,3pt) $) coordinate (C)
-($ (title.north east)+(3pt,0) $) coordinate (D)
-($ (A)+(0.99*\linewidth,0) $) coordinate (E)
-;
-\path[fill=\mycolor!15,rounded corners=3pt]
-(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
-\path[fill=\mycolor!70!black,rounded corners=2pt]
-(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
-([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
-\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
-\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
-\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
-\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) rectangle (frame.south east);
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+	(intersection of B--C and frame.north east--frame.south east) coordinate (F)
+	;
+	%%==Phần thanh tiêu đề kéo dài==%%
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+	%%==Phần bóng đổ bên phải tiêu đề ==%%
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	%%==Nền tiêu đề ==%%
+	\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	%%==Chữ Bài ==%%
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
+	%%==Hiển thị sao==%%
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
 },
-overlay first  ={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.south west) coordinate (FSW)
---(frame.north west) coordinate (FNW)
--- (frame.north east) coordinate (FNE)
---(frame.south east) coordinate (FSE)
-(FSW)--(FSE)
-;
-\path
-($ (title.north west) +(-2pt,0pt)$) coordinate (A)
-($ (title.south west) +(-2pt,3pt)$) coordinate (B)
-($ (title.south east)+(3pt,3pt) $) coordinate (C)
-($ (title.north east)+(3pt,0) $) coordinate (D)
-($ (A)+(0.99*\linewidth,0) $) coordinate (E)
-;
-\path[fill=\mycolor!15,rounded corners=3pt]
-(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
-\path[fill=\mycolor!70!black,rounded corners=2pt]
-(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
-([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
-\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
-\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
-\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
+%%==Phần đầu của hộp khi ngắt trang==%%
+overlay first={
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.south west) coordinate (FSW)
+	--(frame.north west) coordinate (FNW)
+	-- (frame.north east) coordinate (FNE)
+	--(frame.south east) coordinate (FSE)
+	(FSW)--(FSE)
+	;
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+	(intersection of B--C and frame.north east--frame.south east) coordinate (F)
+	;
+	%%==Phần thanh tiêu đề kéo dài==%%
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+	%%==Phần bóng đổ bên phải tiêu đề ==%%
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	%%==Nền tiêu đề ==%%
+	\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	%%==Chữ Bài ==%%
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Bài~\thebt}};
+	%%==Hiển thị sao==%%
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
 },
+%%==Phần giữa của hộp khi ngắt trang==%%
 overlay middle ={
-\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
+	frame code={yshifttext=\tcboxedtitleheight,
+		\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
+	}
 },
+%%==Phần cuối của hộp khi ngắt trang==%%
 overlay last ={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) coordinate (FNW)-- (frame.south west) coordinate (FSW)
---(frame.south east) coordinate (FSE)--(frame.north east) coordinate (FNE)
-(FNW)--(FNE)
-;
-\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) coordinate (FNW)-- (frame.south west) coordinate (FSW)
+	--(frame.south east) coordinate (FSE)--(frame.north east) coordinate (FNE)
+	(FNW)--(FNE)
+	;
+	\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
 },
 top=\tcboxedtitleheight
 }
@@ -333,24 +399,23 @@ top=\tcboxedtitleheight
 \bthead{\tuychonone}{\tuychontwo}{\tuychonthree}
 }{\btend}
 \AtBeginEnvironment{bt}{%
-\renewcommand{\FalseEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-\renewcommand{\TrueEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-\setcounter{numTrue}{0}%
-\setcounter{numTrueSol}{0}%
-\renewcommand{\loigiai}[1]{%
-\par\noindent	
-\end{btbox}
-\def\btend{}
-\begin{center}
-\par\noindent%
-{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
-\end{center}
-#1
-\ifthenelse{\value{numTrueSol}>0}{
-\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily \faKey~\circleTrue[\maunhan]{\Alph{numTrueSol}}}
-}{}
-}
-}
+	\renewcommand{\shortans}[2][]{%
+		\scantokens{%
+			\begin{giaibt}
+				#2
+		\end{giaibt}}% 
+		\phantom{.}\hfill{\raisebox{5pt}{\color{\mycolor!80!black}\faKey}\;\ovuong[3]{#2}}}%
+	\renewcommand{\loigiai}[1]{%
+	\end{btbox}
+	\def\btend{}
+	\par\noindent%
+	{\xdef\tieudehinh{}\par\noindent%
+		{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}%
+		\par\noindent\ignorespaces
+		#1
+	}%
+}%
+}				
 
 %%%==================Hộp vd 1 tùy chọn sao ==================%%%
 \newcounter{vd}
@@ -362,7 +427,6 @@ top=\tcboxedtitleheight
 	frame hidden, % hide frame
 	before skip=15pt,
 	top=9pt, left=0pt, right=0pt, % top, left and right distances to the invisible borders of the box
-%	code={\refstepcounter{vd}},
 	borderline north={1pt}{0pt}{\mycolor, -stealth, % green zig zag line
 		decoration={coil,aspect=0,
 			amplitude=1.65pt,
@@ -413,29 +477,55 @@ top=\tcboxedtitleheight
 	}
 }
 \def\vdhead#1{\begin{vdbox}[#1]}
-	\def\vdend{\end{vdbox}}
+\def\vdend{\end{vdbox}}
 \NewDocumentEnvironment{vd}{+!O{}O{}O{}}{%
 	\ifblank{#1}{\def\tuychonone{1}}{\def\tuychonone{#1}}
 	\vdhead{\tuychonone}
 }{\vdend}
 \AtBeginEnvironment{vd}{%
-	\renewcommand{\FalseEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-	\renewcommand{\TrueEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-	\setcounter{numTrue}{0}%
-	\setcounter{numTrueSol}{0}%
+	\global\setbool{TNdungsai}{false}%
+	\xdef\maudapanT{\mauphu!50!green}%
+	\xdef\maudapanF{\maunhan}%
+	\Opensolutionfile{ansbook}[Ansbook/Tam]%
+	\renewcommand{\loigiaiTF}{%
+		\renewcommand{\loigiai}[1]{%
+		\end{vdbox}
+		\def\vdend{}
+		\par\noindent%
+		{\xdef\tieudehinh{}\par\noindent%
+			{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+			\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+			\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+			\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+			\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+	}%				
+}
+\ifbool{TNdungsai}{%
 	\renewcommand{\loigiai}[1]{%
 	\end{vdbox}
 	\def\vdend{}
-	\begin{center}
-		\par\noindent%
-		{\color{\mycolor!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE \textbf{Hướng dẫn giải:}}} 
-	\end{center}
-	#1
-	\ifthenelse{\value{numTrueSol}>0}{
-		\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily \faKey~\circleTrue[\maunhan]{\Alph{numTrueSol}}}
-	}{}
+	\par\noindent%
+	{\xdef\tieudehinh{}\par\noindent%
+		{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+		\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+		\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+		\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+		\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+}%
+}{%
+\renewcommand{\loigiai}[1]{
+\end{vdbox}
+\def\vdend{}
+\gdef\tieudehinh{}\par\noindent%
+{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}\par\noindent\ignorespaces%
+#1
+\ifthenelse{\value{numTrueSol}>0}{%
+	\hfill {\color{\maunhan}\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}%
+}{}
+}%
+}%					
 }
-}
+\AtEndEnvironment{vd}{\Closesolutionfile{ansbook}}
 
 %%%==================Hộp vdex 3 tùy chọn==================%%%
 \NewTColorBox{vdexbox}{+!O{}O{}O{}}{%
@@ -454,69 +544,88 @@ code={\refstepcounter{vd}},
 attach boxed title to top left=
 {yshift=-2mm-\tcboxedtitleheight,yshifttext=2mm-\tcboxedtitleheight/2},
 boxed title style={
-frame hidden,
-outer arc=0pt,
-arc=0pt,
-top=3pt,
-bottom=3pt,
-left=0pt,
-right=0pt
+	frame hidden,
+	outer arc=0pt,
+	arc=0pt,
+	top=3pt,
+	bottom=3pt,
+	left=0pt,
+	right=0pt
 },
+%%==Hộp không ngắt==%%
 overlay unbroken ={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) rectangle (frame.south east);
-\path
-($ (title.north west) +(-2pt,0pt)$) coordinate (A)
-($ (title.south west) +(-2pt,3pt)$) coordinate (B)
-($ (title.south east)+(3pt,3pt) $) coordinate (C)
-($ (title.north east)+(3pt,0) $) coordinate (D)
-($ (A)+(0.99*\linewidth,0) $) coordinate (E)
-;
-\path[fill=\mycolor!15,rounded corners=3pt]
-(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
-\path[fill=\mycolor!70!black,rounded corners=2pt]
-(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
-([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
-\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
-\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
-\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
-\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) rectangle (frame.south east);
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+	(intersection of B--C and frame.north east--frame.south east) coordinate (F)
+	;
+	%%==Phần thanh tiêu đề kéo dài==%%
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+	%%==Phần bóng đổ bên phải tiêu đề ==%%
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	%%==Nền tiêu đề ==%%
+	\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	%%==Chữ Ví dụ ==%%
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
+	%%==Hiển thị sao==%%
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
 },
+%%==Phần đầu của hộp khi ngắt trang==%%
 overlay first={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.south west) coordinate (FSW)
---(frame.north west) coordinate (FNW)
--- (frame.north east) coordinate (FNE)
---(frame.south east) coordinate (FSE)
-(FSW)--(FSE)
-;
-\path
-($ (title.north west) +(-2pt,0pt)$) coordinate (A)
-($ (title.south west) +(-2pt,3pt)$) coordinate (B)
-($ (title.south east)+(3pt,3pt) $) coordinate (C)
-($ (title.north east)+(3pt,0) $) coordinate (D)
-($ (A)+(0.99*\linewidth,0) $) coordinate (E)
-;
-\path[fill=\mycolor!15,rounded corners=3pt]
-(A)--(B)--([xshift=0.85*\linewidth]C) coordinate (E)--([xshift=0.85*\linewidth]D) coordinate (F)--cycle;
-\path[fill=\mycolor!70!black,rounded corners=2pt]
-(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
-\path[left color=\mycolor,right color=\mycolor,rounded corners=3pt]
-([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
-\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
-\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
-\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.south west) coordinate (FSW)
+	--(frame.north west) coordinate (FNW)
+	-- (frame.north east) coordinate (FNE)
+	--(frame.south east) coordinate (FSE)
+	(FSW)--(FSE)
+	;
+	\path
+	($ (title.north west) +(-2pt,0pt)$) coordinate (A)
+	($ (title.south west) +(-2pt,3pt)$) coordinate (B)
+	($ (title.south east)+(3pt,3pt) $) coordinate (C)
+	($ (title.north east)+(3pt,0) $) coordinate (D)
+	(intersection of A--D and frame.north east--frame.south east) coordinate (E)
+	(intersection of B--C and frame.north east--frame.south east) coordinate (F)
+	;
+	%%==Phần thanh tiêu đề kéo dài==%%
+	\path[fill=\mycolor!15,rounded corners=3pt]
+	(A)--(B)--([xshift=-5pt]F) --([xshift=-5pt]E) --cycle;
+	%%==Phần bóng đổ bên phải tiêu đề ==%%
+	\path[fill=\mycolor!70!black,rounded corners=2pt]
+	(A)--(B)--([xshift=3pt]C)--([xshift=3pt]D)--cycle;
+	%%==Nền tiêu đề ==%%
+	\path[left color=\mycolor!80!black,right color=\mycolor,rounded corners=3pt]
+	([xshift=-2pt]A)--([xshift=-2pt]B)--(C)--(D)--cycle;
+	%%==Chữ Ví dụ ==%%
+	\path ($ (A)!0.5!(B) +(0pt,0)$) node[anchor=west,font=\color{white}\bfseries\sffamily\selectfont]{{\faClockO\ Ví dụ~\thevd}};
+	%%==Hiển thị sao==%%
+	\path ($ (C)!0.5!(D) +(9pt,0)$) node[anchor=west,font=\color{\mycolor}]{\taosao{#2}};
+	%%==Hiển thị điểm/ nguồn==%%
+	\path ($ (E)!0.5!(F) +(-9pt,0)$) node[anchor=east,font=\color{\mycolor!70!black}\itshape\bfseries]{#1};
 },
+%%==Phần giữa của hộp khi ngắt trang==%%
 overlay middle ={
-frame code={yshifttext=\tcboxedtitleheight,
-\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
-}
+	frame code={yshifttext=\tcboxedtitleheight,
+		\path[draw=\mycolor,thick] (frame.north west) rectangle (frame.south east);
+	}
 },
+%%==Phần cuối của hộp khi ngắt trang==%%
 overlay last ={
-\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) coordinate (FNW)-- (frame.south west) coordinate (FSW)
---(frame.south east) coordinate (FSE)--(frame.north east) coordinate (FNE)
-(FNW)--(FNE)
-;
-\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
+	\path[draw=\mycolor,rounded corners=5pt, thick] (frame.north west) coordinate (FNW)-- (frame.south west) coordinate (FSW)
+	--(frame.south east) coordinate (FSE)--(frame.north east) coordinate (FNE)
+	(FNW)--(FNE)
+	;
+	\path ([shift={(-1pt,7pt)}]frame.south east) node[anchor=east,font=\fontsize{9.2 pt}{1pt}\selectfont\color{\mycolor!70!black}\itshape\bfseries]{#3};
 },
 top=\tcboxedtitleheight
 }
@@ -528,23 +637,49 @@ top=\tcboxedtitleheight
 \ifblank{#3}{\def\tuychonthree{}}{\def\tuychonthree{#3}}
 \vdexhead{\tuychonone}{\tuychontwo}{\tuychonthree}
 }{\vdexend}
-\AtBeginEnvironment{vdex}{
-\renewcommand{\FalseEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-\renewcommand{\TrueEX}{\stepcounter{dapan}{\circlenum{\Alph{dapan}}}}
-\setcounter{numTrue}{0}%
-\setcounter{numTrueSol}{0}%
+\AtBeginEnvironment{vdex}{%
+	\global\setbool{TNdungsai}{false}%
+	\xdef\maudapanT{\mauphu!50!green}%
+	\xdef\maudapanF{\maunhan}%
+	\Opensolutionfile{ansbook}[Ansbook/Tam]%
+	\renewcommand{\loigiaiTF}{%
+		\renewcommand{\loigiai}[1]{%
+		\end{vdexbox}
+		\def\vdexend{}
+		\par\noindent%
+		{\xdef\tieudehinh{}\par\noindent%
+			{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+			\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+			\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+			\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+			\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+	}%				
+}
+\ifbool{TNdungsai}{%
+	\renewcommand{\loigiai}[1]{%
+	\end{vdexbox}
+	\def\vdexend{}
+	\par\noindent%
+	{\xdef\tieudehinh{}\par\noindent%
+		{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} #1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+		\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+		\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+		\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+		\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+}%
+}{%
 \renewcommand{\loigiai}[1]{
 \end{vdexbox}
 \def\vdexend{}
-\begin{center}
-{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải:}}
-\end{center}
+\gdef\tieudehinh{}\par\noindent%
+{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}\par\noindent\ignorespaces%
 #1
-\ifthenelse{\value{numTrueSol}>0}{
-\phantom{a}\hfill\textcolor{\mycolor!50!black}{\bfseries\sffamily \faKey~\circleTrue{\Alph{numTrueSol}}}
-}{}
+\ifthenelse{\value{numTrueSol}>0}{%
+	\hfill {\color{\maunhan}\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}%
+}{}}%
+}%					
 }
-}
+\AtEndEnvironment{vdex}{\Closesolutionfile{ansbook}}
 
 %%%=======================Một số lệnh mới================================%%%
 %%%===============Câu trả lời ngắn=======================%%%
@@ -569,15 +704,15 @@ top=\tcboxedtitleheight
 			#2
 	\end{giaibt}}% 
 	{\linepenalty100\exhyphenpenalty0
-		\hfill{\tikz{%
+		{\tikz{%
 				\path (0,-0.15) node (char) {};
-				\draw[rounded corners=2pt,thick,\maunhan] (0,-0.275) rectangle (#1,0.275);
+				\draw[rounded corners=2pt,thick,\mycolor] (0,-0.275) rectangle (#1,0.275);
 			}\hspace*{-9pt}%
 		}%
 }}
 
 \newcommand{\shortans}[2][2.5]{%
-	\ovuong{#2}%
+	\ovuong[#1]{#2}%
 }
 
 \RenewEnviron{loigiaibt}[1]{%
@@ -589,22 +724,7 @@ top=\tcboxedtitleheight
 %%%#####==================Tùy chỉnh lời giải ========================########%%%
 
 %%%================hiển thị lời giải trắc nghiệm================%%%
-\newcommand{\LGexTF}{%
-	\AtBeginEnvironment{ex}{%
-		\global\setbool{TNdungsai}{false}%
-		\xdef\maudapanT{\mauphu!50!green}%
-		\xdef\maudapanF{\maunhan}%
-		\renewcommand{\loigiai}[1]{%
-			\par\noindent%
-			{\reflectbox{\color{\maunhan}\Large\WritingHand}\ {\color{\maunhan}\fontfamily{qzc}\selectfont Lời giải.}} ##1 \hfill{{\color{\maunhan!85!black}\faKey}~ 
-				\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~
-				\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~
-				\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~
-				\ifbool{Dds}{\TLdung{D}}{\TLsai{D}} 
-			}%
-		}
-	}
-}
+
 %\gdef\tieudehinh{}\par\noindent%
 %{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}
 %\fontfamily{qzc}\selectfont Lời giải.
@@ -616,145 +736,202 @@ top=\tcboxedtitleheight
 	\AtBeginEnvironment{ex}{%
 		\renewcommand{\loigiaiTF}{%
 			\renewcommand{\loigiai}[1]{%
-			\end{exbox}
-			\def\exend{}
+				\end{exbox}
+				\def\exend{}
+				\par\noindent%
+				{\xdef\tieudehinh{}\par\noindent%
+					{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ####1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+					\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+					\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+					\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+					\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+			}%				
+		}
+		\renewcommand{\shortans}[2][]{\phantom{.}\hfill{\color{\maunhan!85!black}\raisebox{6pt}{\faKey}}\;\khungB{##2}}
+		\ifbool{TNdungsai}{%
+			\renewcommand{\loigiai}[1]{%
+				\end{exbox}
+				\def\exend{}
+				\par\noindent%
+				{\xdef\tieudehinh{}\par\noindent%
+					{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+					\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
+					\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
+					\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
+					\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
+			}%
+		}{%
+			\renewcommand{\loigiai}[1]{%
+				\end{exbox}
+				\def\exend{}
+				\gdef\tieudehinh{}\par\noindent%
+				{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}\par\noindent\ignorespaces%
+				##1
+				\ifthenelse{\value{numTrueSol}>0}{%
+					\hfill {\color{\maunhan}\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}%
+				}{}}%
+		}%					
+	}
+	\AtBeginEnvironment{bt}{%
+		\renewcommand{\shortans}[2][]{%
+			\scantokens{%
+				\begin{giaibt}
+					##2
+				\end{giaibt}}% 
+			\phantom{.}\hfill{\color{\maunhan}\raisebox{6pt}{\faKey}}\;\khungB{##2}}%
+		\renewcommand{\loigiai}[1]{%
+			\end{btbox}
+			\def\btend{}
 			\par\noindent%
 			{\xdef\tieudehinh{}\par\noindent%
-				{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ####1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
-				\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
-				\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
-				\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
-				\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
-		}%				
-	}
-	\renewcommand{\shortans}[2][]{\phantom{.}\hfill{\color{\maunhan!85!black}\raisebox{6pt}{\faKey}}\;\khungB{##2}}
-	\ifbool{TNdungsai}{%
-		\renewcommand{\loigiai}[1]{%
-		\end{exbox}
-		\def\exend{}
-		\par\noindent%
-		{\xdef\tieudehinh{}\par\noindent%
-			{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
-			\ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
-			\ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
-			\ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
-			\ifbool{Dds}{\TLdung{D}}{\TLsai{D}}}
-	}%
-}{%
-	\renewcommand{\loigiai}[1]{%
-	\end{exbox}
-	\def\exend{}
-	\gdef\tieudehinh{}\par\noindent%
-	{\color{\maunhan!85!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}\par\noindent\ignorespaces%
-	##1
-	\ifthenelse{\value{numTrueSol}>0}{%
-		\hfill {\color{\maunhan}\faKey~\circlenum[\maunhan]{\Alph{numTrueSol}}}%
-	}{}}%
-	}%					
-}
-\AtBeginEnvironment{bt}{%
-\renewcommand{\shortans}[2][]{%
-\scantokens{%
-	\begin{giaibt}
-		##2
-\end{giaibt}}% 
-\phantom{.}\hfill{\color{\maunhan}\raisebox{6pt}{\faKey}}\;\khungB{##2}}%
-\renewcommand{\loigiai}[1]{%
-\end{btbox}
-\def\btend{}
-\par\noindent%
-{\xdef\tieudehinh{}\par\noindent%
-{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}%
-\par\noindent\ignorespaces
-##1
-}%
-}%
-}
+				{\color{\maunhan}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Lời giải.}}%
+				\par\noindent\ignorespaces
+				##1
+			}%
+		}%
+	}				
 }
 %%%=============lưu lời giải =============%%%
 \def\luuloigiai{
-\xdef\maudapanT{\maunen}%
-\xdef\maudapanF{\maunen}%
-\AtBeginEnvironment{ex}{%
-\renewcommand{\loigiaiTF}{}
-\renewcommand{\loigiai}[1]{%
-\Writetofile{ansex}{\string\def\string\writeANS{\string\faKey\, \saveans}}
-\ifbool{TNdungsai}{}{\Writetofile{ansex}{\string\def\string\writeANS{\string\faKey\, \circlenum{\Alph{numTrueSol}}}}}
-\scantokens{%
-\begin{giaiex}
-	##1
-\end{giaiex}
-}% 
-}
-}
-\AtBeginEnvironment{bt}{%
-\renewcommand{\loigiai}[1]{%
-\Writetofile{ansbth}{\string\def\string\writeANS{}}
-\scantokens{%
-\begin{giaibth}
-	##1
-\end{giaibth}
-}% 
-}
-}
+	\AtBeginEnvironment{ex}{%
+		\xdef\maudapanT{\maunen}%
+		\xdef\maudapanF{\maunen}%
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{%
+			\Writetofile{ansex}{\string\def\string\writeANS{\string\faKey\, \saveans}}
+			\ifbool{TNdungsai}{}{\Writetofile{ansex}{\string\def\string\writeANS{\string\faKey\, \circlenum{\Alph{numTrueSol}}}}}
+			\scantokens{%
+				\begin{giaiex}
+					##1
+				\end{giaiex}
+			}% 
+		}
+	}
+	\AtBeginEnvironment{bt}{%
+		\renewcommand{\loigiai}[1]{%
+			\Writetofile{ansbth}{\string\def\string\writeANS{}}
+			\scantokens{%
+				\begin{giaibth}
+					##1
+				\end{giaibth}
+			}% 
+		}
+	}
 }
 
 %%%================tắt lời giải trắc nghiệm================%%%
 \def\tatloigiai{
-\xdef\maudapanT{\maunen}%
-\xdef\maudapanF{\maunen}%
-\AtBeginEnvironment{ex}{%
-\renewcommand{\loigiai}[1]{}
-\renewcommand{\loigiaiTF}{}
-}
-\AtBeginEnvironment{bt}{%
-\renewcommand{\loigiai}[1]{}
-}
-\AtBeginEnvironment{vdex}{%
-\renewcommand{\loigiai}[1]{}
-}
+	\AtBeginEnvironment{ex}{%
+		\xdef\maudapanT{\maunen}%
+		\xdef\maudapanF{\maunen}%
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{}
+	}
+	\AtBeginEnvironment{bt}{%
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{}
+	}
+	\AtBeginEnvironment{vdex}{%
+		\xdef\maudapanT{\maunen}%
+		\xdef\maudapanF{\maunen}%
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{}
+	}
+	\AtBeginEnvironment{vd}{%
+		\xdef\maudapanT{\maunen}%
+		\xdef\maudapanF{\maunen}%
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{}
+	}
 }
 %%%=====================Đổi thành dòng kẻ=======================%%%
 
 \def\dongkeloigiai{
-\xdef\maudapanT{\maunen}
-\xdef\maudapanF{\maunen}
-\AtBeginEnvironment{ex}{
-\renewcommand{\loigiaiTF}{}
-\renewcommand{\loigiai}[1]{%
-\DoiThanhDongKe{##1}
+	\AtBeginEnvironment{ex}{
+		\xdef\maudapanT{\maunen}
+		\xdef\maudapanF{\maunen}
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{%
+			\end{exbox}
+			\def\exend{}
+			\DoiThanhDongKe{##1}
+		}
+		
+	}
+	\AtBeginEnvironment{bt}{
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{%
+			\end{btbox}
+			\def\btend{}
+			\DoiThanhDongKe{##1}
+		}
+	}
+	\AtBeginEnvironment{vd}{
+		\xdef\maudapanT{\maunen}
+		\xdef\maudapanF{\maunen}
+		\renewcommand{\loigiaiTF}{}
+		\renewcommand{\loigiai}[1]{%
+		\end{vdbox}
+		\def\vdend{}
+		\DoiThanhDongKe{##1}
+	}
 }
-}
-\AtBeginEnvironment{bt}{
-\def\maudapan{white}
-\renewcommand{\loigiaiTF}{}
-\renewcommand{\loigiai}[1]{%
-\DoiThanhDongKe{##1}
-}
-}
-\AtBeginEnvironment{vd}{
-\def\maudapan{white}
-\renewcommand{\loigiaiTF}{}
-\renewcommand{\loigiai}[1]{%
-\DoiThanhDongKe{##1}
+\AtBeginEnvironment{vdex}{
+	\xdef\maudapanT{\maunen}
+	\xdef\maudapanF{\maunen}
+	\renewcommand{\loigiaiTF}{}
+	\renewcommand{\loigiai}[1]{%
+	\end{vdexbox}
+	\def\vdexend{}
+	\DoiThanhDongKe{##1}
 }
 }
 }
 %%%=============================================%%%
 \def\dongkeHaicot{
+\AtBeginEnvironment{ex}{
 \xdef\maudapanT{\maunen}
 \xdef\maudapanF{\maunen}
-\AtBeginEnvironment{ex}{
 \renewcommand{\loigiaiTF}{}
 \renewcommand{\loigiai}[1]{
-\begin{multicols}{2}			
-\DoiThanhDongKeH{##1}
-\end{multicols}%
+	\end{exbox}
+	\def\exend{}
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}%
 }
 }
 \AtBeginEnvironment{bt}{
+\xdef\maudapanT{\maunen}
+\xdef\maudapanF{\maunen}
 \renewcommand{\loigiaiTF}{}
 \renewcommand{\loigiai}[1]{
+	\end{btbox}
+	\def\btend{}
+	\begin{multicols}{2}			
+		\DoiThanhDongKeH{##1}
+	\end{multicols}%
+}
+}	
+\AtBeginEnvironment{vd}{
+\xdef\maudapanT{\maunen}
+\xdef\maudapanF{\maunen}
+\renewcommand{\loigiaiTF}{}
+\renewcommand{\loigiai}[1]{
+\end{vdbox}
+\def\vdend{}
+\begin{multicols}{2}			
+	\DoiThanhDongKeH{##1}
+\end{multicols}%
+}
+}	
+\AtBeginEnvironment{vdex}{
+\xdef\maudapanT{\maunen}
+\xdef\maudapanF{\maunen}
+\renewcommand{\loigiaiTF}{}
+\renewcommand{\loigiai}[1]{
+\end{vdexbox}
+\def\vdexend{}
 \begin{multicols}{2}			
 \DoiThanhDongKeH{##1}
 \end{multicols}%
@@ -767,13 +944,12 @@ top=\tcboxedtitleheight
 \noindent\rule{0pt}{1.1\baselineskip}%
 \foreach \i in {1,...,#2}{%
 \ifnum\i=1
-\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Bài làm:}\dotfill}\endgraf
+\noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\reflectbox{\color{\maunhan}\Large\WritingHand}\ {\color{\maunhan} \fmmfamily\LARGE Bài làm:}\dotfill}\endgraf
 \else
 \noindent\makebox[\linewidth]{\rule{0pt}{#1\baselineskip}\dotfill}\endgraf
 \fi
 }
 }
-
 \newcommand{\DoiThanhDongKe}[1]{
 \setbox0=\vbox{\hbox{
 \noindent\begin{minipage}{\linewidth}%
@@ -956,7 +1132,7 @@ top=\tcboxedtitleheight
 \fi
 \foreach \i in {1,...,\strlen} {%
 \StrChar{\chuoi}{\i}[\char]%
-\tikz\node[draw=teal!65,rectangle,minimum width=19pt,minimum height=19pt,rounded corners=1pt,text=white]{\char};%
+\tikz\node[draw=\mycolor!90!black,rectangle,minimum width=19pt,minimum height=19pt,rounded corners=1pt,text=white]{\char};%
 }%
 }
 
@@ -966,7 +1142,7 @@ top=\tcboxedtitleheight
 \setlength{\columnsep}{1cm}
 \setlength{\extrarowheight}{4pt}
 \def\columnseprulecolor{\color{\maunhan}}
-%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
 \usepackage{array}% dùng căn lề các mảng
 \usepackage{multirow}% gop các dòng
 \usepackage{makecell}% chỉnh định dạng các ô
@@ -975,11 +1151,11 @@ top=\tcboxedtitleheight
 \usepackage{longtable}
 \renewcommand{\arraystretch}{1.2}% giãn độ rộng của dòng
 \newcolumntype{L}[1]{>{\raggedright\let
-\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+	\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{C}[1]{>{\centering\let
-\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+	\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let
-\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+	\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \setlength{\tabcolsep}{5pt} % giãn độ rộng của cột
 \setlength{\aboverulesep}{4pt} 
 \setlength{\belowrulesep}{4pt}
@@ -1091,14 +1267,11 @@ font=\bfseries\footnotesize,text=\mauphu,minimum size=12pt,outer sep=0pt] (char)
 }\ignorespaces}
 \def\checkmarkH{{\tikz[line join=miter]{\draw (0.5ex,0.5ex) coordinate (O) circle (0.75ex);\path[preaction={draw=white,line width=0.2ex},fill=white,draw] (0,.5ex) -- (.5ex,0) -- (1.5ex,1.35ex) -- (.45ex,.25ex) -- cycle; \draw ([shift={(90:0.75ex)}]O) arc (90:270:0.75ex);}} }
 
-\def\itemch{\item}
-\newenvironment{itemchoice}{\begin{enumerate}[wide=0.65cm,leftmargin=0.65cm,label*=\protect{\alph*)},itemsep=-3pt,topsep=-4pt]}{\end{enumerate}}
-
 \newcommand{\loigiaiTF}{
 \renewcommand{\loigiai}[1]{%
 \par\noindent%
 {\xdef\tieudehinh{}\par\noindent%
-{\color{\mycolor}\reflectbox{\Large\WritingHand}\ {Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
+{\color{\maunhan}\reflectbox{\fmmfamily\Large\WritingHand}\ {\fmmfamily\Large Lời giải.}} ##1\hfill \textcolor{\maunhan}{\faKey}~\hspace*{-7pt}
 \ifbool{Ads}{\TLdung{A}}{\TLsai{A}}~\hspace*{-7pt}
 \ifbool{Bds}{\TLdung{B}}{\TLsai{B}}~\hspace*{-7pt}
 \ifbool{Cds}{\TLdung{C}}{\TLsai{C}}~\hspace*{-7pt}
@@ -1148,3 +1321,44 @@ rounded corners,fill=yellow!5,align=center](A){
 \end{multicols}}%
 }
 %%%================Lệnh bổ sung =====================%%%
+%%%===========Tùy chỉnh đáp án lời giải đúng sai ==================%%%
+%%%Old
+%\def\itemch{\item}
+%\newenvironment{itemchoice}{\begin{enumerate}[wide=0.65cm,leftmargin=0.65cm,label*=\protect{\alph*)},itemsep=-3pt,topsep=-4pt]}{\end{enumerate}}
+
+%%%New
+\newcounter{itemchoicecount}
+\newif\ifitemchoicetrue
+\newcommand{\itemchoiceanswers}{}
+
+\newcommand{\itemch}{%
+	\stepcounter{itemchoicecount}%
+	\edef\currentitem{\arabic{itemchoicecount}}%
+	\expandafter\ifx\csname itemchoice@\currentitem\endcsname\relax
+	\item[\alph{itemchoicecount})] \textbf{Sai}. %
+	\else
+	\csname itemchoice@\currentitem\endcsname
+	\item[\alph{itemchoicecount})] \textbf{Đúng}. %
+	\fi
+}
+
+\newcommand{\processitemchoiceanswers}[1]{%
+	\def\do##1{\expandafter\@processone##1\@nil}%
+	\expandafter\docsvlist\expandafter{#1}%
+}
+
+\def\@processone#1#2\@nil{%
+	\if T#1\relax
+	\expandafter\global\expandafter\let\csname itemchoice@#2\endcsname\itemchoicetruetrue
+	\else
+	\expandafter\global\expandafter\let\csname itemchoice@#2\endcsname\relax
+	\fi
+}
+
+\newenvironment{itemchoice}[1][]{%
+	\setcounter{itemchoicecount}{0}%
+	\processitemchoiceanswers{#1}%
+	\begin{enumerate}[wide=0.65cm,leftmargin=0.65cm,label*=\protect{\alph*)},itemsep=-3pt,topsep=-4pt]%
+	}{%
+	\end{enumerate}%
+}

@@ -1,0 +1,29 @@
+\documentclass[Main.tex]{subfiles}
+\begin{document}
+	Electron hóa trị của các nguyên tố chu kì 3 là:$\ehoatri[1][][][]{Na}$, $\ehoatri[2][][][]{Mg}$, $\ehoatri[1][2][][]{Al}$, $\ehoatri[1][1][2][]{Si}$, $\ehoatri[1][1][2][]{P}$,  $\ehoatri[2][2][2][]{S}$, $\ehoatri[1][2][2][2]{Cl}$
+
+
+%%%Hướng dẫn viết công thức Lewwis với \charge 
+%Cú pháp: \charge{[⟨general parameters⟩]⟨position⟩[⟨tikz code⟩]=⟨charge⟩}{⟨atom⟩}
+\setcharge{{.style={fill=red,draw=none}}}
+\chemfig{
+	% Cl thứ nhất
+	\charge{[.radius=0.2ex]
+		90:2pt=\:,
+		180:2pt=\:,
+		-90:2pt=\:,
+		0:2pt=\:
+		}{Cl}
+	% Liên kết đơn
+	-[,0.52,,,draw=none]
+	% Cl thứ hai
+	\charge{[.radius=0.2ex]
+		90:2pt=\:,
+		0:2pt=\.[.style={fill=blue}],
+		-90:2pt=\:
+	}{Cl}
+}
+\resetcharge
+
+\end{document}
+

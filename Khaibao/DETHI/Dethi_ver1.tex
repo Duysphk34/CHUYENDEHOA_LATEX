@@ -1,0 +1,91 @@
+\usepackage{fancyhdr}
+\usepackage{textcase}
+\usepackage{lastpage,refcount}
+\newcounter{demsode}
+\newcounter{Lastsode}
+\newcounter{Lastpage}
+\newcommand{\fileend}{%
+	\setcounter{Lastpage}{\value{page}}
+	\stepcounter{page} 
+	\setcounter{Lastsode}{\value{demsode}}
+	\stepcounter{Lastsode}
+	\label{bddethi\theLastsode}%
+	\setcounter{page}{\value{Lastpage}}
+	\setcounter{tieumuc}{0}
+	\setcounter{subsection}{0}
+}
+%\renewcommand{\headrulewidth}{2pt}
+%\fancyhf{}
+%\pagestyle{fancy}
+%%\chead{}\lhead{}\rhead{}
+%\cfoot{}
+%\renewcommand{\headrulewidth}{1pt}
+%\renewcommand{\headrule}{\hbox to\headwidth{%
+%		\color{\mycolor!30!black}\leaders\hrule height \headrulewidth\hfill}}
+%\renewcommand{\footrulewidth}{1pt} % Đặt độ dày cho footrule
+%\renewcommand{\footrule}{\hbox to\headwidth{%
+%		\color{\mycolor!30!black}\leaders\hrule height \footrulewidth\hfill}}
+\renewcommand{\chaptermark}[1]{\markboth{\color{darkmidnightblue}\sffamily Chương \arabic{chapter}.\ {#1}}{}%
+}	
+\renewcommand{\sectionmark}[1]{\markright{\color{\mycolor!30!black}\fontsize{10pt}{0pt}\selectfont\Large\fmmfamily\faMortarBoard\ \thesection\;#1}}
+
+\fancyhead[LO,RE]{\color{\mycolor!30!black}{\Large\fmmfamily\itshape Biên soạn: Nguyễn Tường Duy}}	
+
+\fancyfoot[RO,LE]{\color{\mycolor!30!black}{\Large\fmmfamily \textit{Trang \thepage/\pageref{LastPage} - Mã đề \made}}} 
+\fancyhead[LE]{\rightmark}
+\newcommand{\madethi}[1]{\color{\mycolor!50!black}\fbox{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries Mã đề thi #1}}
+%%%Tùy chọn 1: Kì thi
+%%%Tùy chọn 2: Môn
+%%%Tùy chọn 3: lớp
+%%%Tùy chọn 4: Sở/Phòng
+%%%Tùy chọn 5: Ngày thi
+\BeforeBeginEnvironment{name}{
+\pgfmathsetmacro{\made}{random(101,401)}
+}
+\gdef\made{}
+\NewDocumentEnvironment{name}{O{}O{}O{}O{}O{\today}mm}{
+	\ifblank{#1}{\def\tuychonone{KIỂM TRA GIỮA KÌ I}}{\def\tuychonone{#1}}
+	\ifblank{#2}{\def\tuychontwo{Toán}}{\def\tuychontwo{#2}}
+	\ifblank{#3}{\def\tuychonthird{9}}{\def\tuychonthird{#3}}
+	\ifblank{#4}{\def\tuychonfour{PHÒNG GIÁO DỤC VÀ ĐÀO TẠO}}{\def\tuychonfour{#4}}
+	\newpage
+	\setcounter{ex}{0}
+	\setcounter{bt}{0}
+	\noindent\refstepcounter{demsode}\label{bddethi\thedemsode}%
+	\addcontentsline{toc}{section}{Đề số \thedemsode.#6 - Năm học: #7}
+	\renewcommand{\arraystretch}{0.9}
+	\vspace*{-1.0cm}
+\begin{tcolorbox}[colback=\mycolor!5,frame empty,arc=5pt]
+	\resizebox{\linewidth}{!}{\begin{tabular}{C{0.4\textwidth}C{0.6\textwidth}}
+		{\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries\color{\mycolor!30!black} \MakeUppercase{\tuychonfour}} &\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries\color{\mycolor!30!black} \tuychonone \\
+		\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries\color{\mycolor!30!black} #6 &\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries\color{\mycolor!30!black} Môn: \tuychontwo \;- Lớp \tuychonthird \;- Chương trình chuẩn\\
+		{\color{\mycolor!50!black}\fbox{\fontsize{12pt}{4pt}\fontfamily{qag}\selectfont\bfseries Đề số \circlenumH[\maunhan!50!black]{\fontfamily{ugq}\selectfont\large\thedemsode}}}&{\color{\mycolor!30!black}\textit{Năm học: #7}}\\
+{\ifnum\number\numexpr\getpagerefnumber{bddethi\number\numexpr\thedemsode+1\relax}-\getpagerefnumber{bddethi\thedemsode}>0
+	({\itshape Đề kiểm tra có \number\numexpr\getpagerefnumber{bddethi\number\numexpr\thedemsode+1\relax}-\getpagerefnumber{bddethi\thedemsode}+1 \relax\ trang})
+	\else
+	(\textit{Đề kiểm tra có 1 trang})
+	\fi } &\color{\mycolor!50!black}\textit{Thời gian: \thoigian\ (không kể thời gian phát đề )}\\
+	{\hypersetup{linkcolor=\mycolor} (\textit{từ trang \pageref{bddethi\thedemsode} đến trang \pageref{bddethi\number\numexpr\thedemsode+1\relax}})}	&\color{\mycolor!50!black}\textit{Ngày thi: #5}
+	\end{tabular}}
+	\resizebox{\linewidth}{!}{\begin{tabular}{L{0.7\textwidth}R{0.25\textwidth}}
+		{\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries\color{\mycolor!30!black}\bfseries{Họ, tên thí sinh:}}\dotfill& \\
+		{\fontsize{12pt}{0pt}\fontfamily{qag}\selectfont\bfseries \color{\mycolor!30!black}\bfseries{Số báo danh:}}\dotfill & \madethi{\made}
+	\end{tabular}}
+\end{tcolorbox}
+}{}
+
+\newcounter{tieumuc}
+\renewcommand{\thetieumuc}{\Roman{tieumuc}}
+\renewcommand{\tieumuc}[2][\mycolor!55!black]{
+	\refstepcounter{tieumuc}
+	 \addcontentsline{toc}{subsection}{#2}
+	\par\noindent{\color{#1}\textbf{\fontfamily{qag}\selectfont{Phần \thetieumuc:\ #2\;}}}
+}
+
+
+
+
+
+
+
+

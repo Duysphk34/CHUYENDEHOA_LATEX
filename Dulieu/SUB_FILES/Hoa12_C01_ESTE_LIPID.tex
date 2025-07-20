@@ -1,0 +1,26 @@
+\documentclass[Main.tex]{subfiles}
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+\setchemfig{bond style={\mycolor,line width=0.8pt},atom sep=2.2em,atom style={\mycolor},bond join=true}
+\NewDocumentCommand{\nodefill}{O{\mycolor}mm}{
+ \path[
+	fill=#1,
+	rounded corners=2pt,
+	fill opacity=0.5,
+	text opacity=1
+	]
+	([shift={(135:3pt)}]#2.north west)
+	rectangle
+	([shift={(-45:3pt)}]#3.south east) ;
+}
+\setlist[itemize,1]{itemsep=-3pt,topsep=0pt,label=\protect{\small\color{\mycolor}\rhombusdot},wide=1cm,leftmargin=1cm}
+\begin{document}
+%%%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{4}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\part{Hóa hữu cơ}
+\chapter{Ester - Lipid}
+\input{DuLieu/Lop_12/H12-C01-B01-ESTE_LIPID.tex}
+\end{document}
+

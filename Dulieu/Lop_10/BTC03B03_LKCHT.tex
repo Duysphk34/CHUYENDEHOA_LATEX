@@ -1,0 +1,1544 @@
+\setchemfig{atom sep=2em}
+\phan{Bài tập tự luận}
+%%==============Bai_BT1==============%%%
+\begin{bt}
+	Cho giá trị độ âm điện của các nguyên tố: Cl ($3{,}16$), O ($3{,}44$), N ($3{,}04$), H ($2{,}20$), Al ($1{,}61$), Na ($0{,}93$). Xác định kiểu liên kết (liên kết ion? cộng hóa trị không phân cực? cộng hóa trị phân cực?) trong các phân tử sau: $HCl$, $H_2$, $NH_3$, $Na_2O$, $O_2$, $NaCl$, $AlCl_3$.
+	\loigiai{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Phân tử & Hiệu độ âm điện & Kiểu liên kết \\
+			\hline
+			$HCl$ & $3{,}16-2{,}2=0{,}96< 1{,}7$ & Cộng hóa trị phân cực \\
+			\hline
+			$H_2$ & $2{,}2-2{,}2=0$ & Cộng hóa trị không phân cực \\
+			\hline
+			$NH_3$ & $3{,}04-2{,}2=0{,}84< 1{,}7$ & Cộng hóa trị phân cực \\
+			\hline
+			$Na_2O$ & $3{,}44-0{,}93=2{,}51> 1{,}7$ & Ion \\
+			\hline
+			$O_2$ & $3{,}44-3{,}44=0$ & Cộng hóa trị không phân cực \\
+			\hline
+			$NaCl$ & $3{,}16-0{,}93=2{,}23> 1{,}7$ & Ion \\
+			\hline
+			$AlCl_3$ & $3{,}16-1{,}61=1{,}55< 1{,}7$ & Cộng hóa trị phân cực \\
+			\hline
+		\end{tabular}
+	}
+\end{bt}
+%%==============HetBai_BT1==============%%%
+
+%%%==============Bai_BT2==============%%%
+\begin{bt}
+	Dự đoán kiểu liên kết hóa học trong các phân tử sau đây: $Cl_2$, $NH_3$, $KCl$, $O_2$, $NaF$, $CaCl_2$, $HCl$, $MgO$.
+	\loigiai{
+		\begin{itemize}
+			\item Liên kết cộng hóa trị không phân cực: $Cl_2$, $O_2$.
+			\item Liên kết cộng hóa trị phân cực: $NH_3$, $HCl$.
+			\item Liên kết ion: $KCl$, $NaF$, $CaCl_2$, $MgO$.
+		\end{itemize}
+	}
+\end{bt}
+%%%==============HetBai_BT2==============%%%
+
+%%%==============Bai_BT3==============%%%
+\begin{bt} Ammonia ($NH_3$) khan (nguyên chất) được bơm vào đất ở dạng khí, là nguồn phân đạm phổ biến ở Bắc Mỹ do giá thành và tuổi thọ tương đối lâu trong đất so với các dạng phân đạm khác. Do tính ổn định của ammonia khan trên đất lạnh, nông dân trồng ngô thường bón ammonia khan vào mùa thu để bắt đầu hoạt động gieo trồng vào mùa xuân. Viết công thức elctron, công thức Lewis và công thức cấu tạo của ammonia.
+	\loigiai{%
+	\begin{center}
+		\begin{tikzpicture}[ampersand replacement=\&]
+			\matrix (m) [matrix of nodes,
+			nodes={anchor=center,minimum width=4.6cm,align=center,inner sep =5pt,font=\sffamily\bfseries},
+			column sep=0pt-\pgflinewidth,
+			row sep =0pt-\pgflinewidth,
+			nodes in empty cells,
+			row 1/.style={minimum height = 0.65cm},
+			row 2/.style={minimum height = 2cm},
+			]
+			{Công thức electron \& Công thức Lewis \& Công thức cấu tạo \\
+			\chemfig{H-[,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,180:2pt=\:,90:2pt=\:,-90:2pt=\:}{N}(-[:-90,0.85,,,draw=none]H)-[,0.85,,,draw=none]H}
+			\& \chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:}{N}(-[:-90]H)-H}
+			\& \chemfig{H-N(-[:-90]H)-H} \\
+			};
+			% Vẽ đường viền
+			\draw[thick,\mycolor] (m-1-1.north west) rectangle (m-2-3.south east);
+			\draw[thick,\mycolor] (m-1-1.south west) -- (m-1-3.south east);
+			\draw[thick,\mycolor] (m-1-1.north east) -- (m-2-1.south east);
+			\draw[thick,\mycolor] (m-1-2.north east) -- (m-2-2.south east);
+		\end{tikzpicture}
+	\end{center}}
+\end{bt}
+%%%==============HetBai_BT3==============%%%
+%%%==============Bai_BT4==============%%%
+\begin{bt}[CTST-SBT] Ozone ($O_3$) là một loại khí có tính oxi hoá mạnh, phân tử gồm ba nguyên tử oxygen. Ozone xuất hiện ở tầng đối lưu và tầng bình lưu của khí quyển. Tuỳ thuộc vào vị trí của ozone trong các tầng trên mà nó ảnh hưởng đến sự sống trên Trái Đất theo các cách tốt, xấu khác nhau. Phân tử ozone có sự hiện diện liên kết cho – nhận. Viết công thức Lewis và công thức cấu tạo của ozone.
+	\loigiai{
+	\begin{center}
+	\begin{tikzpicture}[ampersand replacement=\&]
+		\matrix (m) [matrix of nodes,
+		nodes={anchor=center,minimum width=4.6cm,align=center,inner sep =5pt,font=\sffamily\bfseries},
+		column sep=0pt-\pgflinewidth,
+		row sep =0pt-\pgflinewidth,
+		nodes in empty cells,
+		row 1/.style={minimum height = 0.65cm},
+		row 2/.style={minimum height = 2cm},
+		]
+		{Công thức electron \& Công thức Lewis \& Công thức cấu tạo \\
+			\chemfig{\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,180:2pt=\:}{O}-[,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:[.style={fill=\maunhan,draw=none}],90:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],180:2pt=\:[.style={fill=\maunhan,draw=\maunhan}]}{O}-[,0.65,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,-90:2pt=\:,90:2pt=\:}{O}}
+			\& 				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,180:2pt=\:}{O}=\charge{[.radius=0.2ex]90:2pt=\:[.style={fill=\maunhan,draw=\maunhan}]}{O}-[,1,,,-stealth]\charge{[.radius=0.2ex]0:2pt=\:,-90:2pt=\:,90:2pt=\:}{O}}
+			\&
+			\chemfig{O=O-[,1,,,-stealth]O} \\
+		};
+		% Vẽ đường viền
+		\draw[thick,\mycolor] (m-1-1.north west) rectangle (m-2-3.south east);
+		\draw[thick,\mycolor] (m-1-1.south west) -- (m-1-3.south east);
+		\draw[thick,\mycolor] (m-1-1.north east) -- (m-2-1.south east);
+		\draw[thick,\mycolor] (m-1-2.north east) -- (m-2-2.south east);
+	\end{tikzpicture}
+	\end{center}}
+\end{bt}
+%%%==============HetBai_BT4==============%%%
+%%%==============Bai_BT5==============%%%
+\begin{bt}
+	Viết công thức electron, công thức Lewis và công thức cấu tạo của các phân tử sau:
+	\begin{enumerate}
+		\item $Cl_2$, $O_2$, $N_2$. 
+		\item  $HCl$, $H_2S$, $CH_4$, $C_2H_4$, $C_2H_2$.
+		\item $SO_2$, $SO_3$, $HNO_3$, $H_2SO_4$, $H_2CO_3$, $H_3PO_4$. 
+		\item $HClO$, $HClO_2$, $HClO_3$, $HClO_4$.
+	\end{enumerate}
+	\loigiai{
+		% Tạo command để vẽ một hàng của bảng
+		\NewDocumentCommand{\matrixrow}{O{-14pt}O{1cm}mmmm}{%
+			\noindent\begin{tikzpicture}[ampersand replacement=\&]
+				\matrix (m) [matrix of nodes,
+				nodes={anchor=center,align=center,inner sep=5pt,font=\sffamily},
+				column sep=0pt-\pgflinewidth,
+				row sep=0pt-\pgflinewidth,
+				nodes in empty cells,
+				row 1/.style={minimum height = #2},
+				column 1/.style={minimum width = 3cm},
+				column 2/.style={minimum width = 4.5cm},
+				column 3/.style={minimum width = 4.5cm},
+				column 4/.style={minimum width = 4.5cm}
+				]
+				{#3 \& #4 \& #5 \& #6\\};
+				% Vẽ đường viền
+				\draw[thick,\mycolor] (m-1-1.north west) rectangle (m-1-4.south east);
+				\draw[thick,\mycolor] (m-1-1.north east) -- (m-1-1.south east);
+				\draw[thick,\mycolor] (m-1-2.north east) -- (m-1-2.south east);
+				\draw[thick,\mycolor] (m-1-3.north east) -- (m-1-3.south east);
+			\end{tikzpicture}\\[#1]}
+		\begin{longtable}{@{}c@{}}
+			% Header cho trang đầu
+			\begin{tikzpicture}[ampersand replacement=\&]
+				\matrix (n) [matrix of nodes,
+				nodes={anchor=center,align=center,
+				inner sep=5pt,fill=\mycolor!20,
+				font=\sffamily\bfseries},
+				column sep=0pt-\pgflinewidth,
+				row sep=0pt-\pgflinewidth,
+				nodes in empty cells,
+				row 1/.style={minimum height = 0.85cm},
+				column 1/.style={minimum width = 3cm},
+				column 2/.style={minimum width = 4.5cm},
+				column 3/.style={minimum width = 4.5cm},
+				column 4/.style={minimum width = 4.5cm}
+				]
+				{Phân tử \& Công thức electron \& Công thức Lewis \& Công thức cấu tạo \\};
+				\draw[thick,\mycolor] (n-1-1.north west) rectangle (n-1-4.south east);
+				\draw[thick,\mycolor] (n-1-1.north east) -- (n-1-1.south east);
+				\draw[thick,\mycolor] (n-1-2.north east) -- (n-1-2.south east);
+				\draw[thick,\mycolor] (n-1-3.north east) -- (n-1-3.south east);
+			\end{tikzpicture}\\[-14pt]
+			\endfirsthead
+			% Header cho các trang tiếp theo
+			\begin{tikzpicture}[ampersand replacement=\&]
+				\matrix (n) [matrix of nodes,
+				nodes={anchor=center,align=center,
+				inner sep=5pt,fill=\mycolor!20,
+				font=\sffamily\bfseries},
+				column sep=0pt-\pgflinewidth,
+				row sep=0pt-\pgflinewidth,
+				nodes in empty cells,
+				row 1/.style={minimum height = 0.85cm},
+				column 1/.style={minimum width = 3cm},
+				column 2/.style={minimum width = 4.5cm},
+				column 3/.style={minimum width = 4.5cm},
+				column 4/.style={minimum width = 4.5cm}
+				]
+				{Phân tử \& Công thức electron \& Công thức Lewis \& Công thức cấu tạo \\};
+				\draw[thick,\mycolor] (n-1-1.north west) rectangle (n-1-4.south east);
+				\draw[thick,\mycolor] (n-1-1.north east) -- (n-1-1.south east);
+				\draw[thick,\mycolor] (n-1-2.north east) -- (n-1-2.south east);
+				\draw[thick,\mycolor] (n-1-3.north east) -- (n-1-3.south east);
+			\end{tikzpicture}\\[0pt]
+			\endhead
+			% Dong 1
+			\matrixrow{\chemfig{Cl_2}}{
+				\chemfig{\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,180:2pt=\:,-90:2pt=\:}{Cl}-[0,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}}
+			}{
+				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,180:2pt=\:,-90:2pt=\:}{Cl}-\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}}
+			}{
+				\chemfig{Cl-Cl}
+			}
+			%%Dòng 2
+			\matrixrow{\chemfig{O_2}}{
+				\chemfig{\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,180:2pt=\:}{O}-[:0,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,180:2pt=\:}{O}}
+			}{
+				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,180:2pt=\:}{O}=\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:}{O}}
+			}{
+				\chemfig{O=O}
+			}
+			%%%Dong 3
+			\matrixrow{\chemfig{N_2}}{
+				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\.,0:2pt=\.[.style={yshift=9pt,fill=black}],0:2pt=\.[.style={yshift=-9pt,fill=black}]}{N}-[:0,0.85,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,180:2pt=\.,180:2pt=\.[.style={yshift=9pt,fill=black}],180:2pt=\.[.style={yshift=-9pt,fill=black}]}{N}}
+			}{
+				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:}{N}~\charge{[.radius=0.2ex]90:2pt=\:}{N}}
+			}{
+				\chemfig{N~N}
+			}
+			%%%Dong4
+			\matrixrow{\chemfig{HCl}}{
+				\chemfig{H-[:0,0.85,,,draw=none]\charge{[.radius=0.2ex]180:2pt=\:,0:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}}
+			}{
+				\chemfig{H-\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}}
+			}{
+				\chemfig{H-Cl}
+			}
+			%%%Dong 5
+			\matrixrow{\chemfig{H_2S}}{
+				\chemfig{H-[:0,0.85,,,draw=none]\charge{[.radius=0.2ex]180:2pt=\:,0:2pt=\:,90:2pt=\:,-90:2pt=\:}{S}-[:0,0.85,,,draw=none]H}
+			}{
+				\chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{S}-H}
+			}{
+				\chemfig{H-S-H}
+			}
+			%%%Dong 6
+			\matrixrow[-14pt][2.5cm]{\chemfig{CH_4}}{
+				\chemfig{H-[,,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,180:2pt=\:,90:2pt=\:,-90:2pt=\:}{C}(-[:-90,,,,draw=none]H)(-[:90,,,,draw=none]H)-[,,,,draw=none]H}
+			}{
+				\chemfig{H-C(-[:-90]H)(-[:90]H)-H}
+			}{
+				\chemfig{H-C(-[:-90]H)(-[:90]H)-H}
+			}
+			%%%Dong 8
+			\matrixrow[-14pt][2.5cm]{\chemfig{C_2H_4}}{
+				\chemfig{H-[:-60,,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,120:2pt=\:,-120:2pt=\:}{C}(-[:-120,,,,draw=none]H)-[,0.85,,,draw=none]\charge{[.radius=0.2ex]180:2pt=\:,60:2pt=\:,-60:2pt=\:}{C}(-[:60,,,,draw=none]H)-[:-60,,,,draw=none]H}
+			}{
+				\chemfig{H-[:-60]C(-[:-120]H)=C(-[:60]H)-[:-60]H}
+			}{
+				\chemfig{H-[:-60]C(-[:-120]H)=C(-[:60]H)-[:-60]H}
+			}
+			%%%Dong 9
+			\matrixrow[-14pt][1.2cm]{\chemfig{C_2H_2}}{
+				\chemfig{H-[,0.85,,,draw=none]\charge{[.radius=0.2ex]180:2pt=\:,0:2pt=\.[.style={yshift=9pt,fill=black}],0:2pt=\.[.style={yshift=0pt,fill=black}],0:2pt=\.[.style={yshift=-9pt,fill=black}]}{C}-[,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,180:2pt=\.[.style={yshift=9pt,fill=black}],180:2pt=\.[.style={yshift=0pt,fill=black}],180:2pt=\.[.style={yshift=-9pt,fill=black}]}{C}-[,0.85,,,draw=none]H}
+			}{
+				\chemfig{H-C~C-H}
+			}{
+				\chemfig{H-C~C-H}
+			}
+			%%%Dong 10
+			\matrixrow[-14pt][2cm]{%
+				\chemfig{SO_2}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]45:2pt=\:,180:2pt=\:,-90:2pt=\:}{O}-[:45,1,,,draw=none]\charge{[.radius=0.2ex]-45:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],-135:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],90:2pt=\:[.style={fill=\maunhan,draw=\maunhan}]}{S}-[:-45,1,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,-90:2pt=\:,180:2pt=\:}{O}}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]180:2pt=\:,-90:2pt=\:}{O}=[:45]\charge{[.radius=0.2ex]90:2pt=\:}{S}-[:-45,,,,-stealth]\charge{[.radius=0.2ex]180:2pt=\:,-90:2pt=\:,0:2pt=\:}{O}}
+			}{%
+				\chemfig{O=[:45]S-[:-45,,,,-stealth]O}
+			}	
+			%%%Dong 11
+			\matrixrow[-14pt][2.2cm]{%
+				\chemfig{SO_3}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]180:2pt=\:,90:2pt=\:,-90:2pt=\:}{O}-[:30,0.85,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],-30:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],-150:2pt=\:[.style={fill=\maunhan,draw=\maunhan}]}{S}(=[:90,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,180:2pt=\:,-90:2pt=\:}{O})-[:-30,0.85,,,draw=none]\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,-90:2pt=\:}{O}}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]180:2pt=\:,90:2pt=\:,-90:2pt=\:}{O}-[:30,,,,<-,>=stealth]S(=[:90]\charge{[.radius=0.2ex]180:2pt=\:,0:2pt=\:}{O})-[:-30,,,,-stealth]\charge{[.radius=0.2ex]0:2pt=\:,90:2pt=\:,-90:2pt=\:}{O}}
+			}{%
+				\chemfig{O-[:30,,,,<-,>=stealth]S(=[:90]O)-[:-30,,,,-stealth]O}
+			}					
+			%%%Dong12
+			\matrixrow[-14pt][2.2cm]{%
+				\chemfig{HNO_3}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]0:2pt=\.}{H}-[:0,,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\.,180:2pt=\.}{O}-[0,,,,draw=none]\charge{[.radius=0.2ex]45:2pt=\:[.style={fill=\maunhan,draw=\maunhan}],-45:1.5pt=\:[.style={fill=\maunhan,draw=\maunhan}],180:2pt=\.[.style={fill=\maunhan,draw=\maunhan}]}{N}(-[:-45,,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,-90:2pt=\:}{O})=[:45,1,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,-135:1pt=\:}{O}}				
+			}{%
+				\chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-N(-[:-45,,,,->,>=stealth]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,-90:2pt=\:}{O})=[:45]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:}{O}}
+			}{%
+				\chemfig{H-O-N(-[:-45,,,,->,>=stealth]O)=[:45]O}
+			}
+			%%%Dong13
+			\matrixrow[-14pt][2.3cm]{%
+				\chemfig{H_2SO_4}
+			}{%
+				\chemfig{\charge{0:3pt=\.}{H}-[:0,,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\.,-45:2.5pt=\.}{O}-[:-45,1.2,,,,draw=none]\charge{[.radius=0.2ex]45:4pt=\:[.style={fill=\maunhan,draw=\maunhan}],135:4pt=\.[.style={fill=\maunhan,draw=\maunhan}],-45:4pt=\:[.style={fill=\maunhan,draw=\maunhan}],-135:4pt=\.[.style={fill=\maunhan,draw=\maunhan}]}{S}(-[:45,1.2,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{O})(-[:-45,1.2,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{O})-[:-135,1.2,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\.,45:2pt=\.}{O}-[:180,,,,draw=none]\charge{0:3pt=\.}{H}}			
+			}{%
+				\chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-[:-45,1.2]S(-[:45,1.2,,,-stealth]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{O})(-[:-45,1.2,,,-stealth]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{O})-[:-135,1.2]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-[:180]H}
+			}{%
+				\chemfig{H-O-[:-45,1.2]S(-[:45,1.2,,,-stealth]O)(-[:-45,1.2,,,-stealth]O)-[:-135,1.2]O-[:180]H}
+			}
+			%%%Dong14
+			\matrixrow[-14pt][2.3cm]{%
+				\chemfig{H_2CO_3}
+			}{%
+				\chemfig{\charge{[.radius=0.2ex]0:3.5pt=\.}{H}-[:0,,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\.,-45:2pt=\.}{O}-[:-45,1.2,,,draw=none]\charge{[.radius=0.2ex]0:3.5pt=\:[.style={fill=\maunhan,draw=\maunhan}],135:3.5pt=\.[.style={fill=\maunhan,draw=\maunhan}],-135:3.5pt=\.[.style={fill=\maunhan,draw=\maunhan}]}{C}(=[:0,,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\:}{O})-[:-135,1.2,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\.,45:2pt=\.	}{O}-[:180,,,,draw=none]\charge{[.radius=0.2ex]0:3.5pt=\.}{H}}		
+			}{%
+				\chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-[:-45,1.2]C(=[:0]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O})-[:-135,1.2]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-[:180]H}
+			}{%
+				\chemfig{H-O-[:-45,1.2]C(=[:0]O)-[:-135,1.2]O-[:180]H}
+			}						
+		\end{longtable}	
+	 }
+\end{bt}
+%%%==============HetBai_BT5==============%%%
+%%%==============Bai_BT6==============%%%
+\begin{bt}[CTST-SBT] Hydrogen sulfide $\left(H_2\mathrm{~S}\right)$ là một chất khí không màu, mùi trứng thối, độc. Theo tài liệu của Cơ quan Quản lí an toàn và sức khoẻ nghề nghiệp Hoa Kì, nồng độ $H_2\mathrm{~S}$ khoảng 100 ppm gây kích thích màng phổi. Nồng độ khoảng $400-700\mathrm{ppm}, H_2\mathrm{~S}$ gây nguy hiểm đến tính mạng chỉ trong 30 phút. Nồng độ trên 800 ppm gây mất ý thức và làm tử vong ngay lập tức.
+	\begin{enumerate}
+		\item Viết công thức Lewis và công thức cấu tạo của $H_2\mathrm{~S}$.
+		\item Em hiểu thế nào về nồng độ ppm của $H_2\mathrm{~S}$ trong không khí?
+		\item Một gian phòng trống $\left(25^{\circ} C\right.$; 1 bar) có kích thước 3 mx 4 mx 6 m bị nhiễm 10 gam khí $H_2\mathrm{~S}$. Tính nồng độ ppm của $H_2\mathrm{~S}$ trong gian phòng trên. Đánh giá mức độ độc hại của $H_2\mathrm{~S}$ trong trường hợp này. Cho biết 1 mol khí ở $25^{\circ} C$ và 1 bar có thể tích $24,79\mathrm{~L}$.
+	\end{enumerate}
+	\loigiai{
+		\begin{enumerate}
+			\item Công thức Lewis: \chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:}{S}-H}; công thức cấu tạo: $H-S-H$.
+			\item Nồng độ ppm của $H_2\mathrm{S}$ trong không khí là số lít khí $H_2\mathrm{S}$ có trong $1000000$ L không khí.
+			\\
+			Ví dụ nếu trong 1000 L không khí có sẵn $0,1$ L $H_2S$
+			thì trong $1000000$ L không khí có $\dfrac{1000000 \times 0{,}1}{1000}=100$ L $H_2\mathrm{S}$.
+			\\
+			Ta nói nồng độ ppm của $H_2\mathrm{~S}$ trong không khí là 100 ppm.
+			\item Thể tích không khí $=$ thể tích gian phòng $=3\times 4\times6=72\mathrm{~m}^3=72000\mathrm{~L}$.
+			\\
+			Thể tích của 10 gam $H_2\mathrm{~S}=\dfrac{24{,}79\times10}{34}=7,3\mathrm{~L}$.
+			\\
+			Trong $72000$ L không khí có $7,3\mathrm{~L} H_2\mathrm{~S} \Rightarrow$
+			trong $1000000$ L không khí có $\dfrac{1000000\times7{,}3}{72000}=101{,}38LH_2\mathrm{~S}$.
+			\\
+			Vậy nồng độ $H_2\mathrm{~S}$ trong gian phòng là $101{,}38$ ppm nên gây kích thích màng phổi.
+		\end{enumerate}
+	}
+\end{bt}
+%%%==============HetBai_BT6==============%%%
+%%%==============Bai_BT7==============%%%
+\begin{bt}[CD-SBT] Cho biết năng lượng liên kết $H-H$ là $436\mathrm{~kJ} \mathrm{~mol}^{-1}$. Hãy tính năng lượng cần thiết (theo eV) để phá vỡ liên kết trong phân tử $H_2$, cho biết $1\mathrm{eV}=1,602\times 10^{-19} \mathrm{~J}$.
+	\loigiai{
+		Năng lượng cần thiết để phá vỡ liên kết trong phân tử $H_2$ là
+		$$
+		\dfrac{436 \cdot 1000}{\mathrm{~N}_A \cdot 1,602 \cdot 10^{-19}}=\dfrac{436 \cdot 1000}{6,02 \cdot 10^{23} \cdot 1,602 \cdot 10^{-19}}=4,52 \mathrm{eV}
+		$$
+	}
+\end{bt}
+%%%==============HetBai_BT7==============%%%
+\phan{Trắc nghiệm nhiều lựa chọn}
+\setchemfig{atom sep=2em}
+%%%=============SOẠN EX===============%%%
+\Opensolutionfile{ansex}[Ans/LGEX-C03_B03_Lien_Ket_Cong_Hoa_Tri.tex]
+\Opensolutionfile{ans}[Ans/Ans-C03_B03_Lien_Ket_Cong_Hoa_Tri.tex]
+%%%=============EX_1=============%%%
+\begin{ex}
+	Liên kết cộng hóa trị là liên kết được hình thành giữa hai nguyên tử bằng cách
+	\choice
+	{chuyển electron từ nguyên tử này sang nguyên tử khác.}
+	{\True dùng chung electron.}
+	{hút tĩnh điện.}
+	{cho nhận proton.}
+	\loigiai{Liên kết cộng hóa trị được hình thành bằng cách dùng chung một hay nhiều cặp electron giữa hai nguyên tử.}
+\end{ex}
+%%%=============EX_2=============%%%
+\begin{ex}
+	Nguyên tử Cl có 7 electron lớp ngoài cùng, khi hình thành liên kết với một nguyên tử Cl khác, mỗi nguyên tử Cl có xu hướng
+	\choice
+	{nhận thêm 2 electron.}
+	{nhường đi 1 electron.}
+	{\True góp chung 1 electron.}
+	{nhường đi 7 electron.}
+	\loigiai{Nguyên tử Cl có 7 electron lớp ngoài cùng, để đạt cấu hình electron bền vững của khí hiếm, mỗi nguyên tử Cl sẽ góp chung 1 electron để tạo thành 1 cặp electron chung.}
+\end{ex}
+%%%=============EX_3=============%%%
+\begin{ex}
+	Liên kết trong phân tử nào sau đây là liên kết cộng hóa trị không cực?
+	\choice
+	{HCl}
+	{HBr}
+	{\True Cl$_2$}
+	{HF}
+	\loigiai{Liên kết cộng hóa trị không cực được hình thành giữa hai nguyên tử giống nhau. Vậy Cl$_2$ có liên kết cộng hóa trị không cực.}
+\end{ex}
+%%%=============EX_4=============%%%
+\begin{ex}
+	Phân tử nào sau đây có liên kết cộng hóa trị phân cực?
+	\choice
+	{N$_2$}
+	{H$_2$}
+	{\True NH$_3$}
+	{O$_2$}
+	\loigiai{Liên kết cộng hóa trị phân cực được hình thành giữa hai nguyên tử khác nhau. Vậy NH$_3$ có liên kết cộng hóa trị phân cực.}
+\end{ex}
+%%%=============EX_5=============%%%
+\begin{ex}
+	Trong phân tử HCl, cặp electron liên kết bị lệch về phía nguyên tử nào?
+	\choice
+	{H}
+	{\True Cl}
+	{Lệch về cả hai phía}
+	{Không bị lệch}
+	\loigiai{Trong phân tử HCl, do Cl có độ âm điện lớn hơn H nên cặp electron liên kết bị lệch về phía nguyên tử Cl.}
+\end{ex}
+%%%=============EX_6=============%%%
+\begin{ex}
+	Dãy nào sau đây gồm các chất chỉ có liên kết cộng hóa trị?
+	\choice
+	{NaCl, MgO, CaF$_2$}
+	{\True CO$_2$, H$_2$O, NH$_3$}
+	{$NaOH$, $KOH$, $Ba(OH)_2$}
+	{KCl, AlCl$_3$, FeCl$_3$}
+	\loigiai{CO$_2$, H$_2$O, NH$_3$ là các hợp chất được tạo thành từ các nguyên tử phi kim nên chỉ chứa liên kết cộng hóa trị.}
+\end{ex}
+%%%=============EX_7=============%%%
+\begin{ex}
+	Số cặp electron dùng chung trong phân tử CO$_2$ là
+	\choice
+	{1}
+	{2}
+	{\True 4}
+	{3}
+	\loigiai{Trong phân tử CO$_2$, nguyên tử C góp chung 4 electron, mỗi nguyên tử O góp chung 2 electron, hình thành 2 liên kết đôi, tương ứng với 4 cặp electron dùng chung.}
+\end{ex}
+%%%=============EX_8=============%%%
+\begin{ex}
+	Cho độ âm điện của H là $2{,}2$ và của O là $3{,}44$. Vậy liên kết O-H trong phân tử H$_2$O là
+	\choice
+	{liên kết ion.}
+	{liên kết cộng hóa trị không phân cực.}
+	{\True liên kết cộng hóa trị có cực.}
+	{liên kết kim loại.}
+	\loigiai{Do H và O là hai phi kim, có độ âm điện chênh lệch nhưng không quá lớn ($3{,}44 - 2{,}2 = 1{,}24$) nên liên kết O-H là liên kết cộng hóa trị có cực.}
+\end{ex}
+%%%=============EX_9=============%%%
+\begin{ex}
+	Liên kết cộng hóa trị được tạo thành do
+	\choice
+	{lực hút tĩnh điện giữa các ion.}
+	{\True sự dùng chung cặp electron giữa hai nguyên tử.}
+	{sự cho nhận electron giữa hai nguyên tử.}
+	{lực hút giữa hạt nhân và các electron.}
+	\loigiai{Liên kết cộng hóa trị được hình thành do sự dùng chung một hay nhiều cặp electron giữa hai nguyên tử.}
+\end{ex}
+%%%=============EX_10=============%%%
+\begin{ex}
+	Chất nào sau đây có liên kết cộng hóa trị không cực?
+	\choice
+	{$H_2O$}
+	{\True $Br_2$}
+	{$NH_3$}
+	{$HCl$}
+	\loigiai{$Br_2$ được tạo thành từ hai nguyên tử Br giống nhau nên liên kết trong phân tử $Br_2$ là liên kết cộng hóa trị không cực.}
+\end{ex}
+%%%=============EX_11=============%%%
+\begin{ex}
+	Cặp chất nào sau đây đều chỉ chứa liên kết cộng hóa trị?
+	\choice
+	{NaCl và MgO}
+	{NaOH và KOH}
+	{\True $CH_4$ và $NH_3$}
+	{KCl và CaO}
+	\loigiai{$CH_4$ và $NH_3$ là các hợp chất được tạo thành từ các nguyên tử phi kim nên chỉ chứa liên kết cộng hóa trị.}
+\end{ex}
+%%%=============EX_12=============%%%
+\begin{ex}
+	Trong phân tử $N_2$, hai nguyên tử nitơ liên kết với nhau bằng cách
+	\choice
+	{mỗi nguyên tử nitơ góp 1 electron.}
+	{mỗi nguyên tử nitơ góp 2 electron.}
+	{\True mỗi nguyên tử nitơ góp 3 electron.}
+	{một nguyên tử nitơ góp 2 electron, nguyên tử còn lại góp 4 electron.}
+	\loigiai{Trong phân tử $N_2$, mỗi nguyên tử nitơ góp 3 electron để tạo thành 3 cặp electron chung (liên kết ba).}
+\end{ex}
+%%%=============EX_13=============%%%
+\begin{ex}
+	Phân tử nào sau đây có liên kết cho - nhận?
+	\choice
+	{$H_2O$}
+	{\True $CO$}
+	{$NH_3$}
+	{$Cl_2$}
+	\loigiai{Trong phân tử $CO$, cặp electron liên kết thứ ba là do nguyên tử O cho nguyên tử C. }
+\end{ex}
+%%%=============EX_14=============%%%
+\begin{ex}
+	Độ âm điện của một nguyên tố đặc trưng cho
+	\choice
+	{khả năng nhường electron của nguyên tử đó khi hình thành liên kết hóa học.}
+	{\True khả năng hút electron của nguyên tử đó khi hình thành liên kết hóa học.}
+	{khả năng tham gia phản ứng hóa học của nguyên tử đó.}
+	{khả năng tạo thành liên kết ion của nguyên tử đó.}
+	\loigiai{Độ âm điện của một nguyên tố đặc trưng cho khả năng hút electron của nguyên tử nguyên tố đó khi hình thành liên kết hóa học.}
+\end{ex}
+%%%=============EX_15=============%%%
+\begin{ex}
+	Liên kết trong phân tử nào sau đây là liên kết cộng hóa trị có cực?
+	\choice
+	{O$_2$}
+	{N$_2$}
+	{\True HF}
+	{Cl$_2$}
+	\loigiai{Liên kết cộng hóa trị có cực được hình thành giữa hai nguyên tử phi kim khác nhau. Vậy HF có liên kết cộng hóa trị có cực.}
+\end{ex}
+%%%=============EX_16=============%%%
+\begin{ex}
+	Cho các phân tử: H$_2$O, NH$_3$, CO$_2$, CH$_4$. Phân tử có độ phân cực lớn nhất là
+	\choice
+	{CO$_2$}
+	{CH$_4$}
+	{\True H$_2$O}
+	{NH$_3$}
+	\loigiai{H$_2$O có độ phân cực lớn nhất do nguyên tử O có độ âm điện lớn và cấu trúc phân tử dạng góc làm cho mômen lưỡng cực lớn.}
+\end{ex}
+%%%=============EX_17=============%%%
+\begin{ex}
+	Liên kết cộng hóa trị trong phân tử nào sau đây có cực nhất?
+	\choice
+	{H-Cl}
+	{H-Br}
+	{\True H-F}
+	{H-I}
+	\loigiai{Trong các halogen, F có độ âm điện lớn nhất nên liên kết H-F có cực nhất.}
+\end{ex}
+%%%=============EX_18=============%%%
+\begin{ex}
+	Nguyên tử X có 4 electron lớp ngoài cùng. X có thể hình thành với H
+	\choice
+	{1 liên kết cộng hóa trị}
+	{2 liên kết cộng hóa trị}
+	{3 liên kết cộng hóa trị}
+	{\True 4 liên kết cộng hóa trị}
+	\loigiai{Nguyên tử X có 4 electron lớp ngoài cùng, mỗi electron sẽ góp chung với 1 electron của nguyên tử H để tạo thành liên kết cộng hóa trị. Vậy X có thể hình thành với H 4 liên kết cộng hóa trị (ví dụ như CH$_4$).}
+\end{ex}
+%%%=============EX_19=============%%%
+\begin{ex}
+	Trong phân tử nước (H$_2$O), góc liên kết  $\widehat{HOH}$ xấp xỉ là:
+	\choice
+	{180$^\circ$}
+	{120$^\circ$}
+	{90$^\circ$}
+	{\True $104{,}5^\circ$}
+	\loigiai{Trong phân tử nước, nguyên tử O có 2 cặp electron chưa liên kết, đẩy 2 liên kết O-H lại gần nhau, làm cho góc liên kết $\widehat{HOH}$ xấp xỉ $104{,}5^\circ$.}
+\end{ex}
+%%%=============EX_20=============%%%
+\begin{ex}
+	Số cặp electron chưa liên kết trên nguyên tử trung tâm của phân tử NH$_3$ là
+	\choice
+	{0}
+	{\True 1}
+	{2}
+	{3}
+	\loigiai{Trong phân tử NH$_3$, nguyên tử N có 5 electron lớp ngoài cùng, trong đó có 3 electron tham gia liên kết với 3 nguyên tử H, còn lại 1 cặp electron chưa liên kết.}
+\end{ex}
+%%%=============EX_21=============%%%
+\begin{ex}
+	Cho biết độ âm điện của các nguyên tố: $H (2{,}20)$; $O (3{,}44)$; $Cl (3{,}16)$; $S (2{,}58)$. Liên kết trong phân tử nào sau đây có độ phân cực lớn nhất?
+	\choice
+	{H$_2$O}
+	{\True HCl}
+	{H$_2$S}
+	{SO$_2$}
+	\loigiai{Độ phân cực của liên kết phụ thuộc vào hiệu độ âm điện giữa hai nguyên tử. Hiệu độ âm điện càng lớn thì liên kết càng phân cực.
+		\begin{itemize}
+			\item H$_2$O: $3{,}44 - 2{,}20 = 1{,}24$
+			\item HCl: $3{,}16 - 2{,}20 = 0{,}96$
+			\item H$_2$S: $2{,}58 - 2{,}20 = 0{,}38$
+			\item SO$_2$: $3{,}44 - 2{,}58 = 0{,}86$
+		\end{itemize}
+		Vậy liên kết trong phân tử HCl có độ phân cực lớn nhất.}
+\end{ex}
+%%%=============EX_22=============%%%
+\begin{ex}
+	Dãy gồm các chất trong phân tử chỉ chứa liên kết đơn là
+	\choice
+	{N$_2$, O$_2$, F$_2$}
+	{CO$_2$, SO$_2$, H$_2$O}
+	{\True CH$_4$, NH$_3$, H$_2$O}
+	{C$_2$H$_4$, C$_2$H$_2$, CO$_2$}
+	\loigiai{Liên kết đơn là liên kết được tạo thành bởi 1 cặp electron chung. Trong các chất trên, chỉ có CH$_4$, NH$_3$ và H$_2$O có liên kết đơn.}
+\end{ex}
+%%%=============EX_23=============%%%
+\begin{ex}
+	Nguyên tử A có 3 electron ở lớp ngoài cùng, nguyên tử B có 7 electron ở lớp ngoài cùng. Công thức phân tử của hợp chất tạo thành giữa A và B là
+	\choice
+	{AB$_2$}
+	{A$_2$B}
+	{AB$_3$}
+	{\True A$_2$B$_3$}
+	\loigiai{Để đạt cấu hình bền vững, A có xu hướng cho 3 electron, B có xu hướng nhận 1 electron. Vậy 2 nguyên tử A sẽ liên kết với 3 nguyên tử B, tạo thành hợp chất A$_2$B$_3$.}
+\end{ex}
+%%%=============EX_24=============%%%
+\begin{ex}
+	Trong phân tử nào sau đây, nguyên tử trung tâm không tuân theo quy tắc bát tử?
+	\choice
+	{CO$_2$}
+	{NH$_3$}
+	{H$_2$O}
+	{\True BF$_3$}
+	\loigiai{Trong phân tử BF$_3$, nguyên tử B chỉ có 6 electron lớp ngoài cùng (tạo 3 liên kết với 3 nguyên tử F).}
+\end{ex}
+%%%=============EX_25=============%%%
+\begin{ex}
+	Liên kết đôi gồm
+	\choice
+	{hai liên kết $\sigma$}
+	{hai liên kết $\pi$}
+	{\True một liên kết $\sigma$ và một liên kết $\pi$}
+	{hai liên kết ion}
+	\loigiai{Liên kết đôi gồm một liên kết $\sigma$ (sigma) bền vững và một liên kết $\pi$ (pi) kém bền vững hơn.}
+\end{ex}
+%%%=============EX_26=============%%%
+\begin{ex}
+	Cho các phân tử sau: H$_2$, HCl, HF, HBr, HI. Phân tử có năng lượng liên kết lớn nhất là
+	\choice
+	{H$_2$}
+	{HCl}
+	{\True HF}
+	{HI}
+	\loigiai{Năng lượng liên kết phụ thuộc vào độ bền của liên kết. Trong các phân tử trên, liên kết H-F có độ bền lớn nhất do độ âm điện của F lớn nhất, dẫn đến năng lượng liên kết lớn nhất.}
+\end{ex}
+%%%=============EX_27=============%%%
+\begin{ex}
+	Ý nào sau đây \textbf{không đúng} khi nói về liên kết cộng hóa trị?
+	\choice
+	{Liên kết cộng hóa trị được hình thành do sự dùng chung electron giữa hai nguyên tử.}
+	{Liên kết cộng hóa trị có thể là liên kết đơn, liên kết đôi hoặc liên kết ba.}
+	{Liên kết cộng hóa trị được hình thành giữa hai nguyên tử phi kim.}
+	{\True Liên kết cộng hóa trị luôn là liên kết có cực.}
+	\loigiai{Liên kết cộng hóa trị có thể là liên kết có cực hoặc không cực. Liên kết cộng hóa trị không cực được hình thành giữa hai nguyên tử giống nhau.}
+\end{ex}
+%%%=============EX_28=============%%%
+\begin{ex}
+	Phân tử nào sau đây có chứa cả liên kết cộng hóa trị và liên kết cho - nhận?
+	\choice
+	{$HCl$}
+	{$CO_2$}
+	{\True $HNO_3$}
+	{$H_2O$}
+	\loigiai{Trong phân tử $HNO_3$, có 2 liên kết cộng hóa trị (N-O) và 1 liên kết cho - nhận ($N-O$).}
+\end{ex}
+%%%=============EX_29=============%%%
+\begin{ex}
+	Để đạt được cấu hình electron bền vững của khí hiếm gần nhất, nguyên tử clo có xu hướng
+	\choice
+	{nhường đi 1 electron}
+	{\True nhận thêm 1 electron}
+	{góp chung 1 electron}
+	{nhận thêm 7 electron}
+	\loigiai{Nguyên tử clo có 7 electron lớp ngoài cùng, để đạt được cấu hình electron bền vững của khí hiếm gần nhất (Argon), clo có xu hướng nhận thêm 1 electron.}
+\end{ex}
+%%%=============EX_30=============%%%
+\begin{ex}
+	Cho các chất sau: $Cl_2$, $HCl$, $NaCl$, $NaF$.  Số chất chứa liên kết cộng hóa trị là
+	\choice
+	{1}
+	{\True 2}
+	{3}
+	{4}
+	\loigiai{$Cl_2$ và $HCl$ là các hợp chất được tạo thành từ các phi kim nên chứa liên kết cộng hóa trị.}
+\end{ex}
+%%%=============EX_31=============%%%
+\begin{ex}
+	Cho các chất sau: $Cl_2$, $O_2$, $H_2S$, $NaCl$, $NaF$, $NH_3$, $CCl_4$, $SO_2$. Số chất chứa liên kết cộng hóa trị phân cực là
+	\choice
+	{1}
+	{2}
+	{3}
+	{\True 4}
+	\loigiai{$H_2S$, $NH_3$, $CCl_4$, $SO_2$ là các hợp chất chứa liên kết cộng hóa trị phân cực.}
+\end{ex}
+%%%=============EX_32=============%%%
+\begin{ex}
+	Cho các chất sau: $Cl_2$, $O_2$, $H_2S$, $NaCl$, $NaF$, $NH_3$, $CCl_4$, $SO_2$. Số chất chứa liên kết cộng hóa trị phân cực là
+	\choice
+	{1}
+	{2}
+	{3}
+	{\True 4}
+	\loigiai{$H_2S$, $NH_3$, $CCl_4$, $SO_2$ là các hợp chất chứa liên kết cộng hóa trị phân cực.}
+\end{ex}
+%%%=============EX_33=============%%%
+\begin{ex}
+	Trong số các chất sau, chất nào chỉ chứa liên kết $\sigma$
+	\choice
+	{\chemfig{CH~CH}}
+	{\chemfig{CH_2=CH_2}}
+	{\chemfig{O=O}}
+	{\True \chemfig{H-C(-[:90]H)(-[:-90]H)-H}}
+	\loigiai{Liên kết $\sigma$ luôn luôn là liên kết đơn. Trong công thức \chemfig{H-C(-[:90]H)(-[:-90]H)-H} chỉ chứa các liên kết đơn.}
+\end{ex}
+%%%=============EX_34=============%%%
+\begin{ex}
+	Trong phân tử ammonia $\mathrm{N}_2$, số cặp electron chung giữa  hai nguyên tử nitrogen là
+	\choice
+	{1}
+	{\True 3}
+	{2}
+	{4}
+	\loigiai{Cấu hình electron của nitrogen là $1s^22s^22p^3$ $\Rightarrow$ có $5$ electron ở lớp ngoài cùng. Theo quy tắc bát tử , khi hình thành liên kết mỗi nguyên tử N "đưa ra" 3 electron để dùng chung do đó số cặp electron chung giữa  hai nguyên tử nitrogen là 3.
+	}
+\end{ex}
+%%%=============EX_35=============%%%
+\begin{ex}
+	Chất vừa có liên kết cộng hoá trị phân cực, vừa có liên kết cộng hoá trị không phân cực là
+	\choice
+	{$\mathrm{NH}_3$}
+	{\True $\mathrm{C}_2 \mathrm{~F}_6$}
+	{$\mathrm{CO}_2$}
+	{$\mathrm{H}_2 \mathrm{O}$}
+	\loigiai{
+		\begin{itemize}
+			\item \textbf{$CO_2$:}
+			\begin{itemize}
+				\item Liên kết C=O là liên kết cộng hóa trị có cực (do độ âm điện của C và O khác nhau).
+				\item Tuy nhiên, do $CO_2$ có cấu trúc thẳng, hai liên kết C=O có cực hướng về hai phía ngược nhau nên triệt tiêu lẫn nhau, làm cho phân tử $CO_2$ không phân cực.
+			\end{itemize}
+			\item \textbf{$H_2O$:} Liên kết O-H là liên kết cộng hóa trị có cực.
+			\item \textbf{$NH_3$:} Liên kết N-H là liên kết cộng hóa trị có cực.
+			\item \textbf{$C_2F_6$:}
+			\begin{itemize}
+				\item Liên kết C-F là liên kết cộng hóa trị có cực (do độ âm điện của C và F khác nhau).
+				\item Liên kết C-C là liên kết cộng hóa trị không phân cực (do hai nguyên tử C có độ âm điện bằng nhau).
+			\end{itemize}
+		\end{itemize}
+	}
+\end{ex}
+{\par\noindent\indam[black]{Sử dụng giá trị độ âm điện các nguyên tố được cho trong bảng sau để trả lời các câu 36, 37 , 38.}}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline Nguyên tố & Độ âm điện & Nguyên tố & Độ âm điện \\
+		\hline Na & $0{,}93$ & $0$ & $3{,}44$ \\
+		\hline $H$ & $2{,}20$ & Br & $2{,}96$ \\
+		\hline $C$ & $2{,}55$ & Cl & $3{,}16$ \\
+		\hline $N$ & $3{,}04$ & $F$ & $3{,}98$ \\
+		\hline
+	\end{tabular}
+\end{center}
+Dưới đây là phần bổ sung lời giải chi tiết cho các câu hỏi của bạn:
+
+%%%=============EX_36=============%%%
+\begin{ex}
+	Liên kết nào dưới đây là liên kết cộng hoá trị không phân cực?
+	\choice
+	{$\mathrm{Na}-O$}
+	{$O-H$}
+	{$\mathrm{Na}-C$}
+	{\True $C-H$}
+	\loigiai{Liên kết cộng hóa trị không phân cực được hình thành giữa hai nguyên tử có độ âm điện bằng nhau hoặc chênh lệch độ âm điện rất nhỏ. Trong các liên kết trên, liên kết C-H có chênh lệch độ âm điện nhỏ nhất nên là liên kết cộng hóa trị không phân cực.}
+\end{ex}
+%%%=============EX_37=============%%%
+\begin{ex}
+	Lực kéo electron về phía nguyên tử nitrogen mạnh nhất ở liên kết nào dưới đây?
+	\choice
+	{$N-H$}
+	{\True $N-F$}
+	{$N-\mathrm{Cl}$}
+	{$N-\mathrm{Br}$}
+	\loigiai{Nguyên tử có độ âm điện càng lớn thì lực hút electron càng mạnh. Flo (F) là nguyên tố có độ âm điện lớn nhất trong bảng tuần hoàn, do đó liên kết N-F sẽ có lực kéo electron về phía nguyên tử nitrogen mạnh nhất.}
+\end{ex}
+%%%=============EX_38=============%%%
+\begin{ex}
+	Liên kết nào trong các liên kết sau là phân cực nhất?
+	\choice
+	{$C-H$}
+	{\True $C-F$}
+	{$C-\mathrm{Cl}$}
+	{$C-\mathrm{Br}$}
+	\loigiai{Liên kết càng phân cực khi chênh lệch độ âm điện giữa hai nguyên tử càng lớn. Trong các liên kết trên, liên kết C-F có chênh lệch độ âm điện lớn nhất (do F có độ âm điện lớn nhất) nên là liên kết phân cực nhất.}
+\end{ex}
+%%%=============EX_39=============%%%
+\begin{ex}
+	Hợp chất nào sau đây chứa cả liên kết cộng hoá trị và liên kết ion?
+	\choice
+	{$CH_2O$}
+	{$CH_4$}
+	{$Na_2O$}
+	{\True $KOH$}
+	\loigiai{
+		KOH chứa cả liên kết cộng hóa trị (giữa O và H) và liên kết ion (giữa K và OH).
+		Các hợp chất còn lại chỉ chứa liên kết cộng hóa trị.}
+\end{ex}
+%%%=============EX_40=============%%%
+\begin{ex}
+	Các liên kết trong phân tử nitrogen được tạo thành do sự xen phủ của
+	\choice
+	{các orbital s với nhau.}
+	{2 orbital s và 1 orbital p với nhau.}
+	{1 orbital s và 2 orbital p với nhau.}
+	{\True 3 orbital p giống nhau về hình dạng và kích thước, chỉ khác nhau về sự định hướng trong không gian.}
+	\loigiai{
+		Nitrogen có cấu hình electron lớp ngoài cùng là $2s^22p^3$.
+		Phân tử $N_2$ có liên kết ba, được hình thành do sự xen phủ của 3 orbital p của mỗi nguyên tử nitrogen.}
+\end{ex}
+%%%=============EX_41=============%%%
+\begin{ex}
+	Điều nào sau đây \textbf{sai} khi nói về tính chất của hợp chất cộng hoá trị?
+	\choice
+	{Các hợp chất cộng hoá trị có nhiệt độ nóng chảy và nhiệt độ sôi thấp hơn các hợp chất ion.}
+	{Các hợp chất cộng hoá trị có thể ở thể rắn, lỏng hoặc khí trong điều kiện thường.}
+	{\True Các hợp chất cộng hoá trị đều dẫn điện tốt.}
+	{Các hợp chất cộng hoá trị không phân cực tan được trong dung môi không phân cực.}
+	\loigiai{Đa số các hợp chất cộng hóa trị không dẫn điện (trừ than chì).
+	}
+\end{ex}
+%%%=============EX_42=============%%%
+\begin{ex}
+	Đặt độ dài các liên kết $N-N, N=N$ và $N\equiv N$ lần lượt là $I_1; I_2$ và $I_3$. Thứ tự tăng dần độ dài các liên kết là
+	\choice
+	{\True$I_3; I_2; I_1$}
+	{$I_1; I_3; I_2$}
+	{$I_2; I_1; I_3$}
+	{$I_1; I_2; I_3$}
+	\loigiai{Số cặp electron dùng chung càng nhiều thì lực hút giữa các nguyên tử càng mạnh, làm cho độ dài liên kết càng ngắn. Vậy nên $I_3 < I_2 < I_1$}
+\end{ex}
+%%%=============EX_43=============%%%
+\begin{ex}
+	Phát biểu nào sau đây đúng với độ bền của một liên kết?
+	\choice
+	{Khi nhiều liên kết được hình thành giữa hai nguyên tử, độ bền của liên kết sẽ giảm}
+	{Độ bền của liên kết tăng khi độ dài của liên kết tăng}
+	{\True Độ bền của liên kết tăng khi độ dài của liên kết giảm}
+	{Độ bền của liên kết không phụ thuộc vào độ dài liên kết}
+	\loigiai{Độ bền liên kết phụ thuộc vào độ dài liên kết. Nói chung, độ bền của liên kết tăng khi độ dài của liên kết giảm và ngược lại.}
+\end{ex}
+%%%=============EX_44=============%%%
+\begin{ex}
+	Liên kết cộng hoá trị là liên kết hoá học được hình thành giữa hai nguyên tử bằng
+	\choice
+	{một electron chung}
+	{sự cho - nhận electron}
+	{một cặp electron góp chung}
+	{\True một hay nhiều cặp electron dùng chung}
+	\loigiai{Liên kết cộng hóa trị là liên kết được hình thành bằng một hay nhiều cặp electron dùng chung giữa hai nguyên tử. Các cặp electron này được gọi là cặp electron liên kết.
+	}
+\end{ex}
+
+%%%=============EX_45=============%%%
+\begin{ex}
+	Hợp chất nào sau đây có liên kết cộng hoá trị không phân cực?
+	\choice
+	{LiCl }
+	{$\mathrm{CF}_2 \mathrm{Cl}_2$}
+	{$\mathrm{CHCl}_3$}
+	{\True $\mathrm{N}_2$}
+	\loigiai{Liên kết cộng hóa trị không phân cực hình thành giữa hai nguyên tử giống nhau (cùng độ âm điện). Trong các hợp chất trên, chỉ có N$_2$ là hợp chất tạo thành từ hai nguyên tử giống nhau (N và N).}
+\end{ex}
+
+%%%=============EX_46=============%%%
+\begin{ex}
+	Hợp chất nào sau đây có liên kết cộng hoá trị phân cực?
+	\choice
+	{$\mathrm{H}_2$}
+	{\True $\mathrm{CHCl}_3$}
+	{$\mathrm{CH}_4$}
+	{$\mathrm{N}_2$}
+	\loigiai{Liên kết cộng hóa trị phân cực hình thành giữa hai nguyên tử khác nhau (chênh lệch độ âm điện). Trong các hợp chất trên, $\mathrm{CHCl}_3$ có liên kết cộng hóa trị phân cực do Cl có độ âm điện lớn hơn C và H.}
+\end{ex}
+
+%%%=============EX_47=============%%%
+\begin{ex}
+	Liên kết $\sigma$ là liên kết hình thành do
+	\choice
+	{sự xen phủ bên của hai orbital}
+	{cặp electron dùng chung}
+	{lực hút tũnh điện giữa hai ion}
+	{\True sự xen phủ trục của hai orbital}
+	\loigiai{Liên kết $\sigma$ được hình thành do sự xen phủ trục của hai orbital. Trục của hai orbital là đường thẳng nối tâm hai nguyên tử.
+	}
+\end{ex}
+
+%%%=============EX_48=============%%%
+\begin{ex}
+	Liên kết $\pi$ là liên kết hình thành do
+	\choice
+	{\True sự xen phủ bên của hai orbital}
+	{cặp electron dùng chung}
+	{lực hút tũnh điện giữa hai ion}
+	{sự xen phủ trục của hai orbital}
+	\loigiai{Liên kết $\pi$ được hình thành do sự xen phủ bên của hai orbital. Sự xen phủ bên là sự xen phủ của hai orbital song song với nhau.}
+\end{ex}
+
+%%%=============EX_49=============%%%
+\begin{ex}
+	Liên kết trong phân tử nào sau đầy được hình thành nhờ sự xen phủ orbital $\mathrm{p}-\mathrm{p}$ ?
+	\choice
+	{$\mathrm{H}_2$}
+	{\True $\mathrm{Cl}_2$}
+	{$\mathrm{NH}_3$}
+	{HCl }
+	\loigiai{Liên kết trong phân tử Cl$_2$ được hình thành do sự xen phủ trục của hai orbital 3p của hai nguyên tử Cl.}
+\end{ex}
+
+%%%=============EX_50=============%%%
+\begin{ex}
+	Liên kết trong phân tử nào sau đây được hình thành nhờ sự xen phủ orbital s-s?
+	\choice
+	{\True $\mathrm{H}_2$}
+	{$\mathrm{Cl}_2$}
+	{$\mathrm{NH}_3$}
+	{HCl }
+	\loigiai{Liên kết trong phân tử H$_2$ được hình thành do sự xen phủ trục của hai orbital 1s của hai nguyên tử H.}
+\end{ex}
+
+%%%=============EX_51=============%%%
+\begin{ex}
+	Liên kết trong phân tử nào sau đây được hình thành nhờ sự xen phủ orbital s-p?
+	\choice
+	{$\mathrm{H}_2$}
+	{$\mathrm{Cl}_2$}
+	{ \True HCl }
+	{$\mathrm{O}_2$}
+	\loigiai{Liên kết trong phân tử HCl được hình thành do sự xen phủ trục của orbital 1s của nguyên tử H và orbital 3p của nguyên tử Cl.}
+\end{ex}
+
+%%%=============EX_52=============%%%
+\begin{ex}
+	Các liên kết trong phân tử oxygen gồm
+	\choice
+	{2 liên kết $\pi$}
+	{2 liên kết $\sigma$}
+	{\True 1 liên kết $\sigma, 1$ liên kết $\pi$}
+	{1 liên kết $\sigma$}
+	\loigiai{Phân tử oxygen (O$_2$) có một liên kết đôi, bao gồm một liên kết $\sigma$ (hình thành do sự xen phủ trục của hai orbital 2p) và một liên kết $\pi$ (hình thành do sự xen phủ bên của hai orbital 2p).}
+\end{ex}
+
+%%%=============EX_53=============%%%
+\begin{ex}
+	Số liên kết $\sigma$ và $\pi$ có trong phân tử $\mathrm{C}_2 \mathrm{H}_2$ lần lượt là
+	\choice
+	{2 và 3 }
+	{\True 3 và 2 }
+	{2 và 2 }
+	{3 và 1 }
+	\loigiai{Phân tử C$_2$H$_2$ có công thức cấu tạo là H-C$\equiv$C-H.
+		
+	\noindent Vậy có 3 liên kết $\sigma$ (1 liên kết C-C và 2 liên kết C-H) và 2 liên kết $\pi$ trong liên kết ba C$\equiv$C.}
+\end{ex}
+
+%%%=============EX_54=============%%%
+\begin{ex}
+	Dãy nào sau đây gồm các chất chỉ có liên kết cộng hoá trị?
+	\choice
+	{$\mathrm{BaCl}_2, \mathrm{NaCl}, \mathrm{NO}_2$}
+	{$\mathrm{SO}_2, \mathrm{CO}_2, \mathrm{Na}_2 \mathrm{O}_2$}
+	{\True $\mathrm{SO}_3, \mathrm{H}_2 \mathrm{~S}, \mathrm{H}_2 \mathrm{O}$}
+	{$\mathrm{CaCl}_2, \mathrm{~F}_2 \mathrm{O}, \mathrm{HCl}$}
+	\loigiai{Liên kết cộng hóa trị thường được hình thành giữa các nguyên tử phi kim. Trong các dãy trên, chỉ có dãy $\mathrm{SO}_3, \mathrm{H}_2 \mathrm{~S}, \mathrm{H}_2 \mathrm{O}$ gồm các hợp chất tạo thành từ các nguyên tử phi kim.}
+\end{ex}
+
+%%%=============EX_55=============%%%
+\begin{ex}
+	Cho hai nguyên tố $\mathrm{X}(\mathrm{Z}=20)$ và $\mathrm{Y}(\mathrm{Z}=17)$. Công thức hợp chất tạo thành từ nguyên tố $\mathrm{X}, \mathrm{Y}$ và liên kết trong phân tử là
+	\choice
+	{XY: liên kết cộng hoá trị}
+	{$\mathrm{X}_2 \mathrm{Y}_3$ : liên kết cộng hoá trị}
+	{$\mathrm{X}_2 \mathrm{Y}$ : liên kết ion}
+	{\True $\mathrm{XY}_2$ : liên kết ion}
+	\loigiai{
+		X (Z = 20): $1s^22s^22p^63s^23p^64s^2$ $\Rightarrow$ X là kim loại, có xu hướng nhường 2 electron để đạt cấu hình bền vững của khí hiếm.
+		\\
+		Y (Z = 17): $1s^22s^22p^63s^23p^5$ $\Rightarrow$ Y là phi kim, có xu hướng nhận 1 electron để đạt cấu hình bền vững của khí hiếm.
+		\\
+		$\Rightarrow$  Công thức hợp chất là XY$_2$, liên kết trong phân tử là liên kết ion.}
+\end{ex}
+%%%=============EX_56=============%%%
+\begin{ex}
+	Trong nguyên tử $C$, những electron có khả năng tham gia hình thành liên kết cộng hoá trị thuộc phân lớp nào sau đây?
+	\choice
+	{1s}
+	{$2$s}
+	{\True $2s,2p$}
+	{$1s, 2s, 2p$}
+	\loigiai{Electron tham gia hình thành liên kết là các electron lớp ngoài cùng. Cấu hình electron của $C$ là $1s^22s^22p^2$. Vậy các electron có khả năng tham gia hình thành liên kết cộng hóa trị thuộc phân lớp 2s và 2p.}
+\end{ex}
+
+%%%=============EX_57=============%%%
+\begin{ex}
+	Những phát biểu nào sau đây là không đúng?
+	\choice
+	{Các nguyên tử liên kết với nhau theo xu hướng tạo hệ bền vững hơn}
+	{Các nguyên tử liên kết với nhau theo xu hướng tạo hệ có năng lượng thấp hơn}
+	{Các nguyên tử liên kết với nhau theo xu hướng tạo lớp vỏ electron được octet}
+	{\True Các nguyên tử liên kết với nhau theo xu hướng tạo hệ có năng lượng cao hơn}
+		\loigiai{Các nguyên tử liên kết với nhau theo xu hướng tạo hệ bền vững hơn, có năng lượng thấp hơn và đạt được cấu hình electron bền vững của khí hiếm (thường là octet). Nguyên tử phi kim có thể liên kết với nguyên tử kim loại (liên kết ion) hoặc với nguyên tử phi kim khác (liên kết cộng hóa trị).}
+	\end{ex}
+	
+	%%%=============EX_58=============%%%
+	\begin{ex}
+		Liên kết cộng hoá trị thường được hình thành giữa
+		\choice
+		{các nguyên tử nguyên tố kim loại với nhau}
+		{\True các nguyên tử nguyên tố phi kim với nhau}
+		{các nguyên tử nguyên tố kim loại với các nguyên tử nguyên tố phi kim}
+		{các nguyên tử khi hiếm với nhau}
+		\loigiai{
+			\begin{itemize}
+				\item Liên kết cộng hóa trị thường được hình thành giữa các nguyên tử phi kim.
+				\item Liên kết giữa các nguyên tử kim loại là liên kết kim loại.
+				\item Liên kết giữa nguyên tử kim loại và phi kim là liên kết ion.
+			\end{itemize}    
+		}
+	\end{ex}
+	
+	%%%=============EX_59=============%%%
+	\begin{ex}
+		Số lượng cặp electron dùng chung trong các phân tử $H_2$, $O_2$, $N_2$, $F_2$ lần lượt là:
+		\choice
+		{$1,2,3,4$}
+		{\True $1,2,3,1$}
+		{2,2, 2,2}
+		{$1,2,2,1$}
+		\loigiai{
+			\begin{itemize}
+				\item H$_2$: 1 cặp electron dùng chung (liên kết đơn).
+				\item O$_2$: 2 cặp electron dùng chung (liên kết đôi).
+				\item N$_2$: 3 cặp electron dùng chung (liên kết ba).
+				\item F$_2$: 1 cặp electron dùng chung (liên kết đơn).
+			\end{itemize}    
+		}
+	\end{ex}
+	
+	%%%=============EX_60=============%%%
+	\begin{ex}
+		Trong phân tử HF, số cặp electron dùng chung và cặp electron hoá trị riêng của nguyên tử F lần lượt là:
+		\choice
+		{\True 1 và 3}
+		{2 và 2}
+		{3 và 1}
+		{1 và 4}
+		\loigiai{
+			\begin{itemize}
+				\item Phân tử HF có 1 cặp electron dùng chung để tạo thành liên kết cộng hóa trị.
+				\item F có 7 electron lớp ngoài cùng, trong đó có 1 electron dùng chung với H, còn lại 6 electron tạo thành 3 cặp electron hóa trị riêng.
+			\end{itemize}    
+		}
+	\end{ex}
+	%%%==============Cau_EX61==============%%%
+	\begin{ex}
+		Cho công thức Lewis của các phân tử sau:
+		\begin{center}
+			\chemfig{H-[,1]\charge{[.radius=0.2ex]90:2pt=\:}{N}(-[:-90,1]H)-[,1]H}
+				\quad;\quad
+				\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\:}{Cl}-[:30,1]B(-[:90,1]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl})-[:-30,1]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{Cl}}
+				\quad;\quad
+				\chemfig{H-Be-H}
+				\quad;\quad
+			\chemfig{H-[,1]C(-[:-90,1]H)(-[:90,1]H)-[,1]H}
+		\end{center}
+		Số phân tử mà nguyên tử trung tâm không thoả mãn quy tắc octet là
+		\choice
+		{$1$}
+		{$2$}
+		{\True $3$}
+		{$4$}
+		\loigiai{}
+	\end{ex}
+	%%%==============HetCau_EX61==============%%%
+	%%%==============Begin Câu 62===============%%%
+	\begin{ex}
+		Công thức nào sau đây ứng với công thức Lewis của phân tử $\mathrm{PCl}_3$ ?
+		\begin{center}
+		\tikz[baseline,declare function={d=2.75;}]{
+		\path (1*d,0) node (a) {\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{Cl}=\charge{[.radius=0.2ex]0:2pt=\:}{P}(-[:-90]\charge{[.radius=0.2ex]-90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl})-[:90]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl}}};
+		\path ($(a.south)+(0.4cm,-0.2cm)$) node [anchor=north]{(1)};
+		%%%
+		\path (2*d,0) node (b) {\chemfig{\charge{[.radius=0.2ex]180:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}-\charge{[.radius=0.2ex]0:2pt=\:}{P}(-[:-90]\charge{[.radius=0.2ex]-90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl})-[:90]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl}}};
+		\path ($(b.south)+(0.4cm,-0.2cm)$) node [anchor=north]{(2)};
+		%%
+		\path (3*d,0) node (c) {\chemfig{\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\:}{Cl}~\charge{[.radius=0.2ex]0:2pt=\:}{P}(~[:-90]\charge{[.radius=0.2ex]-90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl})~[:90]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl}}};
+		\path ($(c.south)+(0.4cm,-0.2cm)$) node [anchor=north]{(3)};
+		%%%
+		\path (4*d,0) node (d) {\chemfig{\charge{[.radius=0.2ex]180:2pt=\:,90:2pt=\:,-90:2pt=\:}{Cl}-P(-[:-90]\charge{[.radius=0.2ex]-90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl})-[:90]\charge{[.radius=0.2ex]90:2pt=\:,0:2pt=\:,180:2pt=\:}{Cl}}};
+		\path ($(d.south)+(0.4cm,-0.2cm)$) node [anchor=north]{(4)};
+		}
+		\end{center}
+		\choice
+		{Công thức (4)}
+		{Công thức (1)}
+		{Công thức (2)}
+		{Công thức (3)}
+		\loigiai{P có 5 electron hóa trị theo quy tắc octet p sẽ đưa ra 3 electron để dùng chung với 3 nguyên tửCl và còn 1 đôi e chưa tham gia liên kết do đó theo công thức lewis có 3 liên kết đơn và 1 đôi e chưa liên kết}
+	\end{ex}
+	%%%=============End Câu 62===============%%%
+	%%%==============Cau_EX63==============%%%
+	\begin{ex}
+		Dựa vào hiệu độ âm điện giữa hai nguyên tố, cho biết liên kết trong phân tử nào sau đây là phân cực nhất.
+		\choice
+		{\True HF}
+		{HCl}
+		{HBr}
+		{HI}
+		\loigiai{Hiệu độ âm điện càng lớn độ phân cực càng lớn. Ta thấy độ âm điện của F là lớn nhất do đó trong phân tử HF có độ phân cực lớn nhất.}
+	\end{ex}
+	%%%=============EX_64=============%%%
+	\begin{ex}
+		Khi tham gia hình thành liênn kết trong các phân tử $HF, F_2$; orbital tham gia xen phủ tạo liên kết của nguyên tử F thuộc về phân lớp nào, có hình dạng gì?
+		\choice
+		{Phân lớp 2 s, hình cầu}
+		{Phân lớp 2 s, hình số tám nổi}
+		{\True Phân lớp 2 p, hình số tám nổi}
+		{Phân lớp 2 p, hình cánh hoa}
+		\loigiai{}
+	\end{ex}
+	
+	%%%=============EX_65=============%%%
+	\begin{ex}
+		Số orbital của cả hai nguyên tử N tham gia xen phủ tạo liên kết trong phân tử $N_2$ là
+		\choice
+		{\True $3$}
+		{$4$}
+		{$5$}
+		{$6$}
+		\loigiai{}
+	\end{ex}
+	
+	%%%=============EX_66=============%%%
+	\begin{ex}
+		Liên kết trong phân tử nào dưới đây không được hình thành do sự xen phủ giữa các orbital cùng loại (ví dụ cùng là orbital s, hoặc cùng là orbital p)?
+		\choice
+		{$\mathrm{Cl}_2$}
+		{$H_2$}
+		{\True $NH_3$}
+		{$\mathrm{Br}_2$}
+		\loigiai{}
+	\end{ex}
+	
+	%%%=============EX_67=============%%%
+	\begin{ex}
+		Phát biểu nào sau đây không đúng?
+		\choice
+		{\True Chỉ có các AO có hình dạng giống nhau mới xen phủ với nhau để tạo liên kết}
+		{Khi hình thành liên kết cộng hoá trị giữa hai nguyên tử, luôn có một liên kết $\sigma$}
+		{Liên kết $\sigma$ bền vững hơn liên kết $\pi$}
+		{Có hai kiểu xen phủ hình thành liên kết là xen phủ trục và xen phủ bên}
+		\loigiai{}
+	\end{ex}
+	
+	%%%=============EX_68=============%%%
+	\begin{ex}
+		Số lượng electron tham gia hình thành liên kết đơn, đôi và ba lần lượt là:
+		\choice
+		{1,2 và 3}
+		{\True 2,4 và 6}
+		{1,3 và 5}
+		{2,3 và 4}
+		\loigiai{}
+	\end{ex}
+	%%%=============EX_69=============%%%
+	\begin{ex}
+		Phân tử nào sau đây không phân cực:
+		\choice
+		{$SO_2$}
+		{\True $CO_2$}
+		{$NH_3$}
+		{$H2_O$}
+		\loigiai{Mặc dù liên kết giữa C và O trong  $CO_2$ là liên kết cộng hóa trị phân cực tuy nhiên Do cấu trúc đối xứng, các moment lưỡng cực của 2 liên kết $C=O$ bằng nhau về độ lớn nhưng ngược chiều.Kết quả là các moment lưỡng cực triệt tiêu lẫn nhau}
+	\end{ex}
+	%%%==============Cau_EX70==============%%%
+	\begin{ex}
+		Cho độ âm điện của các nguyên tố: H (2,20); C (2,55); N (3,04); O (3,44); F (3,98). Hãy cho biết trong các hợp chất sau: $NH_3$, $CO_2$, $HF$, $H_2O$, $CH_4$, chất nào có chứa liên kết cộng hóa trị phân cực?
+		\choice
+		{$CH_4$, $CO_2$}
+		{\True $NH_3$, $HF$, $H_2O$}
+		{$HF$, $H_2O$}
+		{$NH_3$, $CO_2$, $HF$, $H_2O$}
+		\loigiai{}
+	\end{ex}
+	%%%==============HetCau_EX70==============%%%
+	%%%==============Begin Câu 71===============%%%
+	\begin{ex}
+		Cho biết năng lượng liên kết $H-I$ và $H-Br$ lần lượt là $297$ $kJmol^{-1}$ và $364$ $kJmol^{-1}$.Phát biểu sau đây là không đúng?
+		\choice
+		{Liên kết $H-I$ là bền vững hơn so với liên kết $H-Br$}
+		{Khi đun nóng, HI bị phân huỷ (thành $H_2$ và $I_2$) ở nhiệt độ cao hơn so với HBr (thành $H_2$ và $Br_2$)}
+		{Cần cung cấp $297$ $kJ$ và $364$ $kJ$ để lần lượt phá vỡ 1 mol khí $HI$ và 1 mol khí $HBr$ thành các nguyên tử ở thể khí.}
+		{Khi đun nóng, HI bị phân huỷ (thành $H_2$ và $I_2$) ở nhiệt độ thấp hơn so với HBr (thành $H_2$ và $Br_2$)}
+		\loigiai{%
+			\begin{itemize}
+				\item Năng lượng liên kết càng lớn thì liên kết càng bền vững. Vì năng lượng liên kết H-Br ($364$  $kJ mol^{-1}$) lớn hơn năng lượng liên kết $H-I$ ($297$  $kJ mol^{-1}$) nên liên kết $H-Br$ bền hơn liên kết $H-I$
+				\item Nhiệt độ phân huỷ: Liên kết càng kém bền vững thì càng dễ bị phá vỡ bởi nhiệt, do đó cần ít năng lượng hơn (nhiệt độ thấp hơn) để phân huỷ. Vì liên kết H-I kém bền vững hơn nên HI sẽ bị phân huỷ ở nhiệt độ thấp hơn so với HBr.
+			\end{itemize}
+		}
+	\end{ex}
+	%%%=============End Câu 71===============%%%
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%\bangdapan{Ans-C03_B03_Lien_Ket_Cong_Hoa_Tri.tex}
+\phan{Trắc nghiệm đúng sai}
+%%%=============SOẠN EXTF===============%%%
+\Opensolutionfile{ansex}[Ans/LGTF-C03_B03_LIEN_KET_CONG_HOA_TRI.TEX]
+\Opensolutionfile{ansbook}[Ansbook/AnsTF-C03_B03_LIEN_KET_CONG_HOA_TRI.TEX]
+\Opensolutionfile{ans}[Ans/Tempt-C03_B03_LIEN_KET_CONG_HOA_TRI.TEX]
+%%%=============EX_1=============%%%
+\begin{ex}
+	Cho các phân tử: $H_2O$, $NH_3$, $CH_4$, $CO_2$.
+	\choiceTF
+	{Tất cả các phân tử trên đều có liên kết cộng hóa trị không cực.}
+	{\True $CO_2$ là phân tử có liên kết cộng hóa trị có cực nhưng phân tử không phân cực.}
+	{Các phân tử $H_2O$ và $NH_3$ có hình dạng giống nhau.}
+	{\True Góc liên kết H-O-H trong $H_2O$ nhỏ hơn góc liên kết H-C-H trong $CH_4$.}
+	\loigiai{
+		\begin{itemchoice}[F1,T2,F3,T4]
+			\itemch $H_2O$, $NH_3$, $CH_4$ có liên kết cộng hóa trị có cực.
+			\itemch $CO_2$ có cấu tạo thẳng nên mặc dù có liên kết C=O phân cực nhưng lại là phân tử không phân cực.
+			\itemch $H_2O$ có hình dạng gấp khúc, $NH_3$ có hình dạng hình chóp tam giác.
+			\itemch Do ảnh hưởng của cặp electron hóa trị riêng trên nguyên tử O, góc liên kết H-O-H bị giảm xuống còn khoảng $104,5^o$, nhỏ hơn góc liên kết $109,5^o$ trong $CH_4$.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_2=============%%%
+\begin{ex}
+	Xét về sự hình thành phân tử $N_2$
+	\choiceTF
+	{\True Phân tử $N_2$ có 3 cặp electron chung.}
+	{\True Liên kết trong phân tử $N_2$ là liên kết cộng hóa trị phân cực.}
+	{Trong phân tử $N_2$ liên kết ba gồm 1 liên $\sigma$ và 2 liên kết $\pi$.}
+	{Phân tử $N_2$ phân cực.}
+	\loigiai{
+		\begin{itemchoice}[T1,T2,T3,F4]
+			\itemch $N_2$ có cấu hình electron lớp ngoài cùng là $2s^22p^3$, mỗi nguyên tử N góp chung 3 electron tạo thành 3 cặp electron chung.
+			\itemch Liên kết ba trong $N_2$ là liên kết cộng hóa trị không phân cực.
+			\itemch Liên kết ba trong phân tử $N_2$ gồm 1 liên kết $\sigma$ và 2 liên kết $\pi$.
+			\itemch $N_2$ là phân tử không phân cực.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_3=============%%%
+\begin{ex}
+	Cho các phân tử: $H_2O$, $NH_3$, $CH_4$, $CO_2$.
+	\choiceTF
+	{Tất cả các phân tử trên đều có liên kết cộng hóa trị không cực.}
+	{\True $CO_2$ là phân tử có liên kết cộng hóa trị có cực nhưng phân tử không phân cực.}
+	{Các phân tử $H_2O$ và $NH_3$ có hình dạng giống nhau.}
+	{\True Góc liên kết H-O-H trong $H_2O$ nhỏ hơn góc liên kết H-C-H trong $CH_4$.}
+	\loigiai{
+		\begin{itemchoice}[F1,T2,F3,T4]
+			\itemch $H_2O$, $NH_3$, $CH_4$ có liên kết cộng hóa trị có cực.
+			\itemch $CO_2$ có cấu tạo thẳng nên mặc dù có liên kết C=O phân cực nhưng lại là phân tử không phân cực.
+			\itemch $H_2O$ có hình dạng gấp khúc, $NH_3$ có hình dạng hình chóp tam giác.
+			\itemch Do ảnh hưởng của cặp electron hóa trị riêng trên nguyên tử O, góc liên kết H-O-H bị giảm xuống còn khoảng $104,5^o$, nhỏ hơn góc liên kết $109,5^o$ trong $CH_4$.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_4=============%%%
+\begin{ex}
+	Xét phân tử $NH_3$
+	\choiceTF
+	{\True Liên kết N-H trong $NH_3$ là liên kết cộng hóa trị phân cực.}
+	{Khi tham gia liên kết hóa học N dùng 5 elctron hóa trị tạo liên kết với 3 nguyên tử H}
+	{\True Trong phân tử $NH_3$ liên kết $\sigma$ $N-H$ hình thành do sự xen phủ trục của $1$ AO 2p trong N với 1 AO s của H}
+	{\True Phân tử $NH_3$ có cấu trúc dạng chóp tam giác}
+	\loigiai{
+		\begin{itemchoice}[F1,T2,F3,T4]
+			\itemch $|3,04 - 2,20| = 0,84 > 0,4.$ nên liên kết N-H là liên kết cộng hóa trị phân cực.
+			\itemch Khi tham gia liên kết hóa học N dùng 3 elctron hóa trị tạo liên kết với 3 nguyên tử H
+			\itemch Trong phân tử $NH_3$ liên kết $\sigma$ $N-H$ hình thành do sự xen phủ trục của $1$ AO 2p trong N với 1 AO s của H
+			\itemch Phân tử $NH_3$ có cấu trúc dạng chóp tam giác.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_5=============%%%
+\begin{ex}
+	Liên kết cộng hóa trị là liên kết được hình thành giữa hai nguyên tử bằng một hay nhiều cặp electron dùng chung.
+	\choiceTF
+	{\True Trong phân tử $HCl$, giữa nguyên tử $H$ và nguyên tử $Cl$ có 1 cặp electron dùng chung}
+	{\True Trong phân tử $O_2$, giữa hai nguyên tử $O$ có 2 cặp electron dùng chung}
+	{\True Trong phân tử $N_2$, giữa hai nguyên tử $N$ có 3 cặp electron dùng chung}
+	{\True Trong phân tử $CO_2$, giữa một nguyên tử $C$ và hai nguyên tử $O$ có 4 cặp electron dùng chung}
+	\loigiai{}
+\end{ex}
+%%%=============EX_6=============%%%
+\begin{ex}
+	Cho các công thức: (1) \chemfig{H-[,0.65,,,draw=none]\charge{[.radius=0.2ex]0:1pt=\:,180:1pt=\:,90:2pt=\:,-90:2pt=\:}{O}-[,0.65,,,draw=none]H} ,\quad
+	(2) \chemfig{O=C=O},\quad
+	(3) \chemfig{\charge{[.radius=0.2ex]90:2pt=\:}{N}~\charge{[.radius=0.2ex]90:2pt=\:}{N}} ,\quad (4) \chemfig{H-\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:}{O}-H} ,\quad (5) \chemfig{\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,0:2pt=\:}{O}-[,0.85,,,draw=none]\charge{[.radius=0.2ex]90:2pt=\:,-90:2pt=\:,180:2pt=\:}{O}}.
+	\choiceTF
+	{Công thức (1) và (3) là công thức electron}
+	{\True Công thức (2) là công thức cấu tạo}
+	{\True Công thức (3), (4) là công thức Lewis}
+	{Công thức (1), (3), (4), (5) là công thức Lewis}
+	\loigiai{}
+\end{ex}
+%%%=============EX_7=============%%%
+\begin{ex}[CD - SGK]
+	Cho các phát biểu:
+	\choiceTF
+	{Nếu cặp electron chung bị lệch về phía một nguyên tử thì đó là liên kết cộng hóa trị không cực}
+	{\True Nếu cặp electron chung bị lệch về phía một nguyên tử thì đó là liên kết cộng hóa trị có cực}
+	{Cặp electron chung luôn được tạo nên từ 2 electron của cùng một nguyên tử}
+	{\True Cặp electron chung được tạo nên từ 2 electron hóa trị. Có bao nhiêu phát biểu đúng trong các phát biểu trên?}
+	\loigiai{}
+\end{ex}
+%%%=============EX_8=============%%%
+\begin{ex}
+	Cho độ dài liên kết và năng lượng liên kết của một số liên kết trong bảng sau:
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			& $C-C$ & $C=C$ & C$\equiv$C \\
+			\hline
+			Độ dài liên kết ($A^{o}$) & $1{,}54$ & $1{,}34$ & $1{,}20$ \\
+			\hline
+			Năng lượng liên kết ($kJ/mol$) & $347$ & $614$ & $839$ \\
+			\hline
+		\end{tabular}
+		\caption{Thông tin về liên kết $C-C$, $C=C$ và C$\equiv$C}
+		\label{bang_lienket_cacbon}
+	\end{table}
+	\choiceTF
+	{\True Liên kết C$-$C có độ dài lớn nhất}
+	{Liên kết C$=$C có năng lượng nhỏ nhất}
+	{Liên kết C$\equiv$C có độ dài nhỏ nhất và năng lượng lớn nhất}
+	{\True Liên kết có độ dài càng lớn thì năng lượng liên kết càng nhỏ và ngược lại}
+	\loigiai{
+		\begin{itemchoice}[T1,F2,F3,T4]
+			\itemch
+			\itemch vì $\mathrm{C} \equiv \mathrm{C}$ có năng lượng liên kết lớn nhất.
+			\itemch vì liên kết có độ dài nhỏ nhất và năng lượng lớn nhất là liên kết $\mathrm{C} \equiv \mathrm{C}$.
+			\itemch
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_9=============%%%
+\begin{ex}[CTST-SBT]
+	Xét các phát biểu về độ bền của một liên kết.
+	\choiceTF
+	{Khi nhiều liên kết được hình thành giữa hai nguyên tử, độ bền của liên kết sẽ giảm}
+	{Độ bền của liên kết tăng khi độ dài của liên kết tăng}
+	{\True Độ bền của liên kết tăng khi độ dài của liên kết giảm}
+	{Độ bền của liên kết không phụ thuộc vào độ dài liên kết}
+	\loigiai{
+		\begin{itemchoice}[F1,F2,T3,F4]
+			\itemch Vì càng nhiều liên kết độ bền càng tăng. VD: Độ bền giảm: C $\equiv$ C $>$ C $=$ C $>$ C $-$ C
+			\itemch Vì độ bền liên kết tăng khi độ dài liên kết giảm.
+			\itemch
+			\itemch Vì độ bền liên kết tỉ lệ nghịch với độ dài liên kết.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_10=============%%%
+\begin{ex}
+	Dựa vào độ âm điện người ta có thể phân loại liên kết thành liên kết ion, liên kết cộng hóa trị không phân cực, liên kết cộng hóa trị phân cực.
+	\choiceTF
+	{\True Liên kết cộng hóa trị không phân cực là liên kết cộng hóa trị trong đó cặp electron dùng chung không lệch về phía nguyên tử nào}
+	{Liên kết cộng hóa trị phân cực là liên kết cộng hóa trị trong đó cặp electron dùng chung lệch về phía nguyên tử có độ âm điện nhỏ hơn}
+	{Hiệu độ âm điện giữa hai nguyên tử từ $0$ đến $0,4$ thì liên kết thuộc loại cộng hóa trị phân cực}
+	{\True Hiệu độ âm điện giữa hai nguyên tử lớn hơn hoặc bằng $1,7$ thì liên kết thuộc loại ion}
+	\loigiai{
+		\begin{itemchoice}[T1,F2,F3,T4]
+			\itemch
+			\itemch Vì trong liên kết cộng hóa trị phân cực thì cặp electron dùng chung lệch về phía nguyên tử có độ âm điện lớn hơn.
+			\itemch Vì hiệu độ âm điện từ $0$ đến $0{,}4$ thì liên kết thuộc loại cộng hóa trị không phân cực.
+			\itemch
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_11=============%%%
+\begin{ex}
+	Nguyên tử của nguyên tố X có cấu hình electron $1s^2,2s^2,2p^6,3s^2,3p^6,4s^1$, nguyên tử của nguyên tố Y có cấu hình electron $1s^2,2s^2,2p^5$.
+	\choiceTF
+	{\True X thuộc chu kì 4, nhóm IA, là một kim loại}
+	{Y thuộc chu kì 2, nhóm VA, là một phi kim}
+	{\True Liên kết giữa X và Y thuộc loại liên kết ion}
+	{Ở điều kiện thường, hợp chất tạo thành bởi X và Y ở trạng thái lỏng}
+	\loigiai{
+		\begin{itemchoice}[T1,F2,T3,F4]
+			\itemch 
+			\itemch vì Y thuộc nhóm VII
+			\itemch vì X là một kim loại mạnh và Y là một phi kim mạnh.
+			\itemch vì hợp chất tạo bởi X và Y thuộc loại hợp chất ion, là chất rắn ở điều kiện thường.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_12=============%%%
+\begin{ex}[CTST-SBT]
+	Xét tính chất của hợp chất cộng hóa trị.
+	\choiceTF
+	{\True Các hợp chất cộng hoá trị có nhiệt độ nóng chảy và nhiệt độ sôi thấp hơn các hợp chất ion}
+	{\True Các hợp chất cộng hoá trị có thể ở thể rắn, lỏng hoặc khí trong điều kiện thường}
+	{Các hợp chất cộng hoá trị đều dẫn điện tốt}
+	{\True Các hợp chất cộng hoá trị không phân cực tan được trong dung môi không phân cực}
+	\loigiai{
+		\begin{itemchoice}[T1,T2,F3,T4]
+			\itemch 
+			\itemch
+			\itemch vì hợp chất cộng hóa trị không phân cực thì không dẫn điện ở mọi nơi.
+			\itemch
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_13=============%%%
+\begin{ex}[KNTT-SBT]
+	Cho các chất: Nước, muối ăn, băng phiến ($C_{10}H_8$), butane ($C_4H_{10}$) và các giá trị nhiệt độ sôi của các chất trên không theo thứ tự $-138^oC$, $80^oC$, $0^oC$, $801^oC$.
+	\choiceTF
+	{\True Nhiệt độ nóng chảy của nước là $0^oC$}
+	{Nhiệt độ nóng chảy của băng phiến là $-138^oC$}
+	{Nhiệt độ nóng chảy của butane là $80^oC$}
+	{\True Muối ăn có nhiệt độ nóng chảy cao nhất vì muối ăn (NaCl) là hợp chất ion}
+	\loigiai{
+		Muối ăn (NaCl) là hợp chất ion nên nhiệt độ nóng chảy cao nhất ($801^oC$), $H_2O$ nóng chảy ở $0^oC$, $C_{10}H_8$ phân tử khối lớn hơn $C_4H_{10}$ nên nhiệt độ nóng chảy cao hơn: $C_{10}H_8$ ($80^oC$), $C_4H_{10}$ ($-138^oC$).
+		\begin{itemchoice}[T1,F2,F3,T4]
+			\itemch
+			\itemch vì băng phiến có nhiệt độ nóng chảy $80^oC$.
+			\itemch vì butane có nhiệt độ nóng chảy $-138^oC$.
+			\itemch 
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_14=============%%%
+\begin{ex}[CD-SBT]
+	Xét các phát biểu về liên kết sigma ($\sigma$) và liên kết pi ($\pi$).
+	\choiceTF
+	{Chỉ có các AO có hình dạng giống nhau mới xen phủ với nhau để tạo liên kết}
+	{\True Khi hình thành liên kết cộng hóa trị giữa hai nguyên tử, luôn có một liên kết $\sigma$}
+	{\True Liên kết $\sigma$ bền vững hơn liên kết $\pi$}
+	{\True Có hai kiểu xen phủ hình thành liên kết là xen phủ trục và xen phủ bên}
+	\loigiai{
+		\begin{itemchoice}[F1,T2,T3,T4]
+			\itemch vì sự xen phủ có thể tạo bởi các AO có hình dạng khác nhau.
+			\itemch
+			\itemch
+			\itemch
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_15=============%%%
+\begin{ex}[CTST-SBT]Xét các phát biểu về độ bền của một liên kết.
+	\choiceTF
+	{Khi nhiều liên kết được hình thành giữa hai nguyên tử, độ bền của liên kết sẽ giảm}
+	{Độ bền của liên kết tăng khi độ dài của liên kết tăng}
+	{\True Độ bền của liên kết tăng khi độ dài của liên kết giảm}
+	{Độ bền của liên kết không phụ thuộc vào độ dài liên kết}
+	\loigiai{
+		\begin{itemchoice}[F1,F2,T3,F4]
+			\itemch vì càng nhiều liên kết độ bền càng tăng. VD: Độ bền giảm: C $\equiv$ C $>$ C $=$ C $>$ C $-$ C
+			\itemch vì độ bền liên kết tăng khi độ dài liên kết giảm.
+			\itemch 
+			\itemch vì độ bền liên kết tỉ lệ nghịch với độ dài liên kết.
+		\end{itemchoice}
+	}
+\end{ex}
+%%%=============EX_16=============%%%
+\begin{ex}[CD-SBT]Cho biết năng lượng liên kết H$-$I và H$-$Br lần lượt là $297$ $kJ/mol$ và $364$ $kJ/mol$.
+	\choiceTF
+	{\True Khi đun nóng, HI bị phân hủy (thành $H_2$ và $I_2$) ở nhiệt độ thấp hơn so với HBr (thành $H_2$ và $Br_2$)}
+	{\True Liên kết H$-$Br là bền vững hơn so với liên kết H$-$I}
+	{Khi đun nóng, HI bị phân hủy (thành $H_2$ và $I_2$) ở nhiệt độ cao hơn so với HBr (thành $H_2$ và $Br_2$)}
+	{\True Liên kết H$-$I dài hơn liên kết H$-$Br}
+	\loigiai{
+		\begin{itemchoice}[T1,T2,F3,T4]
+			\itemch 
+			\itemch 
+			\itemch vì liên kết H$-$I năng lượng thấp hơn liên kết H$-$Br nên nhiệt độ phân hủy thấp hơn.
+			\itemch vì năng lượng liên kết tỉ lệ nghịch với độ dài liên kết.
+		\end{itemchoice}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbook}
+\Closesolutionfile{ansex}
+%\bangdapanTF{AnsTF-C03_B03_LIEN_KET_CONG_HOA_TRI.TEX}
+\phan{Bài tập trả lời ngắn}
+%%%=============SOẠN BT===============%%%
+\Opensolutionfile{ansbth}[Ans/LGBT-C03_B03_LIEN_KET_CONG_HOA_TRI.tex]
+\Opensolutionfile{ansbt}[Ans/AnsBT-C03_B03_LIEN_KET_CONG_HOA_TRI.tex]
+%%%==============Bai_BT1==============%%%
+\begin{bt}[CTST-SBT] Trong phân tử ammonia ($NH_3$), số cặp electron chung giữa nguyên tử nitrogen và các nguyên tử hydrogen là bao nhiêu?
+	\shortans{3}
+	\loigiai{}
+\end{bt}
+%%%==============HetBai_BT1==============%%%
+
+%%%==============Bai_BT2==============%%%
+\begin{bt}
+	Trong phân tử methane ($CH_4$), số cặp electron chung giữa nguyên tử carbon và các nguyên tử hydrogen là bao nhiêu?
+	\shortans{4}
+	\loigiai{}
+\end{bt}
+%%%==============HetBai_BT2==============%%%
+
+%%%==============Bai_BT3==============%%%
+\begin{bt}
+	Cho các hợp chất sau: $Na_2O$, $H_2$, $H_2O$, $HCl$, $Cl_2$, $O_3$. Có bao nhiêu chất mà trong phân tử chứa liên kết cộng hóa trị không phân cực?
+	\shortans{3} 
+	\loigiai{Bao gồm: $H_2$, $Cl_2$, $O_3$.}
+\end{bt}
+%%%==============HetBai_BT3==============%%%
+
+%%%==============Bai_BT4==============%%%
+\begin{bt}
+	Cho dãy các chất: $N_2$, $H_2$, $NH_3$, $NaCl$, $HCl$, $H_2O$. Có bao nhiêu chất trong dãy mà phân tử chỉ chứa liên kết cộng hóa trị phân cực?
+	\shortans{3} 
+	\loigiai{Bao gồm: $NH_3$, $HCl$, $H_2O$.}
+\end{bt}
+%%%==============HetBai_BT4==============%%%
+
+%%%==============Bai_BT5==============%%%
+\begin{bt}
+	Cho các phân tử: $H_2$; $CO_2$; $Cl_2$; $N_2$; $I_2$; $C_2H_4$; $C_2H_2$. Có bao nhiêu phân tử có liên kết ba trong phân tử?
+	\shortans{2} 
+	\loigiai{Bao gồm: $N_2$ ($N\equiv N$) và $C_2H_2$ ($H-C\equiv C-H$).}
+\end{bt}
+%%%==============HetBai_BT5==============%%%
+
+%%%==============Bai_BT6==============%%%
+\begin{bt}[KNTT-SGK] Tổng số liên kết $\sigma$ và $\pi$ có trong phân tử $C_2H_4$ là bao nhiêu?
+	\shortans{6} 
+	\loigiai{Gồm 5 liên kết $\sigma$ và 1 liên kết $\pi$}
+\end{bt}
+%%%==============HetBai_BT6==============%%%
+
+%%%==============Bai_BT7==============%%%
+\begin{bt}
+	Trong các phân tử: $CO_2$, $NH_3$, $C_2H_2$, $SO_2$, $H_2O$ có bao nhiêu phân tử phân cực?
+	\shortans{3} 
+	\loigiai{Bao gồm: $NH_3$, $SO_2$, $H_2O$.}
+\end{bt}
+%%%==============HetBai_BT7==============%%%
+
+%%%==============Bai_BT8==============%%%
+\begin{bt}[CD-SBT] Số obital của cả hai nguyên tử N tham gia xen phủ tạo liên kết trong phân tử $N_2$ là bao nhiêu?
+	\shortans{6} 
+	\loigiai{$N$ ($Z=7$): $1s^22s^22p^3$: $\squarerow[2ud][0.5][\maunhan]{1}$ $\squarerow[2ud][0.5][\maunhan]{1}$ $\squarerow[1u,1u,1u][0.5][\maunhan]{3}$ $\Rightarrow$ Mỗi nguyên tử N mang 3 AO p ra xen phủ $\Rightarrow$ tổng 2 nguyên tử N là 6 AO.}
+\end{bt}
+%%%==============HetBai_BT8==============%%%
+%%%==============Bai_BT9==============%%%
+\begin{bt}[CD-SGK] Cho các phát biểu:
+	\begin{enumerate}[a)]
+		\item Nếu cặp electron chung bị lệch về phía một nguyên tử thì đó là liên kết cộng hóa trị không cực.
+		\item Nếu cặp electron chung bị lệch về phía một nguyên tử thì đó là liên kết cộng hóa trị có cực.
+		\item Cặp electron chung luôn được tạo nên từ 2 electron của cùng một nguyên tử.
+		\item Cặp electron chung được tạo nên từ 2 electron hóa trị. Có bao nhiêu phát biểu đúng trong các phát biểu trên?
+	\end{enumerate}
+	\shortans{2} 
+	\loigiai{Bao gồm: b, d.
+		\begin{enumerate}
+			\item Sai vì cặp electron dùng chung bị lệch về một phía nguyên tử thì đó là liên kết cộng hóa trị có cực.
+			\item Sai vì chỉ trong liên kết cho – nhận thì cặp e dùng chung mới của cùng một nguyên tử.
+	\end{enumerate}}
+\end{bt}
+%%%==============HetBai_BT9==============%%%
+
+%%%==============Bai_BT10==============%%%
+\begin{bt}[CD-SBT] Cho các phát biểu sau về phân tử $CO_2$:
+	\begin{enumerate}[a)]
+		\item Liên kết giữa hai nguyên tử C và O là liên kết cộng hoá trị không phân cực
+		\item Liên kết giữa hai nguyên tử C và O là liên kết cộng hoá trị phân cực
+		\item Phân tử $CO_2$ có 4 electron hoá trị riêng.
+		\item Phân tử $CO_2$ có 4 cặp electron hoá trị riêng.
+		\item Trong phân tử $CO_2$ có 3 liên kết $\sigma$ và 1 liên kết $\pi$
+		\item Trong phân tử $CO_2$ có 2 liên kết $\sigma$ và 2 liên kết $\pi$
+		\item Trong phân tử $CO_2$ có 1 liên kết $\sigma$ và 3 liên kết $\pi$
+	\end{enumerate}
+	Có bao nhiêu phát biểu không đúng trong các phát biểu trên?
+	\shortans{4} 
+	\loigiai{Bao gồm: a, c, e, h.
+		$CO_2: \ddot{O}=C=\ddot{O}$: Trong $CO_2$: Liên kết C – O là liên kết cộng hóa trị phân cực; có 4 cặp electron hóa trị đã ghép đôi nhưng chưa tham gia liên kết (cặp electron hóa trị riêng), có 2 liên kết $\sigma$ và 2 liên kết $\pi$.}
+\end{bt}
+%%%==============HetBai_BT10==============%%%
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+%\bangdapanSA{AnsBT-C03_B03_LIEN_KET_CONG_HOA_TRI.tex}

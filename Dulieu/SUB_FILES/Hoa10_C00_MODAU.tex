@@ -1,0 +1,497 @@
+\documentclass[Main.tex]{subfiles}
+\begin{document}
+%%%Nhớ tắt 3 lệnh này khi chạy filemain
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{3}
+%\tableofcontents
+\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+\part{Hóa vô cơ}
+\chapter{Mở đầu}
+\section{Nhập môn hóa học}
+\begin{MuctieuH}
+	\begin{itemize}
+		\item Nêu được đối tượng nghiên cứu của hóa học.
+		\item Trình bày được phương pháp học tập và nghiên cứu khoa học
+		\item Nêu được vai trò của hóa học đối với đời sống sản suất
+	\end{itemize}
+\end{MuctieuH}
+\subsection{Kiến thức cần nhớ}
+\begin{tomtat}
+	\subsubsection{Đối tượng nghiên cứu của hóa học}
+	\indam[\maunhan]{Hoá học} là ngành khoa học thuộc lĩnh vực \indam[\maunhan]{khoa học tự nhiên}, nghiên cứu vể thành phần, cấu trúc, tính chất, sự biến đổi cúa các chất và ứng dụng của chất.
+	
+    - Gồm có \indam{5 nhánh} chính: 
+		\begin{itemize}
+		\item Hóa lý thuyết và hóa lý
+		\item Hóa vô cơ
+		\item Hóa hữu cơ
+		\item Hóa phân tích
+		\item Hóa sinh
+		\end{itemize}
+	\subsubsection{Vai trò của hóa học trong đời sống và sản xuất}
+\vspace{0.5cm}
+\begin{center}
+	\begin{tikzpicture}[declare function={r=3;},line cap=round,line join=round]
+		\tikzstyle{sty_shape_one} = [outer sep=0,circle,draw=\mauphu,line width=1pt,fill=\mauphu!20,text width =2.0cm,align=center,font=\color{\mycolor!50!black}\bfseries\sffamily]
+		
+		\tikzstyle{sty_shape_two} = [outer sep=0,rounded corners=2mm,rectangle,draw=\maunhan,line width=0.8pt,fill=\maunhan!20,minimum  height=1.0cm,align=center,font=\small\color{\mycolor!50!black}\bfseries\sffamily]
+		
+		\tikzstyle{sty_shape_three} = [outer sep=0,rectangle,draw=\mycolor,line width=0.65pt,fill=\mycolor!20,minimum  height=1.0cm,align=center,font=\scriptsize\color{\mycolor!50!black}\bfseries\sffamily,text width=2cm]
+		
+		\tikzstyle{sty_arrow} = [draw=\maunhan,->,>=stealth,line width=1pt]
+		
+		\begin{scope}[transform shape,scale=0.95]
+		\path(0,0) coordinate (G) node[sty_shape_one] (roleofchem) {Vai trò của hóa học}
+		+({1.3*r},0) coordinate (A) node [sty_shape_two] (life) {trong đời sống}
+		+({-1.3*r},0) coordinate (B) node [sty_shape_two] (production) {trong sản xuất}
+		;
+		\path (A) ++(0:{1.2*r}) coordinate (A1) node [sty_shape_three] (health) {Sức khỏe}
+		++(90:{0.7*r}) coordinate (A2) node [sty_shape_three] (food) {thực phẩm}
+		(A)+(100:{0.7*r}) coordinate (A3) node [sty_shape_three] (medicine) {dược phẩm}
+		 +(-100:{0.7*r})  coordinate (A5) node [sty_shape_three] (energy) {năng lượng}
+		 (A1) +(-90:{0.7*r}) coordinate (A4) node [sty_shape_three] (household) {Vật liệu gia dụng}
+		 
+		(B)+(180:{1.2*r}) coordinate (B1) node [sty_shape_three] (CNDT) {Công nghiệp điện tử}
+		+(80:{0.7*r}) coordinate (B3) node [sty_shape_three] (CNTP) {Công nghiệp thực phẩm và đồ uống}
+		+(-80:{0.7*r}) coordinate (B5) node [sty_shape_three] (CNHC) {Công nghiệp hóa chất}
+		
+		(B1)+(90:{0.7*r}) coordinate (B2) node [sty_shape_three] (CNDM) {Công nghiệp dệt may}
+		+(-90:{0.7*r}) coordinate (B4) node [sty_shape_three] (CNSXN) {Công nghiệp sản xuất nhựa và polime}
+		;
+		\path[sty_arrow] (roleofchem.east) to (life.west);
+		\path[sty_arrow] (roleofchem.west) to (production.east);
+		\foreach \n/\m in {medicine/CNTP,food/CNDT,energy/CNDM,household/CNSXN,health/CNHC}{
+		\path[sty_arrow] (life)--(\n);
+		\path[sty_arrow] (production)--(\m);
+		}
+		\end{scope}
+	\end{tikzpicture}
+\end{center}
+\subsubsection{Phương pháp học tập môn hóa học}
+\begin{center}
+\begin{tikzpicture}[declare function={r=3.5;}]
+
+\tikzset{
+ my arrow/.pic={
+  \path[pic actions] (-0.5,0) coordinate (A) 
+  --(0.5,0) coordinate (B)
+  --(0.5,-1)  coordinate (C)
+  -- (0.8,-1) coordinate (D)
+  -- (0,-1.5) coordinate (E)
+  -- (-0.8,-1) coordinate (F)
+  --(-0.5,-1) coordinate (G)--cycle
+  ;
+ },
+}
+	\tikzstyle{sty_shape_one} = [outer sep=0,inner sep =0pt,shape=ellipse,draw=\maunhan!60!white,line width=1pt,top color=\mauphu!65!\maunhan,bottom color =\mauphu!60!\maunhan,text width =2.5cm,align=center,font=\color{white}\bfseries\sffamily]
+	
+	\tikzstyle{sty_shape_two} = [anchor=center,outer sep=0,rectangle, rounded corners =3pt,draw=\maunhan!60!white,line width=1pt,text width =2.0cm,align=center,font=\color{white}\bfseries\sffamily]
+	
+	\tikzstyle{sty_shape_three} = [inner sep =2pt,outer sep=0,diamond, rounded corners =3pt,draw=\maunhan!60!white,line width=1pt,text width =2.0cm,align=center,font=\color{white}\bfseries\sffamily]
+
+	\begin{scope}[transform shape,scale=0.55,node distance=5pt]
+		\path(0,0) coordinate (G) 
+		 node[sty_shape_one](natural){hiện tượng tự nhiên}
+		 
+		 pic[draw =\maunhan!50,
+		 below=of natural,
+		 scale=0.55,top color=\mauphu!60!\maunhan,bottom color = \mauphu!55!\maunhan,
+		 local bounding box = M
+		 ] 
+		 {my arrow} 
+		 
+		 node [sty_shape_two,below= of M,top color=\mauphu!55!\maunhan,bottom color = \mauphu!50!\maunhan](QS){Quan sát khoa học}
+		 
+		 pic[below=of QS,
+		 scale=0.55,top color=\mauphu!50!\maunhan,bottom color = \mauphu!45!\maunhan,
+		 local bounding box = H] {my arrow}
+		 
+		 node[sty_shape_two,top color=\mauphu!45!\maunhan,bottom color = \mauphu!40!\maunhan,below=of H](Question){Đặt câu hỏi}
+		 
+		 pic[below=of Question,
+		 scale=0.55,top color=\mauphu!45!\maunhan,bottom color = \mauphu!40!\maunhan,
+		 local bounding box = Th] {my arrow}
+		 
+		 node[sty_shape_two,top color=\mauphu!35!\maunhan,bottom color = \mauphu!30!\maunhan,below=of Th](proposal){Đề xuất giả thuyết}
+		 
+		 pic[below=of proposal,
+		 scale=0.55,top color=\mauphu!35!\maunhan,bottom color = \mauphu!30!\maunhan,
+		 local bounding box = four] {my arrow}
+		 
+		 node[sty_shape_two,top color=\mauphu!25!\maunhan,bottom color = \mauphu!20!\maunhan,text width =3cm,below=of four](experimental){Thực nghiệm chứng minh}
+		 
+		 pic[below=of experimental,
+		 scale=0.55,top color=\mauphu!25!\maunhan,bottom color = \mauphu!20!\maunhan,
+		 local bounding box = five] {my arrow}
+		 
+		 node[sty_shape_three,top color=\mauphu!15!\maunhan,bottom color = \mauphu!10!\maunhan,text width =2cm,below=of five](rule){Quy luật};
+		;
+		\path ([shift={(-3pt,3pt)}]experimental.west) coordinate (A) --++(180:0.3*r) coordinate(At)--([turn]-90:1.0*r)|-coordinate(Gm) ([shift={(-10pt,-3pt)}]Question.west) coordinate (Ap)--([turn]-90:4pt) coordinate(Ah);
+		\path ([shift={(-3pt,-3pt)}]experimental.west)coordinate (B) --($(At)+(-135:{sqrt(2)*6pt})$)coordinate(Bt)--([turn]-90:1.0*r)|-coordinate(Gh)([shift={(-10pt,3pt)}]Question.west)coordinate (Bp)--([turn]90:4pt)coordinate(Bh);
+		\path[draw=\maunhan!50,top color =\mauphu!45!\maunhan,bottom color =\mauphu!25!\maunhan] (A)--([xshift=6.5pt]At)..controls+(180:6pt) and +(-90:6pt) .. ([yshift=6.5pt]At)--([yshift=-6.5pt]Gm)..controls++(90:6pt) and ++(180:6pt) ..([xshift=6.5pt]Gm)--(Ap)--(Ah)--($(Ah)!0.5!(Bh)+(7pt,0)$)--(Bh)--(Bp)--([xshift=9pt]Gh)..controls+(180:6pt) and +(90:6pt) ..([yshift=-9pt]Gh)--([yshift=9pt]Bt)..controls+(-90:6pt) and +(180:6pt) ..([xshift=9pt]Bt)--(B)--cycle ;
+		\path(A) node[anchor=south east,font=\color{\maunhan}\bfseries\sffamily,] {SAI};
+		\path(five.east) node[anchor=west,font=\color{\maunhan}\bfseries\sffamily,] {ĐÚNG};
+	\end{scope}
+	\end{tikzpicture}
+\end{center}
+\end{tomtat}
+\subsection{Bài tập củng cố}
+\subsubsection{Phần trắc nghiệm}
+\Opensolutionfile{ansex}[Ans/LGEX-Hoa10_C01_CTNT]
+\Opensolutionfile{ans}[Ans/Ans-Hoa10_C01_CTNT]
+\hienthiloigiaiex
+%\tatloigiaiex
+%%%=============EX_1=============%%%
+\begin{ex}[trang 3 sách bài tập Hóa học 10]
+	\choice
+	{\True H, C, O}
+	{C, O, K}
+	{O, C, P}
+	{C, O, N}
+	\loigiai{
+		Công thức phân tử của tinh bột là $\left(\mathrm{C}_6\mathrm{H}_{10}\mathrm{O}_5\right)_n$ nên các nguyên tố tạo nên tinh bột là $\mathrm{C}$, $\mathrm{H}$,$\mathrm{O}$.
+	}
+\end{ex}
+
+%%%=============EX_2=============%%%
+\begin{ex}
+	Đối tượng nghiên cứu của hóa học là:
+	\choice
+	{\True Các phản ứng hóa học và sự biến đổi chất}
+	{Cách động vật giao tiếp}
+	{Chuyển động của sóng biển}
+	{Các hiện tượng thời tiết}
+	\loigiai{Các phản ứng hóa học và sự biến đổi chất}
+\end{ex}
+
+%%%=============EX_3=============%%%
+\begin{ex}
+	Hóa học chủ yếu quan tâm đến:
+	\choice
+	{\True Cấu trúc và tính chất của nguyên tố và hợp chất}
+	{Quá trình hình thành các ngôi sao}
+	{Cơ chế điều hòa nhiệt độ trong cơ thể người}
+	{Sự phân bố dân số trên Trái Đất}
+	\loigiai{Cấu trúc và tính chất của nguyên tố và hợp chất}
+\end{ex}
+
+%%%=============EX_4=============%%%
+\begin{ex}
+	Trong lĩnh vực hóa học, người ta nghiên cứu:
+	\choice
+	{Quỹ đạo của vệ tinh quanh Trái Đất}
+	{Cách sóng âm truyền qua không khí}
+	{\True Phản ứng giữa các chất và năng lượng phát ra hoặc hấp thụ}
+	{Cách động đất xảy ra}
+	\loigiai{Phản ứng giữa các chất và năng lượng phát ra hoặc hấp thụ}
+\end{ex}
+
+%%%=============EX_5=============%%%
+\begin{ex}
+	Hóa học nghiên cứu về:
+	\choice
+	{Nguồn gốc và phát triển của vũ trụ}
+	{Cách các lực hấp dẫn ảnh hưởng đến các vật thể}
+	{Sự di truyền và biến đổi gen}
+	{\True Cấu trúc nguyên tử và phân tử}
+	\loigiai{Cấu trúc nguyên tử và phân tử}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansex}
+%%%====================%%%
+\Opensolutionfile{ansex}[Ans/LGTF-Hoa10_C01_CTNT]
+\Opensolutionfile{ansbook}[Ansbook/AnsTF-Hoa10_C01_CTNT]
+\Opensolutionfile{ans}[Ans/Tempt-Hoa10_C01_CTNT]
+%\hienthiloigiaiex
+%%%=============EX_1=============%%%
+\begin{ex}[trang 3 sách bài tập Hóa học 10]
+	\choiceTF
+	{Sự vận chuyển của máu trong hệ tuần hoàn}
+	{Sự tự quay của Trái Đất quanh trục riêng}
+	{\True Sự chuyển hóa thức ăn trong hệ tiêu hóa}
+	{\True Sự phá hủy tầng ozone bởi freon – 12}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Sai. Đây là đối tượng nghiên cứu của lĩnh vực sinh học
+			\itemch Sai. Đây là đối tượng nghiên cứu của lĩnh vực địa lý
+			\itemch Đúng. Đây là đối tượng nghiên cứu của lĩnh vực hóa học ví xảy ra sự biến đổi chất trong hệ tiêu hóa
+			\itemch Đúng. Đây là đối tượng nghiên cứu của lĩnh vực hóa học ví xảy ra sự biến đổi chất đó là khí Ozon bị phân hủy bởi freon-12
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%=============EX_2=============%%%
+\begin{ex}
+	Đâu là đối tượng nghiên cứu của hóa học?
+	\choiceTF
+	{\True Cấu trúc và tính chất của các chất}
+	{Quỹ đạo của các hành tinh}
+	{\True Sự biến đổi và phản ứng của các chất}
+	{Cách thức tế bào sinh sản}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Đúng. Cấu trúc và tính chất của các chất
+			\itemch Sai. Quỹ đạo của các hành tinh
+			\itemch Đúng. Sự biến đổi và phản ứng của các chất
+			\itemch Sai. Cách thức tế bào sinh sản
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%=============EX_3=============%%%
+\begin{ex}
+	Hóa học nghiên cứu về:
+	\choiceTF
+	{\True Cách thức các chất tương tác và phản ứng với nhau}
+	{Lực hấp dẫn giữa các thiên thể}
+	{\True Cấu trúc nguyên tử và phân tử}
+	{Động lực học chất lưu}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Đúng. Cách thức các chất tương tác và phản ứng với nhau
+			\itemch Sai. Lực hấp dẫn giữa các thiên thể
+			\itemch Đúng. Cấu trúc nguyên tử và phân tử
+			\itemch Sai. Động lực học chất lưu
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%=============EX_4=============%%%
+\begin{ex}
+	Đối tượng nghiên cứu của hóa học là:
+	\choiceTF
+	{\True Sự biến đổi chất}
+	{Sự phân bố của các loài sinh vật}
+	{\True Các phản ứng hóa học}
+	{Hiện tượng sóng biển}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Đúng. Sự biến đổi chất
+			\itemch Sai. Sự phân bố của các loài sinh vật
+			\itemch Đúng. Các phản ứng hóa học
+			\itemch Sai. Hiện tượng sóng biển
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%=============EX_5=============%%%
+\begin{ex}
+	Hóa học chủ yếu quan tâm đến:
+	\choiceTF
+	{\True Cấu trúc của nguyên tố và hợp chất}
+	{\True Cách các nguyên tử và phân tử tương tác với nhau}
+	{Sự phát triển của các hành tinh}
+	{Cấu trúc của tế bào sống}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Đúng. Cấu trúc của nguyên tố và hợp chất
+			\itemch Đúng. Cách các nguyên tử và phân tử tương tác với nhau
+			\itemch Sai. Sự phát triển của các hành tinh
+			\itemch Sai. Cấu trúc của tế bào sống
+		\end{itemchoice}
+	}
+\end{ex}
+
+%%%=============EX_6=============%%%
+\begin{ex}
+	Trong lĩnh vực hóa học, người ta nghiên cứu:
+	\choiceTF
+	{Hiện tượng khí hậu}
+	{\True Năng lượng phát ra hoặc hấp thụ trong các phản ứng hóa học}
+	{Động lực học của tàu thủy}
+	{\True Phản ứng giữa các chất}
+	\loigiai{
+		\begin{itemchoice}
+			\itemch Sai. Hiện tượng khí hậu
+			\itemch Đúng. Năng lượng phát ra hoặc hấp thụ trong các phản ứng hóa học
+			\itemch Sai. Động lực học của tàu thủy
+			\itemch Đúng. Phản ứng giữa các chất
+		\end{itemchoice}
+	}
+\end{ex}
+\Closesolutionfile{ans}
+\Closesolutionfile{ansbook}
+\Closesolutionfile{ansex}
+\subsubsection{Phần Tự luận}
+\Opensolutionfile{ansbth}[Ans/LGBT-Hoa10_C01_CTNT]
+\Opensolutionfile{ansbt}[Ans/AnsBT-Hoa10_C01_CTNT]
+\hienthiloigiaibt
+%\tatloigiaibt
+	%%%==============BT_1==============%%%
+	\begin{bt}
+		Điền từ/cụm từ thích hợp vào chỗ trống trong những câu sau:
+		\begin{enumerate}
+			\item Hóa học là ngành khoa học thuộc lĩnh vực\ldots (1)\ldots, nghiên cứu về thành phần, cấu trúc, tính chất, sự biến đổi của các đơn chất, hợp chất và\ldots (2)\ldots đi kèm những quá trình biến đổi đó.
+			\item Hóa học kết hợp chặt chẽ giữa lí thuyết và\ldots (1)\ldots, là cầu nối giữa các ngành khoa học tự nhiên khác. Hóa học có\ldots (2)\ldots nhánh chính. Đối tượng nghiên cứu của hóa học là\ldots (3)\ldots
+		\end{enumerate}
+		\loigiai{
+		\begin{enumerate}
+			\item Hóa học là ngành khoa học thuộc lĩnh vực \indam{khoa học tự nhiên} nghiên cứu về thành phần, cấu trúc, tính chất, sự biến đổi các đơn chất, hợp chất và \indam{ứng dụng} đi kèm những quá trình biến đổi đó.
+			\item Hóa học kết hợp chặt chẽ giữa lí thuyết và \indam{thực tiễn}, là cầu nối giữa các ngành khoa học tự nhiên khác. Hóa học có \indam{5} nhánh chính. Đối tượng nghiên cứu của hóa học là \indam{chất và sự biến đổi chất}
+		\end{enumerate}
+		}
+	\end{bt}
+	
+	%%%==============BT_2==============%%%
+	\begin{bt}[trang 3 sách bài tập Hóa học 10] Hãy chỉ ra sự khác nhau về cấu tạo của hai hydrocarbon có cùng công thức phân tử $C_5H_{12}$ sau đây:
+		Hãy chỉ ra sự khác nhau về cấu tạo của hai hydrocarbon có cùng công thức phân tử
+		$CH_3-CH_2-CH_2-CH_2-CH_3$
+		và $\left(CH_3\right)_4C$
+		Nhiệt độ sôi của hai chất này là bằng nhau hay khác nhau? Vì sao?
+		\loigiai{
+		Sự khác nhau về cấu tạo của hai hydrocarbon.\\
+		Cả hai hydrocarbon đều có công thức phân tử là $C_5H_{12}$, nhưng chúng có cấu tạo khác nhau:
+		\begin{enumerate}
+			\item  $CH_3-CH_2-CH_2-CH_2-CH_3$ (Pentane):
+			\begin{itemize}
+				\item  Đây là một hydrocarbon mạch thẳng, với chuỗi các nguyên tử carbon liên tiếp nhau.
+				\item  Công thức cấu tạo của pentane có dạng mạch thẳng:
+			\end{itemize}
+			$CH_3-CH_2-CH_2-CH_2-CH_3$
+			\item  $\left(CH_3\right)_4C$ (Neopentane hoặc 2,2-Dimethylpropane):
+		\begin{itemize}
+			\item  Đây là một hydrocarbon mạch nhánh, với một nguyên tử carbon trung tâm liên kết với bốn nhóm methyl.
+			\item  Công thức cấu tạo của neopentane có dạng cấu trúc phân nhánh:
+		\end{itemize}
+	\end{enumerate}
+		So sánh nhiệt độ sôi của hai chất
+		\\
+		Nhiệt độ sôi của hai chất này là khác nhau. Dưới đây là lý do:
+		\begin{enumerate}
+			\item  Pentane (mạch thẳng):
+			\begin{itemize}
+				\item  Các phân tử pentane có khả năng tương tác với nhau mạnh hơn qua lực Van der Waals do diện tích tiếp xúc lớn hơn của phân tử mạch thẳng.
+				\item  Điều này dẫn đến nhiệt độ sôi cao hơn vì cần nhiều năng lượng hơn để phá vỡ các lực tương tác giữa các phân tử.
+			\end{itemize}
+			\item  Neopentane (mạch nhánh):
+		\begin{itemize}
+			\item  Các phân tử neopentane có diện tích tiếp xúc với nhau nhỏ hơn do cấu trúc phân nhánh, dẫn đến lực Van der Waals yếu hơn.
+			\item  Do đó, nhiệt độ sôi của neopentane sẽ thấp hơn vì cần ít năng lượng hơn để phá vỡ các lực tương tác giữa các phân tử.
+		\end{itemize}
+	\end{enumerate}
+		Nhiệt độ sôi của pentane cao hơn so với neopentane. Điều này là do cấu trúc mạch thẳng của pentane cho phép các phân tử tương tác với nhau mạnh hơn qua lực Van der Waals so với cấu trúc phân nhánh của neopentane.
+		}
+	\end{bt}
+	%%%==============BT_3==============%%%
+	\begin{bt}[trang 3 sách bài tập Hóa học 10] Em hãy chỉ ra một số lí do để giải thích vì sao bên cạnh việc nhận thức kiến thức hóa học từ sách vở và thầy cô thì các hoạt động khám phá thế giới tự nhiên dưới góc độ hóa học cũng như vận dụng các kiến thức hóa học vào thực tiễn lại có ý nghĩa quan trọng trong việc học tập môn Hóa học. Nêu ví dụ minh họa.
+		\loigiai{
+		Việc nhận thức kiến thức hóa học từ sách vở và thầy cô là nền tảng quan trọng trong học tập môn Hóa học, nhưng các hoạt động khám phá thế giới tự nhiên và vận dụng kiến thức hóa học vào thực tiễn cũng có vai trò quan trọng không kém vì những lý do sau đây:
+		\begin{enumerate}
+			\item  Kích thích sự tò mò và hứng thú học tập:
+			\begin{itemize}
+				\item  Ví dụ: Khi học sinh được tham gia vào các thí nghiệm thực hành như làm ra "núi lửa phun trào" bằng cách sử dụng baking 	soda và giấm, họ sẽ cảm thấy hứng thú và tò mò về cách các phản ứng hóa học diễn ra trong thực tế.
+			\end{itemize}
+			\item  Tăng cường khả năng tư duy và giải quyết vấn đề:
+			\begin{itemize}
+				\item  Ví dụ: Khi học sinh tham gia vào việc tách các chất từ hỗn hợp, như tách muối ra khỏi nước muối bằng phương pháp chưng cất, họ sẽ phải vận dụng các kiến thức đã học để tìm ra phương pháp hiệu quả nhất và giải quyết các vấn đề nảy sinh trong quá trình thí nghiệm.
+			\end{itemize}
+			\item  Phát triển kỹ năng thực hành và thao tác trong phòng thí nghiệm:
+			\begin{itemize}
+				\item  Ví dụ: Thực hiện các thí nghiệm như xác định độ pH của các dung dịch khác nhau giúp học sinh phát triển kỹ năng sử dụng dụng cụ phòng thí nghiệm như ống nghiệm, giấy quỳ tím và các thiết bị đo đạc.
+			\end{itemize}
+			\item  Áp dụng kiến thức vào thực tiễn cuộc sống:
+			\begin{itemize}
+				\item  Ví dụ: Học sinh có thể áp dụng kiến thức về axit-bazơ để hiểu rõ hơn về các sản phẩm tẩy rửa mà họ sử dụng hàng ngày, hoặc biết cách xử lý khi bị axit hay bazơ ăn da tiếp xúc với da.
+			\end{itemize}
+			\item  Hiểu rõ hơn về môi trường xung quanh và các hiện tượng tự nhiên:
+			\begin{itemize}
+				\item  Ví dụ: Khám phá cách các phản ứng hóa học xảy ra trong tự nhiên, như quá trình quang hợp ở cây xanh hay sự ăn mòn kim loại, giúp học sinh có cái nhìn sâu sắc hơn về thế giới xung quanh và những hiện tượng mà họ gặp hàng ngày.
+			\end{itemize}
+			\item  Khơi dậy niềm đam mê nghiên cứu khoa học:
+		\begin{itemize}
+			\item  Ví dụ: Tham gia vào các dự án nghiên cứu nhỏ như tạo ra các loại xà phòng tự chế hoặc điều chế nước hoa từ tinh dầu thiên nhiên có thể khơi dậy niềm đam mê nghiên cứu và sáng tạo trong học sinh.
+		\end{itemize}
+	\end{enumerate}
+		Những hoạt động này không chỉ giúp học sinh củng cố kiến thức đã học mà còn phát triển nhiều kỹ năng quan trọng, tạo nền tảng vững chắc cho việc học tập và nghiên cứu sâu hơn trong lĩnh vực Hóa học.
+		}
+	\end{bt}
+	
+	%%%==============BT_4==============%%%
+	\begin{bt}[trang 3 sách bài tập Hóa học 10] Em hãy trình bày vai trò của hóa học trong thực tiễn. Nêu ra các ví dụ minh họa khác trong sách giáo khoa (SGK).
+		\loigiai{
+		Hóa học đóng vai trò quan trọng trong nhiều lĩnh vực của cuộc sống và sản xuất, giúp cải thiện chất lượng sống và thúc đẩy sự phát triển của xã hội. Dưới đây là một số vai trò chính của hóa học trong thực tiễn
+		\begin{enumerate}
+			\item  Công nghiệp hóa chất:
+			\begin{itemize}
+				\item  Ví dụ: Quá trình sản xuất amoniac từ nitơ và hydro theo phương pháp Haber-Bosch,nền tảng cho việc sản xuất phân bón nitơ, một yếu tố thiết yếu trong nông nghiệp hiện đại.
+			\end{itemize}
+			\item  Y học và dược phẩm:
+			\begin{itemize}
+				\item  Ví dụ: Hóa học giúp phát triển các loại thuốc chữa bệnh như điều chế vac-cin  ngừa  dịch covid, giúp giảm đau và chống viêm hiệu quả.
+			\end{itemize}
+			\item Nông nghiệp:
+			\begin{itemize}
+				\item  Ví dụ: Phân bón hóa học, như phân lân và phân kali, giúp cải thiện năng suất cây trồng và đảm bảo an ninh lương thực.
+			\end{itemize}
+			\item Môi trường:
+			\begin{itemize}
+				\item  Ví dụ: Quá trình xử lý nước thải bằng phương pháp hóa học, như sử dụng các chất keo tụ để loại bỏ tạp chất, giúp bảo vệ môi trường nước và sức khỏe con người.
+			\end{itemize}
+			\item Công nghệ vật liệu:
+			\begin{itemize}
+				\item  Ví dụ: Sản xuất và ứng dụng của các loại polymer, như nhựa và cao su, giúp tạo ra các vật liệu có tính năng đặc biệt phục vụ nhiều ngành công nghiệp khác nhau.
+			\end{itemize}
+			\item  Năng lượng:
+			
+			\begin{itemize}
+				\item  Ví dụ: Các loại pin và ắc quy, như pin lithium-ion đóng vai trò quan trọng trong việc lưu trữ năng lượng cho các thiết bị điện tử và phương tiện giao thông hiện đại.
+			\end{itemize}
+			\item  Thực phẩm:
+			
+			\begin{itemize}
+				\item  Ví dụ: Quá trình bảo quản thực phẩm bằng cách sử dụng các chất bảo quản và chất chống oxi hóa giúp kéo dài thời gian sử dụng và đảm bảo an toàn thực phẩm.
+			\end{itemize}
+			\item  Hóa mỹ phẩm:
+			\begin{itemize}
+				\item  Ví dụ: Sản xuất các sản phẩm chăm sóc cá nhân như xà phòng, dầu gội và kem dưỡng da giúp cải thiện chất lượng sống và chăm sóc sức khỏe cá nhân.
+			\end{itemize}
+		\end{enumerate}
+		}
+	\end{bt}
+\Closesolutionfile{ansbt}
+\Closesolutionfile{ansbth}
+
+
+%\subsection{Khái niệm phản ứng thuận nghich và trạng thái cân bầng}
+%\section{pH của dung dịch- chuẩn độ acid và base}
+%
+%\chapter{Nitrogen và sulfur}
+%\section{Đơn chất nitrogen}
+%\section{Một số hợp chất quan trọng của nitrogen}
+%\section{Sulfur và sulfur dioxide}
+%\section{Sulfuric acid và muối sulfate}
+%
+%
+%\chapter{Đại cương hoá học hữu cơ}
+%\section{Hợp chất hữu cơ và hoá học hữu cơ}
+%\section{Phương pháp tách biệt và tinh chế hợp chất hữu cơ}
+%\section{Công thức phân tử hợp chất hữu cơ}
+%\section{Cấu tạo hợp chất hữu cơ}
+%
+%\chapter{Hydrocarbon}
+%\section{Alkane}
+%\section{Phương pháp tách biệt và tinh chế hợp chất hữu cơ}
+%\section{Hydrocarbon không no}
+%\section{Arene}
+%
+%\chapter{Dẫn xuất halogen-alcohol-phenol}
+%\section{Dẫn xuất halogen}
+%\section{Phenol}
+%
+%
+%\chapter[Hợp chất carbonyl - carboxylic acid]{Hợp chất carbonyl (aldehyde - ketone) - carboxylic acid}
+%\section{Hợp chất carbonyl}
+%\section{Carboxylic acid}
+%\begin{dang}{Bài toán tính số hạt}
+%	\begin{ppg}
+%		\begin{cacbuoc}
+%			\item
+%			\item
+%		\end{cacbuoc}
+%	\end{ppg}
+%\end{dang}
+%	\bangdapan{Ans-Hoa10_C01_CTNT}
+%	\bangdapanTF{AnsTF-Hoa10_C01_CTNT}
+%	\bangdapanSA{AnsBT-Hoa10_C01_CTNT}
+\end{document}
+

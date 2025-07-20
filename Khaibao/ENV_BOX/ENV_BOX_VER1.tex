@@ -46,24 +46,33 @@
 }
 %%%==================end dang======================%%%
 
+
+\DeclareFixedFont{\ugqfont}{T5}{ugq}{b}{n}{13pt}
+
+\newcommand{\qagfont}{\bfseries\fontfamily{qag}\fontsize{13pt}{6pt}\selectfont}
+
+\NewDocumentCommand{\myfont}{O{}m}{
+	\ifblank{#1}{\def\tuychonone{12}}{\def\tuychonone{#1}}%
+	\bfseries\fontfamily{#2}\fontsize{\tuychonone pt}{6pt}\selectfont
+}
+
 %%% Tùy chọn 1: màu có thể bỏ trống
 %%%\tùy chọn 2: font chữ có thể bỏ trống
 %%%\tùy chọn 3: nhãn có thể bỏ trống
-\DeclareFixedFont{\ugqfont}{T5}{ugq}{b}{n}{13pt}
-\newcommand{\qagfont}{\bfseries\fontfamily{qag}\fontsize{13pt}{6pt}\selectfont}
+%%% Noibat[][][]{Nội dung}
 \newcounter{noibat}[subsubsection]
 \renewcommand{\thenoibat}{\alph{noibat}}
 \NewDocumentCommand{\Noibat}{O{}O{}O{}O{}O{0}m}{%
 	% Chỉ tăng số đếm khi sử dụng tùy chọn \thenoibat hoặc khi #3 trống
 	\ifstrequal{#3}{\thenoibat}{\refstepcounter{noibat}}{%
-		\ifblank{#3}{\refstepcounter{noibat}}{}%
+	\ifblank{#3}{\refstepcounter{noibat}}{}%
 	}%
 	\ifblank{#1}{\def\tuychonone{\mycolor}}{\def\tuychonone{#1}}%
-	\ifblank{#2}{\def\tuychontwo{\qagfont}}{\def\tuychontwo{#2}}%
+	\ifblank{#2}{\def\tuychontwo{\myfont{qag}}}{\def\tuychontwo{#2}}%
 	\ifblank{#3}{\def\tuychonthree{\thenoibat)}}{\def\tuychonthree{#3}}%
 	\ifblank{#4}{\def\tuychonfour{0}}{\def\tuychonfour{#4}}%
-	\par\noindent\hspace{\tuychonfour cm}%
-	{\color{\tuychonone}{\large\tuychontwo\expandafter\tuychonthree\,}{\tuychontwo #6}}%
+	\par\noindent\hspace{\tuychonfour cm}\ignorespaces%
+	{\color{\tuychonone}{\tuychontwo\expandafter\tuychonthree\,}{\tuychontwo #6}}%
 	\vspace*{#5 cm}
 }
 \newcommand{\tieumuc}[1]{\noindent\Noibat[\maunhan][\qagfont][\faBookmark]{#1}}
@@ -155,24 +164,24 @@ overlay unbroken and first={
 	\path [fill =#1!10,draw=#1] (title.south west)
 	--([yshift=-6pt]title.north west)to[in=180,out=90]([xshift=6pt]title.north west)
 	--([xshift=-6pt]title.north east)to[in=90,out=0]([yshift=-6pt]title.north east)--(title.south east)--cycle;
-	\path[fill=#1,draw=#1,line width=1pt,rounded corners] ([xshift=8pt]FNW) --(title.south west)circle (2pt)
-	(title.south east)circle (2pt)--([xshift=-8pt]FNE);
-	\path[draw=#1,dashed]
+	\path[fill=#1!5]
 	([xshift=-8pt]FNE)--([yshift=-5pt]FNE) --([yshift=5pt]FSE)
 	--([xshift=-8pt]FSE) --([xshift=8pt]FSW)
 	--([yshift=5pt]FSW) --([yshift=-5pt]FNW)
 	--([xshift=8pt]FNW)
 	;
+	\path[fill=#1,draw=#1,line width=1pt,rounded corners] ([xshift=8pt]FNW) --(title.south west)circle (2pt)
+	(title.south east)circle (2pt)--([xshift=-8pt]FNE);
 	\path ($(title.west)!0.5!(title.east)$) node[font=\color{#1!30!black}\bfseries\fontfamily{phv}\selectfont]{Phương pháp giải};
-	\path ($(title.east)+(0,0)$) node[anchor = west]{\includegraphics[height=1cm]{Images/Icons/PPG.PNG}};
-	\path ($(title.west)+(0.2,0)$) node[anchor = east]{\includegraphics[height=0.8cm]{Images/Icons/PEN.PNG}};
+	\path ($(title.east)+(-0.3,0.1)$) node[anchor = west]{\includegraphics[height=1cm]{Images/Icons/STUDY.png}};
+	\path ($(title.west)+(0.2,0)$) node[anchor = east]{\includegraphics[height=0.8cm]{Images/Icons/PPG.png}};
 },
 overlay middle and last={
 	\path (frame.north west) coordinate (FNW)
 	(frame.north east) coordinate (FNE)
 	(frame.south east) coordinate (FSE)
 	(frame.south west) coordinate (FSW);
-	\path[draw=#1,dashed]([xshift=8pt,yshift=-5pt]FNW)--([xshift=-8pt,yshift=-5pt]FNE)
+	\path[fill=#1!5]([xshift=8pt,yshift=-5pt]FNW)--([xshift=-8pt,yshift=-5pt]FNE)
 	--([yshift=-10pt]FNE) --([yshift=5pt]FSE)
 	--([xshift=-8pt]FSE) --([xshift=8pt]FSW)
 	--([yshift=5pt]FSW) --([yshift=-10pt]FNW)
@@ -337,7 +346,7 @@ overlay middle and last={
 
 \newtcolorbox{kttrongtam}{
 	enhanced,breakable,
-	before skip=6pt,after skip=6pt,
+	before skip=10pt,after skip=6pt,
 	boxsep=9pt,
 	left=1cm,
 	right=0.25cm,
@@ -459,7 +468,7 @@ overlay middle and last={
 %%%%%%%%%%%%%%%%================Các hộp bổ sung===============================%%%%
 %%%%%%%%%%%%%%%%%%%%%%%=======HỘP QANDA============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcounter{qandacount}[section]
-\newtcolorbox{boxqanda}{%
+\newtcolorbox{hoivadapbox}{%
 	colback=\mycolor!15,
 	colframe=\mycolor!80!black,
 	enhanced,
@@ -476,7 +485,6 @@ overlay middle and last={
 	rightrule=1.5pt,
 	leftrule=1.5pt,
 	arc=3pt,
-	%	arc is angular,
 	sharp corners=northeast,
 	drop lifted shadow=\maudam!40!black,
 	fontupper=\color{\mycolor!15!black},
@@ -484,38 +492,35 @@ overlay middle and last={
 		\path 
 		([xshift=0.5cm]frame.north west) node[shape=circle,fill=\mycolor!30!orange,inner sep =0pt, outer sep=0pt] (icon)
 		{\includegraphics[width=.6cm]{Images/Icons/Icon3dhoidap.png}};
-%		\path 
-%		([xshift=-3pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{\theqandacount}}
-%		;
 	},
 	overlay middle and last={
 		\path 
 		([xshift=0.5cm]frame.north west)  node[shape=circle,fill=\mycolor!30!orange,inner sep =0pt, outer sep=0pt] (icon)
 		{\includegraphics[width=.6cm]{Images/Icons/Icon3dhoidap.png}};
-%		\path
-%		([xshift=-3pt]icon.east)	node[anchor=west]{\large\bfseries\sffamily\color{\maunhan}{\theqandacount}}
-%		;
 	}	
 }
 
-\def\qandabegin{\begin{boxqanda}}
-\def\qandaend{\end{boxqanda}}
-\newenvironment{hoivadap}{\qandabegin}{\qandaend}
+\def\hoivadapbegin{\begin{hoivadapbox}}
+\def\hoivadapend{\end{hoivadapbox}}
+\newenvironment{hoivadap}{\hoivadapbegin}{\hoivadapend}
 \AtBeginEnvironment{hoivadap}{%
 	\refstepcounter{qandacount}
 	\setcounter{numTrue}{0}%
 	\setcounter{numTrueSol}{0}%
 	\renewcommand{\loigiai}[1]{%
-		\end{boxqanda} \def\qandaend{} % đưa lời giải ra ngoài hộp
+		\end{hoivadapbox} \def\hoivadapend{} % đưa lời giải ra ngoài hộp
 		{\par\noindent\color{\maunhan!50!black}\reflectbox{\Large\WritingHand}\ {\fmmfamily\LARGE Hướng dẫn giải:}}\\%
 		#1
 	}
 }
 %%%Môi trường câu hỏi kèm theo%%%
+
 \newcounter{cauhoicount}[section]
-\newenvironment{cauhoi}{
-\begin{enumerate}[label*=\protect{\small\circlenum[\maunhan]{\arabic*}},wide=0cm,leftmargin=!]}
-{\end{enumerate}}
+\newenvironment{cauhoi}{%
+	\refstepcounter{cauhoicount}
+	{\noindent\bfseries\sffamily\color{\maunhan}\thecauhoicount.}%
+}%
+{\endgraf}
 %%%%%%%%%%%%%%%%%%%%%%%=======Hộp Em có biết============%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcounter{ecbcount}[section]
@@ -632,37 +637,37 @@ overlay middle and last={
 				\path[draw=#1,fill=white!25,rounded corners =4pt,dashed]
 				(interior.north west) rectangle (interior.south east);
 			\end{scope}
-		},
-		title code={%
-			%%%=====Mảng Tiêu đề=============%%%
-			\path  
-			(title.north west) coordinate (NW)
-			(title.south west) coordinate (SW)
-			(title.south east) coordinate (SE)
-			(title.north east) coordinate (NE)
-			($(NW)!0.5!(SW)$) coordinate (G)
-			([xshift=-6pt]G) coordinate (Ga)
-			;
-			%%%
-			\path[fill=#1!90,line cap=round,line join =round]
-			let \p1=($(NW)-(Ga)$),
-			\n1={veclen(\x1,\y1)}
-			in
-			(NW)--([xshift=-4pt]NE)
-			..controls ++(0:2pt) and ++(90:2pt)..([yshift=-4pt]NE) coordinate (NEt)
-			--([yshift=4pt]SE)coordinate (SEt)
-			..controls ++(-90:2pt) and ++(0:2pt)..([xshift=-4pt]SE) coordinate (SEt)
-			--(SW)--($(Ga)+({-acos(6pt/\n1)}:\n1)$) arc ({-acos(6pt/\n1)}:{acos(6pt/\n1)}:\n1)
-			--(NW)
-			;
-			%%%=====Node Icon=========%%%
-			\path[fill=#1!90](Ga) circle (\tcboxedtitleheight/1.88);
-			\path (Ga) node{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/Icon_bancobiet.png}};
-			%%%Dấu Móc %%%
-			\path[fill=#1!90,line cap=round,line join =round](Ga)++(-110:{\tcboxedtitleheight/1.88}) to [out=-120, in= 30] ++(-150:7pt) to [out=40, in= -70]($(Ga)+(-130:{\tcboxedtitleheight/1.88})$)  ;
-			%%%=====Node chữ em có biết=========%%%
-			\path ($(NW)!0.5!([xshift=4pt]SE)$) node [font=\color{#1!20!white}\large\bfseries\sffamily] {Em có biết?};
 		}
+%		title code={%
+%			%%%=====Mảng Tiêu đề=============%%%
+%			\path  
+%			(title.north west) coordinate (NW)
+%			(title.south west) coordinate (SW)
+%			(title.south east) coordinate (SE)
+%			(title.north east) coordinate (NE)
+%			($(NW)!0.5!(SW)$) coordinate (G)
+%			([xshift=-6pt]G) coordinate (Ga)
+%			;
+%			%%%
+%			\path[fill=#1!90,line cap=round,line join =round]
+%			let \p1=($(NW)-(Ga)$),
+%			\n1={veclen(\x1,\y1)}
+%			in
+%			(NW)--([xshift=-4pt]NE)
+%			..controls ++(0:2pt) and ++(90:2pt)..([yshift=-4pt]NE) coordinate (NEt)
+%			--([yshift=4pt]SE)coordinate (SEt)
+%			..controls ++(-90:2pt) and ++(0:2pt)..([xshift=-4pt]SE) coordinate (SEt)
+%			--(SW)--($(Ga)+({-acos(6pt/\n1)}:\n1)$) arc ({-acos(6pt/\n1)}:{acos(6pt/\n1)}:\n1)
+%			--(NW)
+%			;
+%			%%%=====Node Icon=========%%%
+%			\path[fill=#1!90](Ga) circle (\tcboxedtitleheight/1.88);
+%			\path (Ga) node{\includegraphics[width=.62cm,trim={0.5cm 0.5cm 0.5cm 0.5cm}]{Images/Icons/Icon_bancobiet.png}};
+%			%%%Dấu Móc %%%
+%			\path[fill=#1!90,line cap=round,line join =round](Ga)++(-110:{\tcboxedtitleheight/1.88}) to [out=-120, in= 30] ++(-150:7pt) to [out=40, in= -70]($(Ga)+(-130:{\tcboxedtitleheight/1.88})$)  ;
+%			%%%=====Node chữ em có biết=========%%%
+%			\path ($(NW)!0.5!([xshift=4pt]SE)$) node [font=\color{#1!20!white}\large\bfseries\sffamily] {Em có biết?};
+%		}
 	}%
 }
 
@@ -723,11 +728,11 @@ overlay middle and last={
 	arc is angular,
 	sharp corners =northeast,sharp corners =northwest,sharp corners =southwest,
 	breakable,
-%	toprule=0pt,
-%	bottomrule=1.5pt,
-%	rightrule=1.5pt,
-%	leftrule=1.5pt,
-%	colframe=\maunhan,
+	toprule=0pt,
+	bottomrule=0pt,
+	rightrule=0pt,
+	leftrule=0pt,
+%	colframe=\maunhan!50,
 	drop lifted shadow=\maudam!40!black,
 	fontupper=\sffamily\color{\maunhan!40!black},	
 	overlay unbroken and first={

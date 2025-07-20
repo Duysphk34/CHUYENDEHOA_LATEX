@@ -1,0 +1,107 @@
+\newcounter{myhop}
+\newtcolorbox{myhop}[1]{%
+	enhanced jigsaw,
+	before skip =6pt, after skip= 6pt,
+	boxrule=0pt,
+%	frame empty,frame hidden,
+	left=3pt,
+%	leftrule=2pt,
+	boxsep=3pt,
+	arc=0pt,
+%	arc is angular,
+	colback=\mycolor!10!white, colframe=\maunhan,
+%	sharp corners=northwest,sharp corners=southwest,
+%	shadow={1pt}{1pt}{0pt}{fill=\mauphu!60,opacity=0.7},
+%	shadow={1pt}{-1pt}{0pt}{fill=\mauphu!60,opacity=0.7},
+	breakable,
+	code={\refstepcounter{myhop}},
+	title={\faCube\;#1 \themyhop},
+	fonttitle=\fontfamily{qag}\selectfont\bfseries,
+	coltitle=\mycolor,
+	detach title,
+	before upper={\tcbtitle},
+	after title={.\;},
+	overlay unbroken and first={
+	\path (frame.north west) coordinate (A)
+		  (frame.south west) coordinate (B)
+		  (frame.north east) coordinate (D)
+		  (frame.south east) coordinate (C);
+	\draw[line width=0.2pt,color=\mycolor,line cap=round] (A)--(B)--(C)--(D)--cycle;
+    \draw[line width=0.65pt,color=\maunhan,line cap=round,rounded corners=2pt] ([shift={(-2pt,2pt)}]A)--([shift={(-2pt,-2pt)}]B)--([shift={(2pt,-2pt)}]C)--([shift={(2pt,2pt)}]D)--cycle;
+	}
+}
+
+\newtcolorbox{ndbox}{
+	enhanced jigsaw,
+	before skip =6pt, after skip= 6pt,
+	empty,opacityback=0
+	left= 3pt, right=3pt, top=3pt, bottom=3pt,
+	title={Bài tập 100},
+	boxed title style={empty},
+	attach boxed title to top left={xshift=3mm, yshift=0mm},
+	overlay unbroken and first={%
+		\path (frame.north west) coordinate (A)
+		(frame.south west) coordinate (B)
+		(frame.north east) coordinate (D)
+		(frame.south east) coordinate (C);
+		\path (title.north west) coordinate (At)
+		(title.south west) coordinate (Bt)
+		(title.north east) coordinate (Dt)
+		(title.south east) coordinate (Ct)
+		([yshift=-.65mm]At) coordinate (Att)
+		([yshift=-.65mm]Dt) coordinate (Dtt)
+		(intersection of Att--Dtt and C--D) coordinate (E)
+		;
+		\path[fill=\mycolor!15,,rounded corners=3pt] ([xshift=3mm]Bt)--(Att)--(E)--(D);
+		\path[fill=\mycolor,rounded corners=3pt](Bt) --([yshift=-.65mm]At)--([yshift=-0.65mm]Dt)--([xshift=5mm]Ct)--(D);
+		\path[draw=\mycolor] ([xshift=3mm]A)--(D);
+		\draw[color=\mycolor,rounded corners=3pt,line width =1.0pt]([xshift=3mm]B)--(Att)--(E)--(C)--cycle;
+		\path($(At)!0.5!(Ct)$) node[font=\color{white}\bfseries\sffamily] {Bài 1000};
+		\path ($(Dt)!0.5!(Ct)+(3mm,0)$) node [anchor=west] {\taosao{3}};
+		\path ($(E)!0.5!(D)+(-1mm,0)$) node [anchor=east] {\textbf{3.0 điểm}};
+	}
+}
+
+%%%Hộp chương mục
+\begin{tcolorbox}[%
+	enhanced jigsaw,
+	before skip =6pt, after skip= 6pt,
+	colback=\mycolor!40,colframe=\mycolor!70!black,
+	%	empty,opacityback=0
+	left= 6cm, right=1.6 cm, top=1cm, bottom=1cm,
+	grow to right by= 1.2cm,
+	grow to left by= 2.2cm,
+	title={\Large Chuyên đề 20},
+	boxed title style={empty},
+	attach boxed title to top left={xshift=1.0cm, yshift=-2mm},
+	overlay unbroken and first={%
+		\path (frame.north west) coordinate (A)
+		(frame.south west) coordinate (B)
+		(frame.north east) coordinate (D)
+		(frame.south east) coordinate (C);
+		
+		\path (title.north west) coordinate (At)
+		(title.south west) coordinate (Bt)
+		(title.north east) coordinate (Dt)
+		(title.south east) coordinate (Ct)
+		;
+		%		 
+		\path [fill=\mycolor!50!black] (Dt)--([yshift=2mm]Ct)--++(15pt,0)--cycle;
+		
+		\path[fill=\mycolor!60,draw=\mycolor] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+		([yshift=-2.25cm]Ct) arc (360:180:{veclen(\x1,\y1)/2})
+		([yshift=-2.25cm]Bt)--(At)--(Dt)--([yshift=-2.25cm]Ct)
+		;
+		
+		\path[fill=\mycolor!90!black] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+		($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) circle ({veclen(\x1,\y1)/2*0.9});
+		
+		\path[fill=\mycolor!10] let \p1=($([yshift=-2.25cm]Bt)-([yshift=-2.25cm]Ct)$) in
+		($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) circle ({veclen(\x1,\y1)/2*0.85});
+		\path ([yshift=-5pt]$(At)!0.5!(Ct)$) node[font=\Large\color{\maunhan!50!black}\sffamily\bfseries] {Chuyên đề};
+		
+		\path ($([yshift=-2.25cm]Ct)!0.5!([yshift=-2.25cm]Bt)$) node [font=\color{\maunhan!50!black}\fontsize{80pt}{0pt}\fontfamily{ugq}\bfseries\selectfont]{1};
+	}
+	]
+	\color{\maunhan!50!black}\Huge\bfseries\sffamily TỐC ĐỘ PHẢN ỨNG HÓA~HỌC
+\end{tcolorbox}

@@ -70,8 +70,17 @@
 \newcommand{\Tieudegiua}[2][\maunhan]{
 \begin{center}
 	\tikz[baseline=(char.base)]{
-		\node[inner sep =6pt,outer sep=6pt,anchor =base, baseline,shape=rectangle,rounded corners=6pt,fill=#1!10,font=\color{#1!80!black}\Huge\bfseries] (char){
-			#2
+		\node[inner sep =6pt,
+		outer sep=6pt,
+		anchor =base, 
+		baseline,
+		shape=rectangle,
+		rounded corners=3pt,
+		fill=#1!10,
+		font=\color{#1!80!black}\LARGE\bfseries\sffamily,
+		text width =0.95\linewidth, align=center
+		] (char){
+			\MakeUppercase{#2}
 		}; 
 	}
 \end{center}
@@ -146,6 +155,42 @@
 	\end{tikzpicture}%
 }
 
+\newcommand{\convertTopictype}[1]{%
+	\ifnumequal{#1}{2}{egd}{%
+		\ifnumequal{#1}{1}{edt}{%
+			{}%
+		}%
+	}%
+}
+% Define the main command
+\NewDocumentCommand{\ehoatri}{O{}O{}O{}O{}O{2}O{\maunhan}m}{%
+	\ifblank{#1}{\def\tuychonone{}}{\def\tuychonone{\convertTopictype{#1}}}
+	\ifblank{#2}{\def\tuychontwo{}}{\def\tuychontwo{\convertTopictype{#2}}}
+	\ifblank{#3}{\def\tuychonthree{}}{\def\tuychonthree{\convertTopictype{#3}}}
+	\ifblank{#4}{\def\tuychonfour{}}{\def\tuychonfour{\convertTopictype{#4}}}
+	\mkern-0.1mu\begin{tikzpicture}[
+		declare function={
+			r=1.0 pt;
+		},
+		line join=round,
+		line cap=round,
+		baseline={(NT.base)}% 
+		]
+		\tikzset{%
+			egd/.pic={%
+				\path[pic actions](-2.20pt,0) circle (r) (2.20pt,0) circle (r);
+			},
+			edt/.pic={%
+				\path[pic actions](0,0) circle (r);
+			}
+		}
+		\node[outer sep=0.5pt,inner sep=0pt,font=\bfseries](NT){#7};
+		\path ($(NT.east)+(0pt,0)$) pic[fill=#6,rotate=-90,yshift= #5pt] {\tuychonone};
+		\path ($(NT.west)+(-0pt,0)$) pic[fill=#6,rotate=90,yshift= #5pt] {\tuychontwo};
+		\path (NT.north) pic[fill=#6,yshift= #5pt] {\tuychonthree};
+		\path (NT.south) pic[fill=#6,yshift= -#5pt] {\tuychonfour};
+	\end{tikzpicture}\mkern-0.1mu%
+}
 
 
 

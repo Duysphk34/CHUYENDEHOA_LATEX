@@ -1,0 +1,50 @@
+\documentclass[Main.tex]{subfiles}
+\usepackage{adjustbox}
+\usepackage{paracol}
+\columnratio{0.65}
+\globalcounter{kp}
+\setlength{\columnseprule}{0pt}
+\def\gachngang{\resizebox{0.3cm}{!}{\_}}
+\tikzfading[name=fade in one, inner color=transparent!0,outer color=transparent!100]
+\tikzfading[name=fade in two, inner color=transparent!20,outer color=transparent!80]
+\tikzfading[name=fade in three, inner color=transparent!50,outer color=transparent!70]
+\tikzfading[name=fade in four, inner color=transparent!100,outer color=transparent!30]
+
+%%%Lệnh hình phải
+\NewDocumentCommand{\Rightpicture}{O{0.45}O{4pt}mm}{%
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{#1\linewidth}
+			\vspace*{#2}
+			#3
+		\end{minipage}
+	}
+	\hfill
+	\adjustbox{valign=t}{
+		\begin{minipage}[htp!]{0.98\linewidth-#1\linewidth}
+			#4
+		\end{minipage}
+	}
+}
+
+\newenvironment{vidu}[1][\mycolor]{
+	\begin{hopvidu}[#1]
+		\par\noindent\indam[#1]{Ví dụ:}
+	}{\end{hopvidu}}
+\AtBeginEnvironment{ex}{\renewcommand{\dotEX}{}}
+
+\begin{document}
+	%%%Nhớ tắt 3 lệnh này khi chạy filemain
+	%\setcounter{tocdepth}{1}
+	\setcounter{secnumdepth}{4}
+	%\tableofcontents
+	\titlespacing*{\subsubsection}{0cm}{0pt}{0pt}
+	\titlespacing*{\paragraph}{0cm}{0pt}{0pt}
+	\begin{ex}
+		Cấu hình nào sau đây là cấu hình e của Fe
+		\begin{enumerate}
+			\item \canhdongH[2]{\squarerow[2ud]{1}\raisebox{2pt}{\squarerow[2ud,2ud,2ud]{3}}\raisebox{4pt}{\squarerow[2ud,1u,1u,1u,1u]{5}}}
+			\item \canhdongH[2]{\squarerow[2ud]{1}\raisebox{2pt}{\squarerow[2ud,2ud,2ud]{3}}\raisebox{4pt}{\squarerow[1u]{5}}}
+		\end{enumerate}
+	\end{ex}
+\end{document}
+

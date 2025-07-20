@@ -1,0 +1,148 @@
+\documentclass[Main.tex]{subfiles}
+	\NewDocumentCommand{\khungion}{O{+}O{-2}m}{
+		\raisebox{#2pt}[0pt][0pt]{%% Thêm [0pt][0pt] để giữ nguyên baseline
+			\tikz[baseline]{
+				\path (0,0) node[inner sep=5pt,outer sep=0pt] (char){#3};
+				\draw[rounded corners=0.5pt,line cap=round,line join=round,line width=1pt] 
+				($(char.north west)+(3pt,0)$)--($(char.north west)+(-4pt,0)$)--
+				($(char.south west)+(-4pt,0)$)--($(char.south west)+(3pt,0)$);
+				\draw[rounded corners=0.5pt,line cap=round,line join=round,line width=1pt] 
+				($(char.north east)+(-3pt,0)$)--($(char.north east)+(4pt,0)$)coordinate (D)--
+				($(char.south east)+(4pt,0)$)--($(char.south east)+(-3pt,0)$);
+				\path (char.north east) node[shift={(35:5pt)}]{\textbf{#1}};
+			}%
+		}%
+	}
+	%%%Lệnh vé công thức electron
+	\makeatletter
+	\define@key{electron}{angle}{\def\electron@angle{#1}}
+	\define@key{electron}{color}{\def\electron@color{#1}}
+	\define@key{electron}{type}{\def\electron@type{#1}}
+	\define@key{electron}{radius}{\def\electron@radius{#1}}
+	
+	\NewDocumentCommand{\setElectronKeys}{m}{%
+		\setkeys{electron}{angle=0,color=\maunhan,type=0,radius=9pt,#1}%
+	}
+	
+	% Định nghĩa các electron
+	\newcommand{\electronM}[1][\maunhan]{\tikz{\fill[#1](0,0) circle (1.2pt);}}
+	\newcommand{\electronH}[1][\maunhan]{\tikz{\fill[#1](0,0) circle (1.2pt) (0,4pt) circle (1.2pt);}}
+	\newcommand{\electronB}[1][\maunhan]{\tikz{\fill[#1](0,0) circle (1.2pt) (0,3pt) circle (1.2pt)(0,6pt) circle (1.2pt);}}
+	
+	\NewDocumentCommand{\congthuce}{%
+		O{}  % Tùy chọn 1
+		O{}  % Tùy chọn 2
+		O{}  % Tùy chọn 3
+		O{}  % Tùy chọn 4
+		O{}  % Tùy chọn 5
+		O{}  % Tùy chọn 6
+		m    % Ký hiệu nguyên tố 1
+		m    % Ký hiệu nguyên tố 2
+	}{\begin{tikzpicture}[baseline={(#7.base)}]
+			% Vẽ nguyên tố trung tâm
+			\node[font=\large\bfseries\sffamily, inner sep=3pt, anchor=base] (#7) at (0,0) {#8};
+			
+			% Chỉ xử lý các tùy chọn không rỗng
+			\if\relax\detokenize{#1}\relax\else
+			\setElectronKeys{#1}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+			
+			\if\relax\detokenize{#2}\relax\else
+			\setElectronKeys{#2}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+			
+			\if\relax\detokenize{#3}\relax\else
+			\setElectronKeys{#3}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+			
+			\if\relax\detokenize{#4}\relax\else
+			\setElectronKeys{#4}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+			
+			\if\relax\detokenize{#5}\relax\else
+			\setElectronKeys{#5}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+			
+			\if\relax\detokenize{#6}\relax\else
+			\setElectronKeys{#6}%
+			\ifnum\electron@type>0
+			\ifnum\electron@type=1
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronM[\electron@color]};
+			\fi
+			\ifnum\electron@type=2
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronH[\electron@color]};
+			\fi
+			\ifnum\electron@type=3
+			\path (#7) -- ++(\electron@angle:\electron@radius) node[pos=1,sloped] {\electronB[\electron@color]};
+			\fi
+			\fi
+			\fi
+		\end{tikzpicture}
+	}
+	\makeatother
+\begin{document}
+	\setcounter{chapter}{2}
+	\chapter{Liên kết hóa học}
+	\sodongkeH[6]{hoivadap}
+%	\tatloigiai
+	\hienthiloigiai
+	\input{DuLieu/Lop_10/C03B01_QTOCTET.tex}
+	\input{DuLieu/Lop_10/C03B02_LKION.tex}
+	\input{DuLieu/Lop_10/C03B03_LKCHT.tex}
+	\input{DuLieu/Lop_10/C03B04_LK_Hydrogen_VanderWaals.tex}
+\end{document}

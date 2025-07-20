@@ -4,6 +4,7 @@
 \makeatletter
 \newif\ifnotstarredversion
 \renewcommand{\numberline}[1]{#1.~}
+\renewcommand{\chaptertitlename}{Chương}
 \renewcommand{\thechapter}{\Roman{chapter}}%\arabic{chapter}
 \renewcommand*\l@chapter[2]{%
 	\ifnum \c@tocdepth >-2\relax
@@ -14,12 +15,12 @@
 	\tikz[remember picture]{
 		\path (0,0) coordinate (A)--(\linewidth,0) coordinate (B);%
 		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large,align=center,text width=\linewidth] (TEXT)
-		{{Chủ đề~#1 - Trang~#2}};
+		{{\chaptertitlename~#1 - Trang~#2}};
 		\fill[dnvang!65!black,rounded corners=3.5pt] ([xshift=-2pt]TEXT.north west) rectangle ([xshift=2pt]TEXT.south east);
 		\fill[dnvang!15,rounded corners=3pt] ([yshift=0.15pt]TEXT.north west) rectangle ([yshift=-0.15pt]TEXT.south east);
 		\hypersetup{linkcolor=dnvang!85!black}
 		\path ($ (A)!0.5!(B) $) node[font=\bfseries\sffamily\Large\color{\mycolor!85!black},align=center,text width=\linewidth] (TEXT)
-		{{Chủ đề~#1 - Trang~#2}};
+		{{\chaptertitlename~#1 - Trang~#2}};
 	}
 	\par\bigskip
 	\penalty\@highpenalty
@@ -29,14 +30,14 @@
 }
 \makeatother
 
-\renewcommand{\thesection}{Bài \arabic{section}.\,}
+\renewcommand{\thesection}{\sectiontitlename \arabic{section}.\,}
 \titlecontents{section}
 [1.5cm]
 {\hypersetup{linkcolor=black}\vspace*{0.15\baselineskip}\large\sffamily\bfseries{\thecontentslabel\;}}
 {}{}
 {\titlerule*[0.65pc]{.}\thecontentspage}
 
-\renewcommand{\thesubsection}{\Roman{subsection}.}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
 \titlecontents{subsection}
 [2.25cm]
 {\hypersetup{linkcolor=black}\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
@@ -44,7 +45,7 @@
 
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
 \titlecontents{subsubsection}
-[2.85cm]
+[2.65cm]
 {\hypersetup{linkcolor=black}\bfseries\sffamily\vspace*{-0.15\baselineskip}{\thecontentslabel\;}}{}{}  
 {\titlerule*[1pc]{.}\thecontentspage}
 \makeatletter
